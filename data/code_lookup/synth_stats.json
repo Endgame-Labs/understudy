@@ -1,0 +1,22 @@
+{
+  "name": "code_lookup",
+  "n": 600,
+  "class_counts": [
+    150,
+    150,
+    150,
+    150
+  ],
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "batches": {},
+  "drops": {},
+  "cached_generations": 0,
+  "seed": 0,
+  "time": "2026-10-29T08:55:19Z",
+  "programmatic": true
+}

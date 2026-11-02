@@ -1,0 +1,110 @@
+$ target/release/understudy replay --understudent blend --question runs/narrow-v1-jev/output_kind/question.json --stream runs/narrow-v1-jev/output_kind/stream.jsonl --out runs/narrow-v1-jev/output_kind/decisions.understudent-blend.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 327,
+  "coverage": 0.545,
+  "local_agreement_with_lead": 0.9755351681957186,
+  "graduated_at_item": 100,
+  "first_local_item": 106,
+  "coverage_by_readout": {
+    "blend": 0.545
+  },
+  "audited": 33,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "blend",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 614.8633333333333,
+    "p50": 396,
+    "p95": 1709
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.091313188,
+      "n": 100,
+      "readout": "blend",
+      "mode": "symmetric",
+      "cv_agreement": 0.77,
+      "cv_coverage": 0.39,
+      "fit_secs": {
+        "blend": 0.067364553
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 238,
+      "secs": 0.329135308,
+      "n": 200,
+      "readout": "blend",
+      "mode": "symmetric",
+      "cv_agreement": 0.825,
+      "cv_coverage": 0.725,
+      "fit_secs": {
+        "blend": 0.296253424
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 578,
+      "secs": 0.355190074,
+      "n": 300,
+      "readout": "blend",
+      "mode": "symmetric",
+      "cv_agreement": 0.8333333333333334,
+      "cv_coverage": 0.6433333333333333,
+      "fit_secs": {
+        "blend": 0.328011831
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.77563857,
+  "total_secs": 1.156846783,
+  "final": {
+    "name": "output_kind",
+    "key": "d7d0867bfb946375",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 306,
+    "labelled": 0,
+    "since_refit": 6,
+    "mode": "symmetric",
+    "threshold": 0.74,
+    "readout": "blend",
+    "understudent": "blend",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.8333333333333334,
+    "cv_minority_recall": 0.8440366972477065,
+    "cv_coverage": 0.6433333333333333,
+    "why_not": null,
+    "audits": {
+      "n": 33,
+      "agreement": 0.9696969696969697,
+      "misses": null
+    },
+    "report": {
+      "n": 300,
+      "fit_secs": {
+        "blend": 0.328011831
+      },
+      "blend_dim": 263598,
+      "keywords_iters": 14,
+      "labelled": 0,
+      "readout": "blend",
+      "cv_agreement": 0.8333333333333334,
+      "cv_minority_recall": 0.8440366972477065,
+      "majority_share": 0.2733333333333333,
+      "mode": "symmetric",
+      "threshold": 0.74,
+      "cv_coverage": 0.6433333333333333,
+      "secs": 0.355088651
+    },
+    "rules": null
+  },
+  "understudent": "blend"
+}

@@ -1,0 +1,95 @@
+$ target/release/understudy replay --understudent shape --question runs/narrow-v1-rune/politer_reply/question.json --stream runs/narrow-v1-rune/politer_reply/stream.jsonl --out runs/narrow-v1-rune/politer_reply/decisions.understudent-shape.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 351,
+  "coverage": 0.585,
+  "local_agreement_with_lead": 0.9031339031339032,
+  "graduated_at_item": 200,
+  "first_local_item": 200,
+  "coverage_by_readout": {
+    "shape": 0.585
+  },
+  "audited": 34,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "shape",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 122.91166666666666,
+    "p50": 102,
+    "p95": 168
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.002687947,
+      "n": 100,
+      "readout": "shape",
+      "mode": null,
+      "cv_agreement": 0.87,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "shape": 0.001506884
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 199,
+      "secs": 0.012948418,
+      "n": 200,
+      "readout": "shape",
+      "mode": "symmetric",
+      "cv_agreement": 0.925,
+      "cv_coverage": 0.91,
+      "fit_secs": {
+        "shape": 0.003321732
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.015636365,
+  "total_secs": 0.097303949,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 283,
+    "labelled": 0,
+    "since_refit": 83,
+    "mode": "symmetric",
+    "threshold": 0.5700000000000001,
+    "readout": "shape",
+    "understudent": "shape",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.925,
+    "cv_minority_recall": 0.875,
+    "cv_coverage": 0.91,
+    "why_not": null,
+    "audits": {
+      "n": 34,
+      "agreement": 0.9117647058823529,
+      "misses": null
+    },
+    "report": {
+      "n": 200,
+      "fit_secs": {
+        "shape": 0.003321732
+      },
+      "labelled": 0,
+      "readout": "shape",
+      "cv_agreement": 0.925,
+      "cv_minority_recall": 0.875,
+      "majority_share": 0.56,
+      "mode": "symmetric",
+      "threshold": 0.5700000000000001,
+      "cv_coverage": 0.91,
+      "secs": 0.012929059
+    },
+    "rules": null
+  },
+  "understudent": "shape"
+}

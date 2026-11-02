@@ -1,0 +1,30 @@
+$ target/release/understudy train --understudent lite --snapshot runs/v0/incident_severity/snapshot.understudent-lite --question runs/v0/incident_severity/question.json --examples runs/v0/incident_severity/train.jsonl
+{
+  "snapshot": "runs/v0/incident_severity/snapshot.understudent-lite",
+  "question": "incident_severity",
+  "key": "cb65dd75f460cd00",
+  "state": "learning",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.57,
+  "cv_minority_recall": 0.37168141592920356,
+  "mode": null,
+  "threshold": 0.0,
+  "cv_coverage": 0.0,
+  "readout": "lite",
+  "cv_agreement_by_readout": {
+    "pool": 0.57
+  },
+  "why_not": "CV agreement / minority recall below the graduation bars",
+  "refit_secs": 0.033894781
+}
+$ target/release/understudy judge --understudent lite --snapshot runs/v0/incident_severity/snapshot.understudent-lite --replay-lead runs/v0/incident_severity/stream.jsonl < runs/v0/incident_severity/operate.jsonl > runs/v0/incident_severity/decisions.understudent-lite-split.jsonl
+understudy: refit incident_severity in 0.04s: n=300 readout="lite" mode=null cv_coverage=0.0
+understudy: refit incident_severity in 0.05s: n=400 readout="lite" mode=null cv_coverage=0.0
+understudy: refit incident_severity in 0.06s: n=500 readout="lite" mode=null cv_coverage=0.0
+understudy: refit incident_severity in 0.08s: n=600 readout="lite" mode=null cv_coverage=0.0
+{"items":400,"answered_by_understudent":0,"coverage":0.0,"local_agreement_with_lead":null,"graduated_at_item":null,"first_local_item":null,"coverage_by_readout":{},"audited":0,"demotions":0,"mode":null,"readout":"lite","state":"learning","understudent_us":{"mean":467.205,"p50":442,"p95":763},"refits":[],"refit_secs_total":0.0,"total_secs":0.466364912,"final":[{"name":"incident_severity","key":"cb65dd75f460cd00","type":"score","state":"learning","examples":600,"labelled":0,"since_refit":0,"mode":null,"threshold":0.0,"readout":"lite","understudent":"lite","front":null,"cv_agreement":0.61,"cv_minority_recall":0.5057142857142857,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","audits":{"n":0,"agreement":null,"misses":null},"report":{"n":600,"fit_secs":{"pool":0.27887966200000003,"attn":0.0},"cv_agreement_by_readout":{"pool":0.61},"labelled":0,"readout":"lite","cv_agreement":0.61,"cv_minority_recall":0.5057142857142857,"majority_share":0.41666666666666663,"mode":null,"threshold":0.0,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","secs":0.076798664}}],"understudent":"lite"}

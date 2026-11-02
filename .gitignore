@@ -1,0 +1,11 @@
+/target/
+/bench/bin/
+/bench/understudy-bench
+__pycache__/
+.venv/
+*.db
+/runs/*/*/snapshot.*/
+/.claude/
+/data-private/
+/understudy-capture.jsonl
+/understudy-snapshots/

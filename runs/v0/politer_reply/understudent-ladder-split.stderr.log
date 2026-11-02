@@ -1,0 +1,27 @@
+$ target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/politer_reply/snapshot.understudent-ladder --question runs/v0/politer_reply/question.json --examples runs/v0/politer_reply/train.jsonl
+{
+  "snapshot": "runs/v0/politer_reply/snapshot.understudent-ladder",
+  "question": "politer_reply",
+  "key": "b98001efd94f520b",
+  "state": "graduated",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.99,
+  "cv_minority_recall": 1.0,
+  "mode": "symmetric",
+  "threshold": 0.5,
+  "cv_coverage": 1.0,
+  "readout": "attn",
+  "cv_agreement_by_readout": {
+    "pool": 0.98,
+    "attn": 0.99
+  },
+  "why_not": null,
+  "refit_secs": 2.36979831
+}
+$ target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/politer_reply/snapshot.understudent-ladder --replay-lead runs/v0/politer_reply/stream.jsonl < runs/v0/politer_reply/operate.jsonl > runs/v0/politer_reply/decisions.understudent-ladder-split.jsonl
+{"items":400,"answered_by_understudent":399,"coverage":0.9975,"local_agreement_with_lead":0.0,"graduated_at_item":0,"first_local_item":0,"coverage_by_readout":{"keywords":0.975,"deep:attn":0.0225},"audited":40,"demotions":0,"mode":"symmetric","readout":"deep:attn","state":"graduated","understudent_us":{"mean":2708.745,"p50":277,"p95":900},"refits":[],"refit_secs_total":0.0,"total_secs":5.516359525,"final":[{"name":"politer_reply","key":"b98001efd94f520b","type":"choice","state":"graduated","examples":241,"labelled":0,"since_refit":41,"mode":"symmetric","threshold":0.5,"readout":"deep:attn","understudent":"ladder","front":{"state":"graduated","mode":"symmetric","threshold":0.5,"readout":"keywords","cv_agreement":0.955,"cv_coverage":1.0,"audits":{"n":37,"agreement":0.972972972972973,"misses":null}},"cv_agreement":0.99,"cv_minority_recall":1.0,"cv_coverage":1.0,"why_not":null,"audits":{"n":39,"agreement":1.0,"misses":null},"report":{"n":200,"fit_secs":{"pool":0.27410289200000004,"attn":10.908573159},"attn_epochs":40,"cv_agreement_by_readout":{"pool":0.98,"attn":0.99},"labelled":0,"readout":"attn","cv_agreement":0.99,"cv_minority_recall":1.0,"majority_share":0.56,"mode":"symmetric","threshold":0.5,"cv_coverage":1.0,"secs":2.318306083}}],"understudent":"ladder"}

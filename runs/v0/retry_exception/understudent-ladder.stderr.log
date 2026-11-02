@@ -1,0 +1,165 @@
+$ target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v0/retry_exception/question.json --stream runs/v0/retry_exception/stream.jsonl --out runs/v0/retry_exception/decisions.understudent-ladder.jsonl
+{
+  "items": 600,
+  "answered_by_understudent": 307,
+  "coverage": 0.5116666666666667,
+  "local_agreement_with_lead": 0.9771986970684039,
+  "graduated_at_item": 200,
+  "first_local_item": 200,
+  "coverage_by_readout": {
+    "keywords": 0.15,
+    "deep:pool": 0.3616666666666667
+  },
+  "audited": 29,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "deep:pool",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 437928.50166666665,
+    "p50": 417721,
+    "p95": 876946
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 3.247910214,
+      "n": 100,
+      "readout": "attn",
+      "mode": null,
+      "cv_agreement": 0.88,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.03955677,
+        "attn": 15.646636392000001
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.79,
+        "attn": 0.88
+      },
+      "front": {
+        "secs": 0.047683953,
+        "n": 100,
+        "mode": null,
+        "cv_agreement": 0.77,
+        "cv_coverage": 0.0,
+        "fit_secs": {
+          "keywords": 0.151658532
+        }
+      }
+    },
+    {
+      "item": 199,
+      "secs": 6.743542573,
+      "n": 200,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.915,
+      "cv_coverage": 0.645,
+      "fit_secs": {
+        "pool": 0.053531047000000005,
+        "attn": 32.307233550999996
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.915,
+        "attn": 0.905
+      },
+      "front": {
+        "secs": 0.082524578,
+        "n": 200,
+        "mode": null,
+        "cv_agreement": 0.805,
+        "cv_coverage": 0.0,
+        "fit_secs": {
+          "keywords": 0.27417688500000004
+        }
+      }
+    },
+    {
+      "item": 480,
+      "secs": 9.127567128,
+      "n": 300,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.9,
+      "cv_coverage": 0.88,
+      "fit_secs": {
+        "pool": 0.111442009,
+        "attn": 43.527149811
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.9,
+        "attn": 0.9066666666666666
+      },
+      "front": {
+        "secs": 0.17104964,
+        "n": 300,
+        "mode": "symmetric",
+        "cv_agreement": 0.89,
+        "cv_coverage": 0.6533333333333333,
+        "fit_secs": {
+          "keywords": 0.6298715850000001
+        }
+      }
+    }
+  ],
+  "refit_secs_total": 19.119019915000003,
+  "total_secs": 290.191839103,
+  "final": {
+    "name": "retry_exception",
+    "key": "093d9ca98aae4b61",
+    "type": "noul",
+    "state": "graduated",
+    "examples": 322,
+    "labelled": 0,
+    "since_refit": 22,
+    "mode": "symmetric",
+    "threshold": 0.75,
+    "readout": "deep:pool",
+    "understudent": "ladder",
+    "front": {
+      "state": "graduated",
+      "mode": "symmetric",
+      "threshold": 0.76,
+      "readout": "keywords",
+      "cv_agreement": 0.89,
+      "cv_coverage": 0.6533333333333333,
+      "audits": {
+        "n": 13,
+        "agreement": 1.0,
+        "misses": null
+      }
+    },
+    "cv_agreement": 0.9,
+    "cv_minority_recall": 0.8468468468468469,
+    "cv_coverage": 0.88,
+    "why_not": null,
+    "audits": {
+      "n": 29,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 300,
+      "fit_secs": {
+        "pool": 0.111442009,
+        "attn": 43.527149811
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.9,
+        "attn": 0.9066666666666666
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.9,
+      "cv_minority_recall": 0.8468468468468469,
+      "majority_share": 0.63,
+      "mode": "symmetric",
+      "threshold": 0.75,
+      "cv_coverage": 0.88,
+      "secs": 8.95628135
+    }
+  },
+  "understudent": "ladder"
+}

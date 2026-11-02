@@ -1,0 +1,12 @@
+{
+  "system": "understudent-lite",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 1.8522938089999998,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent lite --question runs/v0/politer_reply/question.json --stream runs/v0/politer_reply/stream.jsonl --out runs/v0/politer_reply/decisions.understudent-lite.jsonl"
+  ],
+  "started": "2026-10-29T10:47:34Z",
+  "finished": "2026-10-29T10:47:36Z"
+}

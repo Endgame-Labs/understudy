@@ -1,0 +1,12 @@
+{
+  "system": "understudent-neighbors",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 553.027529581,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent neighbors --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-neighbors.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T14:44:43Z",
+  "finished": "2026-10-29T14:53:57Z"
+}

@@ -1,0 +1,14 @@
+{
+  "system": "understudent-lite",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 2.619872282,
+  "train_wall_s": 1.273493631,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent lite --snapshot runs/v0/politer_reply/snapshot.understudent-lite --question runs/v0/politer_reply/question.json --examples runs/v0/politer_reply/train.jsonl",
+    "target/release/understudy judge --understudent lite --snapshot runs/v0/politer_reply/snapshot.understudent-lite --replay-lead runs/v0/politer_reply/stream.jsonl < runs/v0/politer_reply/operate.jsonl > runs/v0/politer_reply/decisions.understudent-lite-split.jsonl"
+  ],
+  "started": "2026-10-29T10:51:21Z",
+  "finished": "2026-10-29T10:51:24Z"
+}

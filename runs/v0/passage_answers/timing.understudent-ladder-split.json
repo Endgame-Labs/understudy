@@ -1,0 +1,14 @@
+{
+  "system": "understudent-ladder",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 81.701514509,
+  "train_wall_s": 20.385343699,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/passage_answers/snapshot.understudent-ladder --question runs/v0/passage_answers/question.json --examples runs/v0/passage_answers/train.jsonl",
+    "target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/passage_answers/snapshot.understudent-ladder --replay-lead runs/v0/passage_answers/stream.jsonl < runs/v0/passage_answers/operate.jsonl > runs/v0/passage_answers/decisions.understudent-ladder-split.jsonl"
+  ],
+  "started": "2026-10-29T10:38:05Z",
+  "finished": "2026-10-29T10:39:27Z"
+}

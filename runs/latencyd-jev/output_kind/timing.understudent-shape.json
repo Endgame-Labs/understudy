@@ -1,0 +1,12 @@
+{
+  "system": "understudent-shape",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 0.20271835,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent shape --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-shape.jsonl"
+  ],
+  "started": "2026-11-02T14:21:03Z",
+  "finished": "2026-11-02T14:21:03Z"
+}

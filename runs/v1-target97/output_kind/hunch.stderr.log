@@ -1,0 +1,8 @@
+$ uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.hunch.jsonl --target 0.97
+100/600 items, 0 local, mode None, demoted False
+200/600 items, 0 local, mode None, demoted False
+300/600 items, 0 local, mode None, demoted False
+400/600 items, 0 local, mode symmetric, demoted False
+500/600 items, 64 local, mode symmetric, demoted False
+600/600 items, 133 local, mode symmetric, demoted False
+{"system": "hunch", "items": 600, "first_local_item": 401, "local": 133, "coverage": 0.2217, "lead_calls": 477, "stats": {"requests": 600, "local": 133, "cached": 0, "forwarded": 467, "audited": 10, "audits_skipped": 0, "label_asks": 0, "backend_errors": 0}, "final_mode": "symmetric", "final_graduated": true, "final_report": {"n": 400, "labelled": 0, "sampled": 400, "cv_agreement": 0.9025, "cv_minority_recall": 0.8942307692307693, "majority_share": 0.22, "mode": "symmetric", "threshold": 0.9800000000000004, "cv_coverage": 0.6425, "tuning": {"pairs": 0, "on": false, "why_not": "fewer than 50 labels with a lead answer"}}, "audits": {"n": 10, "agreement": 1.0, "misses": null}, "wall_s": 104.588}

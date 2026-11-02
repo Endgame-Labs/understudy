@@ -1,0 +1,24 @@
+$ target/release/understudy train --understudent neighbors --snapshot runs/v0/politer_reply/snapshot.understudent-neighbors --question runs/v0/politer_reply/question.json --examples runs/v0/politer_reply/train.jsonl
+{
+  "snapshot": "runs/v0/politer_reply/snapshot.understudent-neighbors",
+  "question": "politer_reply",
+  "key": "b98001efd94f520b",
+  "state": "graduated",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.945,
+  "cv_minority_recall": 0.8863636363636364,
+  "mode": "symmetric",
+  "threshold": 0.5,
+  "cv_coverage": 1.0,
+  "readout": "neighbors",
+  "cv_agreement_by_readout": null,
+  "why_not": null,
+  "refit_secs": 0.005767562
+}
+$ target/release/understudy judge --understudent neighbors --snapshot runs/v0/politer_reply/snapshot.understudent-neighbors --replay-lead runs/v0/politer_reply/stream.jsonl < runs/v0/politer_reply/operate.jsonl > runs/v0/politer_reply/decisions.understudent-neighbors-split.jsonl
+{"items":400,"answered_by_understudent":383,"coverage":0.9575,"local_agreement_with_lead":0.0,"graduated_at_item":0,"first_local_item":0,"coverage_by_readout":{"neighbors":0.9575},"audited":40,"demotions":0,"mode":"symmetric","readout":"neighbors","state":"graduated","understudent_us":{"mean":70036.1375,"p50":68199,"p95":104159},"refits":[],"refit_secs_total":0.0,"total_secs":28.091124989,"final":[{"name":"politer_reply","key":"b98001efd94f520b","type":"choice","state":"graduated","examples":257,"labelled":0,"since_refit":57,"mode":"symmetric","threshold":0.5,"readout":"neighbors","understudent":"neighbors","front":null,"cv_agreement":0.945,"cv_minority_recall":0.8863636363636364,"cv_coverage":1.0,"why_not":null,"audits":{"n":40,"agreement":0.925,"misses":null},"report":{"n":200,"fit_secs":{"neighbors":0.00259211},"labelled":0,"readout":"neighbors","cv_agreement":0.945,"cv_minority_recall":0.8863636363636364,"majority_share":0.56,"mode":"symmetric","threshold":0.5,"cv_coverage":1.0,"secs":0.00571991}}],"understudent":"neighbors"}

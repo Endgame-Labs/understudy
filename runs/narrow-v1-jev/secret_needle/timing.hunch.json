@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 594.232248398,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/narrow-v1-jev/secret_needle/question.json --stream runs/narrow-v1-jev/secret_needle/stream.jsonl --out runs/narrow-v1-jev/secret_needle/decisions.hunch.jsonl"
+  ],
+  "started": "2026-11-02T08:03:54Z",
+  "finished": "2026-11-02T08:13:48Z"
+}

@@ -1,0 +1,12 @@
+{
+  "system": "understudent-ladder",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 205.723828514,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-ladder.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T16:31:54Z",
+  "finished": "2026-10-29T16:35:20Z"
+}

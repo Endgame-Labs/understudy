@@ -1,0 +1,19 @@
+{
+  "name": "payment_flip",
+  "category": "minimal_pair",
+  "type": "noul",
+  "options": [
+    "false",
+    "true"
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Did the payment succeed?",
+    "criteria": {
+      "true": "the payment went through: it was completed and not declined, failed or reversed",
+      "false": "the payment did not go through: it was declined, failed, not processed or reversed/refunded"
+    }
+  },
+  "pair": null,
+  "notes": "minimal_pair: 200 pairs of near-identical notifications (one detail flips success to failure: a status word, an inserted 'not', a reversal) plus 200 unpaired successes from the same generator (the failure twin discarded), so failure is ~33%. Pair members are never adjacent in the stream. Predicted: mean pooling barely moves when one word flips, so hunch should struggle on the failure minority; understudent's max/attention pooling may catch the flipped token. Neither is expected to fully take over."
+}

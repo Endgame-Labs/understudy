@@ -1,0 +1,14 @@
+{
+  "system": "understudent-ladder",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 34.201812644,
+  "train_wall_s": 7.640040627,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/payment_flip/snapshot.understudent-ladder --question runs/v0/payment_flip/question.json --examples runs/v0/payment_flip/train.jsonl",
+    "target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/payment_flip/snapshot.understudent-ladder --replay-lead runs/v0/payment_flip/stream.jsonl < runs/v0/payment_flip/operate.jsonl > runs/v0/payment_flip/decisions.understudent-ladder-split.jsonl"
+  ],
+  "started": "2026-10-29T10:43:53Z",
+  "finished": "2026-10-29T10:44:27Z"
+}

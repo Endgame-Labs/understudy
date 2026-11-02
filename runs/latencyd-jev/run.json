@@ -1,0 +1,22 @@
+{
+  "run": "latencyd-jev",
+  "lead": "jev",
+  "datasets": [
+    "politer_reply",
+    "output_kind"
+  ],
+  "systems": [
+    "understudent-keywords",
+    "understudent-shape",
+    "understudent-checklist",
+    "understudent-lite",
+    "understudent-deep",
+    "understudent-auto"
+  ],
+  "modes": [
+    "replay"
+  ],
+  "train": 200,
+  "time": "2026-11-02T14:19:49Z",
+  "data_dir": "data"
+}

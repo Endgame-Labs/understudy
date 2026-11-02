@@ -1,0 +1,92 @@
+$ target/release/understudy replay --understudent deep --question runs/narrow-v1-rune/politer_reply/question.json --stream runs/narrow-v1-rune/politer_reply/stream.jsonl --out runs/narrow-v1-rune/politer_reply/decisions.understudent-deep.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 469,
+  "coverage": 0.7816666666666666,
+  "local_agreement_with_lead": 0.9829424307036247,
+  "graduated_at_item": 100,
+  "first_local_item": 100,
+  "coverage_by_readout": {
+    "pool": 0.7816666666666666
+  },
+  "audited": 49,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "pool",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 515501.735,
+    "p50": 340025,
+    "p95": 1314516
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 2.177031865,
+      "n": 100,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.97,
+      "cv_coverage": 1.0,
+      "fit_secs": {
+        "pool": 0.562231451,
+        "attn": 9.372524399
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.97,
+        "attn": 0.98
+      }
+    }
+  ],
+  "refit_secs_total": 2.177031865,
+  "total_secs": 311.50502291,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 180,
+    "labelled": 0,
+    "since_refit": 80,
+    "mode": "symmetric",
+    "threshold": 0.5,
+    "readout": "pool",
+    "understudent": "deep",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.97,
+    "cv_minority_recall": 0.9767441860465116,
+    "cv_coverage": 1.0,
+    "why_not": null,
+    "audits": {
+      "n": 49,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 100,
+      "fit_secs": {
+        "pool": 0.562231451,
+        "attn": 9.372524399
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.97,
+        "attn": 0.98
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.97,
+      "cv_minority_recall": 0.9767441860465116,
+      "majority_share": 0.5700000000000001,
+      "mode": "symmetric",
+      "threshold": 0.5,
+      "cv_coverage": 1.0,
+      "secs": 2.176999636
+    },
+    "rules": null
+  },
+  "understudent": "deep"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "tool_failed",
+  "n": 600,
+  "class_counts": [
+    420,
+    180
+  ],
+  "options": [
+    "false",
+    "true"
+  ],
+  "batches": {
+    "ok": 70
+  },
+  "drops": {
+    "batch_item_count_mismatch(11 of 10)": 1,
+    "batch_item_count_mismatch(2 of 10)": 1,
+    "item_missing_or_malformed": 8,
+    "label_echo_mismatch": 2,
+    "missing_field": 1
+  },
+  "cached_generations": 70,
+  "seed": 0,
+  "time": "2026-10-29T09:02:42Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

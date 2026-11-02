@@ -1,0 +1,18 @@
+[project]
+name = "hunch-runner"
+version = "0.1.0"
+description = "Replays an understudy-bench stream through the real hunch proxy (undrgrnd-labs/hunch@22cf730)"
+requires-python = ">=3.10"
+dependencies = [
+    "hunch",
+    "eg2cpu",
+    "numpy",
+    "scikit-learn",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+hunch = { git = "https://github.com/undrgrnd-labs/hunch", rev = "22cf73010b0d399894068b1b9d21c5e4101514b6", subdirectory = "hunch" }
+eg2cpu = { git = "https://github.com/undrgrnd-labs/hunch", rev = "22cf73010b0d399894068b1b9d21c5e4101514b6", subdirectory = "eg2cpu" }

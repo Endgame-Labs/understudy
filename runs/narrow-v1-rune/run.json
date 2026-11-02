@@ -1,0 +1,36 @@
+{
+  "run": "narrow-v1-rune",
+  "lead": "rune",
+  "datasets": [
+    "capital_city",
+    "code_lookup",
+    "customer_frustration",
+    "incident_severity",
+    "output_kind",
+    "passage_answers",
+    "payment_flip",
+    "politer_reply",
+    "retry_exception",
+    "secret_needle",
+    "tool_failed"
+  ],
+  "systems": [
+    "hunch",
+    "understudent-probe",
+    "understudent-deep",
+    "understudent-keywords",
+    "understudent-lite",
+    "understudent-neighbors",
+    "understudent-shape",
+    "understudent-blend",
+    "understudent-memo",
+    "understudent-auto"
+  ],
+  "modes": [
+    "replay"
+  ],
+  "train": 200,
+  "time": "2026-11-02T06:13:29Z",
+  "data_dir": "data",
+  "encode_cache": true
+}

@@ -1,0 +1,12 @@
+{
+  "system": "understudent-probe",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 240.312394444,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent probe --question runs/narrow-v1-rune/passage_answers/question.json --stream runs/narrow-v1-rune/passage_answers/stream.jsonl --out runs/narrow-v1-rune/passage_answers/decisions.understudent-probe.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T06:44:34Z",
+  "finished": "2026-11-02T06:48:34Z"
+}

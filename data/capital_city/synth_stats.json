@@ -1,0 +1,23 @@
+{
+  "name": "capital_city",
+  "n": 600,
+  "class_counts": [
+    450,
+    150
+  ],
+  "options": [
+    "false",
+    "true"
+  ],
+  "batches": {
+    "ok": 80
+  },
+  "drops": {
+    "countries_inconsistent": 13
+  },
+  "cached_generations": 80,
+  "seed": 0,
+  "time": "2026-10-29T08:55:19Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

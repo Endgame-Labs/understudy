@@ -1,0 +1,22 @@
+{
+  "name": "passage_answers",
+  "category": "relational_match",
+  "type": "noul",
+  "options": [
+    "false",
+    "true"
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Does the passage answer the query?",
+    "criteria": {
+      "true": "the passage contains the answer to the query",
+      "false": "the passage does not answer the query, even if it is on the same topic"
+    }
+  },
+  "pair": [
+    "query",
+    "passage"
+  ],
+  "notes": "relational_match: the label depends on the relation between query and passage, and negatives are hard (same topic, same entities). Predicted: hunch's single mean vector sees topic overlap in both classes and should not graduate; understudent's pair features might partly help but answer-containment is a fine-grained relation, so abstaining is the expected correct outcome."
+}

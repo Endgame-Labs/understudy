@@ -1,0 +1,31 @@
+{
+  "name": "customer_frustration",
+  "n": 600,
+  "class_counts": [
+    150,
+    150,
+    150,
+    150
+  ],
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "batches": {
+    "ok": 70
+  },
+  "drops": {
+    "batch_item_count_mismatch(11 of 10)": 2,
+    "batch_item_count_mismatch(9 of 10)": 1,
+    "item_missing_or_malformed": 1,
+    "label_echo_mismatch": 2,
+    "missing_field": 1
+  },
+  "cached_generations": 70,
+  "seed": 0,
+  "time": "2026-10-29T09:14:29Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

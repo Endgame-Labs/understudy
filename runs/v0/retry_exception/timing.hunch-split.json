@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 195.425403548,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v0/retry_exception/question.json --stream runs/v0/retry_exception/stream.jsonl --out runs/v0/retry_exception/decisions.hunch-split.jsonl --train-examples runs/v0/retry_exception/train.jsonl --operate runs/v0/retry_exception/operate.jsonl"
+  ],
+  "started": "2026-10-29T11:13:53Z",
+  "finished": "2026-10-29T11:17:08Z"
+}

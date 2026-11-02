@@ -1,0 +1,25 @@
+{
+  "name": "payment_flip",
+  "n": 600,
+  "class_counts": [
+    200,
+    400
+  ],
+  "options": [
+    "false",
+    "true"
+  ],
+  "batches": {
+    "ok": 93
+  },
+  "drops": {
+    "missing_field": 1,
+    "pair_identical": 1,
+    "pair_not_minimal": 24
+  },
+  "cached_generations": 93,
+  "seed": 0,
+  "time": "2026-10-29T09:34:06Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 70.761692339,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.hunch.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:51:03Z",
+  "finished": "2026-10-29T13:52:14Z"
+}

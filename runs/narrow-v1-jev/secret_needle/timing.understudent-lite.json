@@ -1,0 +1,12 @@
+{
+  "system": "understudent-lite",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 5.475199974,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent lite --question runs/narrow-v1-jev/secret_needle/question.json --stream runs/narrow-v1-jev/secret_needle/stream.jsonl --out runs/narrow-v1-jev/secret_needle/decisions.understudent-lite.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T08:50:55Z",
+  "finished": "2026-11-02T08:51:01Z"
+}

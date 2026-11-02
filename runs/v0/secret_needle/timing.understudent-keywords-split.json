@@ -1,0 +1,14 @@
+{
+  "system": "understudent-keywords",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 2.722899752,
+  "train_wall_s": 0.414850126,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent keywords --snapshot runs/v0/secret_needle/snapshot.understudent-keywords --question runs/v0/secret_needle/question.json --examples runs/v0/secret_needle/train.jsonl",
+    "target/release/understudy judge --understudent keywords --snapshot runs/v0/secret_needle/snapshot.understudent-keywords --replay-lead runs/v0/secret_needle/stream.jsonl < runs/v0/secret_needle/operate.jsonl > runs/v0/secret_needle/decisions.understudent-keywords-split.jsonl"
+  ],
+  "started": "2026-10-29T12:32:46Z",
+  "finished": "2026-10-29T12:32:49Z"
+}

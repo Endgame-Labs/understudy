@@ -1,0 +1,12 @@
+{
+  "system": "understudent-deep",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 239.295384437,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent deep --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-deep.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T14:05:53Z",
+  "finished": "2026-10-29T14:09:52Z"
+}

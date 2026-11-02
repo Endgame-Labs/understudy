@@ -1,0 +1,23 @@
+{
+  "name": "incident_severity",
+  "category": "compound_judgment",
+  "type": "score",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "question": {
+    "type": "score",
+    "instructions": "Rate the incident's severity by combining its impact, its scope and whether it is resolved. Impact: none (no user-facing effect), degraded (slow or partly broken), outage (a feature or service unavailable), or data loss/security breach. Scope: one customer or internal only, some customers, or most/all customers. An incident with no user-facing effect is 'none' whatever else. Otherwise add impact (degraded 1, outage 2, data loss/breach 3) and scope (one/internal 0, some 1, most/all 2): a total of 1-2 is minor, 3 is major, 4-5 is critical; an unresolved incident is one level higher (at most critical).",
+    "criteria": [
+      "none: no user-facing effect",
+      "minor",
+      "major",
+      "critical"
+    ]
+  },
+  "pair": null,
+  "notes": "compound_judgment: the level is a rule over three facts scattered in the report (impact, scope, resolved). Generated with balanced levels, each from a uniformly chosen consistent combination. Predicted: a linear readout of pooled features can't compute the rule, so the understudies should not graduate (correctly abstaining); 'none' vs the rest may be learnable but fails the minority bar."
+}

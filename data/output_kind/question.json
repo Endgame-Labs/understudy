@@ -1,0 +1,25 @@
+{
+  "name": "output_kind",
+  "category": "topic_kind",
+  "type": "choice",
+  "options": [
+    "test_results",
+    "file_contents",
+    "error_message",
+    "search_results",
+    "command_output"
+  ],
+  "question": {
+    "type": "choice",
+    "instructions": "What kind of output did this coding-agent tool call return?",
+    "criteria": {
+      "test_results": "the report of a test run (test names, pass/fail counts), whether the tests passed or failed",
+      "file_contents": "the contents of a file as read from disk (source code, config, docs, data)",
+      "error_message": "an error the tool or command itself raised (stack trace, command not found, permission denied), not a test report",
+      "search_results": "hits from a search (grep/ripgrep/find/code or web search) listing matches and their locations",
+      "command_output": "any other output of a shell command or program (build logs, git status, ls, installs, scripts)"
+    }
+  },
+  "pair": null,
+  "notes": "topic_kind: the kind of output is a global, topical property of the text. Predicted: both understudies graduate quickly (hunch's own pi-stream replay graduated output_kind at item 149)."
+}

@@ -1,0 +1,38 @@
+# Understudy's lead config. Copy to ~/.config/understudy/leads.toml (or point $UNDERSTUDY_LEADS at a file).
+# `--lead NAME` on judge, replay and train reads [leads.NAME]; `understudy serve` routes by the leads here.
+# The file names a bearer key's environment variable (key_env), never the key itself.
+
+# A System One lead: POST {model, questions, state} -> {answers}. This is the native, default kind.
+# (Jev and Rune are the System One leads the benchmarks were run with.)
+[leads.rune]
+kind = "systemone"                       # the default
+url = "https://systemone.example.com/v1/systemone"
+model = "example-router"
+key_env = "SYSTEMONE_API_KEY"            # sent as `Authorization: Bearer $SYSTEMONE_API_KEY`; omit if none is needed
+route = "example-*"                      # serve: the request models this lead answers (default: `model`, exact)
+
+# A chat lead: any OpenAI-compatible POST /chat/completions. Understudy turns each decision request into chat
+# calls and the replies back into System One answers (see docs/api.md, "Leads").
+[leads.chat]
+kind = "chat"
+url = "https://api.fireworks.ai/inference/v1"   # a base URL, or the full .../chat/completions URL
+model = "accounts/fireworks/models/glm-5p3-flash"
+key_env = "FIREWORKS_API_KEY"
+# reasoning_effort = "low"               # sent as reasoning_effort when set
+# json_schema = true                     # send response_format with a JSON schema (falls back to text on a 400/422)
+# logprobs = true                        # derive probabilities from logprobs when the endpoint returns them
+# confidence = 0.9                       # the fixed probability of the chosen class when it does not
+# max_tokens = 2048
+
+# The chat LLM that writes the `rules` understudent's rules (default: Fireworks' public API, key in $FIREWORKS_API_KEY).
+# [rules]
+# url = "https://api.fireworks.ai/inference/v1/chat/completions"
+# model = "accounts/fireworks/models/glm-5p3-flash"
+# key_env = "FIREWORKS_API_KEY"
+# reasoning_effort = "low"
+
+# The Go bench's endpoint overrides (also $UNDERSTUDY_LLM_URL and $UNDERSTUDY_HF_URL). The defaults are the public
+# vendor endpoints, with keys from $FIREWORKS_API_KEY and $HF_TOKEN. Read by the bench only.
+# [bench]
+# llm_url = "https://api.fireworks.ai/inference/v1/chat/completions"
+# hf_url = "https://huggingface.co"

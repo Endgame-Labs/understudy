@@ -1,0 +1,84 @@
+$ target/release/understudy replay --understudent blend --question runs/narrow-v1-jev/politer_reply/question.json --stream runs/narrow-v1-jev/politer_reply/stream.jsonl --out runs/narrow-v1-jev/politer_reply/decisions.understudent-blend.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 458,
+  "coverage": 0.7633333333333333,
+  "local_agreement_with_lead": 0.962882096069869,
+  "graduated_at_item": 100,
+  "first_local_item": 100,
+  "coverage_by_readout": {
+    "blend": 0.7633333333333333
+  },
+  "audited": 47,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "blend",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 1050.3633333333332,
+    "p50": 771,
+    "p95": 1930
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.113284853,
+      "n": 100,
+      "readout": "blend",
+      "mode": "symmetric",
+      "cv_agreement": 0.92,
+      "cv_coverage": 0.93,
+      "fit_secs": {
+        "blend": 0.080384968
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.113284853,
+  "total_secs": 0.753541591,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 189,
+    "labelled": 0,
+    "since_refit": 89,
+    "mode": "symmetric",
+    "threshold": 0.63,
+    "readout": "blend",
+    "understudent": "blend",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.92,
+    "cv_minority_recall": 0.8837209302325582,
+    "cv_coverage": 0.93,
+    "why_not": null,
+    "audits": {
+      "n": 47,
+      "agreement": 0.9361702127659575,
+      "misses": null
+    },
+    "report": {
+      "n": 100,
+      "fit_secs": {
+        "blend": 0.080384968
+      },
+      "blend_dim": 266670,
+      "keywords_iters": 8,
+      "labelled": 0,
+      "readout": "blend",
+      "cv_agreement": 0.92,
+      "cv_minority_recall": 0.8837209302325582,
+      "majority_share": 0.5700000000000001,
+      "mode": "symmetric",
+      "threshold": 0.63,
+      "cv_coverage": 0.93,
+      "secs": 0.1132494
+    },
+    "rules": null
+  },
+  "understudent": "blend"
+}

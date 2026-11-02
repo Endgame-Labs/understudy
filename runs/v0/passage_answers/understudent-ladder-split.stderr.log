@@ -1,0 +1,30 @@
+$ target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/passage_answers/snapshot.understudent-ladder --question runs/v0/passage_answers/question.json --examples runs/v0/passage_answers/train.jsonl
+{
+  "snapshot": "runs/v0/passage_answers/snapshot.understudent-ladder",
+  "question": "passage_answers",
+  "key": "a6e57238d1816b04",
+  "state": "learning",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.79,
+  "cv_minority_recall": 0.7297297297297297,
+  "mode": null,
+  "threshold": 0.0,
+  "cv_coverage": 0.0,
+  "readout": "pool",
+  "cv_agreement_by_readout": {
+    "pool": 0.79,
+    "attn": 0.805
+  },
+  "why_not": "CV agreement / minority recall below the graduation bars",
+  "refit_secs": 2.396112418
+}
+$ target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/passage_answers/snapshot.understudent-ladder --replay-lead runs/v0/passage_answers/stream.jsonl < runs/v0/passage_answers/operate.jsonl > runs/v0/passage_answers/decisions.understudent-ladder-split.jsonl
+understudy: refit passage_answers in 3.08s: n=300 readout="pool" mode="symmetric" cv_coverage=0.44666666666666666
+understudy: refit passage_answers in 4.86s: n=400 readout="pool" mode=null cv_coverage=0.0
+understudy: refit passage_answers in 5.47s: n=500 readout="pool" mode="symmetric" cv_coverage=0.49
+{"items":400,"answered_by_understudent":94,"coverage":0.235,"local_agreement_with_lead":0.0,"graduated_at_item":100,"first_local_item":100,"coverage_by_readout":{"deep:pool":0.235},"audited":4,"demotions":0,"mode":"symmetric","readout":"deep:pool","state":"graduated","understudent_us":{"mean":114913.8075,"p50":108308,"p95":194499},"refits":[],"refit_secs_total":0.0,"total_secs":59.545845398,"final":[{"name":"passage_answers","key":"a6e57238d1816b04","type":"noul","state":"graduated","examples":510,"labelled":0,"since_refit":10,"mode":"symmetric","threshold":0.98,"readout":"deep:pool","understudent":"ladder","front":{"state":"learning","mode":null,"threshold":0.0,"readout":"keywords","cv_agreement":0.716,"cv_coverage":0.0,"audits":{"n":0,"agreement":null,"misses":null}},"cv_agreement":0.828,"cv_minority_recall":0.8097826086956522,"cv_coverage":0.49,"why_not":null,"audits":{"n":4,"agreement":1.0,"misses":null},"report":{"n":500,"fit_secs":{"pool":1.088703049,"attn":27.557940200000004},"attn_epochs":32,"cv_agreement_by_readout":{"pool":0.828,"attn":0.8},"labelled":0,"readout":"pool","cv_agreement":0.828,"cv_minority_recall":0.8097826086956522,"majority_share":0.632,"mode":"symmetric","threshold":0.98,"cv_coverage":0.49,"secs":5.106979079}}],"understudent":"ladder"}

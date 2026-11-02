@@ -1,0 +1,19 @@
+{
+  "name": "retry_exception",
+  "category": "conditional_rule",
+  "type": "noul",
+  "options": [
+    "false",
+    "true"
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Did the deploy fail? A step that failed but was retried and then succeeded does not count as a failure.",
+    "criteria": {
+      "true": "the deploy failed: a step failed and was not recovered by a successful retry",
+      "false": "the deploy succeeded: no step failed, or every failed step was retried and then succeeded"
+    }
+  },
+  "pair": null,
+  "notes": "conditional_rule: most negatives contain real error lines (retried then succeeded), so the surface cue 'there is an error' is wrong about 60% of the time on negatives. Predicted: the understudies learn 'contains an error' and fail the minority bar, so the correct outcome is never graduating; graduating here would likely be harmful."
+}

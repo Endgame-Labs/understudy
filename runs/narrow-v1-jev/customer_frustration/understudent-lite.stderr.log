@@ -1,0 +1,168 @@
+$ target/release/understudy replay --understudent lite --question runs/narrow-v1-jev/customer_frustration/question.json --stream runs/narrow-v1-jev/customer_frustration/stream.jsonl --out runs/narrow-v1-jev/customer_frustration/decisions.understudent-lite.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 0,
+  "coverage": 0.0,
+  "local_agreement_with_lead": null,
+  "graduated_at_item": null,
+  "first_local_item": null,
+  "coverage_by_readout": {},
+  "audited": 0,
+  "demotions": 0,
+  "mode": null,
+  "readout": "lite",
+  "state": "learning",
+  "understudent_us": {
+    "mean": 316.475,
+    "p50": 293,
+    "p95": 558
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.016476779,
+      "n": 100,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.54,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.059049088,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.54
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.029182188,
+      "n": 200,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.56,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.105843951,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.56
+      }
+    },
+    {
+      "item": 299,
+      "secs": 0.029762563,
+      "n": 300,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.64,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.12681802999999997,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.64
+      }
+    },
+    {
+      "item": 399,
+      "secs": 0.041032254,
+      "n": 400,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.6375,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.171405578,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.6375
+      }
+    },
+    {
+      "item": 499,
+      "secs": 0.043594862,
+      "n": 500,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.634,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.190034297,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.634
+      }
+    },
+    {
+      "item": 599,
+      "secs": 0.065037568,
+      "n": 600,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.66,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.23208252299999999,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.66
+      }
+    }
+  ],
+  "refit_secs_total": 0.225086214,
+  "total_secs": 0.427488829,
+  "final": {
+    "name": "customer_frustration",
+    "key": "e0d09b9921d17dae",
+    "type": "score",
+    "state": "learning",
+    "examples": 600,
+    "labelled": 0,
+    "since_refit": 0,
+    "mode": null,
+    "threshold": 0.0,
+    "readout": "lite",
+    "understudent": "lite",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.66,
+    "cv_minority_recall": 0.5545454545454546,
+    "cv_coverage": 0.0,
+    "why_not": "CV agreement / minority recall below the graduation bars",
+    "audits": {
+      "n": 0,
+      "agreement": null,
+      "misses": null
+    },
+    "report": {
+      "n": 600,
+      "fit_secs": {
+        "pool": 0.23208252299999999,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.66
+      },
+      "labelled": 0,
+      "readout": "lite",
+      "cv_agreement": 0.66,
+      "cv_minority_recall": 0.5545454545454546,
+      "majority_share": 0.44999999999999996,
+      "mode": null,
+      "threshold": 0.0,
+      "cv_coverage": 0.0,
+      "why_not": "CV agreement / minority recall below the graduation bars",
+      "secs": 0.064970457
+    },
+    "rules": null
+  },
+  "understudent": "lite"
+}

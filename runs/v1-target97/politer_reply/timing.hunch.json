@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 234.954451177,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.hunch.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:59:08Z",
+  "finished": "2026-10-29T14:03:03Z"
+}

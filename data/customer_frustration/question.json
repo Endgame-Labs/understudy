@@ -1,0 +1,23 @@
+{
+  "name": "customer_frustration",
+  "category": "graded_tone",
+  "type": "score",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "question": {
+    "type": "score",
+    "instructions": "How frustrated is the customer who wrote this support message?",
+    "criteria": [
+      "calm: neutral or positive; asks or reports without negative emotion",
+      "mildly annoyed: some irritation or impatience, still polite and measured",
+      "frustrated: clearly upset (repeated problems, complaints, demands) but not hostile",
+      "furious: enraged or hostile (shouting, insults, threats to cancel, sue or go public)"
+    ]
+  },
+  "pair": null,
+  "notes": "graded_tone: an ordinal tone judgment over the whole message. Predicted: both understudies learn the extremes; adjacent levels are hard, so graduation needs the confident subset; understudy's pooled features may help modestly. Partial takeover is the likely outcome."
+}

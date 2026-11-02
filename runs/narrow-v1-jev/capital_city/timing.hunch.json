@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 25.728090829,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/narrow-v1-jev/capital_city/question.json --stream runs/narrow-v1-jev/capital_city/stream.jsonl --out runs/narrow-v1-jev/capital_city/decisions.hunch.jsonl"
+  ],
+  "started": "2026-11-02T06:13:29Z",
+  "finished": "2026-11-02T06:13:55Z"
+}

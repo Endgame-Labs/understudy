@@ -1,0 +1,12 @@
+{
+  "system": "understudent-neighbors",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 50.496186033,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent neighbors --question runs/v0/politer_reply/question.json --stream runs/v0/politer_reply/stream.jsonl --out runs/v0/politer_reply/decisions.understudent-neighbors.jsonl"
+  ],
+  "started": "2026-10-29T10:47:36Z",
+  "finished": "2026-10-29T10:48:26Z"
+}

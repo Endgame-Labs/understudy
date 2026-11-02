@@ -1,0 +1,139 @@
+$ target/release/understudy replay --understudent deep --question runs/v0/tool_failed/question.json --stream runs/v0/tool_failed/stream.jsonl --out runs/v0/tool_failed/decisions.understudent-deep.jsonl
+{
+  "items": 600,
+  "answered_by_understudent": 169,
+  "coverage": 0.2816666666666667,
+  "local_agreement_with_lead": 0.9763313609467456,
+  "graduated_at_item": 400,
+  "first_local_item": 400,
+  "coverage_by_readout": {
+    "pool": 0.2816666666666667
+  },
+  "audited": 12,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "pool",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 168937.40833333333,
+    "p50": 117274,
+    "p95": 445983
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 1.182302946,
+      "n": 100,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.91,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.08315310199999999,
+        "attn": 6.057592564999999
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.91,
+        "attn": 0.74
+      }
+    },
+    {
+      "item": 199,
+      "secs": 2.329110323,
+      "n": 200,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.92,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.071217935,
+        "attn": 12.539046642999999
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.92,
+        "attn": 0.85
+      }
+    },
+    {
+      "item": 299,
+      "secs": 3.852620709,
+      "n": 300,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.9233333333333333,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.098993341,
+        "attn": 20.49201228
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.9233333333333333,
+        "attn": 0.9133333333333333
+      }
+    },
+    {
+      "item": 399,
+      "secs": 5.520224613,
+      "n": 400,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.925,
+      "cv_coverage": 0.895,
+      "fit_secs": {
+        "pool": 0.148549583,
+        "attn": 25.568111050000002
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.925,
+        "attn": 0.91
+      }
+    }
+  ],
+  "refit_secs_total": 12.884258591,
+  "total_secs": 114.296389525,
+  "final": {
+    "name": "tool_failed",
+    "key": "c909de5a3f108856",
+    "type": "noul",
+    "state": "graduated",
+    "examples": 443,
+    "labelled": 0,
+    "since_refit": 43,
+    "mode": "symmetric",
+    "threshold": 0.91,
+    "readout": "pool",
+    "understudent": "deep",
+    "front": null,
+    "cv_agreement": 0.925,
+    "cv_minority_recall": 0.8021978021978022,
+    "cv_coverage": 0.895,
+    "why_not": null,
+    "audits": {
+      "n": 12,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 400,
+      "fit_secs": {
+        "pool": 0.148549583,
+        "attn": 25.568111050000002
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.925,
+        "attn": 0.91
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.925,
+      "cv_minority_recall": 0.8021978021978022,
+      "majority_share": 0.7725,
+      "mode": "symmetric",
+      "threshold": 0.91,
+      "cv_coverage": 0.895,
+      "secs": 5.520079234
+    }
+  },
+  "understudent": "deep"
+}

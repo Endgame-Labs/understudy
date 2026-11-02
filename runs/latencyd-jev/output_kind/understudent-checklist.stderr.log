@@ -1,0 +1,247 @@
+$ target/release/understudy replay --understudent checklist --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-checklist.jsonl
+{
+  "items": 600,
+  "answered_by_understudent": 127,
+  "coverage": 0.21166666666666667,
+  "local_agreement_with_lead": 0.952755905511811,
+  "graduated_at_item": 400,
+  "first_local_item": 400,
+  "coverage_by_readout": {
+    "checklist": 0.21166666666666667
+  },
+  "audited": 9,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "checklist",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 160.51666666666668,
+    "p50": 105,
+    "p95": 429
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.014232698,
+      "n": 100,
+      "readout": "checklist",
+      "mode": null,
+      "cv_agreement": 0.8870967741935484,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "checklist": 0.009533369
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 199,
+      "secs": 0.035247084,
+      "n": 200,
+      "readout": "checklist",
+      "mode": null,
+      "cv_agreement": 0.8961038961038961,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "checklist": 0.023004128
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 299,
+      "secs": 0.04444621,
+      "n": 300,
+      "readout": "checklist",
+      "mode": null,
+      "cv_agreement": 0.892,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "checklist": 0.035380426
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 399,
+      "secs": 0.062862668,
+      "n": 400,
+      "readout": "checklist",
+      "mode": "symmetric",
+      "cv_agreement": 0.8975903614457831,
+      "cv_coverage": 0.5725,
+      "fit_secs": {
+        "checklist": 0.050723229
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.15678866,
+  "total_secs": 0.261414654,
+  "final": {
+    "name": "output_kind",
+    "key": "d7d0867bfb946375",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 482,
+    "labelled": 0,
+    "since_refit": 82,
+    "mode": "symmetric",
+    "threshold": 0.9299999999999999,
+    "readout": "checklist",
+    "understudent": "checklist",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.8975903614457831,
+    "cv_minority_recall": 0.9298892988929889,
+    "cv_coverage": 0.5725,
+    "why_not": null,
+    "audits": {
+      "n": 9,
+      "agreement": 0.8888888888888888,
+      "misses": null
+    },
+    "report": {
+      "n": 400,
+      "fit_secs": {
+        "checklist": 0.050723229
+      },
+      "checklist": {
+        "rules": [
+          {
+            "feature": "\"rg \"",
+            "class": "class 3",
+            "confidence": 0.9807692170143127,
+            "rows": 50,
+            "hits": 50
+          },
+          {
+            "feature": "\"assed\"",
+            "class": "class 0",
+            "confidence": 0.95652174949646,
+            "rows": 67,
+            "hits": 65
+          },
+          {
+            "feature": "words:grep rn",
+            "class": "class 3",
+            "confidence": 0.96875,
+            "rows": 30,
+            "hits": 30
+          },
+          {
+            "feature": "word:cat",
+            "class": "class 1",
+            "confidence": 0.9375,
+            "rows": 62,
+            "hits": 59
+          },
+          {
+            "feature": "\"hor\"",
+            "class": "class 4",
+            "confidence": 0.9545454382896423,
+            "rows": 20,
+            "hits": 20
+          },
+          {
+            "feature": "\"cebac\" (+1 colliding)",
+            "class": "class 2",
+            "confidence": 0.949999988079071,
+            "rows": 18,
+            "hits": 18
+          },
+          {
+            "feature": "\"ges\"",
+            "class": "class 4",
+            "confidence": 0.9333333373069763,
+            "rows": 13,
+            "hits": 13
+          },
+          {
+            "feature": "\"enie\" (+1 colliding)",
+            "class": "class 2",
+            "confidence": 0.9285714030265808,
+            "rows": 12,
+            "hits": 12
+          },
+          {
+            "feature": "\"ad_fi\"",
+            "class": "class 1",
+            "confidence": 0.9166666865348816,
+            "rows": 10,
+            "hits": 10
+          },
+          {
+            "feature": "\"mpos\"",
+            "class": "class 4",
+            "confidence": 0.9090909361839294,
+            "rows": 9,
+            "hits": 9
+          },
+          {
+            "feature": "\"mmand\"",
+            "class": "class 2",
+            "confidence": 0.8999999761581421,
+            "rows": 8,
+            "hits": 8
+          },
+          {
+            "feature": "\"arni\"",
+            "class": "class 4",
+            "confidence": 0.8888888955116272,
+            "rows": 7,
+            "hits": 7
+          },
+          {
+            "feature": "\"pass:\"",
+            "class": "class 0",
+            "confidence": 0.875,
+            "rows": 6,
+            "hits": 6
+          },
+          {
+            "feature": "\"\\n> \"",
+            "class": "class 4",
+            "confidence": 0.875,
+            "rows": 6,
+            "hits": 6
+          },
+          {
+            "feature": "\"lur\" (+1 colliding)",
+            "class": "class 0",
+            "confidence": 0.8888888955116272,
+            "rows": 7,
+            "hits": 7
+          },
+          {
+            "feature": "\"rror:\"",
+            "class": "class 2",
+            "confidence": 0.8421052694320679,
+            "rows": 17,
+            "hits": 15
+          },
+          {
+            "feature": "\"s -\"",
+            "class": "class 4",
+            "confidence": 0.8888888955116272,
+            "rows": 7,
+            "hits": 7
+          }
+        ],
+        "default": "class 4",
+        "listing": "1. IF \"rg \" THEN class 3   [conf 0.981, 50/50 rows]\n2. IF \"assed\" THEN class 0   [conf 0.957, 65/67 rows]\n3. IF words:grep rn THEN class 3   [conf 0.969, 30/30 rows]\n4. IF word:cat THEN class 1   [conf 0.938, 59/62 rows]\n5. IF \"hor\" THEN class 4   [conf 0.955, 20/20 rows]\n6. IF \"cebac\" (+1 colliding) THEN class 2   [conf 0.950, 18/18 rows]\n7. IF \"ges\" THEN class 4   [conf 0.933, 13/13 rows]\n8. IF \"enie\" (+1 colliding) THEN class 2   [conf 0.929, 12/12 rows]\n9. IF \"ad_fi\" THEN class 1   [conf 0.917, 10/10 rows]\n10. IF \"mpos\" THEN class 4   [conf 0.909, 9/9 rows]\n11. IF \"mmand\" THEN class 2   [conf 0.900, 8/8 rows]\n12. IF \"arni\" THEN class 4   [conf 0.889, 7/7 rows]\n13. IF \"pass:\" THEN class 0   [conf 0.875, 6/6 rows]\n14. IF \"\\n> \" THEN class 4   [conf 0.875, 6/6 rows]\n15. IF \"lur\" (+1 colliding) THEN class 0   [conf 0.889, 7/7 rows]\n16. IF \"rror:\" THEN class 2   [conf 0.842, 15/17 rows]\n17. IF \"s -\" THEN class 4   [conf 0.889, 7/7 rows]\ndefault (abstain, never answers): class 4\n"
+      },
+      "labelled": 0,
+      "readout": "checklist",
+      "cv_agreement": 0.8975903614457831,
+      "cv_minority_recall": 0.9298892988929889,
+      "majority_share": 0.21999999999999997,
+      "answered": 332,
+      "mode": "symmetric",
+      "threshold": 0.9299999999999999,
+      "cv_coverage": 0.5725,
+      "secs": 0.062801806
+    },
+    "rules": null
+  },
+  "understudent": "checklist"
+}

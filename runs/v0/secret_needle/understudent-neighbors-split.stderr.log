@@ -1,0 +1,28 @@
+$ target/release/understudy train --understudent neighbors --snapshot runs/v0/secret_needle/snapshot.understudent-neighbors --question runs/v0/secret_needle/question.json --examples runs/v0/secret_needle/train.jsonl
+{
+  "snapshot": "runs/v0/secret_needle/snapshot.understudent-neighbors",
+  "question": "secret_needle",
+  "key": "08c8f0ecb1c414b9",
+  "state": "learning",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.64,
+  "cv_minority_recall": 0.22807017543859648,
+  "mode": null,
+  "threshold": 0.0,
+  "cv_coverage": 0.0,
+  "readout": "neighbors",
+  "cv_agreement_by_readout": null,
+  "why_not": "CV agreement / minority recall below the graduation bars",
+  "refit_secs": 0.00292345
+}
+$ target/release/understudy judge --understudent neighbors --snapshot runs/v0/secret_needle/snapshot.understudent-neighbors --replay-lead runs/v0/secret_needle/stream.jsonl < runs/v0/secret_needle/operate.jsonl > runs/v0/secret_needle/decisions.understudent-neighbors-split.jsonl
+understudy: refit secret_needle in 0.01s: n=300 readout="neighbors" mode=null cv_coverage=0.0
+understudy: refit secret_needle in 0.01s: n=400 readout="neighbors" mode=null cv_coverage=0.0
+understudy: refit secret_needle in 0.01s: n=500 readout="neighbors" mode=null cv_coverage=0.0
+understudy: refit secret_needle in 0.01s: n=600 readout="neighbors" mode=null cv_coverage=0.0
+{"items":400,"answered_by_understudent":0,"coverage":0.0,"local_agreement_with_lead":null,"graduated_at_item":null,"first_local_item":null,"coverage_by_readout":{},"audited":0,"demotions":0,"mode":null,"readout":"neighbors","state":"learning","understudent_us":{"mean":554439.4825,"p50":540400,"p95":710428},"refits":[],"refit_secs_total":0.0,"total_secs":221.96149162,"final":[{"name":"secret_needle","key":"08c8f0ecb1c414b9","type":"noul","state":"learning","examples":600,"labelled":0,"since_refit":0,"mode":null,"threshold":0.0,"readout":"neighbors","understudent":"neighbors","front":null,"cv_agreement":0.6633333333333333,"cv_minority_recall":0.20786516853932585,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","audits":{"n":0,"agreement":null,"misses":null},"report":{"n":600,"fit_secs":{"neighbors":0.00535686},"labelled":0,"readout":"neighbors","cv_agreement":0.6633333333333333,"cv_minority_recall":0.20786516853932585,"majority_share":0.7033333333333334,"mode":null,"threshold":0.0,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","secs":0.012085254}}],"understudent":"neighbors"}

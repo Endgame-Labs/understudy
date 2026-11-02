@@ -1,0 +1,23 @@
+{
+  "name": "politer_reply",
+  "n": 600,
+  "class_counts": [
+    300,
+    300
+  ],
+  "options": [
+    "a",
+    "b"
+  ],
+  "batches": {
+    "ok": 70
+  },
+  "drops": {
+    "batch_item_count_mismatch(11 of 10)": 2
+  },
+  "cached_generations": 70,
+  "seed": 0,
+  "time": "2026-10-29T09:14:33Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

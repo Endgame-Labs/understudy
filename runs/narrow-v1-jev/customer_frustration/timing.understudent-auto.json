@@ -1,0 +1,12 @@
+{
+  "system": "understudent-auto",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 30.038005188,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent auto --question runs/narrow-v1-jev/customer_frustration/question.json --stream runs/narrow-v1-jev/customer_frustration/stream.jsonl --out runs/narrow-v1-jev/customer_frustration/decisions.understudent-auto.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T06:24:21Z",
+  "finished": "2026-11-02T06:24:51Z"
+}

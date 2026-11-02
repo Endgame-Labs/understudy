@@ -1,0 +1,31 @@
+$ target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/capital_city/snapshot.understudent-ladder --question runs/v0/capital_city/question.json --examples runs/v0/capital_city/train.jsonl
+{
+  "snapshot": "runs/v0/capital_city/snapshot.understudent-ladder",
+  "question": "capital_city",
+  "key": "293b10533cae0cfa",
+  "state": "learning",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.7,
+  "cv_minority_recall": 0.3269230769230769,
+  "mode": null,
+  "threshold": 0.0,
+  "cv_coverage": 0.0,
+  "readout": "pool",
+  "cv_agreement_by_readout": {
+    "pool": 0.7,
+    "attn": 0.705
+  },
+  "why_not": "CV agreement / minority recall below the graduation bars",
+  "refit_secs": 0.296440957
+}
+$ target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/capital_city/snapshot.understudent-ladder --replay-lead runs/v0/capital_city/stream.jsonl < runs/v0/capital_city/operate.jsonl > runs/v0/capital_city/decisions.understudent-ladder-split.jsonl
+understudy: refit capital_city in 0.62s: n=300 readout="pool" mode=null cv_coverage=0.0
+understudy: refit capital_city in 0.66s: n=400 readout="pool" mode=null cv_coverage=0.0
+understudy: refit capital_city in 0.89s: n=500 readout="pool" mode=null cv_coverage=0.0
+understudy: refit capital_city in 0.85s: n=600 readout="pool" mode=null cv_coverage=0.0
+{"items":400,"answered_by_understudent":0,"coverage":0.0,"local_agreement_with_lead":null,"graduated_at_item":null,"first_local_item":null,"coverage_by_readout":{},"audited":0,"demotions":0,"mode":null,"readout":"deep:pool","state":"learning","understudent_us":{"mean":26740.0725,"p50":25594,"p95":35980},"refits":[],"refit_secs_total":0.0,"total_secs":13.882049753,"final":[{"name":"capital_city","key":"293b10533cae0cfa","type":"noul","state":"learning","examples":600,"labelled":0,"since_refit":0,"mode":null,"threshold":0.0,"readout":"deep:pool","understudent":"ladder","front":{"state":"learning","mode":null,"threshold":0.0,"readout":"keywords","cv_agreement":0.6833333333333333,"cv_coverage":0.0,"audits":{"n":0,"agreement":null,"misses":null}},"cv_agreement":0.7283333333333334,"cv_minority_recall":0.43137254901960786,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","audits":{"n":0,"agreement":null,"misses":null},"report":{"n":600,"fit_secs":{"pool":0.519965723,"attn":3.991101353},"attn_epochs":26,"cv_agreement_by_readout":{"pool":0.7283333333333334,"attn":0.7433333333333333},"labelled":0,"readout":"pool","cv_agreement":0.7283333333333334,"cv_minority_recall":0.43137254901960786,"majority_share":0.745,"mode":null,"threshold":0.0,"cv_coverage":0.0,"why_not":"CV agreement / minority recall below the graduation bars","secs":0.829751196}}],"understudent":"ladder"}

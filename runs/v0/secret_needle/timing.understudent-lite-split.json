@@ -1,0 +1,14 @@
+{
+  "system": "understudent-lite",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 3.870088715,
+  "train_wall_s": 1.643880427,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent lite --snapshot runs/v0/secret_needle/snapshot.understudent-lite --question runs/v0/secret_needle/question.json --examples runs/v0/secret_needle/train.jsonl",
+    "target/release/understudy judge --understudent lite --snapshot runs/v0/secret_needle/snapshot.understudent-lite --replay-lead runs/v0/secret_needle/stream.jsonl < runs/v0/secret_needle/operate.jsonl > runs/v0/secret_needle/decisions.understudent-lite-split.jsonl"
+  ],
+  "started": "2026-10-29T12:32:49Z",
+  "finished": "2026-10-29T12:32:52Z"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "retry_exception",
+  "n": 600,
+  "class_counts": [
+    420,
+    180
+  ],
+  "options": [
+    "false",
+    "true"
+  ],
+  "batches": {
+    "ok": 70
+  },
+  "drops": {
+    "batch_item_count_mismatch(0 of 10)": 1,
+    "batch_item_count_mismatch(1 of 10)": 1,
+    "batch_item_count_mismatch(4 of 10)": 4,
+    "batch_item_count_mismatch(6 of 10)": 2,
+    "batch_item_count_mismatch(7 of 10)": 1,
+    "batch_item_count_mismatch(9 of 10)": 1,
+    "item_missing_or_malformed": 55,
+    "length_out_of_bounds": 1
+  },
+  "cached_generations": 70,
+  "seed": 0,
+  "time": "2026-10-29T09:36:00Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

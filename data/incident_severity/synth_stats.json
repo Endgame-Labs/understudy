@@ -1,0 +1,33 @@
+{
+  "name": "incident_severity",
+  "n": 600,
+  "class_counts": [
+    150,
+    150,
+    150,
+    150
+  ],
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "batches": {
+    "ok": 70
+  },
+  "drops": {
+    "batch_item_count_mismatch(1 of 10)": 6,
+    "batch_item_count_mismatch(11 of 10)": 1,
+    "batch_item_count_mismatch(9 of 10)": 1,
+    "item_missing_or_malformed": 56,
+    "length_out_of_bounds": 1,
+    "missing_field": 3,
+    "names_a_severity": 1
+  },
+  "cached_generations": 70,
+  "seed": 0,
+  "time": "2026-10-29T09:08:08Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

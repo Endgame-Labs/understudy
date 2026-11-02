@@ -1,0 +1,14 @@
+{
+  "system": "understudent-lite",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 3.050012786,
+  "train_wall_s": 1.444154212,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent lite --snapshot runs/v0/payment_flip/snapshot.understudent-lite --question runs/v0/payment_flip/question.json --examples runs/v0/payment_flip/train.jsonl",
+    "target/release/understudy judge --understudent lite --snapshot runs/v0/payment_flip/snapshot.understudent-lite --replay-lead runs/v0/payment_flip/stream.jsonl < runs/v0/payment_flip/operate.jsonl > runs/v0/payment_flip/decisions.understudent-lite-split.jsonl"
+  ],
+  "started": "2026-10-29T10:43:29Z",
+  "finished": "2026-10-29T10:43:32Z"
+}

@@ -1,0 +1,30 @@
+$ target/release/understudy train --understudent lite --snapshot runs/v0/tool_failed/snapshot.understudent-lite --question runs/v0/tool_failed/question.json --examples runs/v0/tool_failed/train.jsonl
+{
+  "snapshot": "runs/v0/tool_failed/snapshot.understudent-lite",
+  "question": "tool_failed",
+  "key": "c909de5a3f108856",
+  "state": "learning",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.85,
+  "cv_minority_recall": 0.358974358974359,
+  "mode": null,
+  "threshold": 0.0,
+  "cv_coverage": 0.0,
+  "readout": "lite",
+  "cv_agreement_by_readout": {
+    "pool": 0.85
+  },
+  "why_not": "CV agreement / minority recall below the graduation bars",
+  "refit_secs": 0.012385809
+}
+$ target/release/understudy judge --understudent lite --snapshot runs/v0/tool_failed/snapshot.understudent-lite --replay-lead runs/v0/tool_failed/stream.jsonl < runs/v0/tool_failed/operate.jsonl > runs/v0/tool_failed/decisions.understudent-lite-split.jsonl
+understudy: refit tool_failed in 0.01s: n=300 readout="lite" mode=null cv_coverage=0.0
+understudy: refit tool_failed in 0.01s: n=400 readout="lite" mode=null cv_coverage=0.0
+understudy: refit tool_failed in 0.02s: n=500 readout="lite" mode=null cv_coverage=0.0
+understudy: refit tool_failed in 0.02s: n=600 readout="lite" mode="one_sided" cv_coverage=0.34
+{"items":400,"answered_by_understudent":0,"coverage":0.0,"local_agreement_with_lead":null,"graduated_at_item":null,"first_local_item":null,"coverage_by_readout":{},"audited":0,"demotions":0,"mode":"one_sided","readout":"lite","state":"graduated","understudent_us":{"mean":350.6075,"p50":243,"p95":869},"refits":[],"refit_secs_total":0.0,"total_secs":0.266633122,"final":[{"name":"tool_failed","key":"c909de5a3f108856","type":"noul","state":"graduated","examples":600,"labelled":0,"since_refit":0,"mode":"one_sided","threshold":0.0015,"readout":"lite","understudent":"lite","front":null,"cv_agreement":0.8966666666666666,"cv_minority_recall":0.6857142857142857,"cv_coverage":0.34,"why_not":null,"audits":{"n":0,"agreement":null,"misses":0},"report":{"n":600,"fit_secs":{"pool":0.053767726,"attn":0.0},"cv_agreement_by_readout":{"pool":0.8966666666666666},"labelled":0,"readout":"lite","cv_agreement":0.8966666666666666,"cv_minority_recall":0.6857142857142857,"majority_share":0.7666666666666666,"mode":"one_sided","threshold":0.0015,"cv_coverage":0.34,"secs":0.0243243}}],"understudent":"lite"}

@@ -1,0 +1,12 @@
+{
+  "system": "understudent-lite",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 2.665267489,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent lite --question runs/v0/secret_needle/question.json --stream runs/v0/secret_needle/stream.jsonl --out runs/v0/secret_needle/decisions.understudent-lite.jsonl"
+  ],
+  "started": "2026-10-29T11:55:03Z",
+  "finished": "2026-10-29T11:55:05Z"
+}

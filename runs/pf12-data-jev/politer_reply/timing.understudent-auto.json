@@ -1,0 +1,12 @@
+{
+  "system": "understudent-auto",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 15.830394487,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent auto --question runs/pf12-data-jev/politer_reply/question.json --stream runs/pf12-data-jev/politer_reply/stream.jsonl --out runs/pf12-data-jev/politer_reply/decisions.understudent-auto.jsonl --prefer-fast 0.12"
+  ],
+  "started": "2026-11-02T14:58:42Z",
+  "finished": "2026-11-02T14:58:58Z"
+}

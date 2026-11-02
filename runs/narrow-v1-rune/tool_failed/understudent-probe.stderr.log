@@ -1,0 +1,121 @@
+$ target/release/understudy replay --understudent probe --question runs/narrow-v1-rune/tool_failed/question.json --stream runs/narrow-v1-rune/tool_failed/stream.jsonl --out runs/narrow-v1-rune/tool_failed/decisions.understudent-probe.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 235,
+  "coverage": 0.39166666666666666,
+  "local_agreement_with_lead": 0.9744680851063829,
+  "graduated_at_item": 300,
+  "first_local_item": 301,
+  "coverage_by_readout": {
+    "mean": 0.39166666666666666
+  },
+  "audited": 19,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "mean",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 60.86333333333334,
+    "p50": 45,
+    "p95": 64
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.029840034,
+      "n": 100,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.92,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.012611359999999999,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.92
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.044778174,
+      "n": 200,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.915,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.01564139,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.915
+      }
+    },
+    {
+      "item": 299,
+      "secs": 0.04366914,
+      "n": 300,
+      "readout": "mean",
+      "mode": "symmetric",
+      "cv_agreement": 0.9366666666666666,
+      "cv_coverage": 0.8033333333333333,
+      "fit_secs": {
+        "pool": 0.009604656,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.9366666666666666
+      }
+    }
+  ],
+  "refit_secs_total": 0.11828734799999999,
+  "total_secs": 0.172670377,
+  "final": {
+    "name": "tool_failed",
+    "key": "c909de5a3f108856",
+    "type": "noul",
+    "state": "graduated",
+    "examples": 384,
+    "labelled": 0,
+    "since_refit": 84,
+    "mode": "symmetric",
+    "threshold": 0.95,
+    "readout": "mean",
+    "understudent": "probe",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.9366666666666666,
+    "cv_minority_recall": 0.796875,
+    "cv_coverage": 0.8033333333333333,
+    "why_not": null,
+    "audits": {
+      "n": 19,
+      "agreement": 0.9473684210526315,
+      "misses": null
+    },
+    "report": {
+      "n": 300,
+      "fit_secs": {
+        "pool": 0.009604656,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.9366666666666666
+      },
+      "labelled": 0,
+      "readout": "mean",
+      "cv_agreement": 0.9366666666666666,
+      "cv_minority_recall": 0.796875,
+      "majority_share": 0.7866666666666666,
+      "mode": "symmetric",
+      "threshold": 0.95,
+      "cv_coverage": 0.8033333333333333,
+      "secs": 0.043619475
+    },
+    "rules": null
+  },
+  "understudent": "probe"
+}

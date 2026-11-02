@@ -1,0 +1,12 @@
+{
+  "system": "understudent-auto",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 75.716781603,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent auto --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-auto.jsonl"
+  ],
+  "started": "2026-11-02T14:22:10Z",
+  "finished": "2026-11-02T14:23:25Z"
+}

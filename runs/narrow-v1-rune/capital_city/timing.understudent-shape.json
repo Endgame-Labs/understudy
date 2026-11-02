@@ -1,0 +1,12 @@
+{
+  "system": "understudent-shape",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 0.08491906,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent shape --question runs/narrow-v1-rune/capital_city/question.json --stream runs/narrow-v1-rune/capital_city/stream.jsonl --out runs/narrow-v1-rune/capital_city/decisions.understudent-shape.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T06:14:30Z",
+  "finished": "2026-11-02T06:14:30Z"
+}

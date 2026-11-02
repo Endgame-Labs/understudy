@@ -1,0 +1,12 @@
+{
+  "system": "understudent-ladder",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 38.434152404,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v0/payment_flip/question.json --stream runs/v0/payment_flip/stream.jsonl --out runs/v0/payment_flip/decisions.understudent-ladder.jsonl"
+  ],
+  "started": "2026-10-29T10:41:23Z",
+  "finished": "2026-10-29T10:42:01Z"
+}

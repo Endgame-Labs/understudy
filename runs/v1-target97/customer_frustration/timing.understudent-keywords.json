@@ -1,0 +1,12 @@
+{
+  "system": "understudent-keywords",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 3.947901446,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent keywords --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-keywords.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:11:53Z",
+  "finished": "2026-10-29T13:11:57Z"
+}

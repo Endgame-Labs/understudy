@@ -1,0 +1,19 @@
+{
+  "name": "tool_failed",
+  "category": "surface_property",
+  "type": "noul",
+  "options": [
+    "false",
+    "true"
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Did this coding-agent tool call fail?",
+    "criteria": {
+      "true": "the tool call failed: it errored, was rejected, timed out or did not do what it was asked",
+      "false": "the tool call succeeded, even if its output mentions errors in content it found or printed"
+    }
+  },
+  "pair": null,
+  "notes": "surface_property: failure is usually visible on the surface of the output (tracebacks, exit codes, 'not found'), with decoy successes that mention 'error'. Predicted: both understudents graduate; understudent's max pooling may help on long outputs where the error is buried."
+}

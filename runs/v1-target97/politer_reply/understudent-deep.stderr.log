@@ -1,0 +1,105 @@
+$ target/release/understudy replay --understudent deep --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-deep.jsonl --target 0.97
+{
+  "items": 600,
+  "answered_by_understudent": 381,
+  "coverage": 0.635,
+  "local_agreement_with_lead": 1.0,
+  "graduated_at_item": 200,
+  "first_local_item": 200,
+  "coverage_by_readout": {
+    "attn": 0.635
+  },
+  "audited": 40,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "attn",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 382195.50666666665,
+    "p50": 366420,
+    "p95": 612086
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 2.125949889,
+      "n": 100,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.97,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.311784402,
+        "attn": 9.983852619
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.97,
+        "attn": 0.98
+      }
+    },
+    {
+      "item": 199,
+      "secs": 4.676577089,
+      "n": 200,
+      "readout": "attn",
+      "mode": "symmetric",
+      "cv_agreement": 0.99,
+      "cv_coverage": 0.99,
+      "fit_secs": {
+        "pool": 1.051444233,
+        "attn": 22.771045026
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.98,
+        "attn": 0.99
+      }
+    }
+  ],
+  "refit_secs_total": 6.802526978,
+  "total_secs": 236.174095161,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 259,
+    "labelled": 0,
+    "since_refit": 59,
+    "mode": "symmetric",
+    "threshold": 0.62,
+    "readout": "attn",
+    "understudent": "deep",
+    "front": null,
+    "cv_agreement": 0.99,
+    "cv_minority_recall": 1.0,
+    "cv_coverage": 0.99,
+    "why_not": null,
+    "audits": {
+      "n": 40,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 200,
+      "fit_secs": {
+        "pool": 1.051444233,
+        "attn": 22.771045026
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.98,
+        "attn": 0.99
+      },
+      "labelled": 0,
+      "readout": "attn",
+      "cv_agreement": 0.99,
+      "cv_minority_recall": 1.0,
+      "majority_share": 0.56,
+      "mode": "symmetric",
+      "threshold": 0.62,
+      "cv_coverage": 0.99,
+      "secs": 4.676420172
+    }
+  },
+  "understudent": "deep"
+}

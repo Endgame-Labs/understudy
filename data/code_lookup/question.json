@@ -1,0 +1,23 @@
+{
+  "name": "code_lookup",
+  "category": "binding_lookup",
+  "type": "choice",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "question": {
+    "type": "choice",
+    "instructions": "Which candidate's code exactly equals target_code?",
+    "criteria": {
+      "A": "candidate A's code equals target_code",
+      "B": "candidate B's code equals target_code",
+      "C": "candidate C's code equals target_code",
+      "D": "candidate D's code equals target_code"
+    }
+  },
+  "pair": null,
+  "notes": "binding_lookup: the answer is which key is bound to a value equal to target_code; distractors are near misses (one digit changed, two digits swapped, one letter changed). Fully programmatic, balanced. Predicted: pooled embeddings carry no usable signal for exact string binding, so neither understudy should graduate; never graduating is the correct outcome."
+}

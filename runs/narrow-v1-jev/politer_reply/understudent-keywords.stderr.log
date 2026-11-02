@@ -1,0 +1,83 @@
+$ target/release/understudy replay --understudent keywords --question runs/narrow-v1-jev/politer_reply/question.json --stream runs/narrow-v1-jev/politer_reply/stream.jsonl --out runs/narrow-v1-jev/politer_reply/decisions.understudent-keywords.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 480,
+  "coverage": 0.8,
+  "local_agreement_with_lead": 0.9416666666666667,
+  "graduated_at_item": 100,
+  "first_local_item": 100,
+  "coverage_by_readout": {
+    "keywords": 0.8
+  },
+  "audited": 50,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "keywords",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 257.9266666666667,
+    "p50": 214,
+    "p95": 393
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.085546577,
+      "n": 100,
+      "readout": "keywords",
+      "mode": "symmetric",
+      "cv_agreement": 0.97,
+      "cv_coverage": 1.0,
+      "fit_secs": {
+        "keywords": 0.17272712900000003
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.085546577,
+  "total_secs": 0.255440431,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 170,
+    "labelled": 0,
+    "since_refit": 70,
+    "mode": "symmetric",
+    "threshold": 0.5,
+    "readout": "keywords",
+    "understudent": "keywords",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.97,
+    "cv_minority_recall": 0.9534883720930233,
+    "cv_coverage": 1.0,
+    "why_not": null,
+    "audits": {
+      "n": 50,
+      "agreement": 0.9,
+      "misses": null
+    },
+    "report": {
+      "n": 100,
+      "fit_secs": {
+        "keywords": 0.17272712900000003
+      },
+      "keywords_iters": 14,
+      "labelled": 0,
+      "readout": "keywords",
+      "cv_agreement": 0.97,
+      "cv_minority_recall": 0.9534883720930233,
+      "majority_share": 0.5700000000000001,
+      "mode": "symmetric",
+      "threshold": 0.5,
+      "cv_coverage": 1.0,
+      "secs": 0.085517884
+    },
+    "rules": null
+  },
+  "understudent": "keywords"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "capital_city",
+  "category": "world_knowledge",
+  "type": "noul",
+  "options": [
+    "false",
+    "true"
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Is the named city the capital of the named country?",
+    "criteria": {
+      "true": "the city is the country's capital",
+      "false": "the city is not the country's capital"
+    }
+  },
+  "pair": null,
+  "notes": "world_knowledge: the label is a fact about the world, not about the text; positives and negatives look alike (a city and a country). Negatives: 60% a major non-capital city of the same country, 40% the capital of another (usually nearby) country. GLM listed capitals (twice per region) and major non-capital cities separately; countries with inconsistent answers or split/contested capitals were dropped. Predicted: an embedding readout can memorize the pairs it has seen but cannot generalize to new countries, so neither understudent should graduate; never graduating is correct."
+}

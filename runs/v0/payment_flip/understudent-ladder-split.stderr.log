@@ -1,0 +1,27 @@
+$ target/release/understudy train --understudent ladder --tiers keywords,deep --snapshot runs/v0/payment_flip/snapshot.understudent-ladder --question runs/v0/payment_flip/question.json --examples runs/v0/payment_flip/train.jsonl
+{
+  "snapshot": "runs/v0/payment_flip/snapshot.understudent-ladder",
+  "question": "payment_flip",
+  "key": "efccc3e8e0410d60",
+  "state": "graduated",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.895,
+  "cv_minority_recall": 0.8333333333333334,
+  "mode": "symmetric",
+  "threshold": 0.7,
+  "cv_coverage": 0.925,
+  "readout": "pool",
+  "cv_agreement_by_readout": {
+    "pool": 0.895,
+    "attn": 0.895
+  },
+  "why_not": null,
+  "refit_secs": 0.828655505
+}
+$ target/release/understudy judge --understudent ladder --tiers keywords,deep --snapshot runs/v0/payment_flip/snapshot.understudent-ladder --replay-lead runs/v0/payment_flip/stream.jsonl < runs/v0/payment_flip/operate.jsonl > runs/v0/payment_flip/decisions.understudent-ladder-split.jsonl
+{"items":400,"answered_by_understudent":355,"coverage":0.8875,"local_agreement_with_lead":0.0,"graduated_at_item":0,"first_local_item":0,"coverage_by_readout":{"deep:pool":0.8875},"audited":34,"demotions":0,"mode":"symmetric","readout":"deep:pool","state":"graduated","understudent_us":{"mean":62051.335,"p50":56533,"p95":99636},"refits":[],"refit_secs_total":0.0,"total_secs":24.905270306,"final":[{"name":"payment_flip","key":"efccc3e8e0410d60","type":"noul","state":"graduated","examples":279,"labelled":0,"since_refit":79,"mode":"symmetric","threshold":0.7,"readout":"deep:pool","understudent":"ladder","front":{"state":"learning","mode":null,"threshold":0.0,"readout":"keywords","cv_agreement":0.895,"cv_coverage":0.0,"audits":{"n":0,"agreement":null,"misses":null}},"cv_agreement":0.895,"cv_minority_recall":0.8333333333333334,"cv_coverage":0.925,"why_not":null,"audits":{"n":34,"agreement":0.9705882352941176,"misses":null},"report":{"n":200,"fit_secs":{"pool":0.086509994,"attn":3.7976024109999997},"attn_epochs":40,"cv_agreement_by_readout":{"pool":0.895,"attn":0.895},"labelled":0,"readout":"pool","cv_agreement":0.895,"cv_minority_recall":0.8333333333333334,"majority_share":0.61,"mode":"symmetric","threshold":0.7,"cv_coverage":0.925,"secs":0.804346378}}],"understudent":"ladder"}

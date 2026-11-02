@@ -1,0 +1,12 @@
+{
+  "system": "hunch",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 65.27710239,
+  "exit_code": 0,
+  "commands": [
+    "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v0/tool_failed/question.json --stream runs/v0/tool_failed/stream.jsonl --out runs/v0/tool_failed/decisions.hunch-split.jsonl --train-examples runs/v0/tool_failed/train.jsonl --operate runs/v0/tool_failed/operate.jsonl"
+  ],
+  "started": "2026-10-29T12:54:42Z",
+  "finished": "2026-10-29T12:55:47Z"
+}

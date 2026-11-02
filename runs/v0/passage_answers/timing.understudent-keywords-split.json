@@ -1,0 +1,14 @@
+{
+  "system": "understudent-keywords",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 1.598750085,
+  "train_wall_s": 0.261964177,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent keywords --snapshot runs/v0/passage_answers/snapshot.understudent-keywords --question runs/v0/passage_answers/question.json --examples runs/v0/passage_answers/train.jsonl",
+    "target/release/understudy judge --understudent keywords --snapshot runs/v0/passage_answers/snapshot.understudent-keywords --replay-lead runs/v0/passage_answers/stream.jsonl < runs/v0/passage_answers/operate.jsonl > runs/v0/passage_answers/decisions.understudent-keywords-split.jsonl"
+  ],
+  "started": "2026-10-29T10:37:13Z",
+  "finished": "2026-10-29T10:37:14Z"
+}

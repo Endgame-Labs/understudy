@@ -1,0 +1,12 @@
+{
+  "system": "understudent-probe",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 54.455760453,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent probe --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-probe.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:52:14Z",
+  "finished": "2026-10-29T13:53:09Z"
+}

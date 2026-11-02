@@ -1,0 +1,14 @@
+{
+  "system": "understudent-deep",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 73.083070965,
+  "train_wall_s": 18.356197933,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent deep --snapshot runs/v0/passage_answers/snapshot.understudent-deep --question runs/v0/passage_answers/question.json --examples runs/v0/passage_answers/train.jsonl",
+    "target/release/understudy judge --understudent deep --snapshot runs/v0/passage_answers/snapshot.understudent-deep --replay-lead runs/v0/passage_answers/stream.jsonl < runs/v0/passage_answers/operate.jsonl > runs/v0/passage_answers/decisions.understudent-deep-split.jsonl"
+  ],
+  "started": "2026-10-29T10:36:00Z",
+  "finished": "2026-10-29T10:37:13Z"
+}

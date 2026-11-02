@@ -1,0 +1,37 @@
+{
+  "name": "secret_needle",
+  "n": 600,
+  "class_counts": [
+    420,
+    180
+  ],
+  "options": [
+    "false",
+    "true"
+  ],
+  "batches": {
+    "malformed": 6,
+    "ok": 274
+  },
+  "drops": {
+    "batch_item_count_mismatch(0 of 3)": 2,
+    "batch_item_count_mismatch(1 of 3)": 1,
+    "batch_item_count_mismatch(10 of 12)": 1,
+    "batch_item_count_mismatch(11 of 12)": 1,
+    "batch_item_count_mismatch(2 of 3)": 3,
+    "batch_item_count_mismatch(4 of 3)": 4,
+    "batch_item_count_mismatch(5 of 12)": 1,
+    "batch_item_count_mismatch(9 of 12)": 1,
+    "batch_malformed_json": 6,
+    "haystack_contains_secret_like": 8,
+    "haystack_too_short": 6,
+    "item_missing_or_malformed": 25,
+    "needle_not_secret_like": 21,
+    "needle_says_fake": 3
+  },
+  "cached_generations": 280,
+  "seed": 0,
+  "time": "2026-10-29T09:36:12Z",
+  "programmatic": false,
+  "model": "accounts/fireworks/models/glm-5p3-flash"
+}

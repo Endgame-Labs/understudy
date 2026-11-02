@@ -1,0 +1,139 @@
+$ target/release/understudy replay --understudent deep --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-deep.jsonl --target 0.97
+{
+  "items": 600,
+  "answered_by_understudent": 206,
+  "coverage": 0.3433333333333333,
+  "local_agreement_with_lead": 1.0,
+  "graduated_at_item": 300,
+  "first_local_item": 300,
+  "coverage_by_readout": {
+    "pool": 0.3433333333333333
+  },
+  "audited": 16,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "pool",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 173153.92666666667,
+    "p50": 156285,
+    "p95": 322358
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.544949709,
+      "n": 100,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.89,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.061433179000000004,
+        "attn": 2.6408804769999996
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.89,
+        "attn": 0.89
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.969561382,
+      "n": 200,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.895,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.11077446399999999,
+        "attn": 4.5019688470000006
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.895,
+        "attn": 0.895
+      }
+    },
+    {
+      "item": 299,
+      "secs": 1.872898387,
+      "n": 300,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.95,
+      "cv_coverage": 0.73,
+      "fit_secs": {
+        "pool": 0.324453926,
+        "attn": 9.737931512
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.95,
+        "attn": 0.9366666666666666
+      }
+    },
+    {
+      "item": 563,
+      "secs": 2.864538391,
+      "n": 400,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.955,
+      "cv_coverage": 0.6925,
+      "fit_secs": {
+        "pool": 0.426465082,
+        "attn": 14.997888628999998
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.955,
+        "attn": 0.9575
+      }
+    }
+  ],
+  "refit_secs_total": 6.251947869,
+  "total_secs": 110.195838294,
+  "final": {
+    "name": "payment_flip",
+    "key": "efccc3e8e0410d60",
+    "type": "noul",
+    "state": "graduated",
+    "examples": 410,
+    "labelled": 0,
+    "since_refit": 10,
+    "mode": "symmetric",
+    "threshold": 0.98,
+    "readout": "pool",
+    "understudent": "deep",
+    "front": null,
+    "cv_agreement": 0.955,
+    "cv_minority_recall": 0.9324324324324325,
+    "cv_coverage": 0.6925,
+    "why_not": null,
+    "audits": {
+      "n": 16,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 400,
+      "fit_secs": {
+        "pool": 0.426465082,
+        "attn": 14.997888628999998
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.955,
+        "attn": 0.9575
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.955,
+      "cv_minority_recall": 0.9324324324324325,
+      "majority_share": 0.63,
+      "mode": "symmetric",
+      "threshold": 0.98,
+      "cv_coverage": 0.6925,
+      "secs": 2.863380651
+    }
+  },
+  "understudent": "deep"
+}

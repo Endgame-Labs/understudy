@@ -1,0 +1,25 @@
+$ target/release/understudy train --understudent keywords --snapshot runs/v0/output_kind/snapshot.understudent-keywords --question runs/v0/output_kind/question.json --examples runs/v0/output_kind/train.jsonl
+{
+  "snapshot": "runs/v0/output_kind/snapshot.understudent-keywords",
+  "question": "output_kind",
+  "key": "d7d0867bfb946375",
+  "state": "graduated",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.885,
+  "cv_minority_recall": 0.8571428571428571,
+  "mode": "symmetric",
+  "threshold": 0.5,
+  "cv_coverage": 0.665,
+  "readout": "keywords",
+  "cv_agreement_by_readout": null,
+  "why_not": null,
+  "refit_secs": 0.300231892
+}
+$ target/release/understudy judge --understudent keywords --snapshot runs/v0/output_kind/snapshot.understudent-keywords --replay-lead runs/v0/output_kind/stream.jsonl < runs/v0/output_kind/operate.jsonl > runs/v0/output_kind/decisions.understudent-keywords-split.jsonl
+understudy: refit output_kind in 0.56s: n=300 readout="keywords" mode="symmetric" cv_coverage=0.67
+{"items":400,"answered_by_understudent":302,"coverage":0.755,"local_agreement_with_lead":0.0,"graduated_at_item":0,"first_local_item":0,"coverage_by_readout":{"keywords":0.755},"audited":28,"demotions":0,"mode":"symmetric","readout":"keywords","state":"graduated","understudent_us":{"mean":177.48,"p50":122,"p95":456},"refits":[],"refit_secs_total":0.0,"total_secs":0.684847932,"final":[{"name":"output_kind","key":"d7d0867bfb946375","type":"choice","state":"graduated","examples":326,"labelled":0,"since_refit":26,"mode":"symmetric","threshold":0.5,"readout":"keywords","understudent":"keywords","front":null,"cv_agreement":0.8333333333333334,"cv_minority_recall":0.8484848484848485,"cv_coverage":0.67,"why_not":null,"audits":{"n":28,"agreement":0.9285714285714286,"misses":null},"report":{"n":300,"fit_secs":{"keywords":2.484900912},"keywords_iters":23,"labelled":0,"readout":"keywords","cv_agreement":0.8333333333333334,"cv_minority_recall":0.8484848484848485,"majority_share":0.22999999999999998,"mode":"symmetric","threshold":0.5,"cv_coverage":0.67,"secs":0.556600525}}],"understudent":"keywords"}

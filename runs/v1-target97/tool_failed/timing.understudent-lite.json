@@ -1,0 +1,12 @@
+{
+  "system": "understudent-lite",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 2.985343129,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent lite --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-lite.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T16:28:25Z",
+  "finished": "2026-10-29T16:28:28Z"
+}

@@ -1,0 +1,12 @@
+{
+  "system": "understudent-probe",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 33.543324646,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent probe --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-probe.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:05:11Z",
+  "finished": "2026-10-29T13:05:45Z"
+}

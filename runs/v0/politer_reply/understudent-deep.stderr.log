@@ -1,0 +1,88 @@
+$ target/release/understudy replay --understudent deep --question runs/v0/politer_reply/question.json --stream runs/v0/politer_reply/stream.jsonl --out runs/v0/politer_reply/decisions.understudent-deep.jsonl
+{
+  "items": 600,
+  "answered_by_understudent": 469,
+  "coverage": 0.7816666666666666,
+  "local_agreement_with_lead": 0.9829424307036247,
+  "graduated_at_item": 100,
+  "first_local_item": 100,
+  "coverage_by_readout": {
+    "pool": 0.7816666666666666
+  },
+  "audited": 49,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "pool",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 113561.68666666666,
+    "p50": 109749,
+    "p95": 174037
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 1.3329519730000001,
+      "n": 100,
+      "readout": "pool",
+      "mode": "symmetric",
+      "cv_agreement": 0.97,
+      "cv_coverage": 1.0,
+      "fit_secs": {
+        "pool": 0.164608416,
+        "attn": 6.543424351
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.97,
+        "attn": 0.98
+      }
+    }
+  ],
+  "refit_secs_total": 1.3329519730000001,
+  "total_secs": 69.49697482,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 180,
+    "labelled": 0,
+    "since_refit": 80,
+    "mode": "symmetric",
+    "threshold": 0.5,
+    "readout": "pool",
+    "understudent": "deep",
+    "front": null,
+    "cv_agreement": 0.97,
+    "cv_minority_recall": 0.9767441860465116,
+    "cv_coverage": 1.0,
+    "why_not": null,
+    "audits": {
+      "n": 49,
+      "agreement": 1.0,
+      "misses": null
+    },
+    "report": {
+      "n": 100,
+      "fit_secs": {
+        "pool": 0.164608416,
+        "attn": 6.543424351
+      },
+      "attn_epochs": 40,
+      "cv_agreement_by_readout": {
+        "pool": 0.97,
+        "attn": 0.98
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.97,
+      "cv_minority_recall": 0.9767441860465116,
+      "majority_share": 0.5700000000000001,
+      "mode": "symmetric",
+      "threshold": 0.5,
+      "cv_coverage": 1.0,
+      "secs": 1.332893455
+    }
+  },
+  "understudent": "deep"
+}

@@ -1,0 +1,600 @@
+{"id":"capital_city-0001","state":{"city":"Reykjavik","country":"Iceland"},"truth":1}
+{"id":"capital_city-0002","state":{"city":"Daşoguz","country":"Turkmenistan"},"truth":0}
+{"id":"capital_city-0003","state":{"city":"Nagoya","country":"Japan"},"truth":0}
+{"id":"capital_city-0004","state":{"city":"Hanoi","country":"Vietnam"},"truth":1}
+{"id":"capital_city-0005","state":{"city":"Schaan","country":"Liechtenstein"},"truth":0}
+{"id":"capital_city-0006","state":{"city":"Mbuji-Mayi","country":"Democratic Republic of the Congo"},"truth":0}
+{"id":"capital_city-0007","state":{"city":"São Paulo","country":"Brazil"},"truth":0}
+{"id":"capital_city-0008","state":{"city":"Conakry","country":"Liberia"},"truth":0}
+{"id":"capital_city-0009","state":{"city":"Accra","country":"Guinea"},"truth":0}
+{"id":"capital_city-0010","state":{"city":"Kópavogur","country":"Iceland"},"truth":0}
+{"id":"capital_city-0011","state":{"city":"Managua","country":"Saint Kitts and Nevis"},"truth":0}
+{"id":"capital_city-0012","state":{"city":"Maseru","country":"Botswana"},"truth":0}
+{"id":"capital_city-0013","state":{"city":"Kandahar","country":"Afghanistan"},"truth":0}
+{"id":"capital_city-0014","state":{"city":"Andijan","country":"Uzbekistan"},"truth":0}
+{"id":"capital_city-0015","state":{"city":"Tashkent","country":"Turkmenistan"},"truth":0}
+{"id":"capital_city-0016","state":{"city":"Niš","country":"Serbia"},"truth":0}
+{"id":"capital_city-0017","state":{"city":"Monrovia","country":"Liberia"},"truth":1}
+{"id":"capital_city-0018","state":{"city":"Dushanbe","country":"Kyrgyzstan"},"truth":0}
+{"id":"capital_city-0019","state":{"city":"Ciudad del Este","country":"Paraguay"},"truth":0}
+{"id":"capital_city-0020","state":{"city":"Brisbane","country":"Australia"},"truth":0}
+{"id":"capital_city-0021","state":{"city":"Port-au-Prince","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0022","state":{"city":"Bogotá","country":"Chad"},"truth":0}
+{"id":"capital_city-0023","state":{"city":"San Miguel","country":"El Salvador"},"truth":0}
+{"id":"capital_city-0024","state":{"city":"Quezon City","country":"Philippines"},"truth":0}
+{"id":"capital_city-0025","state":{"city":"La Vega","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0026","state":{"city":"Kranj","country":"Slovenia"},"truth":0}
+{"id":"capital_city-0027","state":{"city":"New Amsterdam","country":"Guyana"},"truth":0}
+{"id":"capital_city-0028","state":{"city":"Port Vila","country":"Vanuatu"},"truth":1}
+{"id":"capital_city-0029","state":{"city":"Zagreb","country":"Bulgaria"},"truth":0}
+{"id":"capital_city-0030","state":{"city":"Copenhagen","country":"Finland"},"truth":0}
+{"id":"capital_city-0031","state":{"city":"Chisinau","country":"Moldova"},"truth":1}
+{"id":"capital_city-0032","state":{"city":"Gaborone","country":"Botswana"},"truth":1}
+{"id":"capital_city-0033","state":{"city":"Uppsala","country":"Sweden"},"truth":0}
+{"id":"capital_city-0034","state":{"city":"English Harbour","country":"Antigua and Barbuda"},"truth":0}
+{"id":"capital_city-0035","state":{"city":"Keflavík","country":"Iceland"},"truth":0}
+{"id":"capital_city-0036","state":{"city":"Port of Spain","country":"Cuba"},"truth":0}
+{"id":"capital_city-0037","state":{"city":"Georgetown","country":"Saint Vincent and the Grenadines"},"truth":0}
+{"id":"capital_city-0038","state":{"city":"Majuro","country":"Marshall Islands"},"truth":1}
+{"id":"capital_city-0039","state":{"city":"Tartu","country":"Estonia"},"truth":0}
+{"id":"capital_city-0040","state":{"city":"Gaborone","country":"Malawi"},"truth":0}
+{"id":"capital_city-0041","state":{"city":"Heredia","country":"Costa Rica"},"truth":0}
+{"id":"capital_city-0042","state":{"city":"Skopje","country":"North Macedonia"},"truth":1}
+{"id":"capital_city-0043","state":{"city":"Bo","country":"Sierra Leone"},"truth":0}
+{"id":"capital_city-0044","state":{"city":"Berlin","country":"Germany"},"truth":1}
+{"id":"capital_city-0045","state":{"city":"Blantyre","country":"Malawi"},"truth":0}
+{"id":"capital_city-0046","state":{"city":"Akureyri","country":"Iceland"},"truth":0}
+{"id":"capital_city-0047","state":{"city":"San Pedro Sula","country":"Honduras"},"truth":0}
+{"id":"capital_city-0048","state":{"city":"Madrid","country":"Spain"},"truth":1}
+{"id":"capital_city-0049","state":{"city":"Tbilisi","country":"Armenia"},"truth":0}
+{"id":"capital_city-0050","state":{"city":"Tripoli","country":"Lebanon"},"truth":0}
+{"id":"capital_city-0051","state":{"city":"Valencia","country":"Venezuela"},"truth":0}
+{"id":"capital_city-0052","state":{"city":"Jakarta","country":"Timor-Leste"},"truth":0}
+{"id":"capital_city-0053","state":{"city":"Rabat","country":"Czech Republic (Czechia)"},"truth":0}
+{"id":"capital_city-0054","state":{"city":"Luanda","country":"Angola"},"truth":1}
+{"id":"capital_city-0055","state":{"city":"Antwerp","country":"Belgium"},"truth":0}
+{"id":"capital_city-0056","state":{"city":"Brno","country":"Czech Republic"},"truth":0}
+{"id":"capital_city-0057","state":{"city":"Valletta","country":"Spain"},"truth":0}
+{"id":"capital_city-0058","state":{"city":"Kiffa","country":"Mauritania"},"truth":0}
+{"id":"capital_city-0059","state":{"city":"Basseterre","country":"Panama"},"truth":0}
+{"id":"capital_city-0060","state":{"city":"Brasília","country":"Brazil"},"truth":1}
+{"id":"capital_city-0061","state":{"city":"Šiauliai","country":"Lithuania"},"truth":0}
+{"id":"capital_city-0062","state":{"city":"Kuwait City","country":"Haiti"},"truth":0}
+{"id":"capital_city-0063","state":{"city":"Gouyave","country":"Grenada"},"truth":0}
+{"id":"capital_city-0064","state":{"city":"Varna","country":"Bulgaria"},"truth":0}
+{"id":"capital_city-0065","state":{"city":"Nouadhibou","country":"Mauritania"},"truth":0}
+{"id":"capital_city-0066","state":{"city":"Freetown","country":"The Gambia"},"truth":0}
+{"id":"capital_city-0067","state":{"city":"Port Vila","country":"Iran"},"truth":0}
+{"id":"capital_city-0068","state":{"city":"Matola","country":"Mozambique"},"truth":0}
+{"id":"capital_city-0069","state":{"city":"Darkhan","country":"Mongolia"},"truth":0}
+{"id":"capital_city-0070","state":{"city":"Kabul","country":"Afghanistan"},"truth":1}
+{"id":"capital_city-0071","state":{"city":"Paramaribo","country":"Marshall Islands"},"truth":0}
+{"id":"capital_city-0072","state":{"city":"Nairobi","country":"Kenya"},"truth":1}
+{"id":"capital_city-0073","state":{"city":"Kathmandu","country":"Afghanistan"},"truth":0}
+{"id":"capital_city-0074","state":{"city":"Astana","country":"Kazakhstan"},"truth":1}
+{"id":"capital_city-0075","state":{"city":"Beirut","country":"Bahrain"},"truth":0}
+{"id":"capital_city-0076","state":{"city":"Wellington","country":"Solomon Islands"},"truth":0}
+{"id":"capital_city-0077","state":{"city":"Vilnius","country":"Lithuania"},"truth":1}
+{"id":"capital_city-0078","state":{"city":"Asunción","country":"Paraguay"},"truth":1}
+{"id":"capital_city-0079","state":{"city":"Battambang","country":"Cambodia"},"truth":0}
+{"id":"capital_city-0080","state":{"city":"Abu Dhabi","country":"Qatar"},"truth":0}
+{"id":"capital_city-0081","state":{"city":"Kenema","country":"Sierra Leone"},"truth":0}
+{"id":"capital_city-0082","state":{"city":"Esch-sur-Alzette","country":"Luxembourg"},"truth":0}
+{"id":"capital_city-0083","state":{"city":"Irbid","country":"Jordan"},"truth":0}
+{"id":"capital_city-0084","state":{"city":"Port-au-Prince","country":"Bahamas"},"truth":0}
+{"id":"capital_city-0085","state":{"city":"Chisinau","country":"Poland"},"truth":0}
+{"id":"capital_city-0086","state":{"city":"Guatemala City","country":"Guatemala"},"truth":1}
+{"id":"capital_city-0087","state":{"city":"Kisangani","country":"Democratic Republic of the Congo"},"truth":0}
+{"id":"capital_city-0088","state":{"city":"Caracas","country":"Uruguay"},"truth":0}
+{"id":"capital_city-0089","state":{"city":"Latakia","country":"Syria"},"truth":0}
+{"id":"capital_city-0090","state":{"city":"Kigali","country":"Rwanda"},"truth":1}
+{"id":"capital_city-0091","state":{"city":"Abuja","country":"Nigeria"},"truth":1}
+{"id":"capital_city-0092","state":{"city":"Larnaca","country":"Cyprus"},"truth":0}
+{"id":"capital_city-0093","state":{"city":"Hanoi","country":"Brunei"},"truth":0}
+{"id":"capital_city-0094","state":{"city":"Tbilisi","country":"Georgia"},"truth":1}
+{"id":"capital_city-0095","state":{"city":"Prešov","country":"Slovakia"},"truth":0}
+{"id":"capital_city-0096","state":{"city":"Shanghai","country":"China"},"truth":0}
+{"id":"capital_city-0097","state":{"city":"Samarkand","country":"Uzbekistan"},"truth":0}
+{"id":"capital_city-0098","state":{"city":"Antananarivo","country":"Seychelles"},"truth":0}
+{"id":"capital_city-0099","state":{"city":"Canberra","country":"Australia"},"truth":1}
+{"id":"capital_city-0100","state":{"city":"Kakata","country":"Liberia"},"truth":0}
+{"id":"capital_city-0101","state":{"city":"Paris","country":"France"},"truth":1}
+{"id":"capital_city-0102","state":{"city":"Kragujevac","country":"Serbia"},"truth":0}
+{"id":"capital_city-0103","state":{"city":"Bratislava","country":"Slovakia"},"truth":1}
+{"id":"capital_city-0104","state":{"city":"Thiès","country":"Senegal"},"truth":0}
+{"id":"capital_city-0105","state":{"city":"Belo Horizonte","country":"Brazil"},"truth":0}
+{"id":"capital_city-0106","state":{"city":"Windhoek","country":"Angola"},"truth":0}
+{"id":"capital_city-0107","state":{"city":"Mary","country":"Turkmenistan"},"truth":0}
+{"id":"capital_city-0108","state":{"city":"Brasília","country":"Guyana"},"truth":0}
+{"id":"capital_city-0109","state":{"city":"Toronto","country":"Canada"},"truth":0}
+{"id":"capital_city-0110","state":{"city":"Nzérékoré","country":"Guinea"},"truth":0}
+{"id":"capital_city-0111","state":{"city":"Berlin","country":"Liechtenstein"},"truth":0}
+{"id":"capital_city-0112","state":{"city":"Port-au-Prince","country":"Armenia"},"truth":0}
+{"id":"capital_city-0113","state":{"city":"Bangkok","country":"Thailand"},"truth":1}
+{"id":"capital_city-0114","state":{"city":"Beirut","country":"Kuwait"},"truth":0}
+{"id":"capital_city-0115","state":{"city":"Moroni","country":"Belarus"},"truth":0}
+{"id":"capital_city-0116","state":{"city":"Belgrade","country":"Albania"},"truth":0}
+{"id":"capital_city-0117","state":{"city":"Tampere","country":"Finland"},"truth":0}
+{"id":"capital_city-0118","state":{"city":"Da Nang","country":"Vietnam"},"truth":0}
+{"id":"capital_city-0119","state":{"city":"Sandy Point Town","country":"Saint Kitts and Nevis"},"truth":0}
+{"id":"capital_city-0120","state":{"city":"Yerevan","country":"Turkmenistan"},"truth":0}
+{"id":"capital_city-0121","state":{"city":"Limassol","country":"Cyprus"},"truth":0}
+{"id":"capital_city-0122","state":{"city":"Guayaquil","country":"Ecuador"},"truth":0}
+{"id":"capital_city-0123","state":{"city":"Vientiane","country":"Vietnam"},"truth":0}
+{"id":"capital_city-0124","state":{"city":"Ciudad de la Costa","country":"Uruguay"},"truth":0}
+{"id":"capital_city-0125","state":{"city":"Bamako","country":"Mauritania"},"truth":0}
+{"id":"capital_city-0126","state":{"city":"Abu Dhabi City","country":"United Arab Emirates"},"truth":0}
+{"id":"capital_city-0127","state":{"city":"Bangui","country":"São Tomé and Príncipe"},"truth":0}
+{"id":"capital_city-0128","state":{"city":"Rabat","country":"Tunisia"},"truth":0}
+{"id":"capital_city-0129","state":{"city":"Plovdiv","country":"Bulgaria"},"truth":0}
+{"id":"capital_city-0130","state":{"city":"Brazzaville","country":"Equatorial Guinea"},"truth":0}
+{"id":"capital_city-0131","state":{"city":"Graz","country":"Austria"},"truth":0}
+{"id":"capital_city-0132","state":{"city":"Ebeye","country":"Marshall Islands"},"truth":0}
+{"id":"capital_city-0133","state":{"city":"Pokhara","country":"Nepal"},"truth":0}
+{"id":"capital_city-0134","state":{"city":"Georgetown","country":"Suriname"},"truth":0}
+{"id":"capital_city-0135","state":{"city":"Paramaribo","country":"Suriname"},"truth":1}
+{"id":"capital_city-0136","state":{"city":"Dire Dawa","country":"Ethiopia"},"truth":0}
+{"id":"capital_city-0137","state":{"city":"Sikasso","country":"Mali"},"truth":0}
+{"id":"capital_city-0138","state":{"city":"Madrid","country":"San Marino"},"truth":0}
+{"id":"capital_city-0139","state":{"city":"Bitola","country":"North Macedonia"},"truth":0}
+{"id":"capital_city-0140","state":{"city":"Canberra","country":"Tonga"},"truth":0}
+{"id":"capital_city-0141","state":{"city":"Bissau","country":"Cabo Verde"},"truth":0}
+{"id":"capital_city-0142","state":{"city":"Paysandú","country":"Uruguay"},"truth":0}
+{"id":"capital_city-0143","state":{"city":"Juba","country":"Czech Republic (Czechia)"},"truth":0}
+{"id":"capital_city-0144","state":{"city":"Riffa","country":"Bahrain"},"truth":0}
+{"id":"capital_city-0145","state":{"city":"Zagreb","country":"Croatia"},"truth":1}
+{"id":"capital_city-0146","state":{"city":"All Saints","country":"Antigua and Barbuda"},"truth":0}
+{"id":"capital_city-0147","state":{"city":"Takoradi","country":"Ghana"},"truth":0}
+{"id":"capital_city-0148","state":{"city":"Banjul","country":"The Gambia"},"truth":1}
+{"id":"capital_city-0149","state":{"city":"Tunis","country":"Tunisia"},"truth":1}
+{"id":"capital_city-0150","state":{"city":"Novi Sad","country":"Serbia"},"truth":0}
+{"id":"capital_city-0151","state":{"city":"Tegucigalpa","country":"Honduras"},"truth":1}
+{"id":"capital_city-0152","state":{"city":"Narva","country":"Estonia"},"truth":0}
+{"id":"capital_city-0153","state":{"city":"Montevideo","country":"Suriname"},"truth":0}
+{"id":"capital_city-0154","state":{"city":"Birkirkara","country":"Malta"},"truth":0}
+{"id":"capital_city-0155","state":{"city":"Dushanbe","country":"Eritrea"},"truth":0}
+{"id":"capital_city-0156","state":{"city":"Bamako","country":"Mali"},"truth":1}
+{"id":"capital_city-0157","state":{"city":"Mindelo","country":"Cabo Verde"},"truth":0}
+{"id":"capital_city-0158","state":{"city":"Asmara","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0159","state":{"city":"Athens","country":"Greece"},"truth":1}
+{"id":"capital_city-0160","state":{"city":"Sidon","country":"Lebanon"},"truth":0}
+{"id":"capital_city-0161","state":{"city":"Kismayo","country":"Somalia"},"truth":0}
+{"id":"capital_city-0162","state":{"city":"Batumi","country":"Georgia"},"truth":0}
+{"id":"capital_city-0163","state":{"city":"Sihanoukville","country":"Cambodia"},"truth":0}
+{"id":"capital_city-0164","state":{"city":"Bergen","country":"Norway"},"truth":0}
+{"id":"capital_city-0165","state":{"city":"Annaba","country":"Algeria"},"truth":0}
+{"id":"capital_city-0166","state":{"city":"Vancouver","country":"Canada"},"truth":0}
+{"id":"capital_city-0167","state":{"city":"Minsk","country":"Belarus"},"truth":1}
+{"id":"capital_city-0168","state":{"city":"Bucharest","country":"Romania"},"truth":1}
+{"id":"capital_city-0169","state":{"city":"Honiara","country":"Solomon Islands"},"truth":1}
+{"id":"capital_city-0170","state":{"city":"Sylhet","country":"Bangladesh"},"truth":0}
+{"id":"capital_city-0171","state":{"city":"Kathmandu","country":"Nepal"},"truth":1}
+{"id":"capital_city-0172","state":{"city":"Oslo","country":"Norway"},"truth":1}
+{"id":"capital_city-0173","state":{"city":"Mexico City","country":"Mexico"},"truth":1}
+{"id":"capital_city-0174","state":{"city":"Escaldes-Engordany","country":"Andorra"},"truth":0}
+{"id":"capital_city-0175","state":{"city":"Moroni","country":"Comoros"},"truth":1}
+{"id":"capital_city-0176","state":{"city":"Ho Chi Minh City","country":"Vietnam"},"truth":0}
+{"id":"capital_city-0177","state":{"city":"Pärnu","country":"Estonia"},"truth":0}
+{"id":"capital_city-0178","state":{"city":"Port-au-Prince","country":"Haiti"},"truth":1}
+{"id":"capital_city-0179","state":{"city":"Jakarta","country":"Indonesia"},"truth":1}
+{"id":"capital_city-0180","state":{"city":"Bandung","country":"Indonesia"},"truth":0}
+{"id":"capital_city-0181","state":{"city":"Algiers","country":"Algeria"},"truth":1}
+{"id":"capital_city-0182","state":{"city":"Luxembourg City","country":"Luxembourg"},"truth":1}
+{"id":"capital_city-0183","state":{"city":"Moundou","country":"Chad"},"truth":0}
+{"id":"capital_city-0184","state":{"city":"Ndola","country":"Zambia"},"truth":0}
+{"id":"capital_city-0185","state":{"city":"Copenhagen","country":"Denmark"},"truth":1}
+{"id":"capital_city-0186","state":{"city":"Choloma","country":"Honduras"},"truth":0}
+{"id":"capital_city-0187","state":{"city":"Ottawa","country":"United States"},"truth":0}
+{"id":"capital_city-0188","state":{"city":"Kingstown","country":"Saint Vincent and the Grenadines"},"truth":1}
+{"id":"capital_city-0189","state":{"city":"Ljubljana","country":"Bulgaria"},"truth":0}
+{"id":"capital_city-0190","state":{"city":"Suva","country":"Solomon Islands"},"truth":0}
+{"id":"capital_city-0191","state":{"city":"Munich","country":"Germany"},"truth":0}
+{"id":"capital_city-0192","state":{"city":"Rabat","country":"Morocco"},"truth":1}
+{"id":"capital_city-0193","state":{"city":"Bosaso","country":"Somalia"},"truth":0}
+{"id":"capital_city-0194","state":{"city":"San Salvador","country":"El Salvador"},"truth":1}
+{"id":"capital_city-0195","state":{"city":"San José","country":"El Salvador"},"truth":0}
+{"id":"capital_city-0196","state":{"city":"Georgetown","country":"Peru"},"truth":0}
+{"id":"capital_city-0197","state":{"city":"Georgetown","country":"Guyana"},"truth":1}
+{"id":"capital_city-0198","state":{"city":"La Romana","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0199","state":{"city":"Lilongwe","country":"Malawi"},"truth":1}
+{"id":"capital_city-0200","state":{"city":"Szeged","country":"Hungary"},"truth":0}
+{"id":"capital_city-0201","state":{"city":"Baghdad","country":"Iraq"},"truth":1}
+{"id":"capital_city-0202","state":{"city":"Belgrade","country":"Serbia"},"truth":1}
+{"id":"capital_city-0203","state":{"city":"Quetzaltenango","country":"Guatemala"},"truth":0}
+{"id":"capital_city-0204","state":{"city":"Saint George's","country":"Grenada"},"truth":1}
+{"id":"capital_city-0205","state":{"city":"Bambari","country":"Central African Republic"},"truth":0}
+{"id":"capital_city-0206","state":{"city":"Jeddah","country":"Saudi Arabia"},"truth":0}
+{"id":"capital_city-0207","state":{"city":"Vatican City","country":"Holy See (Vatican City)"},"truth":1}
+{"id":"capital_city-0208","state":{"city":"Buenos Aires","country":"Argentina"},"truth":1}
+{"id":"capital_city-0209","state":{"city":"Addu City","country":"Maldives"},"truth":0}
+{"id":"capital_city-0210","state":{"city":"Dakar","country":"Senegal"},"truth":1}
+{"id":"capital_city-0211","state":{"city":"Ibadan","country":"Nigeria"},"truth":0}
+{"id":"capital_city-0212","state":{"city":"Split","country":"Croatia"},"truth":0}
+{"id":"capital_city-0213","state":{"city":"Mogadishu","country":"Somalia"},"truth":1}
+{"id":"capital_city-0214","state":{"city":"Kumanovo","country":"North Macedonia"},"truth":0}
+{"id":"capital_city-0215","state":{"city":"Bruges","country":"Belgium"},"truth":0}
+{"id":"capital_city-0216","state":{"city":"Pyongyang","country":"North Korea"},"truth":1}
+{"id":"capital_city-0217","state":{"city":"Port Louis","country":"Eritrea"},"truth":0}
+{"id":"capital_city-0218","state":{"city":"Kingstown","country":"Andorra"},"truth":0}
+{"id":"capital_city-0219","state":{"city":"Jacmel","country":"Haiti"},"truth":0}
+{"id":"capital_city-0220","state":{"city":"Seville","country":"Spain"},"truth":0}
+{"id":"capital_city-0221","state":{"city":"Kyiv","country":"Lithuania"},"truth":0}
+{"id":"capital_city-0222","state":{"city":"Helsinki","country":"Finland"},"truth":1}
+{"id":"capital_city-0223","state":{"city":"Andorra la Vella","country":"Andorra"},"truth":1}
+{"id":"capital_city-0224","state":{"city":"Reykjavik","country":"Sweden"},"truth":0}
+{"id":"capital_city-0225","state":{"city":"Kolkata","country":"India"},"truth":0}
+{"id":"capital_city-0226","state":{"city":"Bulawayo","country":"Zimbabwe"},"truth":0}
+{"id":"capital_city-0227","state":{"city":"Moroni","country":"Ghana"},"truth":0}
+{"id":"capital_city-0228","state":{"city":"Gdańsk","country":"Poland"},"truth":0}
+{"id":"capital_city-0229","state":{"city":"Seoul","country":"South Korea"},"truth":1}
+{"id":"capital_city-0230","state":{"city":"Manila","country":"Philippines"},"truth":1}
+{"id":"capital_city-0231","state":{"city":"Lisbon","country":"Portugal"},"truth":1}
+{"id":"capital_city-0232","state":{"city":"Helsinki","country":"Mauritius"},"truth":0}
+{"id":"capital_city-0233","state":{"city":"Abu Dhabi","country":"United Arab Emirates"},"truth":1}
+{"id":"capital_city-0234","state":{"city":"Vaduz","country":"Belarus"},"truth":0}
+{"id":"capital_city-0235","state":{"city":"Bogotá","country":"Colombia"},"truth":1}
+{"id":"capital_city-0236","state":{"city":"Khujand","country":"Tajikistan"},"truth":0}
+{"id":"capital_city-0237","state":{"city":"Minsk","country":"Russia"},"truth":0}
+{"id":"capital_city-0238","state":{"city":"Oslo","country":"Finland"},"truth":0}
+{"id":"capital_city-0239","state":{"city":"Ganja","country":"Azerbaijan"},"truth":0}
+{"id":"capital_city-0240","state":{"city":"Munda","country":"Solomon Islands"},"truth":0}
+{"id":"capital_city-0241","state":{"city":"Caracas","country":"Venezuela"},"truth":1}
+{"id":"capital_city-0242","state":{"city":"Port Sudan","country":"Sudan"},"truth":0}
+{"id":"capital_city-0243","state":{"city":"Thessaloniki","country":"Greece"},"truth":0}
+{"id":"capital_city-0244","state":{"city":"Salzburg","country":"Austria"},"truth":0}
+{"id":"capital_city-0245","state":{"city":"Stavanger","country":"Norway"},"truth":0}
+{"id":"capital_city-0246","state":{"city":"Kulob","country":"Tajikistan"},"truth":0}
+{"id":"capital_city-0247","state":{"city":"Alexandria","country":"Egypt"},"truth":0}
+{"id":"capital_city-0248","state":{"city":"Ljubljana","country":"North Macedonia"},"truth":0}
+{"id":"capital_city-0249","state":{"city":"San Marino","country":"Spain"},"truth":0}
+{"id":"capital_city-0250","state":{"city":"Havana","country":"Cuba"},"truth":1}
+{"id":"capital_city-0251","state":{"city":"Sofia","country":"Albania"},"truth":0}
+{"id":"capital_city-0252","state":{"city":"Khartoum","country":"Sudan"},"truth":1}
+{"id":"capital_city-0253","state":{"city":"Kigali","country":"India"},"truth":0}
+{"id":"capital_city-0254","state":{"city":"Rustavi","country":"Georgia"},"truth":0}
+{"id":"capital_city-0255","state":{"city":"Lalitpur","country":"Nepal"},"truth":0}
+{"id":"capital_city-0256","state":{"city":"Mixco","country":"Guatemala"},"truth":0}
+{"id":"capital_city-0257","state":{"city":"Rijeka","country":"Croatia"},"truth":0}
+{"id":"capital_city-0258","state":{"city":"Hawalli","country":"Kuwait"},"truth":0}
+{"id":"capital_city-0259","state":{"city":"Hamilton","country":"New Zealand"},"truth":0}
+{"id":"capital_city-0260","state":{"city":"Tehran","country":"Iraq"},"truth":0}
+{"id":"capital_city-0261","state":{"city":"Dushanbe","country":"Tajikistan"},"truth":1}
+{"id":"capital_city-0262","state":{"city":"Huye","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0263","state":{"city":"Karakol","country":"Kyrgyzstan"},"truth":0}
+{"id":"capital_city-0264","state":{"city":"Bratislava","country":"Hungary"},"truth":0}
+{"id":"capital_city-0265","state":{"city":"Lisbon","country":"Iraq"},"truth":0}
+{"id":"capital_city-0266","state":{"city":"Washington, D.C.","country":"United States"},"truth":1}
+{"id":"capital_city-0267","state":{"city":"Mosul","country":"Iraq"},"truth":0}
+{"id":"capital_city-0268","state":{"city":"Harare","country":"Chad"},"truth":0}
+{"id":"capital_city-0269","state":{"city":"Dili","country":"Vietnam"},"truth":0}
+{"id":"capital_city-0270","state":{"city":"Port-de-Paix","country":"Haiti"},"truth":0}
+{"id":"capital_city-0271","state":{"city":"Maputo","country":"Finland"},"truth":0}
+{"id":"capital_city-0272","state":{"city":"Rio de Janeiro","country":"Brazil"},"truth":0}
+{"id":"capital_city-0273","state":{"city":"Kitwe","country":"Zambia"},"truth":0}
+{"id":"capital_city-0274","state":{"city":"Port Moresby","country":"Papua New Guinea"},"truth":1}
+{"id":"capital_city-0275","state":{"city":"Davao City","country":"Philippines"},"truth":0}
+{"id":"capital_city-0276","state":{"city":"Saint-Louis","country":"Senegal"},"truth":0}
+{"id":"capital_city-0277","state":{"city":"Port of Spain","country":"Trinidad and Tobago"},"truth":1}
+{"id":"capital_city-0278","state":{"city":"Niamey","country":"Mali"},"truth":0}
+{"id":"capital_city-0279","state":{"city":"Gweru","country":"Zimbabwe"},"truth":0}
+{"id":"capital_city-0280","state":{"city":"Vatican City","country":"Holy See"},"truth":1}
+{"id":"capital_city-0281","state":{"city":"New Delhi","country":"Afghanistan"},"truth":0}
+{"id":"capital_city-0282","state":{"city":"Pyongyang","country":"Papua New Guinea"},"truth":0}
+{"id":"capital_city-0283","state":{"city":"Bucharest","country":"Slovenia"},"truth":0}
+{"id":"capital_city-0284","state":{"city":"Mopti","country":"Mali"},"truth":0}
+{"id":"capital_city-0285","state":{"city":"Manama","country":"Sudan"},"truth":0}
+{"id":"capital_city-0286","state":{"city":"Valletta","country":"Malta"},"truth":1}
+{"id":"capital_city-0287","state":{"city":"Baghdad","country":"Cyprus"},"truth":0}
+{"id":"capital_city-0288","state":{"city":"Antalya","country":"Turkey"},"truth":0}
+{"id":"capital_city-0289","state":{"city":"Nieuw Nickerie","country":"Suriname"},"truth":0}
+{"id":"capital_city-0290","state":{"city":"Andorra la Vella","country":"Eritrea"},"truth":0}
+{"id":"capital_city-0291","state":{"city":"Dakar","country":"Liberia"},"truth":0}
+{"id":"capital_city-0292","state":{"city":"Serekunda","country":"Gambia"},"truth":0}
+{"id":"capital_city-0293","state":{"city":"Bishkek","country":"Armenia"},"truth":0}
+{"id":"capital_city-0294","state":{"city":"Beirut","country":"Cyprus"},"truth":0}
+{"id":"capital_city-0295","state":{"city":"Washington, D.C.","country":"Cuba"},"truth":0}
+{"id":"capital_city-0296","state":{"city":"Vanadzor","country":"Armenia"},"truth":0}
+{"id":"capital_city-0297","state":{"city":"Ouagadougou","country":"Nigeria"},"truth":0}
+{"id":"capital_city-0298","state":{"city":"Tashkent","country":"Uzbekistan"},"truth":1}
+{"id":"capital_city-0299","state":{"city":"Basra","country":"Iraq"},"truth":0}
+{"id":"capital_city-0300","state":{"city":"Escuintla","country":"Guatemala"},"truth":0}
+{"id":"capital_city-0301","state":{"city":"Doha","country":"Syria"},"truth":0}
+{"id":"capital_city-0302","state":{"city":"Vatican City","country":"Vatican City"},"truth":1}
+{"id":"capital_city-0303","state":{"city":"Odesa","country":"Ukraine"},"truth":0}
+{"id":"capital_city-0304","state":{"city":"Port-Gentil","country":"Gabon"},"truth":0}
+{"id":"capital_city-0305","state":{"city":"Oslo","country":"France"},"truth":0}
+{"id":"capital_city-0306","state":{"city":"Dhaka","country":"Bangladesh"},"truth":1}
+{"id":"capital_city-0307","state":{"city":"Port Said","country":"Egypt"},"truth":0}
+{"id":"capital_city-0308","state":{"city":"Fes","country":"Morocco"},"truth":0}
+{"id":"capital_city-0309","state":{"city":"Islamabad","country":"Pakistan"},"truth":1}
+{"id":"capital_city-0310","state":{"city":"Aqaba","country":"Jordan"},"truth":0}
+{"id":"capital_city-0311","state":{"city":"Yokohama","country":"Japan"},"truth":0}
+{"id":"capital_city-0312","state":{"city":"Djibouti","country":"Djibouti"},"truth":1}
+{"id":"capital_city-0313","state":{"city":"Accra","country":"Mauritania"},"truth":0}
+{"id":"capital_city-0314","state":{"city":"Marseille","country":"France"},"truth":0}
+{"id":"capital_city-0315","state":{"city":"Siem Reap","country":"Cambodia"},"truth":0}
+{"id":"capital_city-0316","state":{"city":"Dushanbe","country":"Armenia"},"truth":0}
+{"id":"capital_city-0317","state":{"city":"Damascus","country":"Syria"},"truth":1}
+{"id":"capital_city-0318","state":{"city":"Yerevan","country":"Kazakhstan"},"truth":0}
+{"id":"capital_city-0319","state":{"city":"Islamabad","country":"India"},"truth":0}
+{"id":"capital_city-0320","state":{"city":"Lilongwe","country":"Cambodia"},"truth":0}
+{"id":"capital_city-0321","state":{"city":"Isfahan","country":"Iran"},"truth":0}
+{"id":"capital_city-0322","state":{"city":"David","country":"Panama"},"truth":0}
+{"id":"capital_city-0323","state":{"city":"Beirut","country":"Lebanon"},"truth":1}
+{"id":"capital_city-0324","state":{"city":"Brazzaville","country":"Republic of the Congo"},"truth":1}
+{"id":"capital_city-0325","state":{"city":"Holguín","country":"Cuba"},"truth":0}
+{"id":"capital_city-0326","state":{"city":"Djibouti","country":"Sweden"},"truth":0}
+{"id":"capital_city-0327","state":{"city":"Odense","country":"Denmark"},"truth":0}
+{"id":"capital_city-0328","state":{"city":"Kingstown","country":"Cuba"},"truth":0}
+{"id":"capital_city-0329","state":{"city":"Mashhad","country":"Iran"},"truth":0}
+{"id":"capital_city-0330","state":{"city":"Coimbra","country":"Portugal"},"truth":0}
+{"id":"capital_city-0331","state":{"city":"Charleroi","country":"Belgium"},"truth":0}
+{"id":"capital_city-0332","state":{"city":"Prague","country":"Cambodia"},"truth":0}
+{"id":"capital_city-0333","state":{"city":"Rosario","country":"Argentina"},"truth":0}
+{"id":"capital_city-0334","state":{"city":"Brest","country":"Belarus"},"truth":0}
+{"id":"capital_city-0335","state":{"city":"Mombasa","country":"Kenya"},"truth":0}
+{"id":"capital_city-0336","state":{"city":"Buenos Aires","country":"Paraguay"},"truth":0}
+{"id":"capital_city-0337","state":{"city":"Kuala Belait","country":"Brunei"},"truth":0}
+{"id":"capital_city-0338","state":{"city":"Santa Ana","country":"El Salvador"},"truth":0}
+{"id":"capital_city-0339","state":{"city":"Auki","country":"Solomon Islands"},"truth":0}
+{"id":"capital_city-0340","state":{"city":"Quito","country":"Ecuador"},"truth":1}
+{"id":"capital_city-0341","state":{"city":"San José","country":"Costa Rica"},"truth":1}
+{"id":"capital_city-0342","state":{"city":"Port Louis","country":"Mauritius"},"truth":1}
+{"id":"capital_city-0343","state":{"city":"Butare","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0344","state":{"city":"Basseterre","country":"Saint Kitts and Nevis"},"truth":1}
+{"id":"capital_city-0345","state":{"city":"Erdenet","country":"Mongolia"},"truth":0}
+{"id":"capital_city-0346","state":{"city":"Kutaisi","country":"Georgia"},"truth":0}
+{"id":"capital_city-0347","state":{"city":"León","country":"Nicaragua"},"truth":0}
+{"id":"capital_city-0348","state":{"city":"New Delhi","country":"India"},"truth":1}
+{"id":"capital_city-0349","state":{"city":"Bratislava","country":"Estonia"},"truth":0}
+{"id":"capital_city-0350","state":{"city":"Pyongyang","country":"Turkmenistan"},"truth":0}
+{"id":"capital_city-0351","state":{"city":"Niamey","country":"Niger"},"truth":1}
+{"id":"capital_city-0352","state":{"city":"Vaitele","country":"Samoa"},"truth":0}
+{"id":"capital_city-0353","state":{"city":"Córdoba","country":"Argentina"},"truth":0}
+{"id":"capital_city-0354","state":{"city":"Hat Yai","country":"Thailand"},"truth":0}
+{"id":"capital_city-0355","state":{"city":"Malabo","country":"Pakistan"},"truth":0}
+{"id":"capital_city-0356","state":{"city":"Ouagadougou","country":"Burkina Faso"},"truth":1}
+{"id":"capital_city-0357","state":{"city":"Braga","country":"Portugal"},"truth":0}
+{"id":"capital_city-0358","state":{"city":"Aarhus","country":"Denmark"},"truth":0}
+{"id":"capital_city-0359","state":{"city":"Trondheim","country":"Norway"},"truth":0}
+{"id":"capital_city-0360","state":{"city":"Beijing","country":"Slovakia"},"truth":0}
+{"id":"capital_city-0361","state":{"city":"Gulu","country":"Uganda"},"truth":0}
+{"id":"capital_city-0362","state":{"city":"Montego Bay","country":"Jamaica"},"truth":0}
+{"id":"capital_city-0363","state":{"city":"Asmara","country":"Eritrea"},"truth":1}
+{"id":"capital_city-0364","state":{"city":"Brussels","country":"Belgium"},"truth":1}
+{"id":"capital_city-0365","state":{"city":"Ouagadougou","country":"Mali"},"truth":0}
+{"id":"capital_city-0366","state":{"city":"Lisbon","country":"Andorra"},"truth":0}
+{"id":"capital_city-0367","state":{"city":"Barquisimeto","country":"Venezuela"},"truth":0}
+{"id":"capital_city-0368","state":{"city":"N'Djamena","country":"Chad"},"truth":1}
+{"id":"capital_city-0369","state":{"city":"Labasa","country":"Fiji"},"truth":0}
+{"id":"capital_city-0370","state":{"city":"Rabat","country":"Sudan"},"truth":0}
+{"id":"capital_city-0371","state":{"city":"Moscow","country":"Russia"},"truth":1}
+{"id":"capital_city-0372","state":{"city":"Nouakchott","country":"Mauritania"},"truth":1}
+{"id":"capital_city-0373","state":{"city":"Ljubljana","country":"Romania"},"truth":0}
+{"id":"capital_city-0374","state":{"city":"Maputo","country":"Mozambique"},"truth":1}
+{"id":"capital_city-0375","state":{"city":"Cusco","country":"Peru"},"truth":0}
+{"id":"capital_city-0376","state":{"city":"Les Cayes","country":"Haiti"},"truth":0}
+{"id":"capital_city-0377","state":{"city":"Bursa","country":"Turkey"},"truth":0}
+{"id":"capital_city-0378","state":{"city":"Kingstown","country":"The Bahamas"},"truth":0}
+{"id":"capital_city-0379","state":{"city":"Thimphu","country":"Bhutan"},"truth":1}
+{"id":"capital_city-0380","state":{"city":"Ottawa","country":"Canada"},"truth":1}
+{"id":"capital_city-0381","state":{"city":"Port Louis","country":"Ethiopia"},"truth":0}
+{"id":"capital_city-0382","state":{"city":"Norsup","country":"Vanuatu"},"truth":0}
+{"id":"capital_city-0383","state":{"city":"Lae","country":"Papua New Guinea"},"truth":0}
+{"id":"capital_city-0384","state":{"city":"Hamburg","country":"Germany"},"truth":0}
+{"id":"capital_city-0385","state":{"city":"Mecca","country":"Saudi Arabia"},"truth":0}
+{"id":"capital_city-0386","state":{"city":"Ségou","country":"Mali"},"truth":0}
+{"id":"capital_city-0387","state":{"city":"Amman","country":"Jordan"},"truth":1}
+{"id":"capital_city-0388","state":{"city":"Antananarivo","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0389","state":{"city":"Manila","country":"Timor-Leste"},"truth":0}
+{"id":"capital_city-0390","state":{"city":"Antigua Guatemala","country":"Guatemala"},"truth":0}
+{"id":"capital_city-0391","state":{"city":"Maracaibo","country":"Venezuela"},"truth":0}
+{"id":"capital_city-0392","state":{"city":"Casablanca","country":"Morocco"},"truth":0}
+{"id":"capital_city-0393","state":{"city":"Libreville","country":"Gabon"},"truth":1}
+{"id":"capital_city-0394","state":{"city":"Addis Ababa","country":"Ethiopia"},"truth":1}
+{"id":"capital_city-0395","state":{"city":"Cairo","country":"Egypt"},"truth":1}
+{"id":"capital_city-0396","state":{"city":"Sharjah","country":"United Arab Emirates"},"truth":0}
+{"id":"capital_city-0397","state":{"city":"Dili","country":"Timor-Leste"},"truth":1}
+{"id":"capital_city-0398","state":{"city":"Zagreb","country":"Ethiopia"},"truth":0}
+{"id":"capital_city-0399","state":{"city":"Tokyo","country":"Japan"},"truth":1}
+{"id":"capital_city-0400","state":{"city":"Oulu","country":"Finland"},"truth":0}
+{"id":"capital_city-0401","state":{"city":"Durrës","country":"Albania"},"truth":0}
+{"id":"capital_city-0402","state":{"city":"Juba","country":"South Sudan"},"truth":1}
+{"id":"capital_city-0403","state":{"city":"Banjul","country":"Gambia"},"truth":1}
+{"id":"capital_city-0404","state":{"city":"Gizo","country":"Solomon Islands"},"truth":0}
+{"id":"capital_city-0405","state":{"city":"Managua","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0406","state":{"city":"San Ignacio","country":"Belize"},"truth":0}
+{"id":"capital_city-0407","state":{"city":"São Tomé","country":"São Tomé and Príncipe"},"truth":1}
+{"id":"capital_city-0408","state":{"city":"Homs","country":"Syria"},"truth":0}
+{"id":"capital_city-0409","state":{"city":"Nadi","country":"Fiji"},"truth":0}
+{"id":"capital_city-0410","state":{"city":"Vienna","country":"Antigua and Barbuda"},"truth":0}
+{"id":"capital_city-0411","state":{"city":"Brazzaville","country":"Democratic Republic of the Congo"},"truth":0}
+{"id":"capital_city-0412","state":{"city":"Miskolc","country":"Hungary"},"truth":0}
+{"id":"capital_city-0413","state":{"city":"Dili","country":"Fiji"},"truth":0}
+{"id":"capital_city-0414","state":{"city":"Aleppo","country":"Syria"},"truth":0}
+{"id":"capital_city-0415","state":{"city":"Ashgabat","country":"Turkmenistan"},"truth":1}
+{"id":"capital_city-0416","state":{"city":"Ohrid","country":"North Macedonia"},"truth":0}
+{"id":"capital_city-0417","state":{"city":"Luganville","country":"Vanuatu"},"truth":0}
+{"id":"capital_city-0418","state":{"city":"Chaguanas","country":"Trinidad and Tobago"},"truth":0}
+{"id":"capital_city-0419","state":{"city":"Grodno","country":"Belarus"},"truth":0}
+{"id":"capital_city-0420","state":{"city":"Busan","country":"South Korea"},"truth":0}
+{"id":"capital_city-0421","state":{"city":"Suva","country":"Fiji"},"truth":1}
+{"id":"capital_city-0422","state":{"city":"Washington, D.C.","country":"Uruguay"},"truth":0}
+{"id":"capital_city-0423","state":{"city":"Tallinn","country":"Luxembourg"},"truth":0}
+{"id":"capital_city-0424","state":{"city":"Mekelle","country":"Ethiopia"},"truth":0}
+{"id":"capital_city-0425","state":{"city":"Saint John's","country":"Honduras"},"truth":0}
+{"id":"capital_city-0426","state":{"city":"Timișoara","country":"Romania"},"truth":0}
+{"id":"capital_city-0427","state":{"city":"Biratnagar","country":"Nepal"},"truth":0}
+{"id":"capital_city-0428","state":{"city":"Accra","country":"Ghana"},"truth":1}
+{"id":"capital_city-0429","state":{"city":"Montreal","country":"Canada"},"truth":0}
+{"id":"capital_city-0430","state":{"city":"Nicosia","country":"Cyprus"},"truth":1}
+{"id":"capital_city-0431","state":{"city":"Panama City","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0432","state":{"city":"Moroni","country":"Philippines"},"truth":0}
+{"id":"capital_city-0433","state":{"city":"Massawa","country":"Eritrea"},"truth":0}
+{"id":"capital_city-0434","state":{"city":"Manta","country":"Ecuador"},"truth":0}
+{"id":"capital_city-0435","state":{"city":"Abéché","country":"Chad"},"truth":0}
+{"id":"capital_city-0436","state":{"city":"Washington, D.C.","country":"Saint Kitts and Nevis"},"truth":0}
+{"id":"capital_city-0437","state":{"city":"Paramaribo","country":"Lebanon"},"truth":0}
+{"id":"capital_city-0438","state":{"city":"Livingstone","country":"Zambia"},"truth":0}
+{"id":"capital_city-0439","state":{"city":"Antsirabe","country":"Madagascar"},"truth":0}
+{"id":"capital_city-0440","state":{"city":"Bishkek","country":"Timor-Leste"},"truth":0}
+{"id":"capital_city-0441","state":{"city":"Bandar Seri Begawan","country":"Timor-Leste"},"truth":0}
+{"id":"capital_city-0442","state":{"city":"Gyumri","country":"Armenia"},"truth":0}
+{"id":"capital_city-0443","state":{"city":"Guatemala City","country":"Belize"},"truth":0}
+{"id":"capital_city-0444","state":{"city":"San Marino","country":"Italy"},"truth":0}
+{"id":"capital_city-0445","state":{"city":"Riyadh","country":"Saudi Arabia"},"truth":1}
+{"id":"capital_city-0446","state":{"city":"Warsaw","country":"Poland"},"truth":1}
+{"id":"capital_city-0447","state":{"city":"Guangzhou","country":"China"},"truth":0}
+{"id":"capital_city-0448","state":{"city":"Karachi","country":"Pakistan"},"truth":0}
+{"id":"capital_city-0449","state":{"city":"Cebu City","country":"Philippines"},"truth":0}
+{"id":"capital_city-0450","state":{"city":"Seoul","country":"North Korea"},"truth":0}
+{"id":"capital_city-0451","state":{"city":"Monaco","country":"Monaco"},"truth":1}
+{"id":"capital_city-0452","state":{"city":"Douala","country":"Cameroon"},"truth":0}
+{"id":"capital_city-0453","state":{"city":"Cologne","country":"Germany"},"truth":0}
+{"id":"capital_city-0454","state":{"city":"Mzuzu","country":"Malawi"},"truth":0}
+{"id":"capital_city-0455","state":{"city":"Al Wakrah","country":"Qatar"},"truth":0}
+{"id":"capital_city-0456","state":{"city":"Vienna","country":"Austria"},"truth":1}
+{"id":"capital_city-0457","state":{"city":"Nassau","country":"Bahamas"},"truth":1}
+{"id":"capital_city-0458","state":{"city":"Vaduz","country":"Liechtenstein"},"truth":1}
+{"id":"capital_city-0459","state":{"city":"Banjul","country":"Guinea"},"truth":0}
+{"id":"capital_city-0460","state":{"city":"Vientiane","country":"Laos"},"truth":1}
+{"id":"capital_city-0461","state":{"city":"Bishkek","country":"Kyrgyzstan"},"truth":1}
+{"id":"capital_city-0462","state":{"city":"Lusaka","country":"Angola"},"truth":0}
+{"id":"capital_city-0463","state":{"city":"San Fernando","country":"Trinidad and Tobago"},"truth":0}
+{"id":"capital_city-0464","state":{"city":"Manila","country":"Kenya"},"truth":0}
+{"id":"capital_city-0465","state":{"city":"Wrocław","country":"Poland"},"truth":0}
+{"id":"capital_city-0466","state":{"city":"San Pedro de Macorís","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0467","state":{"city":"Tallinn","country":"Estonia"},"truth":1}
+{"id":"capital_city-0468","state":{"city":"Rome","country":"Italy"},"truth":1}
+{"id":"capital_city-0469","state":{"city":"Istanbul","country":"Turkey"},"truth":0}
+{"id":"capital_city-0470","state":{"city":"Apia","country":"Samoa"},"truth":1}
+{"id":"capital_city-0471","state":{"city":"Conakry","country":"Guinea"},"truth":1}
+{"id":"capital_city-0472","state":{"city":"Baku","country":"Azerbaijan"},"truth":1}
+{"id":"capital_city-0473","state":{"city":"Niamey","country":"Gambia"},"truth":0}
+{"id":"capital_city-0474","state":{"city":"Yaoundé","country":"Cameroon"},"truth":1}
+{"id":"capital_city-0475","state":{"city":"Maseru","country":"Malawi"},"truth":0}
+{"id":"capital_city-0476","state":{"city":"Lyon","country":"France"},"truth":0}
+{"id":"capital_city-0477","state":{"city":"Vagharshapat","country":"Armenia"},"truth":0}
+{"id":"capital_city-0478","state":{"city":"Chittagong","country":"Bangladesh"},"truth":0}
+{"id":"capital_city-0479","state":{"city":"Riyadh","country":"Georgia"},"truth":0}
+{"id":"capital_city-0480","state":{"city":"Musanze","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0481","state":{"city":"Beijing","country":"China"},"truth":1}
+{"id":"capital_city-0482","state":{"city":"Vientiane","country":"Indonesia"},"truth":0}
+{"id":"capital_city-0483","state":{"city":"Honiara","country":"Papua New Guinea"},"truth":0}
+{"id":"capital_city-0484","state":{"city":"Neiafu","country":"Tonga"},"truth":0}
+{"id":"capital_city-0485","state":{"city":"Minsk","country":"Ukraine"},"truth":0}
+{"id":"capital_city-0486","state":{"city":"Heraklion","country":"Greece"},"truth":0}
+{"id":"capital_city-0487","state":{"city":"Nampo","country":"North Korea"},"truth":0}
+{"id":"capital_city-0488","state":{"city":"Erbil","country":"Iraq"},"truth":0}
+{"id":"capital_city-0489","state":{"city":"Panama City","country":"Panama"},"truth":1}
+{"id":"capital_city-0490","state":{"city":"Lagos","country":"Nigeria"},"truth":0}
+{"id":"capital_city-0491","state":{"city":"Luxembourg City","country":"Germany"},"truth":0}
+{"id":"capital_city-0492","state":{"city":"San Marino","country":"San Marino"},"truth":1}
+{"id":"capital_city-0493","state":{"city":"Ocho Rios","country":"Jamaica"},"truth":0}
+{"id":"capital_city-0494","state":{"city":"Malé","country":"Afghanistan"},"truth":0}
+{"id":"capital_city-0495","state":{"city":"Sumgait","country":"Azerbaijan"},"truth":0}
+{"id":"capital_city-0496","state":{"city":"Jinja","country":"Uganda"},"truth":0}
+{"id":"capital_city-0497","state":{"city":"Nampula","country":"Mozambique"},"truth":0}
+{"id":"capital_city-0498","state":{"city":"Ottawa","country":"Turkey"},"truth":0}
+{"id":"capital_city-0499","state":{"city":"Garoua","country":"Cameroon"},"truth":0}
+{"id":"capital_city-0500","state":{"city":"San Salvador","country":"Zimbabwe"},"truth":0}
+{"id":"capital_city-0501","state":{"city":"Riga","country":"Belarus"},"truth":0}
+{"id":"capital_city-0502","state":{"city":"Bentiu","country":"South Sudan"},"truth":0}
+{"id":"capital_city-0503","state":{"city":"Ashgabat","country":"Uzbekistan"},"truth":0}
+{"id":"capital_city-0504","state":{"city":"Keren","country":"Eritrea"},"truth":0}
+{"id":"capital_city-0505","state":{"city":"Kankan","country":"Guinea"},"truth":0}
+{"id":"capital_city-0506","state":{"city":"Bissau","country":"Guinea-Bissau"},"truth":1}
+{"id":"capital_city-0507","state":{"city":"Astana","country":"Tajikistan"},"truth":0}
+{"id":"capital_city-0508","state":{"city":"Warsaw","country":"Panama"},"truth":0}
+{"id":"capital_city-0509","state":{"city":"Baghdad","country":"Iran"},"truth":0}
+{"id":"capital_city-0510","state":{"city":"Monte Carlo","country":"Monaco"},"truth":0}
+{"id":"capital_city-0511","state":{"city":"Ulaanbaatar","country":"Mongolia"},"truth":1}
+{"id":"capital_city-0512","state":{"city":"Moroni","country":"Rwanda"},"truth":0}
+{"id":"capital_city-0513","state":{"city":"Cairo","country":"Norway"},"truth":0}
+{"id":"capital_city-0514","state":{"city":"Lusaka","country":"Zambia"},"truth":1}
+{"id":"capital_city-0515","state":{"city":"Almaty","country":"Kazakhstan"},"truth":0}
+{"id":"capital_city-0516","state":{"city":"Alajuela","country":"Costa Rica"},"truth":0}
+{"id":"capital_city-0517","state":{"city":"Sliema","country":"Malta"},"truth":0}
+{"id":"capital_city-0518","state":{"city":"Al Ahmadi","country":"Kuwait"},"truth":0}
+{"id":"capital_city-0519","state":{"city":"Bamako","country":"Zimbabwe"},"truth":0}
+{"id":"capital_city-0520","state":{"city":"Quito","country":"Czech Republic"},"truth":0}
+{"id":"capital_city-0521","state":{"city":"Bamako","country":"Niger"},"truth":0}
+{"id":"capital_city-0522","state":{"city":"Kampala","country":"Uganda"},"truth":1}
+{"id":"capital_city-0523","state":{"city":"Maseru","country":"Namibia"},"truth":0}
+{"id":"capital_city-0524","state":{"city":"Lima","country":"Peru"},"truth":1}
+{"id":"capital_city-0525","state":{"city":"Antananarivo","country":"Monaco"},"truth":0}
+{"id":"capital_city-0526","state":{"city":"Port Moresby","country":"Samoa"},"truth":0}
+{"id":"capital_city-0527","state":{"city":"Gothenburg","country":"Sweden"},"truth":0}
+{"id":"capital_city-0528","state":{"city":"Malé","country":"Maldives"},"truth":1}
+{"id":"capital_city-0529","state":{"city":"Santo Domingo","country":"Saint Vincent and the Grenadines"},"truth":0}
+{"id":"capital_city-0530","state":{"city":"Tabriz","country":"Iran"},"truth":0}
+{"id":"capital_city-0531","state":{"city":"Doha","country":"Qatar"},"truth":1}
+{"id":"capital_city-0532","state":{"city":"Niamey","country":"Cabo Verde"},"truth":0}
+{"id":"capital_city-0533","state":{"city":"Baghdad","country":"El Salvador"},"truth":0}
+{"id":"capital_city-0534","state":{"city":"Vilnius","country":"Belarus"},"truth":0}
+{"id":"capital_city-0535","state":{"city":"Managua","country":"Nicaragua"},"truth":1}
+{"id":"capital_city-0536","state":{"city":"Phnom Penh","country":"Cambodia"},"truth":1}
+{"id":"capital_city-0537","state":{"city":"Entebbe","country":"Uganda"},"truth":0}
+{"id":"capital_city-0538","state":{"city":"Saint John's","country":"Russia"},"truth":0}
+{"id":"capital_city-0539","state":{"city":"Buenos Aires","country":"Suriname"},"truth":0}
+{"id":"capital_city-0540","state":{"city":"Stockholm","country":"Sweden"},"truth":1}
+{"id":"capital_city-0541","state":{"city":"Osaka","country":"Japan"},"truth":0}
+{"id":"capital_city-0542","state":{"city":"Luanda","country":"Namibia"},"truth":0}
+{"id":"capital_city-0543","state":{"city":"Bandar Seri Begawan","country":"Brunei"},"truth":1}
+{"id":"capital_city-0544","state":{"city":"Malabo","country":"Republic of the Congo"},"truth":0}
+{"id":"capital_city-0545","state":{"city":"Hanoi","country":"China"},"truth":0}
+{"id":"capital_city-0546","state":{"city":"Yaoundé","country":"Guyana"},"truth":0}
+{"id":"capital_city-0547","state":{"city":"Osh","country":"Kyrgyzstan"},"truth":0}
+{"id":"capital_city-0548","state":{"city":"Faisalabad","country":"Pakistan"},"truth":0}
+{"id":"capital_city-0549","state":{"city":"Ljubljana","country":"Slovenia"},"truth":1}
+{"id":"capital_city-0550","state":{"city":"Asunción","country":"Tajikistan"},"truth":0}
+{"id":"capital_city-0551","state":{"city":"Milan","country":"Italy"},"truth":0}
+{"id":"capital_city-0552","state":{"city":"Freeport","country":"Bahamas"},"truth":0}
+{"id":"capital_city-0553","state":{"city":"Abu Dhabi","country":"Iraq"},"truth":0}
+{"id":"capital_city-0554","state":{"city":"Bizerte","country":"Tunisia"},"truth":0}
+{"id":"capital_city-0555","state":{"city":"Quito","country":"Guyana"},"truth":0}
+{"id":"capital_city-0556","state":{"city":"Shymkent","country":"Kazakhstan"},"truth":0}
+{"id":"capital_city-0557","state":{"city":"Hanoi","country":"Indonesia"},"truth":0}
+{"id":"capital_city-0558","state":{"city":"Nukuʻalofa","country":"Tonga"},"truth":1}
+{"id":"capital_city-0559","state":{"city":"Windhoek","country":"Mozambique"},"truth":0}
+{"id":"capital_city-0560","state":{"city":"Medellín","country":"Colombia"},"truth":0}
+{"id":"capital_city-0561","state":{"city":"Paphos","country":"Cyprus"},"truth":0}
+{"id":"capital_city-0562","state":{"city":"Sfax","country":"Tunisia"},"truth":0}
+{"id":"capital_city-0563","state":{"city":"Encarnación","country":"Paraguay"},"truth":0}
+{"id":"capital_city-0564","state":{"city":"Monterrey","country":"Mexico"},"truth":0}
+{"id":"capital_city-0565","state":{"city":"Salto","country":"Uruguay"},"truth":0}
+{"id":"capital_city-0566","state":{"city":"Sofia","country":"Bulgaria"},"truth":1}
+{"id":"capital_city-0567","state":{"city":"Harare","country":"Zimbabwe"},"truth":1}
+{"id":"capital_city-0568","state":{"city":"Marrakesh","country":"Morocco"},"truth":0}
+{"id":"capital_city-0569","state":{"city":"Hanoi","country":"Burkina Faso"},"truth":0}
+{"id":"capital_city-0570","state":{"city":"Praia","country":"Nigeria"},"truth":0}
+{"id":"capital_city-0571","state":{"city":"Saint John's","country":"Antigua and Barbuda"},"truth":1}
+{"id":"capital_city-0572","state":{"city":"Malmö","country":"Sweden"},"truth":0}
+{"id":"capital_city-0573","state":{"city":"Andorra la Vella","country":"El Salvador"},"truth":0}
+{"id":"capital_city-0574","state":{"city":"Belmopan","country":"Belize"},"truth":1}
+{"id":"capital_city-0575","state":{"city":"San Marino","country":"Malta"},"truth":0}
+{"id":"capital_city-0576","state":{"city":"Lelydorp","country":"Suriname"},"truth":0}
+{"id":"capital_city-0577","state":{"city":"Washington, D.C.","country":"Kuwait"},"truth":0}
+{"id":"capital_city-0578","state":{"city":"Washington, D.C.","country":"Serbia"},"truth":0}
+{"id":"capital_city-0579","state":{"city":"Swakopmund","country":"Namibia"},"truth":0}
+{"id":"capital_city-0580","state":{"city":"Arequipa","country":"Peru"},"truth":0}
+{"id":"capital_city-0581","state":{"city":"Bangui","country":"Central African Republic"},"truth":1}
+{"id":"capital_city-0582","state":{"city":"Beira","country":"Mozambique"},"truth":0}
+{"id":"capital_city-0583","state":{"city":"Caracas","country":"Kyrgyzstan"},"truth":0}
+{"id":"capital_city-0584","state":{"city":"Havana","country":"Albania"},"truth":0}
+{"id":"capital_city-0585","state":{"city":"Budapest","country":"Hungary"},"truth":1}
+{"id":"capital_city-0586","state":{"city":"Prague","country":"Czech Republic"},"truth":1}
+{"id":"capital_city-0587","state":{"city":"Constantine","country":"Algeria"},"truth":0}
+{"id":"capital_city-0588","state":{"city":"Kano","country":"Nigeria"},"truth":0}
+{"id":"capital_city-0589","state":{"city":"Seoul","country":"Saint Vincent and the Grenadines"},"truth":0}
+{"id":"capital_city-0590","state":{"city":"Karaganda","country":"Kazakhstan"},"truth":0}
+{"id":"capital_city-0591","state":{"city":"Montevideo","country":"Uruguay"},"truth":1}
+{"id":"capital_city-0592","state":{"city":"Harare","country":"Costa Rica"},"truth":0}
+{"id":"capital_city-0593","state":{"city":"Mingachevir","country":"Azerbaijan"},"truth":0}
+{"id":"capital_city-0594","state":{"city":"Huambo","country":"Angola"},"truth":0}
+{"id":"capital_city-0595","state":{"city":"Maseru","country":"Poland"},"truth":0}
+{"id":"capital_city-0596","state":{"city":"Santiago de los Caballeros","country":"Dominican Republic"},"truth":0}
+{"id":"capital_city-0597","state":{"city":"Kuwait City","country":"Kuwait"},"truth":1}
+{"id":"capital_city-0598","state":{"city":"Vatican City","country":"Spain"},"truth":0}
+{"id":"capital_city-0599","state":{"city":"Santo Domingo","country":"Dominican Republic"},"truth":1}
+{"id":"capital_city-0600","state":{"city":"Kinshasa","country":"Democratic Republic of the Congo"},"truth":1}

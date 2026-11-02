@@ -1,0 +1,12 @@
+{
+  "system": "understudent-deep",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 92.209345954,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent deep --question runs/v0/output_kind/question.json --stream runs/v0/output_kind/stream.jsonl --out runs/v0/output_kind/decisions.understudent-deep.jsonl"
+  ],
+  "started": "2026-10-29T10:19:52Z",
+  "finished": "2026-10-29T10:21:25Z"
+}

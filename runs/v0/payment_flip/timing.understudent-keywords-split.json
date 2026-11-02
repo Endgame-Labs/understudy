@@ -1,0 +1,14 @@
+{
+  "system": "understudent-keywords",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 0.325170018,
+  "train_wall_s": 0.077207854,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent keywords --snapshot runs/v0/payment_flip/snapshot.understudent-keywords --question runs/v0/payment_flip/question.json --examples runs/v0/payment_flip/train.jsonl",
+    "target/release/understudy judge --understudent keywords --snapshot runs/v0/payment_flip/snapshot.understudent-keywords --replay-lead runs/v0/payment_flip/stream.jsonl < runs/v0/payment_flip/operate.jsonl > runs/v0/payment_flip/decisions.understudent-keywords-split.jsonl"
+  ],
+  "started": "2026-10-29T10:43:28Z",
+  "finished": "2026-10-29T10:43:29Z"
+}

@@ -1,0 +1,867 @@
+{
+  "run": "latencyd-jev",
+  "lead": "jev",
+  "train": 200,
+  "generated": "2026-11-02T14:23:40Z",
+  "datasets": [
+    {
+      "name": "politer_reply",
+      "category": "pair_compare",
+      "type": "choice",
+      "options": [
+        "a",
+        "b"
+      ],
+      "n": 600,
+      "class_counts": [
+        300,
+        300
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9983333333333333,
+        "recall_per_class": [
+          0.9967,
+          1
+        ],
+        "predicted_counts": [
+          299,
+          301
+        ],
+        "mean_latency_ms": 90
+      },
+      "systems": [
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 101,
+            "first_understudent_id": "politer_reply-0101",
+            "coverage": 0.8,
+            "coverage_2nd_half": 0.9766666666666667,
+            "local_n": 480,
+            "local_agreement": 0.9416666666666667,
+            "audit_n": 50,
+            "audit_agreement": 0.9,
+            "majority_baseline": 0.4791666666666667,
+            "kappa": 0.8834547346514048,
+            "local_minority_n": 250,
+            "local_minority_recall": 0.912,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9516666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.936,
+            "lead_calls": 170,
+            "lead_calls_saved": 430,
+            "understudent_us_mean": 299.30333333333334,
+            "demotions": 0,
+            "verdict": "harmful"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.238468902,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-keywords.jsonl"
+            ],
+            "started": "2026-11-02T14:19:49Z",
+            "finished": "2026-11-02T14:19:49Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "keywords": 0.8
+          },
+          "cv": {
+            "best_agreement": 0.97,
+            "final_agreement": 0.97,
+            "majority_share": 0.5700000000000001
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.8,
+            "local_n": 480,
+            "agreement": 0.9416666666666667,
+            "agreement_wilson_low": 0.9169836611947353,
+            "understudent_us_p50": 208,
+            "understudent_us_p99": 4784,
+            "forward_us_p50": 149,
+            "forward_us_p99": 368,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.026613571764705912
+          }
+        },
+        {
+          "system": "understudent-shape",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "politer_reply-0201",
+            "coverage": 0.585,
+            "coverage_2nd_half": 0.87,
+            "local_n": 351,
+            "local_agreement": 0.8888888888888888,
+            "audit_n": 49,
+            "audit_agreement": 0.8367346938775511,
+            "majority_baseline": 0.49002849002849,
+            "kappa": 0.7776640841982165,
+            "local_minority_n": 179,
+            "local_minority_recall": 0.8938547486033519,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9333333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.876,
+            "lead_calls": 283,
+            "lead_calls_saved": 317,
+            "understudent_us_mean": 77.315,
+            "demotions": 2,
+            "verdict": "harmful"
+          },
+          "timing": {
+            "system": "understudent-shape",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.064036229,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent shape --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-shape.jsonl"
+            ],
+            "started": "2026-11-02T14:19:49Z",
+            "finished": "2026-11-02T14:19:49Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "shape": 0.585
+          },
+          "cv": {
+            "best_agreement": 0.915,
+            "final_agreement": 0.915,
+            "majority_share": 0.565
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.585,
+            "local_n": 351,
+            "agreement": 0.8888888888888888,
+            "agreement_wilson_low": 0.8517092444031961,
+            "understudent_us_p50": 74,
+            "understudent_us_p99": 154,
+            "forward_us_p50": 70,
+            "forward_us_p99": 251,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.019461174352941195
+          }
+        },
+        {
+          "system": "understudent-checklist",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "politer_reply-0201",
+            "coverage": 0.6016666666666667,
+            "coverage_2nd_half": 0.91,
+            "local_n": 361,
+            "local_agreement": 0.9750692520775623,
+            "audit_n": 35,
+            "audit_agreement": 0.9714285714285714,
+            "majority_baseline": 0.4792243767313019,
+            "kappa": 0.9499946131469995,
+            "local_minority_n": 188,
+            "local_minority_recall": 0.9893617021276596,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9833333333333333,
+            "understudent_n": 476,
+            "acc_understudent_after_fit": 0.9516806722689075,
+            "lead_calls": 274,
+            "lead_calls_saved": 326,
+            "understudent_us_mean": 234.35,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-checklist",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.245261257,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent checklist --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-checklist.jsonl"
+            ],
+            "started": "2026-11-02T14:19:49Z",
+            "finished": "2026-11-02T14:19:49Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "checklist": 0.6016666666666667
+          },
+          "cv": {
+            "best_agreement": 0.9267015706806283,
+            "final_agreement": 0.9267015706806283,
+            "majority_share": 0.565
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.6016666666666667,
+            "local_n": 361,
+            "agreement": 0.9750692520775623,
+            "agreement_wilson_low": 0.953304365917686,
+            "understudent_us_p50": 236,
+            "understudent_us_p99": 728,
+            "forward_us_p50": 189,
+            "forward_us_p99": 519,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.020015623764705903
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 101,
+            "first_understudent_id": "politer_reply-0101",
+            "coverage": 0.7316666666666667,
+            "coverage_2nd_half": 0.9033333333333333,
+            "local_n": 439,
+            "local_agreement": 0.9749430523917996,
+            "audit_n": 47,
+            "audit_agreement": 0.9574468085106383,
+            "majority_baseline": 0.4920273348519362,
+            "kappa": 0.9498915648898528,
+            "local_minority_n": 223,
+            "local_minority_recall": 0.9641255605381166,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.98,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.96,
+            "lead_calls": 208,
+            "lead_calls_saved": 392,
+            "understudent_us_mean": 235.75666666666666,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 1.328845519,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-lite.jsonl"
+            ],
+            "started": "2026-11-02T14:19:49Z",
+            "finished": "2026-11-02T14:19:51Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "lite": 0.7316666666666667
+          },
+          "cv": {
+            "best_agreement": 0.97,
+            "final_agreement": 0.97,
+            "majority_share": 0.525
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.7316666666666667,
+            "local_n": 439,
+            "agreement": 0.9749430523917996,
+            "agreement_wilson_low": 0.955693711649097,
+            "understudent_us_p50": 223,
+            "understudent_us_p99": 464,
+            "forward_us_p50": 226,
+            "forward_us_p99": 494,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.024340329176470613
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 101,
+            "first_understudent_id": "politer_reply-0101",
+            "coverage": 0.7816666666666666,
+            "coverage_2nd_half": 0.9533333333333334,
+            "local_n": 469,
+            "local_agreement": 0.9872068230277186,
+            "audit_n": 49,
+            "audit_agreement": 1,
+            "majority_baseline": 0.4861407249466951,
+            "kappa": 0.9744060828755412,
+            "local_minority_n": 241,
+            "local_minority_recall": 0.979253112033195,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9883333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.978,
+            "lead_calls": 180,
+            "lead_calls_saved": 420,
+            "understudent_us_mean": 86914.65,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 54.265106374,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-deep.jsonl"
+            ],
+            "started": "2026-11-02T14:19:51Z",
+            "finished": "2026-11-02T14:20:45Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "pool": 0.7816666666666666
+          },
+          "cv": {
+            "best_agreement": 0.99,
+            "final_agreement": 0.99,
+            "majority_share": 0.5700000000000001
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.7816666666666666,
+            "local_n": 469,
+            "agreement": 0.9872068230277186,
+            "agreement_wilson_low": 0.9723730061908775,
+            "understudent_us_p50": 88636,
+            "understudent_us_p99": 172124,
+            "forward_us_p50": 72174,
+            "forward_us_p99": 125808,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.026003677411764733
+          }
+        },
+        {
+          "system": "understudent-auto",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 101,
+            "first_understudent_id": "politer_reply-0101",
+            "coverage": 0.8,
+            "coverage_2nd_half": 0.9766666666666667,
+            "local_n": 480,
+            "local_agreement": 0.9416666666666667,
+            "audit_n": 50,
+            "audit_agreement": 0.9,
+            "majority_baseline": 0.4791666666666667,
+            "kappa": 0.8834547346514048,
+            "local_minority_n": 250,
+            "local_minority_recall": 0.912,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9516666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.936,
+            "lead_calls": 170,
+            "lead_calls_saved": 430,
+            "understudent_us_mean": 17875.015,
+            "demotions": 0,
+            "verdict": "harmful"
+          },
+          "timing": {
+            "system": "understudent-auto",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 17.264149181,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent auto --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-auto.jsonl"
+            ],
+            "started": "2026-11-02T14:20:45Z",
+            "finished": "2026-11-02T14:21:02Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "keywords": 0.8
+          },
+          "cv": {
+            "best_agreement": 0.99,
+            "final_agreement": 0.97,
+            "majority_share": 0.5700000000000001
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.8,
+            "local_n": 480,
+            "agreement": 0.9416666666666667,
+            "agreement_wilson_low": 0.9169836611947353,
+            "understudent_us_p50": 233,
+            "understudent_us_p99": 582,
+            "forward_us_p50": 87717,
+            "forward_us_p99": 174062,
+            "lead_ms_p50": 82,
+            "lead_ms_p99": 204,
+            "lead_cost_per_call_usd": 0.00003326696470588239,
+            "saved_per_1k_calls_usd": 0.026613571764705912
+          }
+        }
+      ]
+    },
+    {
+      "name": "output_kind",
+      "category": "topic_kind",
+      "type": "choice",
+      "options": [
+        "test_results",
+        "file_contents",
+        "error_message",
+        "search_results",
+        "command_output"
+      ],
+      "n": 600,
+      "class_counts": [
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9633333333333334,
+        "recall_per_class": [
+          0.9833,
+          1,
+          0.8583,
+          1,
+          0.975
+        ],
+        "predicted_counts": [
+          125,
+          121,
+          103,
+          120,
+          131
+        ],
+        "mean_latency_ms": 83.9
+      },
+      "systems": [
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 102,
+            "first_understudent_id": "output_kind-0102",
+            "coverage": 0.5166666666666667,
+            "coverage_2nd_half": 0.7033333333333334,
+            "local_n": 310,
+            "local_agreement": 0.9806451612903225,
+            "audit_n": 31,
+            "audit_agreement": 1,
+            "majority_baseline": 0.16774193548387098,
+            "kappa": 0.9755198736509607,
+            "local_minority_n": 258,
+            "local_minority_recall": 0.9844961240310077,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.9533333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.862,
+            "lead_calls": 321,
+            "lead_calls_saved": 279,
+            "understudent_us_mean": 138.67166666666665,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.979944404,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-keywords.jsonl"
+            ],
+            "started": "2026-11-02T14:21:02Z",
+            "finished": "2026-11-02T14:21:03Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.5166666666666667
+          },
+          "cv": {
+            "best_agreement": 0.8533333333333334,
+            "final_agreement": 0.8533333333333334,
+            "majority_share": 0.2633333333333333
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.5166666666666667,
+            "local_n": 310,
+            "agreement": 0.9806451612903225,
+            "agreement_wilson_low": 0.9584234043788892,
+            "understudent_us_p50": 103,
+            "understudent_us_p99": 537,
+            "forward_us_p50": 74,
+            "forward_us_p99": 549,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0.01629189196078431
+          }
+        },
+        {
+          "system": "understudent-shape",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.9633333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.654,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 73.72333333333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-shape",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.20271835,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent shape --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-shape.jsonl"
+            ],
+            "started": "2026-11-02T14:21:03Z",
+            "finished": "2026-11-02T14:21:03Z"
+          },
+          "expected": "takes over",
+          "cv": {
+            "best_agreement": 0.7216666666666667,
+            "final_agreement": 0.7216666666666667,
+            "majority_share": 0.21833333333333338
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0,
+            "local_n": 0,
+            "agreement": null,
+            "agreement_wilson_low": null,
+            "understudent_us_p50": null,
+            "understudent_us_p99": null,
+            "forward_us_p50": 60,
+            "forward_us_p99": 218,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0
+          }
+        },
+        {
+          "system": "understudent-checklist",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "output_kind-0401",
+            "coverage": 0.21166666666666667,
+            "coverage_2nd_half": 0.42333333333333334,
+            "local_n": 127,
+            "local_agreement": 0.952755905511811,
+            "audit_n": 9,
+            "audit_agreement": 0.8888888888888888,
+            "majority_baseline": 0.15748031496062992,
+            "kappa": 0.9385285575992255,
+            "local_minority_n": 107,
+            "local_minority_recall": 0.9439252336448598,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.9533333333333334,
+            "understudent_n": 399,
+            "acc_understudent_after_fit": 0.8922305764411027,
+            "lead_calls": 482,
+            "lead_calls_saved": 118,
+            "understudent_us_mean": 160.51666666666668,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-checklist",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.276738637,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent checklist --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-checklist.jsonl"
+            ],
+            "started": "2026-11-02T14:21:03Z",
+            "finished": "2026-11-02T14:21:04Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "checklist": 0.21166666666666667
+          },
+          "cv": {
+            "best_agreement": 0.8975903614457831,
+            "final_agreement": 0.8975903614457831,
+            "majority_share": 0.21999999999999997
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.21166666666666667,
+            "local_n": 127,
+            "agreement": 0.952755905511811,
+            "agreement_wilson_low": 0.9007548495742497,
+            "understudent_us_p50": 153,
+            "understudent_us_p99": 613,
+            "forward_us_p50": 98,
+            "forward_us_p99": 631,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0.006674420254901958
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "output_kind-0201",
+            "coverage": 0.5083333333333333,
+            "coverage_2nd_half": 0.77,
+            "local_n": 305,
+            "local_agreement": 0.9770491803278688,
+            "audit_n": 28,
+            "audit_agreement": 1,
+            "majority_baseline": 0.20327868852459016,
+            "kappa": 0.9711244556249831,
+            "local_minority_n": 243,
+            "local_minority_recall": 0.9835390946502057,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.9516666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.894,
+            "lead_calls": 323,
+            "lead_calls_saved": 277,
+            "understudent_us_mean": 355.285,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 1.569252364,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-lite.jsonl"
+            ],
+            "started": "2026-11-02T14:21:04Z",
+            "finished": "2026-11-02T14:21:05Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "lite": 0.5083333333333333
+          },
+          "cv": {
+            "best_agreement": 0.88,
+            "final_agreement": 0.82,
+            "majority_share": 0.2366666666666667
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.5083333333333333,
+            "local_n": 305,
+            "agreement": 0.9770491803278688,
+            "agreement_wilson_low": 0.9533913424907445,
+            "understudent_us_p50": 188,
+            "understudent_us_p99": 1626,
+            "forward_us_p50": 197,
+            "forward_us_p99": 4313,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0.016029119509803916
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 102,
+            "first_understudent_id": "output_kind-0102",
+            "coverage": 0.5766666666666667,
+            "coverage_2nd_half": 0.8066666666666666,
+            "local_n": 346,
+            "local_agreement": 0.976878612716763,
+            "audit_n": 34,
+            "audit_agreement": 0.9411764705882353,
+            "majority_baseline": 0.18497109826589594,
+            "kappa": 0.9709026690073479,
+            "local_minority_n": 282,
+            "local_minority_recall": 0.9893617021276596,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.9633333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.926,
+            "lead_calls": 288,
+            "lead_calls_saved": 312,
+            "understudent_us_mean": 100922.89166666666,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 64.373409498,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-deep.jsonl"
+            ],
+            "started": "2026-11-02T14:21:05Z",
+            "finished": "2026-11-02T14:22:10Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "pool": 0.5766666666666667
+          },
+          "cv": {
+            "best_agreement": 0.89,
+            "final_agreement": 0.89,
+            "majority_share": 0.245
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.5766666666666667,
+            "local_n": 346,
+            "agreement": 0.976878612716763,
+            "agreement_wilson_low": 0.9550454357556601,
+            "understudent_us_p50": 66532,
+            "understudent_us_p99": 476186,
+            "forward_us_p50": 59899,
+            "forward_us_p99": 533948,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0.01818385360784313
+          }
+        },
+        {
+          "system": "understudent-auto",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 102,
+            "first_understudent_id": "output_kind-0102",
+            "coverage": 0.5516666666666666,
+            "coverage_2nd_half": 0.7633333333333333,
+            "local_n": 331,
+            "local_agreement": 0.9848942598187311,
+            "audit_n": 33,
+            "audit_agreement": 1,
+            "majority_baseline": 0.15709969788519637,
+            "kappa": 0.9809338386922111,
+            "local_minority_n": 279,
+            "local_minority_recall": 0.989247311827957,
+            "acc_lead": 0.9633333333333334,
+            "acc_system": 0.955,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.886,
+            "lead_calls": 302,
+            "lead_calls_saved": 298,
+            "understudent_us_mean": 108473.59333333334,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-auto",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 75.716781603,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent auto --question runs/latencyd-jev/output_kind/question.json --stream runs/latencyd-jev/output_kind/stream.jsonl --out runs/latencyd-jev/output_kind/decisions.understudent-auto.jsonl"
+            ],
+            "started": "2026-11-02T14:22:10Z",
+            "finished": "2026-11-02T14:23:25Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.14833333333333334,
+            "deep:pool": 0.4033333333333333
+          },
+          "cv": {
+            "best_agreement": 0.875,
+            "final_agreement": 0.8633333333333333,
+            "majority_share": 0.30333333333333334
+          },
+          "usefulness": {
+            "n": 600,
+            "coverage": 0.5516666666666666,
+            "local_n": 331,
+            "agreement": 0.9848942598187311,
+            "agreement_wilson_low": 0.9651312270623426,
+            "understudent_us_p50": 44141,
+            "understudent_us_p99": 536808,
+            "forward_us_p50": 74822,
+            "forward_us_p99": 714414,
+            "lead_ms_p50": 78,
+            "lead_ms_p99": 152,
+            "lead_cost_per_call_usd": 0.00003153269411764705,
+            "saved_per_1k_calls_usd": 0.017395536254901957
+          }
+        }
+      ]
+    }
+  ]
+}

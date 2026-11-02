@@ -1,0 +1,8 @@
+$ uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/narrow-v1-jev/customer_frustration/question.json --stream runs/narrow-v1-jev/customer_frustration/stream.jsonl --out runs/narrow-v1-jev/customer_frustration/decisions.hunch.jsonl
+100/600 items, 0 local, mode None, demoted False
+200/600 items, 0 local, mode None, demoted False
+300/600 items, 0 local, mode None, demoted False
+400/600 items, 0 local, mode None, demoted False
+500/600 items, 0 local, mode None, demoted False
+600/600 items, 0 local, mode None, demoted False
+{"system": "hunch", "items": 600, "first_local_item": null, "local": 0, "coverage": 0.0, "lead_calls": 600, "stats": {"requests": 600, "local": 0, "cached": 0, "forwarded": 600, "audited": 0, "audits_skipped": 0, "label_asks": 0, "backend_errors": 0}, "final_mode": null, "final_graduated": false, "final_report": {"n": 600, "labelled": 0, "sampled": 600, "cv_agreement": 0.73, "cv_minority_recall": 0.6484848484848484, "majority_share": 0.45, "mode": null, "threshold": 0.0, "cv_coverage": 0.0, "why_not": "CV agreement / minority recall below the graduation bars", "tuning": {"pairs": 0, "on": false, "why_not": "fewer than 50 labels with a teacher answer"}}, "audits": {"n": 0, "agreement": null, "misses": null}, "wall_s": 111.965}

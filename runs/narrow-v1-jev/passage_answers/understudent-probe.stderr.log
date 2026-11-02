@@ -1,0 +1,168 @@
+$ target/release/understudy replay --understudent probe --question runs/narrow-v1-jev/passage_answers/question.json --stream runs/narrow-v1-jev/passage_answers/stream.jsonl --out runs/narrow-v1-jev/passage_answers/decisions.understudent-probe.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 0,
+  "coverage": 0.0,
+  "local_agreement_with_lead": null,
+  "graduated_at_item": null,
+  "first_local_item": null,
+  "coverage_by_readout": {},
+  "audited": 0,
+  "demotions": 0,
+  "mode": null,
+  "readout": "mean",
+  "state": "learning",
+  "understudent_us": {
+    "mean": 381946.38,
+    "p50": 335481,
+    "p95": 887840
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.011380901,
+      "n": 100,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.79,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.018718105999999998,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.79
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.017695253,
+      "n": 200,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.805,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.027959750999999998,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.805
+      }
+    },
+    {
+      "item": 299,
+      "secs": 0.071229496,
+      "n": 300,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.8,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.070282339,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.8
+      }
+    },
+    {
+      "item": 399,
+      "secs": 0.020688872,
+      "n": 400,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.7975,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.044710489,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.7975
+      }
+    },
+    {
+      "item": 499,
+      "secs": 0.131323568,
+      "n": 500,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.802,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.158212036,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.802
+      }
+    },
+    {
+      "item": 599,
+      "secs": 0.20687899,
+      "n": 600,
+      "readout": "mean",
+      "mode": null,
+      "cv_agreement": 0.8283333333333334,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.261637388,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.8283333333333334
+      }
+    }
+  ],
+  "refit_secs_total": 0.45919708000000004,
+  "total_secs": 229.68239986,
+  "final": {
+    "name": "passage_answers",
+    "key": "a6e57238d1816b04",
+    "type": "noul",
+    "state": "learning",
+    "examples": 600,
+    "labelled": 0,
+    "since_refit": 0,
+    "mode": null,
+    "threshold": 0.0,
+    "readout": "mean",
+    "understudent": "probe",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.8283333333333334,
+    "cv_minority_recall": 0.7345971563981043,
+    "cv_coverage": 0.0,
+    "why_not": "CV agreement / minority recall below the graduation bars",
+    "audits": {
+      "n": 0,
+      "agreement": null,
+      "misses": null
+    },
+    "report": {
+      "n": 600,
+      "fit_secs": {
+        "pool": 0.261637388,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.8283333333333334
+      },
+      "labelled": 0,
+      "readout": "mean",
+      "cv_agreement": 0.8283333333333334,
+      "cv_minority_recall": 0.7345971563981043,
+      "majority_share": 0.6483333333333333,
+      "mode": null,
+      "threshold": 0.0,
+      "cv_coverage": 0.0,
+      "why_not": "CV agreement / minority recall below the graduation bars",
+      "secs": 0.206803877
+    },
+    "rules": null
+  },
+  "understudent": "probe"
+}

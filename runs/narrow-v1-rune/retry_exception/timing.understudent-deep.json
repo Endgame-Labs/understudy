@@ -1,0 +1,12 @@
+{
+  "system": "understudent-deep",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 993.682039408,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent deep --question runs/narrow-v1-rune/retry_exception/question.json --stream runs/narrow-v1-rune/retry_exception/stream.jsonl --out runs/narrow-v1-rune/retry_exception/decisions.understudent-deep.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T07:45:26Z",
+  "finished": "2026-11-02T08:02:00Z"
+}

@@ -1,0 +1,172 @@
+$ target/release/understudy replay --understudent deep --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-deep.jsonl --target 0.97
+{
+  "items": 600,
+  "answered_by_understudent": 0,
+  "coverage": 0.0,
+  "local_agreement_with_lead": null,
+  "graduated_at_item": null,
+  "first_local_item": null,
+  "coverage_by_readout": {},
+  "audited": 0,
+  "demotions": 0,
+  "mode": null,
+  "readout": "pool",
+  "state": "learning",
+  "understudent_us": {
+    "mean": 1775061.365,
+    "p50": 1601865,
+    "p95": 3082724
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 3.540845464,
+      "n": 100,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.7,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.03878289,
+        "attn": 20.049305861
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.7,
+        "attn": 0.61
+      }
+    },
+    {
+      "item": 199,
+      "secs": 8.461868473,
+      "n": 200,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.725,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.13505625599999999,
+        "attn": 46.715017426
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.725,
+        "attn": 0.575
+      }
+    },
+    {
+      "item": 299,
+      "secs": 15.171077168,
+      "n": 300,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.75,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.333513104,
+        "attn": 79.358333711
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.75,
+        "attn": 0.6633333333333333
+      }
+    },
+    {
+      "item": 399,
+      "secs": 17.09577463,
+      "n": 400,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.735,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.2480558,
+        "attn": 84.962287813
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.735,
+        "attn": 0.67
+      }
+    },
+    {
+      "item": 499,
+      "secs": 26.562248139,
+      "n": 500,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.762,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.47122606,
+        "attn": 144.300605909
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.762,
+        "attn": 0.686
+      }
+    },
+    {
+      "item": 599,
+      "secs": 24.896583327,
+      "n": 600,
+      "readout": "pool",
+      "mode": null,
+      "cv_agreement": 0.735,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.9061935860000001,
+        "attn": 143.64526959
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.735,
+        "attn": 0.7
+      }
+    }
+  ],
+  "refit_secs_total": 95.728397201,
+  "total_secs": 1160.949134017,
+  "final": {
+    "name": "secret_needle",
+    "key": "08c8f0ecb1c414b9",
+    "type": "noul",
+    "state": "learning",
+    "examples": 600,
+    "labelled": 0,
+    "since_refit": 0,
+    "mode": null,
+    "threshold": 0.0,
+    "readout": "pool",
+    "understudent": "deep",
+    "front": null,
+    "cv_agreement": 0.735,
+    "cv_minority_recall": 0.43820224719101125,
+    "cv_coverage": 0.0,
+    "why_not": "CV agreement / minority recall below the graduation bars",
+    "audits": {
+      "n": 0,
+      "agreement": null,
+      "misses": null
+    },
+    "report": {
+      "n": 600,
+      "fit_secs": {
+        "pool": 0.9061935860000001,
+        "attn": 143.64526959
+      },
+      "attn_epochs": 26,
+      "cv_agreement_by_readout": {
+        "pool": 0.735,
+        "attn": 0.7
+      },
+      "labelled": 0,
+      "readout": "pool",
+      "cv_agreement": 0.735,
+      "cv_minority_recall": 0.43820224719101125,
+      "majority_share": 0.7033333333333334,
+      "mode": null,
+      "threshold": 0.0,
+      "cv_coverage": 0.0,
+      "why_not": "CV agreement / minority recall below the graduation bars",
+      "secs": 24.896412488
+    }
+  },
+  "understudent": "deep"
+}

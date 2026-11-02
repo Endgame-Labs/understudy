@@ -1,0 +1,12 @@
+{
+  "system": "understudent-keywords",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 0.832722503,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent keywords --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-keywords.jsonl --target 0.97"
+  ],
+  "started": "2026-10-29T13:55:01Z",
+  "finished": "2026-10-29T13:55:02Z"
+}

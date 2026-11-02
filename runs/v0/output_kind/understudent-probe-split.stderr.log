@@ -1,0 +1,27 @@
+$ target/release/understudy train --understudent probe --snapshot runs/v0/output_kind/snapshot.understudent-probe --question runs/v0/output_kind/question.json --examples runs/v0/output_kind/train.jsonl
+{
+  "snapshot": "runs/v0/output_kind/snapshot.understudent-probe",
+  "question": "output_kind",
+  "key": "d7d0867bfb946375",
+  "state": "graduated",
+  "added": {
+    "sampled": 200,
+    "labelled": 0,
+    "asked_lead": 0
+  },
+  "n": 200,
+  "cv_agreement": 0.885,
+  "cv_minority_recall": 0.8701298701298701,
+  "mode": "symmetric",
+  "threshold": 0.8300000000000001,
+  "cv_coverage": 0.835,
+  "readout": "mean",
+  "cv_agreement_by_readout": {
+    "pool": 0.885
+  },
+  "why_not": null,
+  "refit_secs": 0.013188761
+}
+$ target/release/understudy judge --understudent probe --snapshot runs/v0/output_kind/snapshot.understudent-probe --replay-lead runs/v0/output_kind/stream.jsonl < runs/v0/output_kind/operate.jsonl > runs/v0/output_kind/decisions.understudent-probe-split.jsonl
+understudy: refit output_kind in 0.02s: n=300 readout="mean" mode="symmetric" cv_coverage=0.82
+{"items":400,"answered_by_understudent":334,"coverage":0.835,"local_agreement_with_lead":0.0,"graduated_at_item":0,"first_local_item":0,"coverage_by_readout":{"mean":0.835},"audited":34,"demotions":0,"mode":"symmetric","readout":"mean","state":"graduated","understudent_us":{"mean":96296.965,"p50":65033,"p95":259854},"refits":[],"refit_secs_total":0.0,"total_secs":38.688673492,"final":[{"name":"output_kind","key":"d7d0867bfb946375","type":"choice","state":"graduated","examples":300,"labelled":0,"since_refit":0,"mode":"symmetric","threshold":0.79,"readout":"mean","understudent":"probe","front":null,"cv_agreement":0.86,"cv_minority_recall":0.8803418803418803,"cv_coverage":0.82,"why_not":null,"audits":{"n":34,"agreement":0.9411764705882353,"misses":null},"report":{"n":300,"fit_secs":{"pool":0.084115208,"attn":0.0},"cv_agreement_by_readout":{"pool":0.86},"labelled":0,"readout":"mean","cv_agreement":0.86,"cv_minority_recall":0.8803418803418803,"majority_share":0.21999999999999997,"mode":"symmetric","threshold":0.79,"cv_coverage":0.82,"secs":0.023963723}}],"understudent":"probe"}

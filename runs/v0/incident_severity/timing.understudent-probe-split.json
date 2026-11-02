@@ -1,0 +1,14 @@
+{
+  "system": "understudent-probe",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 57.932563735,
+  "train_wall_s": 13.177675024,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent probe --snapshot runs/v0/incident_severity/snapshot.understudent-probe --question runs/v0/incident_severity/question.json --examples runs/v0/incident_severity/train.jsonl",
+    "target/release/understudy judge --understudent probe --snapshot runs/v0/incident_severity/snapshot.understudent-probe --replay-lead runs/v0/incident_severity/stream.jsonl < runs/v0/incident_severity/operate.jsonl > runs/v0/incident_severity/decisions.understudent-probe-split.jsonl"
+  ],
+  "started": "2026-10-29T10:11:41Z",
+  "finished": "2026-10-29T10:12:39Z"
+}

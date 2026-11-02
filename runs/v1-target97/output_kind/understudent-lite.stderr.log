@@ -1,0 +1,134 @@
+$ target/release/understudy replay --understudent lite --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-lite.jsonl --target 0.97
+{
+  "items": 600,
+  "answered_by_understudent": 132,
+  "coverage": 0.22,
+  "local_agreement_with_lead": 0.9848484848484849,
+  "graduated_at_item": 300,
+  "first_local_item": 300,
+  "coverage_by_readout": {
+    "lite": 0.22
+  },
+  "audited": 9,
+  "demotions": 0,
+  "mode": null,
+  "readout": "lite",
+  "state": "learning",
+  "understudent_us": {
+    "mean": 557.1483333333333,
+    "p50": 345,
+    "p95": 1499
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.03878302,
+      "n": 100,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.83,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.103821682,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.83
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.044013329,
+      "n": 200,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.87,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.138490197,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.87
+      }
+    },
+    {
+      "item": 299,
+      "secs": 0.05997924,
+      "n": 300,
+      "readout": "lite",
+      "mode": "symmetric",
+      "cv_agreement": 0.88,
+      "cv_coverage": 0.6366666666666667,
+      "fit_secs": {
+        "pool": 0.16672615899999998,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.88
+      }
+    },
+    {
+      "item": 522,
+      "secs": 0.067049037,
+      "n": 400,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.85,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.278202602,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.85
+      }
+    }
+  ],
+  "refit_secs_total": 0.209824626,
+  "total_secs": 0.569214399,
+  "final": {
+    "name": "output_kind",
+    "key": "d7d0867bfb946375",
+    "type": "choice",
+    "state": "learning",
+    "examples": 477,
+    "labelled": 0,
+    "since_refit": 77,
+    "mode": null,
+    "threshold": 0.0,
+    "readout": "lite",
+    "understudent": "lite",
+    "front": null,
+    "cv_agreement": 0.85,
+    "cv_minority_recall": 0.8757961783439491,
+    "cv_coverage": 0.0,
+    "why_not": "CV agreement / minority recall below the graduation bars",
+    "audits": {
+      "n": 0,
+      "agreement": null,
+      "misses": null
+    },
+    "report": {
+      "n": 400,
+      "fit_secs": {
+        "pool": 0.278202602,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.85
+      },
+      "labelled": 0,
+      "readout": "lite",
+      "cv_agreement": 0.85,
+      "cv_minority_recall": 0.8757961783439491,
+      "majority_share": 0.21499999999999997,
+      "mode": null,
+      "threshold": 0.0,
+      "cv_coverage": 0.0,
+      "why_not": "CV agreement / minority recall below the graduation bars",
+      "secs": 0.06695808
+    }
+  },
+  "understudent": "lite"
+}

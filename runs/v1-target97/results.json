@@ -1,0 +1,3693 @@
+{
+  "run": "v1-target97",
+  "lead": "rune",
+  "train": 200,
+  "generated": "2026-10-29T16:35:29Z",
+  "datasets": [
+    {
+      "name": "capital_city",
+      "category": "world_knowledge",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        450,
+        150
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9916666666666667,
+        "recall_per_class": [
+          0.9911,
+          0.9933
+        ],
+        "predicted_counts": [
+          447,
+          153
+        ],
+        "mean_latency_ms": 58.5
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9933333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.73,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 31266.18350000003,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 34.252224722,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:02:05Z",
+            "finished": "2026-10-29T13:02:39Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.728,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 21110.676666666666,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 14.768759224,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:02:39Z",
+            "finished": "2026-10-29T13:02:54Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.734,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 34354.515,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 27.633016078,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:02:54Z",
+            "finished": "2026-10-29T13:03:22Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.698,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 37.945,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.18523245,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:03:22Z",
+            "finished": "2026-10-29T13:03:22Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.574,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 92.77,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.182897865,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:03:22Z",
+            "finished": "2026-10-29T13:03:24Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.72,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 21275.796666666665,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 15.128487128,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:03:24Z",
+            "finished": "2026-10-29T13:03:39Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9916666666666667,
+            "acc_system": 0.9916666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.734,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 35090.363333333335,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 27.710345823,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/capital_city/question.json --stream runs/v1-target97/capital_city/stream.jsonl --out runs/v1-target97/capital_city/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:03:39Z",
+            "finished": "2026-10-29T13:04:07Z"
+          },
+          "expected": "abstains"
+        }
+      ]
+    },
+    {
+      "name": "code_lookup",
+      "category": "binding_lookup",
+      "type": "choice",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "n": 600,
+      "class_counts": [
+        150,
+        150,
+        150,
+        150
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.995,
+        "recall_per_class": [
+          1,
+          1,
+          0.9933,
+          0.9867
+        ],
+        "predicted_counts": [
+          150,
+          153,
+          149,
+          148
+        ],
+        "mean_latency_ms": 362.7
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.45,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 67440.26516666672,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 64.370458852,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:04:07Z",
+            "finished": "2026-10-29T13:05:11Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.45,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 52503.94,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 33.543324646,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:05:11Z",
+            "finished": "2026-10-29T13:05:45Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.564,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 69555.33833333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 54.475590566,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:05:45Z",
+            "finished": "2026-10-29T13:06:39Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.25,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 71.695,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.764028537,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:06:39Z",
+            "finished": "2026-10-29T13:06:40Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.264,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 148.17833333333334,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.242851558,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:06:40Z",
+            "finished": "2026-10-29T13:06:42Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.346,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 69840.14833333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 44.382375122,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:06:42Z",
+            "finished": "2026-10-29T13:07:27Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.995,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.564,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 74015.765,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 58.654793767,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/code_lookup/question.json --stream runs/v1-target97/code_lookup/stream.jsonl --out runs/v1-target97/code_lookup/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:07:27Z",
+            "finished": "2026-10-29T13:08:25Z"
+          },
+          "expected": "abstains"
+        }
+      ]
+    },
+    {
+      "name": "customer_frustration",
+      "category": "graded_tone",
+      "type": "score",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "n": 600,
+      "class_counts": [
+        150,
+        150,
+        150,
+        150
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.655,
+        "recall_per_class": [
+          0.6867,
+          0.22,
+          0.9067,
+          0.8067
+        ],
+        "predicted_counts": [
+          111,
+          66,
+          289,
+          134
+        ],
+        "flag": "SUSPECT: lead far below the generator's labels; the labels or the lead are wrong",
+        "mean_latency_ms": 57.8
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.544,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 91418.25033333334,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 75.934626472,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:08:26Z",
+            "finished": "2026-10-29T13:09:41Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.544,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 75948.14666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 48.118767492,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:09:41Z",
+            "finished": "2026-10-29T13:10:30Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.568,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 106802.605,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 83.625858688,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:10:30Z",
+            "finished": "2026-10-29T13:11:53Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.498,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 210.00166666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 3.947901446,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:11:53Z",
+            "finished": "2026-10-29T13:11:57Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.508,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 504.01,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.779197137,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:11:57Z",
+            "finished": "2026-10-29T13:12:00Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.476,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 78935.02666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 49.25314499,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:12:00Z",
+            "finished": "2026-10-29T13:12:49Z"
+          },
+          "expected": "partial"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.655,
+            "acc_system": 0.655,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.568,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 164501.51666666666,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 125.792930604,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/customer_frustration/question.json --stream runs/v1-target97/customer_frustration/stream.jsonl --out runs/v1-target97/customer_frustration/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:12:49Z",
+            "finished": "2026-10-29T13:14:55Z"
+          },
+          "expected": "partial"
+        }
+      ]
+    },
+    {
+      "name": "incident_severity",
+      "category": "compound_judgment",
+      "type": "score",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "n": 600,
+      "class_counts": [
+        150,
+        150,
+        150,
+        150
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.6716666666666666,
+        "recall_per_class": [
+          0.9733,
+          0.6667,
+          0.54,
+          0.5067
+        ],
+        "predicted_counts": [
+          250,
+          141,
+          130,
+          79
+        ],
+        "flag": "SUSPECT: lead far below the generator's labels; the labels or the lead are wrong",
+        "mean_latency_ms": 74.5
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.516,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 135458.49699999992,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 97.802401605,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:14:55Z",
+            "finished": "2026-10-29T13:16:33Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.516,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 105173.88166666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 65.238766661,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:16:33Z",
+            "finished": "2026-10-29T13:17:38Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.544,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 229778.63,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 168.786327376,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:17:38Z",
+            "finished": "2026-10-29T13:20:27Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.502,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 329.4716666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 5.460945371,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:20:27Z",
+            "finished": "2026-10-29T13:20:32Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.488,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 525.88,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.514338704,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:20:32Z",
+            "finished": "2026-10-29T13:20:35Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.472,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 118154.66166666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 72.784885397,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:20:35Z",
+            "finished": "2026-10-29T13:21:48Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.6716666666666666,
+            "acc_system": 0.6716666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.544,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 215845.21833333332,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 164.60196596,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/incident_severity/question.json --stream runs/v1-target97/incident_severity/stream.jsonl --out runs/v1-target97/incident_severity/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:21:48Z",
+            "finished": "2026-10-29T13:24:32Z"
+          },
+          "expected": "abstains"
+        }
+      ]
+    },
+    {
+      "name": "output_kind",
+      "category": "topic_kind",
+      "type": "choice",
+      "options": [
+        "test_results",
+        "file_contents",
+        "error_message",
+        "search_results",
+        "command_output"
+      ],
+      "n": 600,
+      "class_counts": [
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9583333333333334,
+        "recall_per_class": [
+          1,
+          0.9833,
+          0.8917,
+          1,
+          0.9167
+        ],
+        "predicted_counts": [
+          132,
+          120,
+          107,
+          122,
+          119
+        ],
+        "mean_latency_ms": 58.3
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "output_kind-0401",
+            "coverage": 0.22166666666666668,
+            "coverage_2nd_half": 0.44333333333333336,
+            "local_n": 133,
+            "local_agreement": 1,
+            "audit_n": 10,
+            "audit_agreement": 1,
+            "majority_baseline": 0.2631578947368421,
+            "kappa": 1,
+            "local_minority_n": 98,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9583333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.916,
+            "lead_calls": 477,
+            "lead_calls_saved": 123,
+            "understudent_us_mean": 158256.98883333348,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 105.153927411,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:24:32Z",
+            "finished": "2026-10-29T13:26:17Z"
+          },
+          "expected": "takes over"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "output_kind-0401",
+            "coverage": 0.22333333333333333,
+            "coverage_2nd_half": 0.44666666666666666,
+            "local_n": 134,
+            "local_agreement": 1,
+            "audit_n": 10,
+            "audit_agreement": 1,
+            "majority_baseline": 0.26119402985074625,
+            "kappa": 1,
+            "local_minority_n": 99,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9583333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.916,
+            "lead_calls": 476,
+            "lead_calls_saved": 124,
+            "understudent_us_mean": 127938.82333333333,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 78.981359272,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:26:17Z",
+            "finished": "2026-10-29T13:27:36Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "mean": 0.22333333333333333
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "output_kind-0401",
+            "coverage": 0.27,
+            "coverage_2nd_half": 0.54,
+            "local_n": 162,
+            "local_agreement": 0.9876543209876543,
+            "audit_n": 12,
+            "audit_agreement": 1,
+            "majority_baseline": 0.24074074074074073,
+            "kappa": 0.984489444205084,
+            "local_minority_n": 123,
+            "local_minority_recall": 0.991869918699187,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9583333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.94,
+            "lead_calls": 450,
+            "lead_calls_saved": 150,
+            "understudent_us_mean": 329204.95666666667,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 215.655708474,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:27:36Z",
+            "finished": "2026-10-29T13:31:12Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "pool": 0.27
+          }
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 403,
+            "first_understudent_id": "output_kind-0403",
+            "coverage": 0.19833333333333333,
+            "coverage_2nd_half": 0.39666666666666667,
+            "local_n": 119,
+            "local_agreement": 0.9831932773109243,
+            "audit_n": 7,
+            "audit_agreement": 1,
+            "majority_baseline": 0.2857142857142857,
+            "kappa": 0.9787157932391343,
+            "local_minority_n": 85,
+            "local_minority_recall": 0.9764705882352941,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9616666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.904,
+            "lead_calls": 488,
+            "lead_calls_saved": 112,
+            "understudent_us_mean": 206.995,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.026760445,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:31:12Z",
+            "finished": "2026-10-29T13:31:14Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.19833333333333333
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "output_kind-0301",
+            "coverage": 0.22,
+            "coverage_2nd_half": 0.44,
+            "local_n": 132,
+            "local_agreement": 0.9848484848484849,
+            "audit_n": 9,
+            "audit_agreement": 1,
+            "majority_baseline": 0.2878787878787879,
+            "kappa": 0.980663590419688,
+            "local_minority_n": 94,
+            "local_minority_recall": 0.9893617021276596,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9616666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.89,
+            "lead_calls": 477,
+            "lead_calls_saved": 123,
+            "understudent_us_mean": 557.1483333333333,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.74885072,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:31:14Z",
+            "finished": "2026-10-29T13:31:17Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "lite": 0.22
+          }
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 501,
+            "first_understudent_id": "output_kind-0501",
+            "coverage": 0.09666666666666666,
+            "coverage_2nd_half": 0.19333333333333333,
+            "local_n": 58,
+            "local_agreement": 1,
+            "audit_n": 3,
+            "audit_agreement": 1,
+            "majority_baseline": 0.27586206896551724,
+            "kappa": 1,
+            "local_minority_n": 42,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9583333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.824,
+            "lead_calls": 545,
+            "lead_calls_saved": 55,
+            "understudent_us_mean": 226001.24,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 138.231017941,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:31:17Z",
+            "finished": "2026-10-29T13:33:35Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "neighbors": 0.09666666666666666
+          }
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "output_kind-0401",
+            "coverage": 0.28833333333333333,
+            "coverage_2nd_half": 0.5766666666666667,
+            "local_n": 173,
+            "local_agreement": 0.976878612716763,
+            "audit_n": 14,
+            "audit_agreement": 0.9285714285714286,
+            "majority_baseline": 0.23699421965317918,
+            "kappa": 0.9709439032583137,
+            "local_minority_n": 132,
+            "local_minority_recall": 0.9772727272727273,
+            "acc_lead": 0.9583333333333334,
+            "acc_system": 0.9616666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.94,
+            "lead_calls": 441,
+            "lead_calls_saved": 159,
+            "understudent_us_mean": 288603.45,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 195.191372859,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/output_kind/question.json --stream runs/v1-target97/output_kind/stream.jsonl --out runs/v1-target97/output_kind/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:33:35Z",
+            "finished": "2026-10-29T13:36:50Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.19833333333333333,
+            "deep:pool": 0.09
+          }
+        }
+      ]
+    },
+    {
+      "name": "passage_answers",
+      "category": "relational_match",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        420,
+        180
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9366666666666666,
+        "recall_per_class": [
+          0.919,
+          0.9778
+        ],
+        "predicted_counts": [
+          390,
+          210
+        ],
+        "mean_latency_ms": 69.3
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9383333333333334,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.75,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 254501.06066666677,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 168.771967299,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:36:50Z",
+            "finished": "2026-10-29T13:39:39Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.802,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 214665.24666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 131.388213711,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:39:39Z",
+            "finished": "2026-10-29T13:41:50Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.826,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 311107.46,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 219.923977694,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:41:50Z",
+            "finished": "2026-10-29T13:45:30Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.754,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 366.38666666666666,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.117108233,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:45:30Z",
+            "finished": "2026-10-29T13:45:33Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.758,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 1583.3533333333332,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 3.6636057969999998,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:45:33Z",
+            "finished": "2026-10-29T13:45:36Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.674,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 198132.55666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 121.578196351,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:45:36Z",
+            "finished": "2026-10-29T13:47:38Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9366666666666666,
+            "acc_system": 0.9366666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.826,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 289244.57,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 205.454737399,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/passage_answers/question.json --stream runs/v1-target97/passage_answers/stream.jsonl --out runs/v1-target97/passage_answers/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:47:38Z",
+            "finished": "2026-10-29T13:51:03Z"
+          },
+          "expected": "abstains"
+        }
+      ]
+    },
+    {
+      "name": "payment_flip",
+      "category": "minimal_pair",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        200,
+        400
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9966666666666667,
+        "recall_per_class": [
+          0.99,
+          1
+        ],
+        "predicted_counts": [
+          198,
+          402
+        ],
+        "mean_latency_ms": 58.9
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 402,
+            "first_understudent_id": "payment_flip-0402",
+            "coverage": 0.20666666666666667,
+            "coverage_2nd_half": 0.41333333333333333,
+            "local_n": 124,
+            "local_agreement": 0.9838709677419355,
+            "audit_n": 7,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7096774193548387,
+            "kappa": 0.9608585858585859,
+            "local_minority_n": 36,
+            "local_minority_recall": 0.9722222222222222,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9933333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.87,
+            "lead_calls": 483,
+            "lead_calls_saved": 117,
+            "understudent_us_mean": 99442.08249999992,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 70.761692339,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:51:03Z",
+            "finished": "2026-10-29T13:52:14Z"
+          },
+          "expected": "partial or abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 402,
+            "first_understudent_id": "payment_flip-0402",
+            "coverage": 0.20833333333333334,
+            "coverage_2nd_half": 0.4166666666666667,
+            "local_n": 125,
+            "local_agreement": 0.984,
+            "audit_n": 8,
+            "audit_agreement": 1,
+            "majority_baseline": 0.712,
+            "kappa": 0.9609862671660424,
+            "local_minority_n": 36,
+            "local_minority_recall": 0.9722222222222222,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9933333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.868,
+            "lead_calls": 483,
+            "lead_calls_saved": 117,
+            "understudent_us_mean": 86841.095,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 54.455760453,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:52:14Z",
+            "finished": "2026-10-29T13:53:09Z"
+          },
+          "expected": "partial or abstains",
+          "coverage_by_readout": {
+            "mean": 0.20833333333333334
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "payment_flip-0301",
+            "coverage": 0.3433333333333333,
+            "coverage_2nd_half": 0.6866666666666666,
+            "local_n": 206,
+            "local_agreement": 1,
+            "audit_n": 16,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7572815533980582,
+            "kappa": 1,
+            "local_minority_n": 50,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.932,
+            "lead_calls": 410,
+            "lead_calls_saved": 190,
+            "understudent_us_mean": 173153.92666666667,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 112.330672805,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:53:09Z",
+            "finished": "2026-10-29T13:55:01Z"
+          },
+          "expected": "partial or abstains",
+          "coverage_by_readout": {
+            "pool": 0.3433333333333333
+          }
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.92,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 153.54333333333332,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.832722503,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:55:01Z",
+            "finished": "2026-10-29T13:55:02Z"
+          },
+          "expected": "partial or abstains"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.854,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 252.16666666666666,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 3.023550576,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:55:02Z",
+            "finished": "2026-10-29T13:55:05Z"
+          },
+          "expected": "partial or abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.722,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 156756.545,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 96.929626894,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:55:05Z",
+            "finished": "2026-10-29T13:56:42Z"
+          },
+          "expected": "partial or abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "payment_flip-0301",
+            "coverage": 0.3433333333333333,
+            "coverage_2nd_half": 0.6866666666666666,
+            "local_n": 206,
+            "local_agreement": 1,
+            "audit_n": 16,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7572815533980582,
+            "kappa": 1,
+            "local_minority_n": 50,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.932,
+            "lead_calls": 410,
+            "lead_calls_saved": 190,
+            "understudent_us_mean": 228198.86833333335,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 146.079896444,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/payment_flip/question.json --stream runs/v1-target97/payment_flip/stream.jsonl --out runs/v1-target97/payment_flip/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:56:42Z",
+            "finished": "2026-10-29T13:59:08Z"
+          },
+          "expected": "partial or abstains",
+          "coverage_by_readout": {
+            "deep:pool": 0.3433333333333333
+          }
+        }
+      ]
+    },
+    {
+      "name": "politer_reply",
+      "category": "pair_compare",
+      "type": "choice",
+      "options": [
+        "a",
+        "b"
+      ],
+      "n": 600,
+      "class_counts": [
+        300,
+        300
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9983333333333333,
+        "recall_per_class": [
+          1,
+          0.9967
+        ],
+        "predicted_counts": [
+          301,
+          299
+        ],
+        "mean_latency_ms": 60.9
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.8,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 358987.38500000036,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 234.954451177,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T13:59:08Z",
+            "finished": "2026-10-29T14:03:03Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "politer_reply-0201",
+            "coverage": 0.635,
+            "coverage_2nd_half": 0.9566666666666667,
+            "local_n": 381,
+            "local_agreement": 1,
+            "audit_n": 40,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5301837270341208,
+            "kappa": 1,
+            "local_minority_n": 179,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.988,
+            "lead_calls": 259,
+            "lead_calls_saved": 341,
+            "understudent_us_mean": 277773.91833333333,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 169.772416111,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:03:03Z",
+            "finished": "2026-10-29T14:05:53Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "mean": 0.635
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "politer_reply-0201",
+            "coverage": 0.635,
+            "coverage_2nd_half": 0.9566666666666667,
+            "local_n": 381,
+            "local_agreement": 1,
+            "audit_n": 40,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5301837270341208,
+            "kappa": 1,
+            "local_minority_n": 179,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.984,
+            "lead_calls": 259,
+            "lead_calls_saved": 341,
+            "understudent_us_mean": 382195.50666666665,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 239.295384437,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:05:53Z",
+            "finished": "2026-10-29T14:09:52Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "attn": 0.635
+          }
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "politer_reply-0301",
+            "coverage": 0.28833333333333333,
+            "coverage_2nd_half": 0.5766666666666667,
+            "local_n": 173,
+            "local_agreement": 1,
+            "audit_n": 14,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5375722543352601,
+            "kappa": 1,
+            "local_minority_n": 80,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.95,
+            "lead_calls": 441,
+            "lead_calls_saved": 159,
+            "understudent_us_mean": 453.6333333333333,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.990998344,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:09:52Z",
+            "finished": "2026-10-29T14:09:53Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "keywords": 0.28833333333333333
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "politer_reply-0301",
+            "coverage": 0.45,
+            "coverage_2nd_half": 0.9,
+            "local_n": 270,
+            "local_agreement": 1,
+            "audit_n": 24,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5481481481481482,
+            "kappa": 1,
+            "local_minority_n": 122,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.976,
+            "lead_calls": 354,
+            "lead_calls_saved": 246,
+            "understudent_us_mean": 1569.4116666666666,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 3.833008354,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:09:53Z",
+            "finished": "2026-10-29T14:09:57Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "lite": 0.45
+          }
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 301,
+            "first_understudent_id": "politer_reply-0301",
+            "coverage": 0.44333333333333336,
+            "coverage_2nd_half": 0.8866666666666667,
+            "local_n": 266,
+            "local_agreement": 0.9962406015037594,
+            "audit_n": 23,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5225563909774437,
+            "kappa": 0.9924684296959058,
+            "local_minority_n": 127,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.966,
+            "lead_calls": 357,
+            "lead_calls_saved": 243,
+            "understudent_us_mean": 238966.14833333335,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 145.962473669,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:09:57Z",
+            "finished": "2026-10-29T14:12:23Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "neighbors": 0.44333333333333336
+          }
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 201,
+            "first_understudent_id": "politer_reply-0201",
+            "coverage": 0.635,
+            "coverage_2nd_half": 0.9566666666666667,
+            "local_n": 381,
+            "local_agreement": 1,
+            "audit_n": 40,
+            "audit_agreement": 1,
+            "majority_baseline": 0.5301837270341208,
+            "kappa": 1,
+            "local_minority_n": 179,
+            "local_minority_recall": 1,
+            "acc_lead": 0.9983333333333333,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.984,
+            "lead_calls": 259,
+            "lead_calls_saved": 341,
+            "understudent_us_mean": 366247.605,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 228.046727086,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/politer_reply/question.json --stream runs/v1-target97/politer_reply/stream.jsonl --out runs/v1-target97/politer_reply/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:12:23Z",
+            "finished": "2026-10-29T14:16:11Z"
+          },
+          "expected": "?",
+          "coverage_by_readout": {
+            "deep:attn": 0.635
+          }
+        }
+      ]
+    },
+    {
+      "name": "retry_exception",
+      "category": "conditional_rule",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        420,
+        180
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 1,
+        "recall_per_class": [
+          1,
+          1
+        ],
+        "predicted_counts": [
+          420,
+          180
+        ],
+        "mean_latency_ms": 61.4
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 204,
+            "first_understudent_id": "retry_exception-0204",
+            "coverage": 0.32666666666666666,
+            "coverage_2nd_half": 0.4166666666666667,
+            "local_n": 196,
+            "local_agreement": 0.9540816326530612,
+            "audit_n": 15,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7908163265306123,
+            "kappa": 0.8490243067442657,
+            "local_minority_n": 41,
+            "local_minority_recall": 0.7804878048780488,
+            "acc_lead": 1,
+            "acc_system": 0.985,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.896,
+            "lead_calls": 419,
+            "lead_calls_saved": 181,
+            "understudent_us_mean": 835954.1829999993,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 516.155634485,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:16:11Z",
+            "finished": "2026-10-29T14:24:47Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 204,
+            "first_understudent_id": "retry_exception-0204",
+            "coverage": 0.32666666666666666,
+            "coverage_2nd_half": 0.4166666666666667,
+            "local_n": 196,
+            "local_agreement": 0.9540816326530612,
+            "audit_n": 15,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7908163265306123,
+            "kappa": 0.8490243067442657,
+            "local_minority_n": 41,
+            "local_minority_recall": 0.7804878048780488,
+            "acc_lead": 1,
+            "acc_system": 0.985,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.896,
+            "lead_calls": 419,
+            "lead_calls_saved": 181,
+            "understudent_us_mean": 805895.0316666666,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 486.474660166,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:24:47Z",
+            "finished": "2026-10-29T14:32:53Z"
+          },
+          "expected": "abstains",
+          "coverage_by_readout": {
+            "mean": 0.32666666666666666
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "retry_exception-0401",
+            "coverage": 0.26,
+            "coverage_2nd_half": 0.52,
+            "local_n": 156,
+            "local_agreement": 0.9807692307692307,
+            "audit_n": 12,
+            "audit_agreement": 1,
+            "majority_baseline": 0.7756410256410257,
+            "kappa": 0.9430102289332682,
+            "local_minority_n": 35,
+            "local_minority_recall": 0.9142857142857143,
+            "acc_lead": 1,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.924,
+            "lead_calls": 456,
+            "lead_calls_saved": 144,
+            "understudent_us_mean": 1096813.9166666667,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 704.786351341,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:32:53Z",
+            "finished": "2026-10-29T14:44:38Z"
+          },
+          "expected": "abstains",
+          "coverage_by_readout": {
+            "pool": 0.26
+          }
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 402,
+            "first_understudent_id": "retry_exception-0402",
+            "coverage": 0.165,
+            "coverage_2nd_half": 0.33,
+            "local_n": 99,
+            "local_agreement": 0.98989898989899,
+            "audit_n": 5,
+            "audit_agreement": 0.8,
+            "majority_baseline": 0.9797979797979798,
+            "kappa": 0.6621160409556338,
+            "local_minority_n": 2,
+            "local_minority_recall": 0.5,
+            "acc_lead": 1,
+            "acc_system": 0.9983333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.886,
+            "lead_calls": 506,
+            "lead_calls_saved": 94,
+            "understudent_us_mean": 601.38,
+            "demotions": 0,
+            "verdict": "partial"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 1.608238474,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:44:38Z",
+            "finished": "2026-10-29T14:44:40Z"
+          },
+          "expected": "abstains",
+          "coverage_by_readout": {
+            "keywords": 0.165
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 1,
+            "acc_system": 1,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.836,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 1429.5083333333334,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 3.712478252,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:44:40Z",
+            "finished": "2026-10-29T14:44:43Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 1,
+            "acc_system": 1,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.74,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 916935.6416666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 553.027529581,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:44:43Z",
+            "finished": "2026-10-29T14:53:57Z"
+          },
+          "expected": "abstains"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 401,
+            "first_understudent_id": "retry_exception-0401",
+            "coverage": 0.2683333333333333,
+            "coverage_2nd_half": 0.5366666666666666,
+            "local_n": 161,
+            "local_agreement": 0.9813664596273292,
+            "audit_n": 12,
+            "audit_agreement": 1,
+            "majority_baseline": 0.782608695652174,
+            "kappa": 0.9434889434889434,
+            "local_minority_n": 35,
+            "local_minority_recall": 0.9142857142857143,
+            "acc_lead": 1,
+            "acc_system": 0.995,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.926,
+            "lead_calls": 451,
+            "lead_calls_saved": 149,
+            "understudent_us_mean": 1123972.725,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 733.957573568,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/retry_exception/question.json --stream runs/v1-target97/retry_exception/stream.jsonl --out runs/v1-target97/retry_exception/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T14:53:57Z",
+            "finished": "2026-10-29T15:06:10Z"
+          },
+          "expected": "abstains",
+          "coverage_by_readout": {
+            "keywords": 0.15333333333333332,
+            "deep:pool": 0.115
+          }
+        }
+      ]
+    },
+    {
+      "name": "secret_needle",
+      "category": "needle",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        420,
+        180
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9966666666666667,
+        "recall_per_class": [
+          1,
+          0.9889
+        ],
+        "predicted_counts": [
+          422,
+          178
+        ],
+        "mean_latency_ms": 66.8
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.68,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 734387.2183333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 455.260433601,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:06:11Z",
+            "finished": "2026-10-29T15:13:46Z"
+          },
+          "expected": "abstains or partial"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.678,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 779717.0033333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 469.862337567,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:13:46Z",
+            "finished": "2026-10-29T15:21:36Z"
+          },
+          "expected": "?"
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.724,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 1775061.365,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 1164.826585083,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:21:36Z",
+            "finished": "2026-10-29T15:41:01Z"
+          },
+          "expected": "?"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.71,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 1216.5916666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 5.948386694,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:41:01Z",
+            "finished": "2026-10-29T15:41:06Z"
+          },
+          "expected": "?"
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.644,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 3266.1383333333333,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 5.682423515,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:41:06Z",
+            "finished": "2026-10-29T15:41:12Z"
+          },
+          "expected": "?"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.63,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 1162209.6,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 699.851592761,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:41:12Z",
+            "finished": "2026-10-29T15:52:52Z"
+          },
+          "expected": "?"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9966666666666667,
+            "acc_system": 0.9966666666666667,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.724,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 2103901.611666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 1369.279512805,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/secret_needle/question.json --stream runs/v1-target97/secret_needle/stream.jsonl --out runs/v1-target97/secret_needle/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T15:52:52Z",
+            "finished": "2026-10-29T16:15:41Z"
+          },
+          "expected": "?"
+        }
+      ]
+    },
+    {
+      "name": "tool_failed",
+      "category": "surface_property",
+      "type": "noul",
+      "options": [
+        "false",
+        "true"
+      ],
+      "n": 600,
+      "class_counts": [
+        420,
+        180
+      ],
+      "lead": {
+        "n": 600,
+        "accuracy": 0.9233333333333333,
+        "recall_per_class": [
+          0.9929,
+          0.7611
+        ],
+        "predicted_counts": [
+          460,
+          140
+        ],
+        "mean_latency_ms": 85.9
+      },
+      "systems": [
+        {
+          "system": "hunch",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 302,
+            "first_understudent_id": "tool_failed-0302",
+            "coverage": 0.39166666666666666,
+            "coverage_2nd_half": 0.7833333333333333,
+            "local_n": 235,
+            "local_agreement": 0.9744680851063829,
+            "audit_n": 19,
+            "audit_agreement": 0.9473684210526315,
+            "majority_baseline": 0.7872340425531915,
+            "kappa": 0.922654964344487,
+            "local_minority_n": 50,
+            "local_minority_recall": 0.92,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9266666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.9,
+            "lead_calls": 384,
+            "lead_calls_saved": 216,
+            "understudent_us_mean": 342270.3536666668,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "hunch",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 219.549526922,
+            "exit_code": 0,
+            "commands": [
+              "uv run --project bench/hunch_runner python bench/hunch_runner/run_hunch.py --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.hunch.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:15:41Z",
+            "finished": "2026-10-29T16:19:21Z"
+          },
+          "expected": "takes over"
+        },
+        {
+          "system": "understudent-probe",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 302,
+            "first_understudent_id": "tool_failed-0302",
+            "coverage": 0.39166666666666666,
+            "coverage_2nd_half": 0.7833333333333333,
+            "local_n": 235,
+            "local_agreement": 0.9744680851063829,
+            "audit_n": 19,
+            "audit_agreement": 0.9473684210526315,
+            "majority_baseline": 0.7872340425531915,
+            "kappa": 0.922654964344487,
+            "local_minority_n": 50,
+            "local_minority_recall": 0.92,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9266666666666666,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.9,
+            "lead_calls": 384,
+            "lead_calls_saved": 216,
+            "understudent_us_mean": 351692.50833333336,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-probe",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 214.022124084,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent probe --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-probe.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:19:21Z",
+            "finished": "2026-10-29T16:22:55Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "mean": 0.39166666666666666
+          }
+        },
+        {
+          "system": "understudent-deep",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9233333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.896,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 496351.1066666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-deep",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 329.922349561,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent deep --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-deep.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:22:55Z",
+            "finished": "2026-10-29T16:28:25Z"
+          },
+          "expected": "takes over"
+        },
+        {
+          "system": "understudent-keywords",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 302,
+            "first_understudent_id": "tool_failed-0302",
+            "coverage": 0.3233333333333333,
+            "coverage_2nd_half": 0.6466666666666666,
+            "local_n": 194,
+            "local_agreement": 0.9845360824742269,
+            "audit_n": 15,
+            "audit_agreement": 1,
+            "majority_baseline": 0.9484536082474226,
+            "kappa": 0.8157061431285632,
+            "local_minority_n": 10,
+            "local_minority_recall": 0.7,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9283333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.818,
+            "lead_calls": 421,
+            "lead_calls_saved": 179,
+            "understudent_us_mean": 202.86333333333334,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-keywords",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 0.556885135,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent keywords --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-keywords.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:28:25Z",
+            "finished": "2026-10-29T16:28:25Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.3233333333333333
+          }
+        },
+        {
+          "system": "understudent-lite",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9233333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.826,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 454.87,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-lite",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 2.985343129,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent lite --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-lite.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:28:25Z",
+            "finished": "2026-10-29T16:28:28Z"
+          },
+          "expected": "takes over"
+        },
+        {
+          "system": "understudent-neighbors",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": false,
+            "graduated_at_start": false,
+            "first_understudent_item": null,
+            "coverage": 0,
+            "coverage_2nd_half": 0,
+            "local_n": 0,
+            "local_agreement": null,
+            "audit_n": 0,
+            "audit_agreement": null,
+            "majority_baseline": null,
+            "kappa": null,
+            "local_minority_n": 0,
+            "local_minority_recall": null,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9233333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.834,
+            "lead_calls": 600,
+            "lead_calls_saved": 0,
+            "understudent_us_mean": 338197.89666666667,
+            "demotions": 0,
+            "verdict": "correctly abstains"
+          },
+          "timing": {
+            "system": "understudent-neighbors",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 205.90570728,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent neighbors --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-neighbors.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:28:28Z",
+            "finished": "2026-10-29T16:31:54Z"
+          },
+          "expected": "takes over"
+        },
+        {
+          "system": "understudent-ladder",
+          "mode": "replay",
+          "metrics": {
+            "n": 600,
+            "graduated": true,
+            "graduated_at_start": false,
+            "first_understudent_item": 302,
+            "first_understudent_id": "tool_failed-0302",
+            "coverage": 0.3233333333333333,
+            "coverage_2nd_half": 0.6466666666666666,
+            "local_n": 194,
+            "local_agreement": 0.9845360824742269,
+            "audit_n": 15,
+            "audit_agreement": 1,
+            "majority_baseline": 0.9484536082474226,
+            "kappa": 0.8157061431285632,
+            "local_minority_n": 10,
+            "local_minority_recall": 0.7,
+            "acc_lead": 0.9233333333333333,
+            "acc_system": 0.9283333333333333,
+            "understudent_n": 500,
+            "acc_understudent_after_fit": 0.858,
+            "lead_calls": 421,
+            "lead_calls_saved": 179,
+            "understudent_us_mean": 305423.195,
+            "demotions": 0,
+            "verdict": "takes over"
+          },
+          "timing": {
+            "system": "understudent-ladder",
+            "mode": "replay",
+            "items": 600,
+            "wall_s": 205.723828514,
+            "exit_code": 0,
+            "commands": [
+              "target/release/understudy replay --understudent ladder --tiers keywords,deep --question runs/v1-target97/tool_failed/question.json --stream runs/v1-target97/tool_failed/stream.jsonl --out runs/v1-target97/tool_failed/decisions.understudent-ladder.jsonl --target 0.97"
+            ],
+            "started": "2026-10-29T16:31:54Z",
+            "finished": "2026-10-29T16:35:20Z"
+          },
+          "expected": "takes over",
+          "coverage_by_readout": {
+            "keywords": 0.3233333333333333
+          }
+        }
+      ]
+    }
+  ]
+}

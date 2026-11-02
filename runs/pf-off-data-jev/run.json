@@ -1,0 +1,18 @@
+{
+  "run": "pf-off-data-jev",
+  "lead": "jev",
+  "datasets": [
+    "politer_reply",
+    "output_kind",
+    "tool_failed"
+  ],
+  "systems": [
+    "understudent-auto"
+  ],
+  "modes": [
+    "replay"
+  ],
+  "train": 200,
+  "time": "2026-11-02T14:51:36Z",
+  "data_dir": "data"
+}

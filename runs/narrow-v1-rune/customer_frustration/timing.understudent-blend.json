@@ -1,0 +1,12 @@
+{
+  "system": "understudent-blend",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 6.02916271,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent blend --question runs/narrow-v1-rune/customer_frustration/question.json --stream runs/narrow-v1-rune/customer_frustration/stream.jsonl --out runs/narrow-v1-rune/customer_frustration/decisions.understudent-blend.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T06:24:14Z",
+  "finished": "2026-11-02T06:24:20Z"
+}

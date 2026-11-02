@@ -1,0 +1,22 @@
+{
+  "name": "politer_reply",
+  "category": "pair_compare",
+  "type": "choice",
+  "options": [
+    "a",
+    "b"
+  ],
+  "question": {
+    "type": "choice",
+    "instructions": "Two support agents replied to the same customer ticket. Which reply is more polite?",
+    "criteria": {
+      "a": "reply a is more polite",
+      "b": "reply b is more polite"
+    }
+  },
+  "pair": [
+    "a",
+    "b"
+  ],
+  "notes": "pair_compare: the answer depends on comparing two texts, not on either one alone. Predicted: understudy's pair features ([x, y, x-y, x*y]) can learn 'politeness(a) - politeness(b)'; hunch embeds the whole state as one mean vector, which mixes both replies, so it should not graduate (correctly abstaining)."
+}

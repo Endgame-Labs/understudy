@@ -1,0 +1,14 @@
+{
+  "system": "understudent-neighbors",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 25.890054533,
+  "train_wall_s": 6.934483955,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent neighbors --snapshot runs/v0/code_lookup/snapshot.understudent-neighbors --question runs/v0/code_lookup/question.json --examples runs/v0/code_lookup/train.jsonl",
+    "target/release/understudy judge --understudent neighbors --snapshot runs/v0/code_lookup/snapshot.understudent-neighbors --replay-lead runs/v0/code_lookup/stream.jsonl < runs/v0/code_lookup/operate.jsonl > runs/v0/code_lookup/decisions.understudent-neighbors-split.jsonl"
+  ],
+  "started": "2026-10-29T09:50:58Z",
+  "finished": "2026-10-29T09:51:24Z"
+}

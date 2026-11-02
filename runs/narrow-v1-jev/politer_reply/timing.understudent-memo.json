@@ -1,0 +1,12 @@
+{
+  "system": "understudent-memo",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 0.402843208,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent memo --question runs/narrow-v1-jev/politer_reply/question.json --stream runs/narrow-v1-jev/politer_reply/stream.jsonl --out runs/narrow-v1-jev/politer_reply/decisions.understudent-memo.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T07:23:05Z",
+  "finished": "2026-11-02T07:23:06Z"
+}

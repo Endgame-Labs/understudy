@@ -1,0 +1,158 @@
+$ target/release/understudy replay --understudent checklist --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-checklist.jsonl
+{
+  "items": 600,
+  "answered_by_understudent": 361,
+  "coverage": 0.6016666666666667,
+  "local_agreement_with_lead": 0.9750692520775623,
+  "graduated_at_item": 200,
+  "first_local_item": 200,
+  "coverage_by_readout": {
+    "checklist": 0.6016666666666667
+  },
+  "audited": 35,
+  "demotions": 0,
+  "mode": "symmetric",
+  "readout": "checklist",
+  "state": "graduated",
+  "understudent_us": {
+    "mean": 234.35,
+    "p50": 212,
+    "p95": 378
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.032839253,
+      "n": 100,
+      "readout": "checklist",
+      "mode": null,
+      "cv_agreement": 0.8620689655172413,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "checklist": 0.025927928
+      },
+      "cv_agreement_by_readout": null
+    },
+    {
+      "item": 199,
+      "secs": 0.055301584,
+      "n": 200,
+      "readout": "checklist",
+      "mode": "symmetric",
+      "cv_agreement": 0.9267015706806283,
+      "cv_coverage": 0.915,
+      "fit_secs": {
+        "checklist": 0.045926453
+      },
+      "cv_agreement_by_readout": null
+    }
+  ],
+  "refit_secs_total": 0.088140837,
+  "total_secs": 0.234389109,
+  "final": {
+    "name": "politer_reply",
+    "key": "b98001efd94f520b",
+    "type": "choice",
+    "state": "graduated",
+    "examples": 274,
+    "labelled": 0,
+    "since_refit": 74,
+    "mode": "symmetric",
+    "threshold": 0.9,
+    "readout": "checklist",
+    "understudent": "checklist",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.9267015706806283,
+    "cv_minority_recall": 0.9036144578313253,
+    "cv_coverage": 0.915,
+    "why_not": null,
+    "audits": {
+      "n": 35,
+      "agreement": 0.9714285714285714,
+      "misses": null
+    },
+    "report": {
+      "n": 200,
+      "fit_secs": {
+        "checklist": 0.045926453
+      },
+      "checklist": {
+        "rules": [
+          {
+            "feature": "[b].apology",
+            "class": "class 1",
+            "confidence": 0.9857142567634583,
+            "rows": 68,
+            "hits": 68
+          },
+          {
+            "feature": "\"hank\"",
+            "class": "class 0",
+            "confidence": 0.9791666865348816,
+            "rows": 46,
+            "hits": 46
+          },
+          {
+            "feature": "field2:\"ank\" (+1 colliding)",
+            "class": "class 1",
+            "confidence": 0.9583333134651184,
+            "rows": 22,
+            "hits": 22
+          },
+          {
+            "feature": "\" sor\"",
+            "class": "class 0",
+            "confidence": 0.9545454382896423,
+            "rows": 20,
+            "hits": 20
+          },
+          {
+            "feature": "field2:word:hi",
+            "class": "class 1",
+            "confidence": 0.9333333373069763,
+            "rows": 13,
+            "hits": 13
+          },
+          {
+            "feature": "\"y t\"",
+            "class": "class 0",
+            "confidence": 0.9230769276618958,
+            "rows": 11,
+            "hits": 11
+          },
+          {
+            "feature": "field2:\"'ll \" (+2 colliding)",
+            "class": "class 1",
+            "confidence": 0.875,
+            "rows": 6,
+            "hits": 6
+          },
+          {
+            "feature": "field2:\"s a\"",
+            "class": "class 0",
+            "confidence": 0.9090909361839294,
+            "rows": 9,
+            "hits": 9
+          }
+        ],
+        "default": "class 1",
+        "listing": "1. IF [b].apology THEN class 1   [conf 0.986, 68/68 rows]\n2. IF \"hank\" THEN class 0   [conf 0.979, 46/46 rows]\n3. IF field2:\"ank\" (+1 colliding) THEN class 1   [conf 0.958, 22/22 rows]\n4. IF \" sor\" THEN class 0   [conf 0.955, 20/20 rows]\n5. IF field2:word:hi THEN class 1   [conf 0.933, 13/13 rows]\n6. IF \"y t\" THEN class 0   [conf 0.923, 11/11 rows]\n7. IF field2:\"'ll \" (+2 colliding) THEN class 1   [conf 0.875, 6/6 rows]\n8. IF field2:\"s a\" THEN class 0   [conf 0.909, 9/9 rows]\ndefault (abstain, never answers): class 1\n"
+      },
+      "labelled": 0,
+      "readout": "checklist",
+      "cv_agreement": 0.9267015706806283,
+      "cv_minority_recall": 0.9036144578313253,
+      "majority_share": 0.565,
+      "answered": 191,
+      "mode": "symmetric",
+      "threshold": 0.9,
+      "cv_coverage": 0.915,
+      "secs": 0.055268504
+    },
+    "rules": null
+  },
+  "understudent": "checklist"
+}

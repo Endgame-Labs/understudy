@@ -1,0 +1,31 @@
+{
+  "run": "v1-target97",
+  "lead": "rune",
+  "datasets": [
+    "capital_city",
+    "code_lookup",
+    "customer_frustration",
+    "incident_severity",
+    "output_kind",
+    "passage_answers",
+    "payment_flip",
+    "politer_reply",
+    "retry_exception",
+    "secret_needle",
+    "tool_failed"
+  ],
+  "systems": [
+    "hunch",
+    "understudent-probe",
+    "understudent-deep",
+    "understudent-keywords",
+    "understudent-lite",
+    "understudent-neighbors",
+    "understudent-ladder"
+  ],
+  "modes": [
+    "replay"
+  ],
+  "train": 200,
+  "time": "2026-10-29T13:02:05Z"
+}

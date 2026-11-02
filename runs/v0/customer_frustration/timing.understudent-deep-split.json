@@ -1,0 +1,14 @@
+{
+  "system": "understudent-deep",
+  "mode": "split",
+  "items": 600,
+  "wall_s": 62.887573078,
+  "train_wall_s": 12.823851906,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy train --understudent deep --snapshot runs/v0/customer_frustration/snapshot.understudent-deep --question runs/v0/customer_frustration/question.json --examples runs/v0/customer_frustration/train.jsonl",
+    "target/release/understudy judge --understudent deep --snapshot runs/v0/customer_frustration/snapshot.understudent-deep --replay-lead runs/v0/customer_frustration/stream.jsonl < runs/v0/customer_frustration/operate.jsonl > runs/v0/customer_frustration/decisions.understudent-deep-split.jsonl"
+  ],
+  "started": "2026-10-29T09:58:39Z",
+  "finished": "2026-10-29T09:59:42Z"
+}

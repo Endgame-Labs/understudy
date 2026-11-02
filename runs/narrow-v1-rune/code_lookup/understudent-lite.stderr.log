@@ -1,0 +1,168 @@
+$ target/release/understudy replay --understudent lite --question runs/narrow-v1-rune/code_lookup/question.json --stream runs/narrow-v1-rune/code_lookup/stream.jsonl --out runs/narrow-v1-rune/code_lookup/decisions.understudent-lite.jsonl --encode-cache .claude/scratch/encode-cache
+{
+  "items": 600,
+  "answered_by_understudent": 0,
+  "coverage": 0.0,
+  "local_agreement_with_lead": null,
+  "graduated_at_item": null,
+  "first_local_item": null,
+  "coverage_by_readout": {},
+  "audited": 0,
+  "demotions": 0,
+  "mode": null,
+  "readout": "lite",
+  "state": "learning",
+  "understudent_us": {
+    "mean": 489.0233333333333,
+    "p50": 178,
+    "p95": 384
+  },
+  "refits": [
+    {
+      "item": 99,
+      "secs": 0.094411528,
+      "n": 100,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.28,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.19052566599999998,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.28
+      }
+    },
+    {
+      "item": 199,
+      "secs": 0.058692899,
+      "n": 200,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.275,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.180961911,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.275
+      }
+    },
+    {
+      "item": 299,
+      "secs": 0.137754655,
+      "n": 300,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.27666666666666667,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.28725865899999997,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.27666666666666667
+      }
+    },
+    {
+      "item": 399,
+      "secs": 0.246264107,
+      "n": 400,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.25,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.42708391700000004,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.25
+      }
+    },
+    {
+      "item": 499,
+      "secs": 0.229906993,
+      "n": 500,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.254,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 0.40590106600000003,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.254
+      }
+    },
+    {
+      "item": 599,
+      "secs": 0.346877971,
+      "n": 600,
+      "readout": "lite",
+      "mode": null,
+      "cv_agreement": 0.2633333333333333,
+      "cv_coverage": 0.0,
+      "fit_secs": {
+        "pool": 1.038224208,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.2633333333333333
+      }
+    }
+  ],
+  "refit_secs_total": 1.1139081530000001,
+  "total_secs": 1.486366208,
+  "final": {
+    "name": "code_lookup",
+    "key": "9c2e76eefc846302",
+    "type": "choice",
+    "state": "learning",
+    "examples": 600,
+    "labelled": 0,
+    "since_refit": 0,
+    "mode": null,
+    "threshold": 0.0,
+    "readout": "lite",
+    "understudent": "lite",
+    "serving": null,
+    "lead_only": null,
+    "race": null,
+    "tiers": null,
+    "cv_agreement": 0.2633333333333333,
+    "cv_minority_recall": 0.28859060402684567,
+    "cv_coverage": 0.0,
+    "why_not": "CV agreement / minority recall below the graduation bars",
+    "audits": {
+      "n": 0,
+      "agreement": null,
+      "misses": null
+    },
+    "report": {
+      "n": 600,
+      "fit_secs": {
+        "pool": 1.038224208,
+        "attn": 0.0
+      },
+      "cv_agreement_by_readout": {
+        "pool": 0.2633333333333333
+      },
+      "labelled": 0,
+      "readout": "lite",
+      "cv_agreement": 0.2633333333333333,
+      "cv_minority_recall": 0.28859060402684567,
+      "majority_share": 0.255,
+      "mode": null,
+      "threshold": 0.0,
+      "cv_coverage": 0.0,
+      "why_not": "CV agreement / minority recall below the graduation bars",
+      "secs": 0.346785721
+    },
+    "rules": null
+  },
+  "understudent": "lite"
+}

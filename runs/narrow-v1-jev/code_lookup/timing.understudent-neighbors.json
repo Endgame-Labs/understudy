@@ -1,0 +1,12 @@
+{
+  "system": "understudent-neighbors",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 5.193328945,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent neighbors --question runs/narrow-v1-jev/code_lookup/question.json --stream runs/narrow-v1-jev/code_lookup/stream.jsonl --out runs/narrow-v1-jev/code_lookup/decisions.understudent-neighbors.jsonl --encode-cache .claude/scratch/encode-cache"
+  ],
+  "started": "2026-11-02T06:17:27Z",
+  "finished": "2026-11-02T06:17:32Z"
+}

@@ -1,0 +1,12 @@
+{
+  "system": "understudent-keywords",
+  "mode": "replay",
+  "items": 600,
+  "wall_s": 0.238468902,
+  "exit_code": 0,
+  "commands": [
+    "target/release/understudy replay --understudent keywords --question runs/latencyd-jev/politer_reply/question.json --stream runs/latencyd-jev/politer_reply/stream.jsonl --out runs/latencyd-jev/politer_reply/decisions.understudent-keywords.jsonl"
+  ],
+  "started": "2026-11-02T14:19:49Z",
+  "finished": "2026-11-02T14:19:49Z"
+}
