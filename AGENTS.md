@@ -16,12 +16,12 @@ snapshot format).
   (e.g. per million or billion calls, at the measured and at larger-model rates) next to the CPU cost. Treat cost, latency
   and availability as co-equal wins.
 - Writing standard: no-nonsense, technical and straightforward, like a senior engineer documenting a tool for other engineers.
+  Headings are plain nouns naming the topic ("Graduation", "API", "Benchmarks"), never a description of the section's
+  length or style ("in brief", "at a glance", "the short version").
 - Voice exception: the README intro and overview (everything before Setup) and other overview pages are in Kyle Wild's
   voice: first person, conversational, direct opinions, light humor. Keep his phrasing; fix only typos and grammar, and
   state no facts the repo doesn't document. His launch post is the reference sample, as reflected in the current README
   intro. Reference sections (Setup, Modes, API, Graduation, Benchmarks, SPEC, docs/ reference pages) stay plain technical.
-  Headings are plain nouns naming the topic ("Graduation", "API", "Benchmarks"), never a description of the section's
-  length or style ("in brief", "at a glance", "the short version").
 - No meta-commentary or hype: cut "it's worth noting", "in short", "simply", "just", "powerful", "seamless", "earns its keep",
   rhetorical questions, exclamation marks, emoji and em-dash asides.
 - State facts and numbers directly, in short declarative sentences. Use a table or code block when it carries the information
