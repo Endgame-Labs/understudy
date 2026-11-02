@@ -413,7 +413,7 @@ answer went out is only logged; with no local answer, errors pass through unchan
 | `--route`, `--chat-route`, `--clef-route`, `--route-key-env`, `--no-default-routes` | none | more routes, and their keys ([above](#running)) |
 | `--bind` | `127.0.0.1:8787` | listen address |
 | `--mode` | `serve` | `forward`, `shadow`, `serve`, or `race` (above) |
-| `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads them in any mode; with the default `serve` mode, a reloaded graduated question is answered locally at once |
+| `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads a namespace on its first successful lead response, in any mode; in `serve` mode, its graduated questions are answered locally from then on |
 | `--no-snapshots` | off | keep learning in memory only |
 | `--understudent` | `auto` | the design; `auto` starts with the model-free ones and adds the encoder designs when the model is ready |
 | `--no-model-download` | off | never fetch the embedding model in the background (`auto` then keeps to the model-free designs until `understudy model fetch`) |

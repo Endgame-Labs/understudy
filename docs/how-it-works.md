@@ -66,7 +66,7 @@ Points worth knowing:
 
 ## Shadow versus serve versus race
 
-`serve` is the default: every question is forwarded until it graduates, then answered locally, and demoted on bad audits, with no restart. A restart that loads a graduated snapshot answers that question locally at once. `shadow` is watch only: the caller always gets the lead's answer, and Understudy records what it *would*
+`serve` is the default: every question is forwarded until it graduates, then answered locally, and demoted on bad audits, with no restart. After a restart, a namespace's snapshot loads on its first successful lead response; from then on, its graduated questions are answered locally. The first request after a restart is always forwarded, and while the lead is unreachable, no snapshot loads. `shadow` is watch only: the caller always gets the lead's answer, and Understudy records what it *would*
 have said. `serve` is the same pipeline with the local-answer branch switched on. `race` is `serve` with the lead call
 started first: it never makes a forwarded request wait for the local computation.
 
