@@ -16,7 +16,7 @@ import (
 	"sort"
 	"unicode/utf8"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 // LengthShortcut is one rung's length diagnostic.

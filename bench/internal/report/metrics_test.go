@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 func TestKappa(t *testing.T) {

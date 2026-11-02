@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/runner"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/runner"
 )
 
 // LeadRate is what one lead costs per call: uncached input and output dollars per million tokens.

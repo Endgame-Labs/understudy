@@ -53,7 +53,7 @@ Understudy does not work on broad single-question decisions over large state spa
 1. **Install**
 
    ```bash
-   cargo install --git https://github.com/dorkitude/understudy
+   cargo install --git https://github.com/endgame-labs/understudy
    ```
 
 2. **Run**

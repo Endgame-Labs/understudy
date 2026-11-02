@@ -5,7 +5,7 @@ package report
 import (
 	"math"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 // Metrics for one system on one dataset (over the decisions it made).

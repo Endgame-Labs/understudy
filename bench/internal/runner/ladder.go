@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 // LadderBar is the agreement bar the Wilson lower bounds are compared with.

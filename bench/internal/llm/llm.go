@@ -16,9 +16,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/leadcfg"
-	"github.com/dorkitude/understudy/bench/internal/netx"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/leadcfg"
+	"github.com/endgame-labs/understudy/bench/internal/netx"
 )
 
 // Defaults for the generator.

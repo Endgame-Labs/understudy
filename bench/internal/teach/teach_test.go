@@ -11,7 +11,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 func TestRequestAndParse(t *testing.T) {

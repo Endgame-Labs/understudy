@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/runner"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/runner"
 )
 
 // LadderResults is results.json of a fixed-test learning-curve run (`run --train-ladder`).

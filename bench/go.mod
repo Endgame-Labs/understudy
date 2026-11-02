@@ -1,4 +1,4 @@
-module github.com/dorkitude/understudy/bench
+module github.com/endgame-labs/understudy/bench
 
 go 1.24.9
 

@@ -17,8 +17,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/llm"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/llm"
 )
 
 // Member is one stream item before it gets an id.

@@ -15,12 +15,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/llm"
-	"github.com/dorkitude/understudy/bench/internal/report"
-	"github.com/dorkitude/understudy/bench/internal/runner"
-	"github.com/dorkitude/understudy/bench/internal/synth"
-	"github.com/dorkitude/understudy/bench/internal/teach"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/llm"
+	"github.com/endgame-labs/understudy/bench/internal/report"
+	"github.com/endgame-labs/understudy/bench/internal/runner"
+	"github.com/endgame-labs/understudy/bench/internal/synth"
+	"github.com/endgame-labs/understudy/bench/internal/teach"
 )
 
 var rootDir string

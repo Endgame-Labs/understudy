@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 // ItemMetrics is the item-level view of a per-response dataset (ids "<item>#<k>"): each item's pick is the argmax

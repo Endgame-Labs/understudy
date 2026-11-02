@@ -3,7 +3,7 @@ package report
 import (
 	"testing"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 func dec(id, by string, pYes float64) ds.Decision {

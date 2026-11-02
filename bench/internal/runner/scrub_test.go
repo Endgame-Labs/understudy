@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
 )
 
 const textA = "The quick brown fox jumps over the lazy dog, twice, in the morning."

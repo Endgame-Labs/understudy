@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dorkitude/understudy/bench/internal/ds"
-	"github.com/dorkitude/understudy/bench/internal/runner"
+	"github.com/endgame-labs/understudy/bench/internal/ds"
+	"github.com/endgame-labs/understudy/bench/internal/runner"
 )
 
 // A run made from data-private keeps no stream.jsonl; the report must work from stream.ids.jsonl and the private

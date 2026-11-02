@@ -4,7 +4,7 @@ package main
 import (
 	"os"
 
-	"github.com/dorkitude/understudy/bench/cmd"
+	"github.com/endgame-labs/understudy/bench/cmd"
 )
 
 func main() {
