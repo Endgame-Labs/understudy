@@ -205,6 +205,8 @@ See [docs/benchmarks.md](docs/benchmarks.md) for the methodology and [docs/bench
 | [docs/benchmarks.md](docs/benchmarks.md) | benchmark method, metrics, cost at scale, per-question results, limitations |
 | [SPEC.md](SPEC.md) | wire types, statistical formulas, file formats, CLI flags, snapshot format |
 | [AGENTS.md](AGENTS.md) | repository conventions for coding agents |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | building, testing, and sending a pull request |
+| [SECURITY.md](SECURITY.md) | reporting a vulnerability privately |
 | [TODO.md](TODO.md) | pending benchmarks, planned model designs, preview-release checklist, post-release work |
 | [bench/](bench/) | `understudy-bench`, the Go harness for dataset synthesis, lead collection, replay, and reporting |
 
