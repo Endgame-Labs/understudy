@@ -185,6 +185,8 @@ See [docs/benchmarks.md](docs/benchmarks.md) for the methodology and [docs/bench
 | [docs/understudents/neighbors.md](docs/understudents/neighbors.md) | cosine nearest-neighbor vote over past lead answers |
 | [docs/understudents/shape.md](docs/understudents/shape.md) | structural features: lengths, shares, markers, JSON types |
 | [docs/understudents/blend.md](docs/understudents/blend.md) | n-grams, structural features, and input embeddings in one model |
+| [docs/understudents/net.md](docs/understudents/net.md) | small neural network over encoder and structural features |
+| [docs/understudents/checklist.md](docs/understudents/checklist.md) | greedily learned decision list of one-feature rules, abstains when none fires |
 | [docs/understudents/memo.md](docs/understudents/memo.md) | exact and near-duplicate retrieval of past answers |
 | [docs/understudents/rules.md](docs/understudents/rules.md) | LLM-generated regex rules validated on held-out examples |
 | [docs/understudents/ladder.md](docs/understudents/ladder.md) | tiered evaluation ordered from cheapest to most expensive; the cheapest eligible tier answers |
