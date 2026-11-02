@@ -18,6 +18,8 @@ pub enum LeadKind {
     SystemOne,
     /// An OpenAI-compatible `POST /chat/completions`, driven through the chat adapter (`chat.rs`).
     Chat,
+    /// Cloudflare Workers AI Clef / Clef Flash: System One in, the reply unwrapped from Cloudflare's envelope (`clef.rs`).
+    Clef,
 }
 
 impl LeadKind {
@@ -25,6 +27,7 @@ impl LeadKind {
         match self {
             LeadKind::SystemOne => "systemone",
             LeadKind::Chat => "chat",
+            LeadKind::Clef => "clef",
         }
     }
 
@@ -32,7 +35,8 @@ impl LeadKind {
         match s {
             "systemone" | "system_one" | "http" => Ok(LeadKind::SystemOne),
             "chat" => Ok(LeadKind::Chat),
-            other => bail!("unknown lead kind {other:?}: systemone or chat"),
+            "clef" => Ok(LeadKind::Clef),
+            other => bail!("unknown lead kind {other:?}: systemone, chat or clef"),
         }
     }
 }
@@ -43,7 +47,12 @@ impl LeadKind {
 pub struct LeadEntry {
     #[serde(default)]
     pub kind: LeadKind,
+    /// The endpoint. For `kind = "clef"` it is the API base (default `https://api.cloudflare.com`) and may be omitted.
+    #[serde(default)]
     pub url: String,
+    /// For `kind = "clef"`: the Cloudflare account id (default `$CLOUDFLARE_ACCOUNT_ID`).
+    #[serde(default)]
+    pub account: Option<String>,
     #[serde(default)]
     pub model: Option<String>,
     /// For `serve`: the request models this lead answers (exact, or a prefix ending in `*`). Default: its `model`.
@@ -101,7 +110,13 @@ pub fn default_path() -> Option<PathBuf> {
 
 impl Config {
     pub fn parse(text: &str) -> Result<Self> {
-        toml::from_str(text).map_err(|e| anyhow!("{e}"))
+        let c: Config = toml::from_str(text).map_err(|e| anyhow!("{e}"))?;
+        for (name, e) in &c.leads {
+            if e.url.trim().is_empty() && e.kind != LeadKind::Clef {
+                bail!("lead {name:?}: missing field `url`");
+            }
+        }
+        Ok(c)
     }
 
     pub fn from_file(path: &Path) -> Result<Self> {

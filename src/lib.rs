@@ -5,6 +5,7 @@
 
 pub mod abstain;
 pub mod chat;
+pub mod clef;
 pub mod config;
 pub mod diskcache;
 pub mod checklist;

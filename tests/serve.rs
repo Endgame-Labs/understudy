@@ -190,8 +190,8 @@ fn factory() -> ProxyFactory {
 
 fn routes(rune: &str, jev: &str) -> Vec<Route> {
     vec![
-        Route { name: "rune".into(), pattern: RUNE.into(), url: rune.into(), bearer: None, chat: None },
-        Route { name: "jev".into(), pattern: "jev-*".into(), url: jev.into(), bearer: None, chat: None },
+        Route { name: "rune".into(), pattern: RUNE.into(), url: rune.into(), bearer: None, chat: None, clef: None },
+        Route { name: "jev".into(), pattern: "jev-*".into(), url: jev.into(), bearer: None, chat: None, clef: None },
     ]
 }
 
@@ -1623,7 +1623,7 @@ fn chat_oracle() -> Handler {
 fn chat_server(mode: ServeMode, up: &Fake) -> Server {
     let mut c = config(mode, "http://127.0.0.1:9/unused", "http://127.0.0.1:9/unused");
     let spec = understudy::chat::ChatSpec::new(&format!("http://{}/v1", up.addr));
-    c.routes = vec![Route { name: "chat".into(), pattern: "chatm-*".into(), url: spec.url.clone(), bearer: Some("chat-key".into()), chat: Some(spec) }];
+    c.routes = vec![Route { name: "chat".into(), pattern: "chatm-*".into(), url: spec.url.clone(), bearer: Some("chat-key".into()), chat: Some(spec), clef: None }];
     start(c).unwrap()
 }
 
@@ -1686,7 +1686,7 @@ fn a_chat_route_follows_the_serve_response_limit_not_the_spec_default() {
         let mut c = config(ServeMode::Forward, "http://127.0.0.1:9/unused", "http://127.0.0.1:9/unused");
         c.max_response = 32 << 20;
         let spec = understudy::chat::ChatSpec::new(&format!("http://{}/v1", up.addr));
-        c.routes = vec![Route { name: "chat".into(), pattern: "chatm-*".into(), url: spec.url.clone(), bearer: None, chat: Some(spec) }];
+        c.routes = vec![Route { name: "chat".into(), pattern: "chatm-*".into(), url: spec.url.clone(), bearer: None, chat: Some(spec), clef: None }];
         start(c).unwrap()
     };
     let one = || json!({"urgent": {"type": "noul", "instructions": "Urgent?", "criteria": {"true": "yes", "false": "no"}}});

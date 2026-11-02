@@ -228,12 +228,13 @@ struct LeadOpts {
     /// examples/leads.example.toml).
     #[arg(long)]
     lead: Option<String>,
-    /// The lead's endpoint (overrides the preset's). A chat lead takes a base URL or the full /chat/completions URL.
+    /// The lead's endpoint (overrides the preset's). A chat lead takes a base URL or the full /chat/completions URL; a clef
+    /// lead takes the API base (default https://api.cloudflare.com, or $CLOUDFLARE_API_BASE).
     #[arg(long)]
     lead_url: Option<String>,
     #[arg(long)]
     lead_model: Option<String>,
-    /// What the lead speaks: systemone or chat [default: the preset's, else systemone].
+    /// What the lead speaks: systemone, chat or clef [default: the preset's, else systemone].
     #[arg(long, value_parser = LeadKind::parse)]
     lead_kind: Option<LeadKind>,
     /// Send `Authorization: Bearer $VAR` to the lead, VAR being the name of an environment variable (the key is
@@ -259,9 +260,13 @@ impl LeadOpts {
         if self.lead.is_some() || self.lead_url.is_some() || self.lead_model.is_some() || self.lead_kind.is_some() {
             return Ok(Some(lead::build(&Config::load, &self.flags())?));
         }
-        if let Some(r) = recorded.filter(|r| r["kind"] == "http" || r["kind"] == "chat") {
+        if let Some(r) = recorded.filter(|r| r["kind"] == "http" || r["kind"] == "chat" || r["kind"] == "clef") {
             let (u, m) = (r["url"].as_str().unwrap_or_default(), r["model"].as_str().unwrap_or_default());
-            let kind = if r["kind"] == "chat" { LeadKind::Chat } else { LeadKind::SystemOne };
+            let kind = match r["kind"].as_str() {
+                Some("chat") => LeadKind::Chat,
+                Some("clef") => LeadKind::Clef,
+                _ => LeadKind::SystemOne,
+            };
             let f = LeadFlags { url: Some(u), model: Some(m), kind: Some(kind), key_env: self.lead_key_env.as_deref(), ..Default::default() };
             return Ok(Some(lead::build(&Config::load, &f)?));
         }

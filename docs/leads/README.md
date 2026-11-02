@@ -7,7 +7,7 @@ caller sets, the `understudy serve` command, how auth passes through, which ques
 |---|---|---|
 | TypeSafe **Jev** | [typesafe-jev.md](typesafe-jev.md) | works today (text questions); Box/image answers not tested end to end |
 | Fireworks **Rune** | [fireworks-rune.md](fireworks-rune.md) | works today |
-| Cloudflare **Clef** / **Clef Flash** | [cloudflare-clef.md](cloudflare-clef.md) | planned: the reply is wrapped in an envelope |
+| Cloudflare **Clef** / **Clef Flash** | [cloudflare-clef.md](cloudflare-clef.md) | works today (`noul`, `choice`); the adapter unwraps Cloudflare's envelope |
 | OpenAI **Decisions** (`gpt-6-luna`) | [openai-decisions.md](openai-decisions.md) | planned: a different request and response shape |
 
 "Works today" means a few real calls went through `understudy serve` and came back as System One, on the date on each page. It

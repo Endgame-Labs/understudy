@@ -4,6 +4,7 @@
 //! lead config file (`config.rs`), never built in.
 
 use crate::chat::{self, ChatSpec};
+use crate::clef::{self, ClefError, ClefSpec};
 use crate::config::{self, Config, LeadKind};
 use anyhow::{Context, Result, anyhow, bail};
 use serde_json::{Map, Value, json};
@@ -85,6 +86,61 @@ impl Lead for Chat {
     }
 }
 
+/// Cloudflare Workers AI Clef / Clef Flash as a lead, through `clef.rs`: the System One request goes unchanged to the
+/// model's URL and the reply is unwrapped from Cloudflare's envelope. The key is held in memory only.
+pub struct Clef {
+    pub spec: ClefSpec,
+    pub model: String,
+    key: Option<String>,
+    agent: ureq::Agent,
+    pub attempts: usize,
+}
+
+impl Clef {
+    pub fn new(spec: ClefSpec, model: &str) -> Self {
+        let agent = ureq::AgentBuilder::new().timeout(Duration::from_secs(120)).build();
+        Clef { spec, model: model.into(), key: None, agent, attempts: 4 }
+    }
+
+    pub fn with_key(mut self, key: Option<String>) -> Self {
+        self.key = key;
+        self
+    }
+}
+
+impl Lead for Clef {
+    fn ask(&self, _id: Option<&str>, state: &Value, questions: &Map<String, Value>) -> Result<Map<String, Value>> {
+        let url = self.spec.url(&self.model).map_err(|e| anyhow!("{e}"))?;
+        let auth = self.key.as_ref().map(|k| format!("Bearer {k}"));
+        let body = serde_json::to_vec(&json!({"model": clef::model_name(&self.model).unwrap_or(&self.model), "questions": questions, "state": state}))?;
+        let mut wait = Duration::from_secs(2);
+        let mut last = None;
+        for attempt in 0..self.attempts {
+            if attempt > 0 {
+                std::thread::sleep(wait);
+                wait *= 2;
+            }
+            match clef::call(&self.agent, &url, auth.as_deref(), &body, clef::DEFAULT_MAX_RESPONSE) {
+                Ok(b) => {
+                    let v: Value = serde_json::from_slice(&b).context("lead response is not JSON")?;
+                    return match v.get("answers") {
+                        Some(Value::Object(a)) => Ok(a.clone()),
+                        _ => bail!("the lead's response has no answers object: {v}"),
+                    };
+                }
+                Err(e @ ClefError::Http { .. } | e @ ClefError::Transport { .. }) if e.retryable() => last = Some(e),
+                Err(e) => bail!("{e}"),
+            }
+        }
+        Err(last.map_or_else(|| anyhow!("lead failed"), |e| anyhow!("{e}")))
+    }
+
+    /// The API base, not the URL: the account id is never recorded.
+    fn describe(&self) -> Value {
+        json!({"kind": "clef", "url": self.spec.base, "model": self.model})
+    }
+}
+
 /// What the lead flags name. `name` is a preset from the lead config file; `url`, `model` and `kind` override or
 /// stand in for it; `key_env` names the environment variable holding a bearer key.
 #[derive(Default, Clone, Debug)]
@@ -103,10 +159,15 @@ pub fn build(cfg: &dyn Fn() -> Result<Config>, f: &LeadFlags) -> Result<Box<dyn 
         None => None,
     };
     let kind = f.kind.or(entry.as_ref().map(|e| e.kind)).unwrap_or_default();
-    let url = f.url.map(str::to_string).or(entry.as_ref().map(|e| e.url.clone())).ok_or_else(|| anyhow!("a lead needs --lead (a preset in the lead config file) or --lead-url"))?;
+    let url = f.url.map(str::to_string).or(entry.as_ref().map(|e| e.url.clone()).filter(|u| !u.is_empty())).or_else(|| (kind == LeadKind::Clef).then(String::new)).ok_or_else(|| anyhow!("a lead needs --lead (a preset in the lead config file) or --lead-url"))?;
     let model = f.model.map(str::to_string).or(entry.as_ref().and_then(|e| e.model.clone()));
     let key_env = f.key_env.or(entry.as_ref().and_then(|e| e.key_env.as_deref()));
-    let key = key_env.map(config::key_from_env).transpose()?.flatten();
+    let key = match key_env {
+        Some(v) => config::key_from_env(v)?,
+        // the documented default for a clef lead; with none set, the endpoint (or a proxy) supplies its own credentials
+        None if kind == LeadKind::Clef => std::env::var(clef::TOKEN_ENV).ok().map(|v| v.trim().to_string()).filter(|v| !v.is_empty() && v != "implicit"),
+        None => None,
+    };
     Ok(match kind {
         LeadKind::SystemOne => {
             let model = model.ok_or_else(|| anyhow!("a systemone lead needs a model: --lead-model, or `model` in its preset"))?;
@@ -120,6 +181,12 @@ pub fn build(cfg: &dyn Fn() -> Result<Config>, f: &LeadFlags) -> Result<Box<dyn 
             let model = model.ok_or_else(|| anyhow!("a chat lead needs a model: --lead-model, or `model` in its preset"))?;
             spec.model = Some(model.clone());
             Box::new(Chat::new(spec, &model).with_key(key))
+        }
+        LeadKind::Clef => {
+            let model = model.ok_or_else(|| anyhow!("a clef lead needs a model: --lead-model (clef or clef-flash), or `model` in its preset"))?;
+            let spec = ClefSpec::resolve(Some(&url), entry.as_ref().and_then(|e| e.account.as_deref()));
+            spec.url(&model).map_err(|e| anyhow!("{e}"))?; // the account and model are checked now, not at the first call
+            Box::new(Clef::new(spec, &model).with_key(key))
         }
     })
 }
