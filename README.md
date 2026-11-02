@@ -176,6 +176,7 @@ See [docs/benchmarks.md](docs/benchmarks.md) for the methodology and [docs/bench
 | page | contents |
 |---|---|
 | [docs/how-it-works.md](docs/how-it-works.md) | request flow, shadow vs. serve, question lifecycle, novelty forwarding, learning queue, namespaces |
+| [docs/diagrams.md](docs/diagrams.md) | further diagrams: request lifecycles, cost at scale, coverage by question, design race, ladder, question fit |
 | [docs/graduation.md](docs/graduation.md) | out-of-fold CV, Wilson bounds, graduation modes, refits, audits, demotion, worked calculations |
 | [docs/understudents/README.md](docs/understudents/README.md) | model design comparison table and selection criteria |
 | [docs/understudents/lite.md](docs/understudents/lite.md) | input-embedding mean and max pooling, microsecond latency, topic and keyword signals |

@@ -14,7 +14,7 @@ lead often enough. Everything else goes to the lead, unchanged.
 - [Scope](#scope)
 
 Related pages: [graduation](graduation.md) (the statistics), [understudents](understudents/README.md) (the designs that
-race per question), [api](api.md) (the wire contract), [examples](examples.md).
+race per question), [api](api.md) (the wire contract), [examples](examples.md), [diagrams](diagrams.md) (further diagrams).
 
 ## Request flow
 
