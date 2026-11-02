@@ -41,3 +41,23 @@ debug = "line-tables-only"
 # The profile that dist builds release artifacts with
 [profile.dist]
 inherits = "release"
+
+[package.metadata.deb]
+maintainer = "Endgame Labs, Inc."
+copyright = "2026, Endgame Labs, Inc."
+extended-description = """\
+Understudy is a drop-in, CPU-only proxy for System One models. It forwards \
+each request to the lead model and trains small CPU models, understudents, \
+on the lead's answers. When an understudent reaches near-parity with the \
+lead on a type of request, it graduates and Understudy answers that \
+request locally. Graduated understudents are continuously audited against \
+the lead and demoted if they slip."""
+section = "utils"
+priority = "optional"
+depends = "$auto"
+revision = ""
+assets = [
+    ["target/release/understudy", "usr/bin/understudy", "755"],
+    ["README.md", "usr/share/doc/understudy/README.md", "644"],
+    ["LICENSE", "usr/share/doc/understudy/LICENSE", "644"],
+]

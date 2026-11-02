@@ -1,0 +1,52 @@
+name: deb
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to build and upload packages for (for example v0.1.0-preview.1)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  deb:
+    name: deb (${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-latest
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+
+      - name: Install Rust
+        run: rustup toolchain install stable --profile minimal --no-self-update && rustup default stable
+
+      - name: Install cargo-deb
+        run: cargo install cargo-deb --locked
+
+      - name: Build package
+        run: cargo deb
+
+      - name: Upload to release
+        run: |
+          shopt -s nullglob
+          files=(target/debian/understudy_*_"${{ matrix.arch }}".deb)
+          if [ "${#files[@]}" -ne 1 ]; then
+            echo "expected exactly one .deb, found: ${files[*]}" >&2
+            exit 1
+          fi
+          gh release upload "$TAG" "${files[0]}" --clobber --repo "$GITHUB_REPOSITORY"
