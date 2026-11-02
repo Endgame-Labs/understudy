@@ -1,6 +1,22 @@
 # understudy
 
-Understudy is a drop-in, CPU-only proxy for a lead decision model. It sits in front of any System One endpoint (`POST /v1/systemone`, as Jev and Rune speak it) or any OpenAI-compatible chat model through a built-in adapter. It trains a per-question model from the lead's answers and races several small model designs for each question. A question is answered locally only after it graduates. Other questions are forwarded to the lead while Understudy continues training. Graduated questions are continuously audited against the lead and demoted when audit agreement drops below target.
+I know the meme has been "nobody can possibly spend more than $5 on Jev lol"...
+
+...but across my professional, personal, and academic work at scale, that simply isn't true.
+
+The model itself is named after the Jevons paradox, after all: make intelligence fast enough and cheap enough, and usage
+will skyrocket. We're only a couple of months into mastering this game-changing technology, but WOW has that been my
+experience. Once your org gets a real handle on what Jev can do, Jev will find itself deeper and deeper in the bowels of
+your infrastructure: data pipelines, ETL, MapReduce, event reactors, Kafka consumers, etc.
+
+So we believe software engineers are going to end up spending a _lot_ on System One models. Maybe more so than on LLMs.
+
+If you're not spending a lot on Jev and Jev-likes yet, don't bother. But if you are:
+
+**Understudy is a drop-in, CPU-only proxy for System One models like Jev, Rune, and Clef (the "lead" models).**
+
+It forwards requests to the lead model and trains an "understudent" on the lead's responses: effectively an extremely
+narrow distillation of WWJD (What Would Jev Do?).
 
 ```mermaid
 flowchart TD
@@ -13,9 +29,16 @@ flowchart TD
     A --> C
 ```
 
+In truth, it trains a bunch of different students, and the students compete on how well they match Jev/Rune/Clef on
+this particular type of request. Students vary in their design, but most are a simple linear model on top of one of
+three inputs: hashed word and character n-grams, structural features of the text, or vectors from EmbeddingGemma 2. At
+release time there are 11 student designs ([docs/understudents](docs/understudents/README.md)), and several more are in
+the works.
+
 ## Production Loop
 
-Each live request gets a student answer only when its question has graduated; otherwise the lead answers and the request becomes training data.
+Once a given student reaches near-parity with the lead, it "graduates" ([the statistics](docs/graduation.md)).
+Understudy then starts siphoning traffic away from the lead model and answering those requests directly, saving $$.
 
 ```mermaid
 flowchart TD
@@ -28,9 +51,12 @@ flowchart TD
     AU -- "bad audits" --> D["demote: back to the lead"]
 ```
 
+It never stops auditing the student against the lead, though, because incoming requests change and drift over time,
+outliers pile up, and cardinality increases. So it's always ready to pull the switch and demote the student.
+
 ## Learning/Graduation Loop
 
-In `auto` mode, every candidate design is refit on each question's examples and only one that clears the bar may serve.
+The students for each question compete at every refit, and only one that clears the bar gets to serve.
 
 ```mermaid
 flowchart TD
@@ -42,11 +68,19 @@ flowchart TD
     SV -- "audits demote it" --> E
 ```
 
+We think that's kinda cool.
+
 ## Scope
 
-Understudy targets narrow, repetitive decisions: yes/no gates, classification, routing, triage, moderation, relevance, and judging. Questions such as "Is this support ticket urgent?", "does this passage mention a refund?", and "is this tool output an error?" ask the same question repeatedly across similar states. The question is fixed and only the content varies. A small model can learn these distributions from a few hundred lead answers.
+Understudy is for narrow, repetitive decisions: yes/no gates, classification, routing, triage, moderation, relevance,
+and judging. "Is this support ticket urgent?", "does this passage mention a refund?", "is this tool output an error?":
+the question is fixed, only the content varies, and a small model can learn it from a few hundred of the lead's answers.
 
-Understudy does not work on broad single-question decisions over large state spaces, such as choosing a move in a game. Those questions remain lead-only and never graduate. They incur only the proxy forwarding overhead (about 0.3 ms per call) and no extra lead spend. Because Understudy answers locally only after a question graduates, questions that cannot be learned stay on the lead. Decisions that compare two changing texts (a fresh query against a fresh passage, as in search relevance or reranking) are lead-only for these small models.
+It won't help with broad single-question decisions over huge state spaces, like choosing a move in a game. Those stay
+on the lead and never graduate, and they cost only the forwarding overhead (about 0.3 ms per call, no extra lead spend).
+Same for decisions that compare two changing texts (a fresh query against a fresh passage, as in search relevance or
+reranking): those are lead-only for these small models. Since nothing is answered locally until it graduates, a question
+that can't be learned just stays on the lead.
 
 ## Setup
 
