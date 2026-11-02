@@ -2,13 +2,13 @@
 
 Understudy ships as a single `understudy` binary. Releases are built for four targets: `x86_64-unknown-linux-gnu`,
 `aarch64-unknown-linux-gnu`, `x86_64-apple-darwin`, and `aarch64-apple-darwin`. The current release is
-`v0.1.0-preview.1`, a GitHub pre-release.
+`v0.1.0-preview.2`, a GitHub pre-release.
 
 | channel | command |
 |---|---|
 | Homebrew | `brew install endgame-labs/oss/understudy` |
 | Shell installer | `curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh \| sh` |
-| Debian package | `gh release download v0.1.0-preview.1 --repo endgame-labs/understudy --pattern '*_amd64.deb' && sudo apt install ./understudy_*_amd64.deb` |
+| Debian package | `gh release download v0.1.0-preview.2 --repo endgame-labs/understudy --pattern '*_amd64.deb' && sudo apt install ./understudy_*_amd64.deb` |
 | Container image | `docker run -p 8787:8787 -v understudy-data:/data ghcr.io/endgame-labs/understudy:preview --lead-url <URL>` |
 | Source | `cargo install --git https://github.com/endgame-labs/understudy` |
 
@@ -27,7 +27,7 @@ GitHub's `releases/latest` URL skips pre-releases. Until a full (non-pre-release
 version:
 
 ```bash
-curl -fsSL https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.1/understudy-installer.sh | sh
+curl -fsSL https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy-installer.sh | sh
 ```
 
 Once a full release exists, the unpinned form installs the newest one:
@@ -46,13 +46,13 @@ Each release carries an `amd64` and an `arm64` `.deb` as release assets. Downloa
 the architecture suffix instead of the exact name:
 
 ```bash
-gh release download v0.1.0-preview.1 --repo endgame-labs/understudy --pattern '*_amd64.deb'
+gh release download v0.1.0-preview.2 --repo endgame-labs/understudy --pattern '*_amd64.deb'
 sudo apt install ./understudy_*_amd64.deb
 ```
 
 Use `*_arm64.deb` on arm64 hosts. The exact asset names are listed on the release page.
 
-In Debian version syntax, `~` sorts a pre-release before the release, so `0.1.0~preview.1` is older than `0.1.0`. There is no
+In Debian version syntax, `~` sorts a pre-release before the release, so `0.1.0~preview.2` is older than `0.1.0`. There is no
 hosted apt repository yet.
 
 ## Container image
@@ -93,8 +93,8 @@ This needs a Rust toolchain at the version in `rust-version` in `Cargo.toml`. Th
 Every release archive has a `.sha256` file next to it, and the release also carries `sha256.sum` with all of them.
 
 ```bash
-curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.1/understudy-x86_64-unknown-linux-gnu.tar.xz
-curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.1/understudy-x86_64-unknown-linux-gnu.tar.xz.sha256
+curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy-x86_64-unknown-linux-gnu.tar.xz
+curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy-x86_64-unknown-linux-gnu.tar.xz.sha256
 sha256sum -c understudy-x86_64-unknown-linux-gnu.tar.xz.sha256
 ```
 
@@ -106,4 +106,4 @@ On macOS, use `shasum -a 256 -c` in place of `sha256sum -c`.
 understudy --version
 ```
 
-The output is `understudy 0.1.0-preview.1`.
+The output is `understudy 0.1.0-preview.2`.

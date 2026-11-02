@@ -865,7 +865,7 @@ mod tests {
         unsafe { std::env::set_var("UNDERSTUDY_LEADS", &empty) };
         let up = lead();
         let url = format!("http://{}/v1/systemone", up.addr);
-        let Cli { cmd: Cmd::Serve { args, opts } } = Cli::try_parse_from(["understudy", "serve", "--no-default-routes", "--lead-url", &url, "--no-snapshots", "--no-capture", "--bind", "127.0.0.1:0"]).ok().unwrap() else { panic!("serve") };
+        let Cli { cmd: Cmd::Serve { args, opts } } = Cli::try_parse_from(["understudy", "serve", "--no-default-routes", "--lead-url", &url, "--mode", "shadow", "--no-snapshots", "--no-capture", "--bind", "127.0.0.1:0"]).ok().unwrap() else { panic!("serve") };
         assert!(opts.understudent.is_none(), "the default is auto, set by serve");
         let mut opts = opts;
         opts.understudent = Some(UnderstudentArg::Auto);

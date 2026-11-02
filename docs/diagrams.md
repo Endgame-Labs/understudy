@@ -18,7 +18,7 @@ stateDiagram-v2
 
 ## Request lifecycle: shadow vs serve
 
-Shadow forwards every request and logs what the understudent would have said. Serve is the same pipeline with the local
+Shadow forwards every request and logs what the understudent would have said. Serve (the default) is the same pipeline with the local
 branch enabled for graduated questions.
 
 ```mermaid
@@ -27,7 +27,7 @@ sequenceDiagram
     participant U as understudy
     participant L as lead
     C->>U: decision request
-    alt shadow (default)
+    alt shadow
         U->>L: forward
         L-->>U: answer
         U-->>C: lead's answer

@@ -398,7 +398,7 @@ route = "glm-*"
     .unwrap();
     let w = W::parse_from(["x", "--route", "my-model-*=http://localhost:9/v1/systemone", "--route-key-env", "my-model-*=UNDERSTUDY_TEST_UNSET", "--chat-route", "chatty=http://localhost:9/v1"]);
     let c = w.a.config_with(&lead_cfg, 0.25, factory()).unwrap();
-    assert_eq!(c.mode, ServeMode::Shadow);
+    assert_eq!(c.mode, ServeMode::Serve);
     assert_eq!(c.bind, "127.0.0.1:8787");
     let names: Vec<_> = c.routes.iter().map(|r| (r.pattern.as_str(), r.url.as_str(), r.bearer.as_deref(), r.chat.is_some())).collect();
     assert_eq!(names, vec![
@@ -1890,4 +1890,62 @@ fn a_zstd_frame_may_not_declare_a_window_over_the_body_budget() {
     let packed = ruzstd::encoding::compress_to_vec(&plain[..], ruzstd::encoding::CompressionLevel::Fastest);
     let ok = post_with(&agent(), srv.addr, "/v1/systemone", &packed, &[("content-encoding", "zstd")]);
     assert_eq!(ok.status, 200);
+}
+
+/// Parse the default flags (plus `extra`) into a config whose catch-all lead is `up`, and start it.
+fn serve_from_flags(up: &Fake, extra: &[&str]) -> Server {
+    #[derive(Parser)]
+    struct W {
+        #[command(flatten)]
+        a: ServeArgs,
+    }
+    let url = up.url();
+    let mut argv = vec!["x", "--lead-url", url.as_str(), "--bind", "127.0.0.1:0", "--no-snapshots"];
+    argv.extend_from_slice(extra);
+    let w = W::parse_from(argv);
+    let mut c = w.a.config_with(&Config::default(), 0.0, factory()).unwrap();
+    c.timeout = Duration::from_secs(10);
+    start(c).unwrap()
+}
+
+#[test]
+fn default_mode_forwards_until_graduation_then_answers_locally() {
+    let up = Fake::start(oracle(true, Duration::ZERO));
+    let srv = serve_from_flags(&up, &[]);
+    let questions = || spec();
+    // a fresh start answers nothing locally: the first N requests of one question all reach the lead
+    let n = 10;
+    let ag = agent();
+    let mut r = Xoshiro::new(5);
+    for _ in 0..n {
+        let st = state_text(&mut r, true);
+        let out = post_with(&ag, srv.addr, "/v1/systemone", &request(RUNE, &st, questions()), &[]);
+        assert_eq!(out.h("x-understudy"), Some("lead"));
+    }
+    assert_eq!(up.calls(), n);
+    // enough examples graduate the question without a restart, and later requests are local
+    teach(&srv, RUNE, 220, 3, &questions);
+    assert_eq!(learners(&srv, "lead", RUNE)[0].1, "graduated");
+    let mut r = Xoshiro::new(77);
+    let local = (0..50)
+        .filter(|_| {
+            let st = state_text(&mut r, false);
+            post(srv.addr, &request(RUNE, &st, questions())).h("x-understudy") == Some("local")
+        })
+        .count();
+    assert!(local >= 40, "a graduated question is answered locally by default: {local}/50");
+}
+
+#[test]
+fn shadow_mode_never_answers_locally() {
+    let up = Fake::start(oracle(true, Duration::ZERO));
+    let srv = serve_from_flags(&up, &["--mode", "shadow"]);
+    let questions = || spec();
+    teach(&srv, RUNE, 220, 3, &questions);
+    assert_eq!(learners(&srv, "lead", RUNE)[0].1, "graduated");
+    let mut r = Xoshiro::new(77);
+    for _ in 0..50 {
+        let st = state_text(&mut r, false);
+        assert_eq!(post(srv.addr, &request(RUNE, &st, questions())).h("x-understudy"), Some("lead"));
+    }
 }

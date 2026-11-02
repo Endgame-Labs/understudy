@@ -68,8 +68,8 @@ pub struct ServeArgs {
     /// Address to listen on.
     #[arg(long, default_value = "127.0.0.1:8787")]
     pub bind: String,
-    /// forward, shadow, serve or race.
-    #[arg(long, value_enum, default_value = "shadow")]
+    /// serve (the default), shadow, forward, or race.
+    #[arg(long, value_enum, default_value = "serve")]
     pub mode: ServeMode,
     /// An extra System One route `MODEL=URL`; MODEL is an exact model name or a prefix ending in `*`. Repeatable;
     /// tried before the routes from the lead config file.
@@ -237,11 +237,11 @@ pub struct ServeConfig {
 pub type Upgrade = Arc<dyn Fn(&mut Proxy) -> Result<bool> + Send + Sync>;
 
 impl ServeConfig {
-    /// Defaults (shadow, loopback port 8787, built-in routes, no capture file) around a proxy factory.
+    /// Defaults (serve, loopback port 8787, built-in routes, no capture file) around a proxy factory.
     pub fn new(factory: ProxyFactory) -> Self {
         ServeConfig {
             bind: "127.0.0.1:8787".into(),
-            mode: ServeMode::Shadow,
+            mode: ServeMode::Serve,
             routes: vec![],
             snapshot_dir: None,
             capture: None,

@@ -73,7 +73,7 @@ requests were forwarded exactly as if Understudy were not there.
 ### Running
 
 ```bash
-# shadow first: nothing changes for the caller, and the capture log shows what it would answer
+# shadow (watch only; the default `serve` mode answers graduated questions): nothing changes for the caller, and the capture log shows what it would answer
 understudy serve --mode shadow --understudent keywords --snapshot-dir snapshots --capture capture.jsonl &
 
 # send traffic (your caller, pointed at http://127.0.0.1:8787/v1/systemone), then:

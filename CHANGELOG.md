@@ -3,6 +3,12 @@
 All notable changes to Understudy are documented in this file. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.1.0-preview.2] - 2026-11-02
+
+### Changed
+
+- `understudy serve` defaults to `--mode serve`: questions are answered locally once they graduate, with no restart. Use `--mode shadow` to watch without answering.
+
 ## [0.1.0-preview.1] - 2026-11-02
 
 First public preview release.
@@ -10,7 +16,7 @@ First public preview release.
 ### Added
 
 - `understudy serve`: an HTTP proxy that accepts System One requests (`POST /v1/systemone`), forwards them to a lead model,
-  and learns from the lead's answers. Modes: `forward`, `shadow` (default), `serve`, and `race`. Local answers carry the
+  and learns from the lead's answers. Modes: `forward`, `shadow`, `serve`, and `race`. Local answers carry the
   `x-understudy: local` header. `GET /healthz` and `GET /status` report server health and per-question state.
 - Question lifecycle: out-of-fold cross-validation, Wilson-bound graduation (with an opt-in sequential mode), novelty
   forwarding, sampled audits, and demotion back to the lead.
@@ -27,4 +33,5 @@ First public preview release.
 - Release pipeline: archives for x86_64 and aarch64 Linux and macOS with SHA-256 checksums, a shell installer, a Homebrew
   formula, `.deb` packages, and a container image.
 
+[0.1.0-preview.2]: https://github.com/endgame-labs/understudy/releases/tag/v0.1.0-preview.2
 [0.1.0-preview.1]: https://github.com/endgame-labs/understudy/releases/tag/v0.1.0-preview.1

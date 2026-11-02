@@ -22,11 +22,11 @@ How it decides is in [how it works](how-it-works.md); the statistics are in [gra
 ## Running
 
 ```bash
-# 1. shadow (the default): forward, learn, and log what the understudent would have said
+# 1. serve (the default): forward until a question graduates, then answer it locally; demote it on bad audits
 understudy serve --lead-url https://your-lead.example.com/v1/systemone
 
-# 2. serve: answer locally once a question has graduated (what shadow learned is reloaded)
-understudy serve --lead-url https://your-lead.example.com/v1/systemone --mode serve
+# 2. shadow: watch only; forward, learn, and log what the understudent would have said
+understudy serve --lead-url https://your-lead.example.com/v1/systemone --mode shadow
 
 # 3. race: call the lead at once, answer locally if the local answer is ready (and eligible) first
 understudy serve --lead-url https://your-lead.example.com/v1/systemone --mode race
@@ -394,8 +394,8 @@ kept, and the `Connection`-nominated headers dropped. The caller's end-to-end re
 | `--mode` | behavior |
 |---|---|
 | `forward` | pass-through plus the capture log; nothing is learned |
-| `shadow` (default) | forward everything, learn, log what the understudent would answer |
-| `serve` | answer locally when every question has graduated and is eligible; else forward as in shadow |
+| `shadow` | watch only: forward everything, learn, log what the understudent would answer; never answers locally |
+| `serve` (default) | forward until a question graduates, then answer locally when every question in the request has graduated and is eligible; else forward as in shadow |
 | `race` | call the lead immediately and compute the local answer beside it; the first usable result is returned (a local answer, or the lead's response), and the lead's response is never returned after a local answer, only audited |
 
 `race` is the latency-first mode. A forwarded request is the lead's own latency (the lead call starts before any feature is
@@ -412,8 +412,8 @@ answer went out is only logged; with no local answer, errors pass through unchan
 | `--lead-url URL` | none | a catch-all System One lead for any model (the route is named `lead`); the caller's `Authorization` goes to it unless `--route-key-env lead=VAR` is set |
 | `--route`, `--chat-route`, `--clef-route`, `--route-key-env`, `--no-default-routes` | none | more routes, and their keys ([above](#running)) |
 | `--bind` | `127.0.0.1:8787` | listen address |
-| `--mode` | `shadow` | `forward`, `shadow`, `serve`, or `race` (above) |
-| `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads them in any mode |
+| `--mode` | `serve` | `forward`, `shadow`, `serve`, or `race` (above) |
+| `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads them in any mode; with the default `serve` mode, a reloaded graduated question is answered locally at once |
 | `--no-snapshots` | off | keep learning in memory only |
 | `--understudent` | `auto` | the design; `auto` starts with the model-free ones and adds the encoder designs when the model is ready |
 | `--no-model-download` | off | never fetch the embedding model in the background (`auto` then keeps to the model-free designs until `understudy model fetch`) |
@@ -525,4 +525,4 @@ and coverage, and audit window from a saved snapshot, without loading the model.
   taken. 204 carries no `Content-Length`; 304 keeps the upstream's.
 - **A busy namespace forwards.** In `serve` mode, if a refit holds the namespace longer than `--local-wait-ms`, the request is
   forwarded (`local_busy`).
-- **Never point a live production caller at it** until it has run in shadow mode and its capture log agrees with the lead.
+- **Never point a live production caller at it** until it has run in `--mode shadow` and its capture log agrees with the lead.

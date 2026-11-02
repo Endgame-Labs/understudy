@@ -58,7 +58,7 @@ question, and do not commit capture logs or snapshots: a snapshot is a copy of y
 ## Recommended setup
 
 1. Run `serve` on loopback, as a user that owns nothing else, with `umask 077`.
-2. Start in `--mode shadow` with `--capture` into a private directory and read the capture log before promoting anything.
+2. Start in `--mode shadow` with `--capture` into a private directory and read the capture log before letting a question answer locally (the default `serve` mode answers a question once it graduates).
 3. Leave `--capture-bodies` off unless you are debugging, and delete the log afterwards.
 4. Keep snapshot directories private and out of version control.
 5. Report a vulnerability to the maintainer privately rather than in a public issue.

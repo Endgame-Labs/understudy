@@ -719,9 +719,9 @@ carries `x-understudy: lead` (forwarded), `local` (answered here) or `error` (th
 
 **Modes.**
 - `forward`: pass-through plus capture; nothing is learned.
-- `shadow` (default): forward every request and return the lead's response unchanged. Every successful answer is queued for
+- `shadow`: forward every request and return the lead's response unchanged. Every successful answer is queued for
   the learners and the capture log records what the understudent would have answered, its eligibility, and whether it agreed.
-- `serve`: answer locally only when **every** question in the request is a known learner that is graduated and eligible
+- `serve` (default): answer locally only when **every** question in the request is a known learner that is graduated and eligible
   (the routing of `judge`: tiers, confidence, novelty, demotion). Otherwise the whole request is forwarded as in shadow
   (mixed local/lead answers are not produced). A busy namespace (a refit holds it for longer than `--local-wait-ms`,
   default 5) forwards too. The local response is `{"model": <the request's model>, "answers": {<each submitted name>:

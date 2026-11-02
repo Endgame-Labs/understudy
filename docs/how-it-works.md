@@ -66,7 +66,7 @@ Points worth knowing:
 
 ## Shadow versus serve versus race
 
-`shadow` is the safe way to start: the caller always gets the lead's answer, and Understudy records what it *would*
+`serve` is the default: every question is forwarded until it graduates, then answered locally, and demoted on bad audits, with no restart. A restart that loads a graduated snapshot answers that question locally at once. `shadow` is watch only: the caller always gets the lead's answer, and Understudy records what it *would*
 have said. `serve` is the same pipeline with the local-answer branch switched on. `race` is `serve` with the lead call
 started first: it never makes a forwarded request wait for the local computation.
 
@@ -126,7 +126,7 @@ sequenceDiagram
     U-)W: enqueue, with the would-be answer and its agreement
 ```
 
-| | `forward` | `shadow` (default) | `serve` | `race` |
+| | `forward` | `shadow` | `serve` (default) | `race` |
 |---|---|---|---|---|
 | Caller gets | the lead's response | the lead's response | local answer when every question may answer, else the lead's response | the first usable result: a local answer if it is eligible and ready first, else the lead's response |
 | Learns | no | yes | yes (from forwards and audits) | yes (from every lead response, which is also the audit) |
@@ -266,8 +266,8 @@ working. [api.md](api.md) has the exact contract (request and response shapes, e
 - **No global locks across the lead.** Concurrent callers are served without holding a learner lock across an upstream
   request or a refit; training state is isolated by route, model, and question identity.
 
-Validate before promotion. Start in `shadow` (the default), where every request is forwarded and the capture log records what
-would have been answered locally, and promote to `serve` only when the log agrees with the lead. Replay a fixture of your own
+Validate before relying on local answers. The default `serve` mode forwards each question until it graduates. To watch without answering, use `--mode shadow`: every request is forwarded and the capture log records what
+would have been answered locally. Replay a fixture of your own
 traffic against a fake upstream and check:
 
 - several questions per request, including identical specs under different names, and criteria that change order or use

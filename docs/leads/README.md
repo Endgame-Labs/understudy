@@ -25,11 +25,11 @@ SDK is different, because TypeSafe's API is the decision model.
 Each page uses `--lead-url`, the catch-all route:
 
 ```bash
-understudy serve --lead-url <the lead's decision endpoint> [--route-key-env ...] --mode shadow --snapshot-dir snapshots/
+understudy serve --lead-url <the lead's decision endpoint> [--route-key-env ...] --snapshot-dir snapshots/
 ```
 
-Start in `shadow` (learn from the lead, answer nothing locally), then move to `serve` once questions have graduated
-([graduation](../graduation.md)). `serve --help` lists the older, equivalent `--route 'MODEL=URL'` (or `'*=URL'`) form, which
+The default `serve` mode learns from the lead and answers a question locally once it has graduated
+([graduation](../graduation.md)); add `--mode shadow` to answer nothing locally. `serve --help` lists the older, equivalent `--route 'MODEL=URL'` (or `'*=URL'`) form, which
 is what the tests on these pages used. Never point a live production caller at `understudy serve` except in shadow or replay.
 
 ## Auth

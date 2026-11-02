@@ -50,14 +50,14 @@ route = "clef*"             # serve: the request models it answers (default: mod
 ```bash
 export CLOUDFLARE_ACCOUNT_ID=<account_id>
 export CLOUDFLARE_API_TOKEN=<Workers AI token>
-understudy serve --clef-route 'clef*' --mode shadow --snapshot-dir snapshots/
+understudy serve --clef-route 'clef*' --snapshot-dir snapshots/
 # or, with the lead config above:
-understudy serve --mode shadow --snapshot-dir snapshots/
+understudy serve --snapshot-dir snapshots/
 understudy judge --snapshot snapshots/q1 --question q1.json --lead-kind clef --lead-model clef-flash < states.jsonl
 ```
 
 The caller sends a normal System One request to Understudy with `"model": "clef-flash"`; Understudy calls the public
-`api.cloudflare.com` and answers as in [serve](../api.md#serve-options). Start in `shadow`, and move to `serve` once questions have graduated.
+`api.cloudflare.com` and answers as in [serve](../api.md#serve-options). Questions are forwarded until they graduate; add `--mode shadow` to answer nothing locally.
 
 **Never change a global Cloudflare base URL to point at Understudy: every Workers AI call (chat, embeddings, images) would go through it, and it answers none of them.
 Point only the decisions client at Understudy, with its URL set in code.**
