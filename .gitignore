@@ -9,3 +9,4 @@ __pycache__/
 /data-private/
 /understudy-capture.jsonl
 /understudy-snapshots/
+/dist/
