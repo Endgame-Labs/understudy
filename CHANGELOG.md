@@ -9,6 +9,13 @@ All notable changes to Understudy are documented in this file. The format follow
 
 - `understudy serve` defaults to `--mode serve`: questions are answered locally once they graduate, with no restart. Use `--mode shadow` to watch without answering.
 
+### Fixed
+
+- The shell installer command pins the release URL, because `releases/latest` returns 404 while only pre-releases exist.
+- The `.deb` instructions use `curl` and the renamed asset (`understudy_0.1.0.preview.2_amd64.deb`) instead of `gh`.
+- The Docker entrypoint passes `--version`, `--help`, and subcommands through to `understudy`, so `docker run IMAGE --version` works.
+- The `understudy --help` about-text matches the package description.
+
 ## [0.1.0-preview.1] - 2026-11-02
 
 First public preview release.

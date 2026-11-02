@@ -7,8 +7,8 @@ Understudy ships as a single `understudy` binary. Releases are built for four ta
 | channel | command |
 |---|---|
 | Homebrew | `brew install endgame-labs/oss/understudy` |
-| Shell installer | `curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh \| sh` |
-| Debian package | `gh release download v0.1.0-preview.2 --repo endgame-labs/understudy --pattern '*_amd64.deb' && sudo apt install ./understudy_*_amd64.deb` |
+| Shell installer | `curl -fsSL https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy-installer.sh \| sh` |
+| Debian package | `curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy_0.1.0.preview.2_amd64.deb && sudo apt install ./understudy_0.1.0.preview.2_amd64.deb` |
 | Container image | `docker run -p 8787:8787 -v understudy-data:/data ghcr.io/endgame-labs/understudy:preview --lead-url <URL>` |
 | Source | `cargo install --git https://github.com/endgame-labs/understudy` |
 
@@ -23,17 +23,10 @@ release, pre-releases included. Homebrew verifies the archive's SHA-256 from the
 
 ## Shell installer
 
-GitHub's `releases/latest` URL skips pre-releases. Until a full (non-pre-release) release exists, it returns 404, so pin the
-version:
+GitHub's `releases/latest` URL skips pre-releases, so the command pins the version. The unpinned `releases/latest/download/understudy-installer.sh` form works once a non-preview release exists.
 
 ```bash
 curl -fsSL https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy-installer.sh | sh
-```
-
-Once a full release exists, the unpinned form installs the newest one:
-
-```bash
-curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh | sh
 ```
 
 The installer downloads the archive for the host platform, verifies its checksum, and places `understudy` in
@@ -41,16 +34,15 @@ The installer downloads the archive for the host platform, verifies its checksum
 
 ## Debian package
 
-Each release carries an `amd64` and an `arm64` `.deb` as release assets. Download the one for the host and install it with
-`apt`, which resolves dependencies. GitHub can rewrite the `~` in an asset name (for example to `.`), so the commands match
-the architecture suffix instead of the exact name:
+Each release carries an `amd64` and an `arm64` `.deb` as release assets. GitHub rewrites the `~` in the version to `.`, so the
+asset names use `0.1.0.preview.2`. Download the one for the host and install it with `apt`, which resolves dependencies:
 
 ```bash
-gh release download v0.1.0-preview.2 --repo endgame-labs/understudy --pattern '*_amd64.deb'
-sudo apt install ./understudy_*_amd64.deb
+# amd64
+curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy_0.1.0.preview.2_amd64.deb && sudo apt install ./understudy_0.1.0.preview.2_amd64.deb
+# arm64
+curl -fsSLO https://github.com/endgame-labs/understudy/releases/download/v0.1.0-preview.2/understudy_0.1.0.preview.2_arm64.deb && sudo apt install ./understudy_0.1.0.preview.2_arm64.deb
 ```
-
-Use `*_arm64.deb` on arm64 hosts. The exact asset names are listed on the release page.
 
 In Debian version syntax, `~` sorts a pre-release before the release, so `0.1.0~preview.2` is older than `0.1.0`. There is no
 hosted apt repository yet.
@@ -62,10 +54,10 @@ docker run -p 8787:8787 -v understudy-data:/data \
   ghcr.io/endgame-labs/understudy:preview --lead-url <URL>
 ```
 
-The entrypoint runs `understudy serve`, so extra arguments go to `serve`. To check the version, override the entrypoint:
+The entrypoint runs `understudy serve --bind 0.0.0.0:8787` by default, so arguments that start with a flag such as `--lead-url` go to `serve`. A first argument of `-V`, `--version`, `-h`, `--help`, or a subcommand (`replay`, `judge`, `train`, `serve`, `model`, `status`, or `help`) runs the binary with the arguments unchanged. To check the version:
 
 ```bash
-docker run --rm --entrypoint understudy ghcr.io/endgame-labs/understudy:preview --version
+docker run --rm ghcr.io/endgame-labs/understudy:preview --version
 ```
 
 | item | value |

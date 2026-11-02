@@ -18,7 +18,7 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 #[derive(Parser)]
-#[command(name = "understudy", version, about = "A CPU reflex layer in front of a systemone decision model")]
+#[command(name = "understudy", version, about = "A drop-in, CPU-only proxy for System One decision models that learns per-question understudents from the lead's answers")]
 struct Cli {
     #[command(subcommand)]
     cmd: Cmd,
@@ -77,7 +77,7 @@ enum Cmd {
         #[command(flatten)]
         opts: UnderstudentOpts,
     },
-    /// A drop-in `POST /v1/systemone` HTTP proxy: forward to Jev/Rune, learn from the answers, and (in `serve` mode)
+    /// A drop-in `POST /v1/systemone` HTTP proxy: forward to the configured lead, learn from the answers, and (in `serve` mode)
     /// answer graduated questions locally. See SPEC.md, "serve".
     Serve {
         #[command(flatten)]
