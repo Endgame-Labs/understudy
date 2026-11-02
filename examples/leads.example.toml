@@ -24,6 +24,16 @@ key_env = "FIREWORKS_API_KEY"
 # confidence = 0.9                       # the fixed probability of the chosen class when it does not
 # max_tokens = 2048
 
+# A Cloudflare Workers AI lead: Clef or Clef Flash. A System One body goes in as it is; the reply is unwrapped from
+# Cloudflare's envelope (see docs/leads/cloudflare-clef.md).
+[leads.clef]
+kind = "clef"
+model = "clef-flash"
+route = "clef*"                          # serve: clef, clef-flash and @cf/cloudflare/<model>
+# url = "https://api.cloudflare.com"     # the API base (default; or $CLOUDFLARE_API_BASE)
+# account = "<account_id>"               # default: $CLOUDFLARE_ACCOUNT_ID
+# key_env = "CLOUDFLARE_API_TOKEN"       # the default for a clef lead; omit to forward the caller's Authorization
+
 # The chat LLM that writes the `rules` understudent's rules (default: Fireworks' public API, key in $FIREWORKS_API_KEY).
 # [rules]
 # url = "https://api.fireworks.ai/inference/v1/chat/completions"

@@ -38,7 +38,7 @@ understudy serve --lead-url https://your-lead.example.com/v1/systemone --mode fo
 `--lead-url URL` is a catch-all route: every request goes to that lead whatever its `model`, and no config file is needed.
 Otherwise requests are routed by their `model`, to the leads of your [lead config file](#config-file) (a lead's `route` is the
 model pattern it answers, else its `model`), which are tried before `--lead-url`. Add routes with `--route MODEL=URL` (a System One endpoint) or
-`--chat-route MODEL=URL` (an OpenAI-compatible chat endpoint); the model is exact, or a prefix ending in `*`. Ignore the config
+`--chat-route MODEL=URL` (an OpenAI-compatible chat endpoint) or `--clef-route MODEL` (a [Cloudflare Clef](leads/cloudflare-clef.md) route; the URL is built from `$CLOUDFLARE_ACCOUNT_ID`); the model is exact, or a prefix ending in `*`. Ignore the config
 with `--no-default-routes`, and send a bearer key for a route from the environment with `--route-key-env ROUTE=ENV_VAR` (the
 `--lead-url` route is named `lead`). Without a configured key, the client's own `Authorization` header is forwarded to the lead.
 With no config, no `--route` and no `--lead-url`, `serve` does not start: no endpoint is built in.
@@ -81,6 +81,7 @@ A **lead** is the decision model Understudy sits in front of. Understudy itself 
 |---|---|---|
 | `systemone` (default) | An endpoint taking `{model, questions, state}` and returning `{answers}`, such as Jev or Rune. Native: the request and response are used as they are. | works today; every benchmark used it |
 | `chat` | An OpenAI-compatible `POST /chat/completions` endpoint, driven by the adapter below. | works today; tested against a fake endpoint and a live one; not benchmarked |
+| `clef` | Cloudflare Workers AI Clef and Clef Flash: a System One body in, the reply unwrapped from Cloudflare's envelope. See [Cloudflare Clef](leads/cloudflare-clef.md). | works today; tested live on 2026-11-02 |
 | replay | `--replay-lead stream.jsonl`: recorded answers by id, offline. | works today |
 
 ### Config file
@@ -103,6 +104,14 @@ url = "https://api.fireworks.ai/inference/v1"     # a base URL, or the full .../
 model = "example-chat-model"
 key_env = "FIREWORKS_API_KEY"
 # also: reasoning_effort, json_schema (true), logprobs (true), confidence (0.9), max_tokens (2048)
+
+[leads.clef]
+kind = "clef"                                     # Cloudflare Workers AI: System One in, the envelope unwrapped
+model = "clef-flash"
+route = "clef*"                                   # serve: clef, clef-flash and @cf/cloudflare/<model>
+# url = "https://api.cloudflare.com"              # the API base (default; or $CLOUDFLARE_API_BASE); optional for this kind
+# account = "<account_id>"                        # default: $CLOUDFLARE_ACCOUNT_ID
+# key_env = "CLOUDFLARE_API_TOKEN"                # the default for a clef lead
 
 [rules]                                   # the chat LLM of the `rules` design (default: Fireworks' public API)
 model = "example-chat-model"
@@ -401,7 +410,7 @@ answer went out is only logged; with no local answer, errors pass through unchan
 | flag | default | meaning |
 |---|---|---|
 | `--lead-url URL` | none | a catch-all System One lead for any model (the route is named `lead`); the caller's `Authorization` goes to it unless `--route-key-env lead=VAR` is set |
-| `--route`, `--chat-route`, `--route-key-env`, `--no-default-routes` | none | more routes, and their keys ([above](#running)) |
+| `--route`, `--chat-route`, `--clef-route`, `--route-key-env`, `--no-default-routes` | none | more routes, and their keys ([above](#running)) |
 | `--bind` | `127.0.0.1:8787` | listen address |
 | `--mode` | `shadow` | `forward`, `shadow`, `serve` or `race` (above) |
 | `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads them in any mode |

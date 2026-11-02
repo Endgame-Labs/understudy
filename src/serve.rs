@@ -19,6 +19,7 @@
 
 use crate::encoder::state_hash;
 use crate::chat::{self, ChatError, ChatSpec};
+use crate::clef::{self, ClefError, ClefSpec};
 use crate::config::{self, Config, LeadKind};
 use crate::lead::Lead;
 use crate::proxy::Proxy;
@@ -80,6 +81,14 @@ pub struct ServeArgs {
     /// config file.
     #[arg(long = "chat-route", value_name = "MODEL=URL")]
     pub chat_routes: Vec<String>,
+    /// A Cloudflare Clef route for the request models matching MODEL (an exact name or a prefix ending in `*`, such as
+    /// `clef*` for clef and clef-flash; `@cf/cloudflare/<model>` names match too). Callers send System One;
+    /// understudy calls `$CLOUDFLARE_API_BASE` (default https://api.cloudflare.com) at
+    /// `/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/ai/run/@cf/cloudflare/<model>` and returns the unwrapped result. The
+    /// bearer token is `$CLOUDFLARE_API_TOKEN` when set (or `--route-key-env`), else the caller's `Authorization`.
+    /// Repeatable. For an `account` or `base` in a file, use a `kind = "clef"` lead.
+    #[arg(long = "clef-route", value_name = "MODEL")]
+    pub clef_routes: Vec<String>,
     /// Send `Authorization: Bearer $ENV` upstream for a route: `NAME_OR_MODEL=ENV_VAR` (the NAME is a lead's name in
     /// the config file). The key is read from the environment only, never from a file or argv. An endpoint that
     /// needs none takes none. Without a key, the client's own `Authorization` header is forwarded.
@@ -170,10 +179,16 @@ pub struct Route {
     /// A chat route: requests are translated to chat calls (`chat.rs`) and answered in System One. `url` is then
     /// the chat endpoint, and the spec's model, if any, replaces the request's.
     pub chat: Option<ChatSpec>,
+    /// A Cloudflare Clef route (`clef.rs`): the System One body goes unchanged to the model's URL under the account,
+    /// and the reply is unwrapped from Cloudflare's envelope. `url` is then only a display value (the account id as
+    /// a placeholder); the call's URL is built per request from the model.
+    pub clef: Option<ClefSpec>,
 }
 
 impl Route {
     pub fn matches(&self, model: &str) -> bool {
+        // `@cf/cloudflare/clef-flash` and `clef-flash` are the same model to a clef route
+        let model = if self.clef.is_some() { model.strip_prefix(clef::MODEL_PREFIX).unwrap_or(model) } else { model };
         match self.pattern.strip_suffix('*') {
             Some(prefix) => model.starts_with(prefix),
             None => model == self.pattern,
@@ -254,7 +269,8 @@ impl ServeConfig {
 pub fn routes_from_config(cfg: &Config) -> Vec<Route> {
     let mut out = vec![];
     for (name, e) in &cfg.leads {
-        let Some(pattern) = e.route.clone().or_else(|| e.model.clone()) else { continue };
+        let pattern = e.route.clone().or_else(|| e.model.clone());
+        let Some(pattern) = pattern.or_else(|| (e.kind == LeadKind::Clef).then(|| "clef*".to_string())) else { continue };
         let bearer = e.key_env.as_deref().and_then(|v| match config::key_from_env(v) {
             Ok(k) => k,
             Err(err) => {
@@ -262,10 +278,22 @@ pub fn routes_from_config(cfg: &Config) -> Vec<Route> {
                 None
             }
         });
+        if e.kind == LeadKind::Clef {
+            let spec = ClefSpec::resolve(Some(&e.url), e.account.as_deref());
+            let bearer = bearer.or_else(|| e.key_env.is_none().then(clef_default_key).flatten());
+            out.push(Route { name: name.clone(), pattern, url: spec.display_url(), bearer, chat: None, clef: Some(spec) });
+            continue;
+        }
         let chat = (e.kind == LeadKind::Chat).then(|| ChatSpec::from_entry(e));
-        out.push(Route { name: name.clone(), pattern, url: if chat.is_some() { chat::endpoint(&e.url) } else { e.url.clone() }, bearer, chat });
+        out.push(Route { name: name.clone(), pattern, url: if chat.is_some() { chat::endpoint(&e.url) } else { e.url.clone() }, bearer, chat, clef: None });
     }
     out
+}
+
+/// The default bearer token of a clef route: `$CLOUDFLARE_API_TOKEN`, when set. Without it the caller's own
+/// `Authorization` header is forwarded.
+fn clef_default_key() -> Option<String> {
+    std::env::var(clef::TOKEN_ENV).ok().map(|v| v.trim().to_string()).filter(|v| !v.is_empty() && v != "implicit")
 }
 
 impl ServeArgs {
@@ -282,23 +310,30 @@ impl ServeArgs {
         let mut routes = vec![];
         for r in &self.routes {
             let (pattern, url) = r.split_once('=').ok_or_else(|| anyhow!("--route wants MODEL=URL, got {r:?}"))?;
-            routes.push(Route { name: slug(pattern), pattern: pattern.into(), url: url.into(), bearer: None, chat: None });
+            routes.push(Route { name: slug(pattern), pattern: pattern.into(), url: url.into(), bearer: None, chat: None, clef: None });
         }
         for r in &self.chat_routes {
             let (pattern, url) = r.split_once('=').ok_or_else(|| anyhow!("--chat-route wants MODEL=URL, got {r:?}"))?;
             let spec = ChatSpec::new(url);
-            routes.push(Route { name: slug(pattern), pattern: pattern.into(), url: spec.url.clone(), bearer: None, chat: Some(spec) });
+            routes.push(Route { name: slug(pattern), pattern: pattern.into(), url: spec.url.clone(), bearer: None, chat: Some(spec), clef: None });
+        }
+        for pattern in &self.clef_routes {
+            let spec = ClefSpec::resolve(None, None);
+            routes.push(Route { name: slug(pattern), pattern: pattern.into(), url: spec.display_url(), bearer: clef_default_key(), chat: None, clef: Some(spec) });
         }
         if !self.no_default_routes {
             routes.extend(routes_from_config(file));
         }
         if let Some(u) = &self.lead_url {
-            routes.push(Route { name: "lead".into(), pattern: "*".into(), url: u.clone(), bearer: None, chat: None });
+            routes.push(Route { name: "lead".into(), pattern: "*".into(), url: u.clone(), bearer: None, chat: None, clef: None });
         }
         for k in &self.route_key_env {
             let (which, var) = k.split_once('=').ok_or_else(|| anyhow!("--route-key-env wants ROUTE=ENV_VAR, got {k:?}"))?;
             let r = routes.iter_mut().find(|r| r.name == which || r.pattern == which).ok_or_else(|| anyhow!("--route-key-env: no route {which:?}"))?;
             r.bearer = std::env::var(var).ok().map(|v| v.trim().to_string()).filter(|v| !v.is_empty() && v != "implicit");
+        }
+        if let Some(r) = routes.iter().find(|r| r.clef.as_ref().is_some_and(|c| c.account.is_none())) {
+            bail!("route {}: a clef route needs the Cloudflare account id: set `account` in its lead config or ${}", r.name, clef::ACCOUNT_ENV);
         }
         if routes.is_empty() {
             bail!("no routes: pass --lead-url URL (or --route MODEL=URL, or --chat-route), or define leads in the lead config file ($UNDERSTUDY_LEADS or ~/.config/understudy/leads.toml; see examples/leads.example.toml)");
@@ -414,6 +449,9 @@ fn identity(route: &Route, model: &str) -> Value {
     if let Some(c) = &route.chat {
         // a chat route answers differently from a System One one with the same URL; the key is absent for the rest
         cfg["chat"] = json!({"model": c.model, "reasoning_effort": c.reasoning_effort, "json_schema": c.json_schema, "logprobs": c.logprobs, "confidence": c.confidence});
+    }
+    if route.clef.is_some() {
+        cfg["clef"] = json!(true);
     }
     let config_hash = hex(&Sha256::digest(serde_json::to_string(&cfg).unwrap_or_default().as_bytes()))[..16].to_string();
     json!({"route": route.name, "model": model, "upstream": url, "config_hash": config_hash})
@@ -797,6 +835,9 @@ fn call_upstream(agent: &ureq::Agent, route: &Route, headers: &[(String, String)
     if let Some(spec) = &route.chat {
         return call_chat(agent, spec, headers, body, max_response);
     }
+    if let Some(spec) = &route.clef {
+        return call_clef(agent, spec, headers, body, max_response);
+    }
     let mut rq = agent.post(&route.url);
     for (k, v) in headers {
         rq = rq.set(k, v);
@@ -855,6 +896,35 @@ fn call_chat(agent: &ureq::Agent, spec: &ChatSpec, headers: &[(String, String)],
         Err(ChatError::TooLarge(n)) => Err(UpErr { msg: format!("the chat endpoint's response is over the {n}-byte limit (--max-response-mib); it is not relayed truncated"), timed_out: false, too_large: true }),
         Err(ChatError::Transport { msg, timed_out }) => Err(UpErr { msg, timed_out, too_large: false }),
         Err(ChatError::Unusable(m)) => Ok(Upstream { status: 502, headers: json_headers(None), body: error_body("bad_gateway", &format!("the chat lead's answer was unusable: {m}")) }),
+    }
+}
+
+/// A clef route's "upstream": the request body goes to Cloudflare as it is, and the envelope's `result` comes back as
+/// the System One response. A failed envelope or a non-2xx status keeps Cloudflare's status (502 for a failed envelope
+/// with a 2xx), its `Retry-After`, and a JSON error body with its messages.
+fn call_clef(agent: &ureq::Agent, spec: &ClefSpec, headers: &[(String, String)], body: &[u8], max_response: usize) -> Result<Upstream, UpErr> {
+    let json_headers = || vec![("content-type".to_string(), "application/json".to_string())];
+    let reject = |status: u16, kind: &str, msg: &str| Ok(Upstream { status, headers: json_headers(), body: error_body(kind, msg) });
+    let Some(model) = serde_json::from_slice::<Value>(body).ok().and_then(|v| v["model"].as_str().map(String::from)) else {
+        return reject(400, "invalid_request", "a clef route needs a request with a string model");
+    };
+    let url = match spec.url(&model) {
+        Ok(u) => u,
+        Err(m) => return reject(400, "invalid_request", &m),
+    };
+    let auth = headers.iter().find(|(k, _)| k.eq_ignore_ascii_case("authorization")).map(|(_, v)| v.as_str());
+    match clef::call(agent, &url, auth, body, max_response) {
+        Ok(body) => Ok(Upstream { status: 200, headers: json_headers(), body }),
+        Err(ClefError::Http { status, retry_after, body }) => {
+            let mut headers = json_headers();
+            if let Some(ra) = retry_after {
+                headers.push(("retry-after".to_string(), ra));
+            }
+            Ok(Upstream { status, headers, body })
+        }
+        Err(ClefError::TooLarge(n)) => Err(UpErr { msg: format!("the Clef response is over the {n}-byte limit (--max-response-mib); it is not relayed truncated"), timed_out: false, too_large: true }),
+        Err(ClefError::Transport { msg, timed_out }) => Err(UpErr { msg, timed_out, too_large: false }),
+        Err(ClefError::Unusable(m)) => Ok(Upstream { status: 502, headers: json_headers(), body: error_body("bad_gateway", &format!("the Clef response was unusable: {m}")) }),
     }
 }
 
@@ -964,8 +1034,8 @@ fn handle(sh: &Arc<Shared>, rq: http::Request) -> Handled {
         sh.stats.rejected.fetch_add(1, Relaxed);
         return (json_reply(400, error_body("unknown_model", &format!("no upstream is configured for model {model:?}")), "error"), None);
     };
-    if let (Some(d), true) = (decoded, route.chat.is_some()) {
-        // a chat route builds its own calls from the decoded request
+    if let (Some(d), true) = (decoded, route.chat.is_some() || route.clef.is_some()) {
+        // a chat or clef route builds its own call from the decoded request
         raw = d;
         client_headers.retain(|(k, _)| !k.eq_ignore_ascii_case("content-encoding"));
     }
@@ -1780,7 +1850,7 @@ impl Drop for Server {
 /// Serve until killed.
 pub fn run(cfg: ServeConfig) -> Result<()> {
     let mode = cfg.mode;
-    let routes: Vec<String> = cfg.routes.iter().map(|r| format!("{} -> {}{}{}", r.pattern, r.url, if r.chat.is_some() { " (chat)" } else { "" }, if r.bearer.is_some() { " (bearer)" } else { "" })).collect();
+    let routes: Vec<String> = cfg.routes.iter().map(|r| format!("{} -> {}{}{}", r.pattern, r.url, if r.chat.is_some() { " (chat)" } else if r.clef.is_some() { " (clef)" } else { "" }, if r.bearer.is_some() { " (bearer)" } else { "" })).collect();
     let srv = start(cfg)?;
     eprintln!("understudy serve: {} mode on http://{} (POST /v1/systemone, GET /status)", mode.name(), srv.addr);
     for r in routes {

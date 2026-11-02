@@ -607,7 +607,7 @@ fields share cancels; swapping the fields negates it exactly); the whole vector 
 Production has one mode: understudy sits in front of the lead and decides per request whether to answer or delegate;
 it learns from every forward and keeps auditing after graduation. Its state is a **snapshot** directory.
 
-- `understudy judge --snapshot DIR [--understudent deep|probe|keywords|lite|neighbors|rules|shape|blend|memo|net|checklist|ladder|auto] [--candidates ...] [--prefer-fast EPS] [--abstain default|calibrated] [--graduation pointwise|sequential] [--tiers keywords,lite,probe,deep] [--no-chunk] [--minority 0.8] [--question q.json] (--lead NAME [--lead-url URL] [--lead-model M] [--lead-kind systemone|chat] [--lead-key-env VAR] |
+- `understudy judge --snapshot DIR [--understudent deep|probe|keywords|lite|neighbors|rules|shape|blend|memo|net|checklist|ladder|auto] [--candidates ...] [--prefer-fast EPS] [--abstain default|calibrated] [--graduation pointwise|sequential] [--tiers keywords,lite,probe,deep] [--no-chunk] [--minority 0.8] [--question q.json] (--lead NAME [--lead-url URL] [--lead-model M] [--lead-kind systemone|chat|clef] [--lead-key-env VAR] |
   --replay-lead stream.jsonl) [--audit-rate 0.1] [--save-every 100] [--layers 4,8,12] [--attn-layer L]
   [--readout auto|pool|attn] [--target 0.9] [--seed 0] [--min-examples 60]`: **the production command.** Reads
   `{"id","state"}` lines (or systemone requests `{"id"?, "questions": {name: question}, "state"}`; new questions
@@ -622,16 +622,20 @@ it learns from every forward and keeps auditing after graduation. Its state is a
     until the question graduates). If DIR holds one, `--question` is optional and must match it.
   - **Leads** (`src/lead.rs`, `src/config.rs`, `src/chat.rs`). `--lead NAME` reads the preset `[leads.NAME]` from the lead
     config file; `--lead-url`, `--lead-model` and `--lead-kind` override it or stand in for it. No endpoint is built in. A preset
-    has `kind` (`systemone`, the default, or `chat`), `url`, `model`, `key_env`, and for serve `route`; a chat preset also
+    has `kind` (`systemone`, the default, `chat` or `clef`), `url`, `model`, `key_env`, and for serve `route`; a clef preset also takes `account` and its `url` is the API base (optional); a chat preset also
     `reasoning_effort`, `json_schema`, `logprobs`, `confidence` and `max_tokens`. The file is `$UNDERSTUDY_LEADS`, else
     `$XDG_CONFIG_HOME/understudy/leads.toml`, else `~/.config/understudy/leads.toml`
     (`examples/leads.example.toml` documents every field). An unknown preset, or a missing config file, is an error that names where
     presets come from. Jev and Rune are example names (the System One leads the benchmarks used), not built-ins.
     A `chat` lead is an OpenAI-compatible `POST /chat/completions` endpoint driven through the adapter described under
-    "Chat leads" below. `--lead-key-env VAR` (or the preset's `key_env`) names an environment variable whose value is sent as
+    "Chat leads" below. A `clef` lead (`src/clef.rs`) is Cloudflare Workers AI Clef or Clef Flash: the System One body goes
+    unchanged (a `model` of `@cf/cloudflare/<m>` becomes `<m>`) to `{base}/client/v4/accounts/{account}/ai/run/@cf/cloudflare/{model}`
+    and the envelope's `result` is the System One response. The base is `url`, else `$CLOUDFLARE_API_BASE`, else
+    `https://api.cloudflare.com`; the account is `account`, else `$CLOUDFLARE_ACCOUNT_ID` (an error when missing); the key is `key_env`, else
+    `$CLOUDFLARE_API_TOKEN` when set. A snapshot records the base, not the account. See docs/leads/cloudflare-clef.md. `--lead-key-env VAR` (or the preset's `key_env`) names an environment variable whose value is sent as
     `Authorization: Bearer`; an unset variable is an error. The key is read from the environment only (never argv or a file),
     is held in memory, and is never printed, logged, put in a snapshot (a snapshot records `{"kind","url","model"}`) or in a capture log.
-    Without lead flags, an existing snapshot's recorded lead (`http` or `chat`, by URL and model) is used, with its key from
+    Without lead flags, an existing snapshot's recorded lead (`http`, `chat` or `clef`, by URL and model) is used, with its key from
     `--lead-key-env` if given. `--replay-lead` answers by id from a stream's `lead_probs` (offline, deterministic) and
     takes no lead flags.
   - Feature/fit flags (`--layers`, `--readout`, ...) only apply when creating a snapshot; on an existing one they must
@@ -689,7 +693,7 @@ names `understudy model fetch`. `--candidates` still names the race (those that 
 
 **Upstreams.** A request is routed by its `model`. The routes are the leads of the lead config file (each with a `route`, else
 its `model`, as the pattern: exact, or a prefix ending in `*`), plus `--route MODEL=URL` (System One) and
-`--chat-route MODEL=URL` (chat), both repeatable and tried first; `--no-default-routes` ignores the file. `--lead-url URL` adds a
+`--chat-route MODEL=URL` (chat) and `--clef-route MODEL` (Cloudflare Clef; MODEL matches `clef`, `clef-flash` and `@cf/cloudflare/<model>` names), all repeatable and tried first; `--no-default-routes` ignores the file. `--lead-url URL` adds a
 last catch-all route (named `lead`, pattern `*`) for any model, so no config file is needed. With no config, no `--route` and no
 `--lead-url`, serve refuses to start and says so: there is no built-in default. `--route-key-env ROUTE=ENV_VAR` (ROUTE: a lead's
 name or a route's model pattern) sends `Authorization: Bearer $ENV_VAR` for that route, as does a lead's `key_env` (a warning,
@@ -697,7 +701,10 @@ not an error, when that variable is unset). The key is read from the environment
 `Authorization` is forwarded. A **chat route** (a `kind = "chat"` lead, or `--chat-route`) keeps the caller's contract: the caller
 sends System One, and serve answers it by chat calls (`chat.rs`), for forwards, audits and races alike. The route's `model`
 replaces the request's in the chat call when set; a chat endpoint's error status and body are relayed; the response body is the
-adapter's System One answer (not the endpoint's bytes). A route's chat settings are part of its namespace identity. An unknown model or a
+adapter's System One answer (not the endpoint's bytes). A **clef route** (a `kind = "clef"` lead, or `--clef-route`) is the same
+for Clef: the request body goes to Cloudflare as it is and the response body is the envelope's `result` (status 200); `success: false` or a
+non-empty `errors` on a 2xx is a 502, and a non-2xx keeps Cloudflare's status and `Retry-After`, with a JSON error body carrying
+Cloudflare's messages. The route's URL shows `<account_id>`. A route's chat settings are part of its namespace identity. An unknown model or a
 body that is not a JSON object with a string `model` gets a 400 (`unknown_model` / `invalid_request`). A request body with
 `Content-Encoding: zstd` (the TypeSafe SDK compresses bodies of 1 KiB or more) is decoded to be read; the upstream still gets
 the original bytes and header. Another coding is a 400.
