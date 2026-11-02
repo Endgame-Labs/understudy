@@ -46,7 +46,7 @@ pooled mean and max per encoded state (`stat<i>.pool` in a ladder). No token sta
 
 ## Worked example
 
-Question: "Is this passage about billing?" (noul). After 200 labeled-by-the-lead states, words like *invoice*, *charge*
+Question: "Is this passage about billing?" (noul). After 200 labeled-by-the-lead states, words like *invoice*, *charge*,
 and *refund* carry large positive weights. A new state "Why was I charged twice this month?" gets `p_yes = 0.94`
 (illustrative), the threshold is 0.86, the state is not novel, so in `serve` mode it is answered locally in well under
 a millisecond. "Is the sky blue?" shares no vocabulary with the training states, its nearest neighbor is below the

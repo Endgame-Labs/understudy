@@ -1,6 +1,6 @@
 # blend
 
-One model over the **cheap features together**: hashed n-grams, structural features and the input embedding means. It
+One model over the **cheap features together**: hashed n-grams, structural features, and the input embedding means. It
 tries to get most of the way to a neural readout without running a transformer layer.
 
 ## Pipeline
@@ -45,8 +45,8 @@ input once: `blend` shares the embedding slot with `lite` and its sparse vector 
 
 ## Snapshot contents
 
-`fits/<key>.safetensors`: `sparse.{coef,intercept}` over all stacked columns, `blend.shape_mu`, `blend.shape_sd` and the
-embedding standardizer, and `refs`. States hold the sparse vector, `shape.v` and the lite pools.
+`fits/<key>.safetensors`: `sparse.{coef,intercept}` over all stacked columns, `blend.shape_mu`, `blend.shape_sd`, and the
+embedding standardizer, and `refs`. States hold the sparse vector, `shape.v`, and the lite pools.
 
 ## Worked example
 

@@ -36,7 +36,7 @@ flowchart TD
   set among the graduated candidates.
 - **Only the server answers and is audited.** Switching serving candidate (including to none) clears the audit windows
   involved. Each refit records the race (per candidate: `cv_agreement`, `cv_coverage`, `mode`, `why_not`, `cost_us`) in
-  the snapshot, in `understudy status` and in the replay summary (`candidates`, `serving`, `serving_history`, `lead_only`).
+  the snapshot, in `understudy status`, and in the replay summary (`candidates`, `serving`, `serving_history`, `lead_only`).
 
 ## Prefer fast
 
@@ -54,7 +54,7 @@ flowchart LR
     COST --> PICK["cheapest serves"]
 ```
 
-The cost is **not measured**. It is a recorded model of the design, the deepest encoder layer it runs and the mean token
+The cost is **not measured**. It is a recorded model of the design, the deepest encoder layer it runs, and the mean token
 count of recent examples, so a replay repeats and a timing glitch cannot flip a choice. The cheap designs cost a fixed
 80 to 350 µs, `probe` about 200 µs plus 50 µs per token per layer over 8 layers, `deep` about 400 µs plus the same over 12
 layers (see [SPEC.md](../../SPEC.md) for every constant). A race record's `cost_us` holds the modelled cost while the flag
@@ -73,7 +73,7 @@ Results (cold-start replay, Jev, `runs/pf-off-*` against `runs/pf-on-*`, `--pref
 | output_kind | 0.12 | keywords@100 > deep@285 > keywords@579 | 54.8% | 98.5% (96.5) | 32.1 ms | 232.0 ms |
 | tool_failed | 0.12 | `probe`@400 | 21.8% | 96.9% (92.4) | 52.2 ms | 197.6 ms |
 
-At **0.05 the serving choice is identical on all three datasets**: the decisions, coverage and agreement are the same, and
+At **0.05 the serving choice is identical on all three datasets**: the decisions, coverage, and agreement are the same, and
 the latency differences in the rows (for example tool_failed 70 against 81 ms with the same deep serving) are run-to-run
 timing noise, about 15% on this machine. The margin is too tight to matter here: the coverage gaps between the cheap and the
 expensive designs are 0.108 on output_kind (keywords 0.663 against deep 0.770) and on tool_failed (`probe` 0.718 against deep 0.825),
@@ -87,7 +87,7 @@ learning and a switch comes late.
 
 After `--give-up-after` examples (default 600) with **no** candidate graduated and **none within 0.05** of `--target` in
 `cv_agreement`, the question is `lead_only`. It forwards at once, computes no features (the states are kept and encoded at
-the re-check) and refits only every 1,000 new examples, which can lift the verdict. This is how a broad question over a
+the re-check), and refits only every 1,000 new examples, which can lift the verdict. This is how a broad question over a
 huge state space ends up costing only the forwarding overhead. See
 [examples](../examples.md#b-a-broad-question-stays-lead-only).
 
@@ -112,7 +112,7 @@ beyond forwarding (about 0.3 ms).
 
 ## Snapshot contents
 
-One fit per candidate (`fits/<key>.<candidate>.safetensors`), the race record, `serving_idx`, the lead-only reason and the
+One fit per candidate (`fits/<key>.<candidate>.safetensors`), the race record, `serving_idx`, the lead-only reason, and the
 raw states kept while lead-only.
 
 ## Worked example (illustrative numbers)

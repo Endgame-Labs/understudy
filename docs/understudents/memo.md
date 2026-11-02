@@ -49,9 +49,9 @@ cheap schedule, every 25 examples, in a ladder). Opt-in; not in the default tier
 
 ## Snapshot contents
 
-`fits/<key>.safetensors`: `memo.sig` (`[n, 128]` U32), `memo.exact`, `memo.y` and `memo.conf` for every stored state, and the
+`fits/<key>.safetensors`: `memo.sig` (`[n, 128]` U32), `memo.exact`, `memo.y`, and `memo.conf` for every stored state, and the
 chosen `thr_sim` in `snapshot.json`. `states/<enc>.safetensors`: `memo.key` per state. The fit report carries `memo_sim`,
-`memo_sim_grid`, `memo_sim_nested` and `answered`.
+`memo_sim_grid`, `memo_sim_nested`, and `answered`.
 
 ## Worked example
 

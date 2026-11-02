@@ -25,7 +25,7 @@ flowchart LR
 
 ## Features, model and confidence
 
-- **Features:** the pooled encoder block (mean and max over layers 4, 8 and 12, 3,072 dimensions for a one-field state;
+- **Features:** the pooled encoder block (mean and max over layers 4, 8, and 12, 3,072 dimensions for a one-field state;
   a pair uses the 4-way features) followed by shape's 430 features. Each block is standardized with the mean and standard
   deviation of the fitting rows only and clipped at ±6 sd.
 - **Model:** one hidden layer of 64 ReLU units with dropout 0.1 and a softmax over the classes seen in training. Loss is
@@ -35,7 +35,7 @@ flowchart LR
   the split, are held out. The epoch with the lowest weighted validation loss wins (patience 5) and its weights are
   restored. The standardizers are fitted after the split, on the fitting rows only. With fewer than 20 fitting rows, fewer
   than 10 validation rows, or one class on either side, everything trains for at most 15 epochs.
-- **Determinism:** a fixed seed per fit (`seed * 1000 + fold`) sets the initial weights, batch order and dropout masks.
+- **Determinism:** a fixed seed per fit (`seed * 1000 + fold`) sets the initial weights, batch order, and dropout masks.
   Each fit is single-threaded and the folds run in parallel. Epochs are capped by a multiply-accumulate budget (1.6e10,
   between 6 and 40 epochs) instead of the clock, so a replay repeats exactly and a 2,000-row fit on about 3,500 inputs
   takes a few seconds. A fit with a single class returns no model.
@@ -48,7 +48,7 @@ flowchart LR
 - Bad: with a few hundred examples and about 3,500 inputs, a hidden layer overfits more easily than a regularized linear
   model. In the committed validation it graduated later or at a lower agreement than `deep`.
 - Bad: it pays the encoder cost of `deep` plus the network, and refits are on the long schedule.
-- Opt-in: it is not in the default `ladder` or `auto` candidates. It applies `--layers`, `--no-chunk` and the encode cache
+- Opt-in: it is not in the default `ladder` or `auto` candidates. It applies `--layers`, `--no-chunk`, and the encode cache
   like `deep`.
 
 ## Cost and latency
@@ -80,6 +80,6 @@ apply to deep, net and a ladder with a deep or net tier. The network constants (
 
 ## Snapshot contents
 
-Both standardizers, `w1`, `b1`, `w2`, `b2`, the class indices the outputs cover and the kept epoch.
+Both standardizers, `w1`, `b1`, `w2`, `b2`, the class indices the outputs cover, and the kept epoch.
 
 See also [deep](deep.md) and [shape](shape.md).

@@ -1,13 +1,13 @@
 # understudy: reference spec
 
-The precise reference for Understudy: statistics, wire types, files, CLI and snapshot format. For explanations and diagrams
+The precise reference for Understudy: statistics, wire types, files, CLI, and snapshot format. For explanations and diagrams
 start with [README.md](README.md) and [docs/](docs/): [how it works](docs/how-it-works.md),
 [graduation](docs/graduation.md), [the understudent designs](docs/understudents/README.md), [the API](docs/api.md),
 [examples](docs/examples.md) and [benchmarks](docs/benchmarks.md).
 
 Understudy is a CPU-only layer in front of a lead decision model (for example Jev or Rune: anything speaking the
 `POST /v1/systemone` protocol). Per question it learns from the lead's answers, graduates on cross-validated Wilson
-bounds, forwards novel inputs, audits a sample forever and demotes on bad audits. Several understudent designs (features plus
+bounds, forwards novel inputs, audits a sample forever, and demotes on bad audits. Several understudent designs (features plus
 a model) run under the identical routing and statistics.
 
 ## Layout
@@ -25,7 +25,7 @@ runs/<run>/<dataset>/ stream.jsonl, decisions.<system>.jsonl, timing.<system>.js
 ### Model lookup and fetch
 
 The checkpoint is `google/embeddinggemma-2` at revision `914f7f89142e33e77833254d9c9b90c3cef7303b` (Apache-2.0, not
-gated). The loader reads three files: `config.json`, `tokenizer.json` and `model.safetensors`.
+gated). The loader reads three files: `config.json`, `tokenizer.json`, and `model.safetensors`.
 `eg2cpu::default_model_dir()` resolves the directory in this order:
 
 1. `$EG2_MODEL_DIR`, used as given and **never hash-checked** (loading stays fast).
@@ -57,11 +57,11 @@ There is no `bool` type on the wire: a "bool" decision is a `noul` question whos
 
 **Chat leads.** A lead of kind `chat` is an OpenAI-compatible `POST <url>/chat/completions` endpoint. Everything inside Understudy
 still speaks System One: the adapter (`src/chat.rs`) turns each question of a request into one chat call and the reply into the
-answer shapes above, so the snapshot, the statistics and `serve` are unchanged.
+answer shapes above, so the snapshot, the statistics, and `serve` are unchanged.
 - **One call per question**, concurrently (not one per request): each call has one small answer schema, a failure costs one
   question, and the answer token's logprobs belong to that question alone. The state is repeated per question.
 - **Prompt** (exact text in `docs/api.md`): a fixed system message and a user message with the question's instructions, its
-  criteria, the answer format and the state. The reply is asked as `{"answer": ...}`: a JSON boolean (`noul`), one of the
+  criteria, the answer format, and the state. The reply is asked as `{"answer": ...}`: a JSON boolean (`noul`), one of the
   criteria keys (`choice`) or a level index (`score`). `temperature` 0; `max_tokens` 2048.
 - **`response_format`** is a `json_schema` (`{"answer"}` with a boolean, an enum of the options, or an enum of level indices). If
   the endpoint answers 400 or 422 the call is repeated once without `response_format` and `logprobs`, remembered for later calls,
@@ -76,7 +76,7 @@ answer shapes above, so the snapshot, the statistics and `serve` are unchanged.
   (`noul`: `p_yes`; `choice`: probabilities and confidence; `score`: expected level). The response says which, per
   question: `"understudy": {"adapter": "chat", "probabilities": {name: "logprobs"|"fixed"}}`. Soft labels from a fixed confidence
   make the learners' lead-probability targets coarser than a native lead's; keep that in mind when comparing leads.
-- **Errors.** A non-2xx status from the chat endpoint is relayed as it is (status, body, `Content-Type` and `Retry-After`) by
+- **Errors.** A non-2xx status from the chat endpoint is relayed as it is (status, body, `Content-Type`, and `Retry-After`) by
   `serve`, and retried (408, 429, 5xx, transport) by the CLI leads like System One ones. If the schema request is refused (400/422)
   and the plain retry fails too, the retry's failure is the one reported (a 429 there stays retryable).
 - **Limits.** At most 8 questions of a request are in flight at once. A response (or error body) over the limit (16 MiB for the
@@ -162,7 +162,7 @@ Explained with diagrams and worked numbers in [docs/graduation.md](docs/graduati
   attempt `k` (1-based) tests every Wilson bound of the graduation scan at the two-sided level
   `alpha_k = 0.05 * 6 / (pi^2 k^2)` (the sum over all attempts is at most 0.05), i.e. `z_k = -Phi^-1(alpha_k / 2 / m)`
   (`stats::sequential_z`; 2.16 at k = 1, 3.24 at 5, 3.61 at 10, 4.15 at 30 for one candidate). It applies to every bar of
-  the scan: the agreement and minority bars of the symmetric mode, the "yes"/"no" recall lower bound and the local miss
+  the scan: the agreement and minority bars of the symmetric mode, the "yes"/"no" recall lower bound, and the local miss
   upper bound of both one-sided modes, the `rules` tier's graduation, and the certificate of `--abstain calibrated`
   (which replaces its own Bonferroni z). `m` is the number of candidates raced in the attempt (a ladder's tiers, auto's
   candidates: Bonferroni on top of the spending; 1 for a single understudent). The counter is per question
@@ -211,9 +211,9 @@ One page per design, with diagrams and examples, in [docs/understudents/](docs/u
 
 Several understudents run under the identical routing and statistics above (5-fold OOF, Wilson graduation, novelty
 forwarding, audits, demotion, the 100-example refit schedule, `--min-examples`, seeds). `--understudent NAME` on `replay`,
-`judge`, `train` and `serve` picks one (default `deep`); it is stored in the snapshot, and an existing snapshot refuses another. A
-understudent supplies only features, a fit (final model plus OOF probabilities), a prediction and a novelty vector.
-`readout` in a decision names what answered; the replay summary carries `understudent`, `coverage_by_readout` and every
+`judge`, `train`, and `serve` picks one (default `deep`); it is stored in the snapshot, and an existing snapshot refuses another. A
+understudent supplies only features, a fit (final model plus OOF probabilities), a prediction, and a novelty vector.
+`readout` in a decision names what answered; the replay summary carries `understudent`, `coverage_by_readout`, and every
 refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tier>` and, in the summary,
 `coverage_by_tier`, `graduated_at_item_by_tier`, `refit_secs_by_tier`).
 
@@ -224,7 +224,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
 | `keywords` | hashed char 3-5-grams (lowercased) + word uni/bigrams of the full state text (capped at 20,000 chars) | sparse LR | **none** (the model is never loaded) | 256-d projection of the hashed vector | `keywords` |
 | `lite` | the input token-embedding table's rows (`Model::input_embeddings`), token mean and max | standardized LR, C=0.5 | no layer runs | L2-normalized mean of the embeddings | `lite` |
 | `neighbors` | the L2-normalized layer-8 mean | cosine 7-NN vote | to layer 8 | the same vector | `neighbors` |
-| `ladder` | tiers (`--tiers`, default `keywords,lite,probe,deep`), each as its own row above | one fit per tier, each with its own graduation, threshold, novelty, audits and demotion | only up to the tier that answers | each tier's own | `keywords`, `lite`, `mean` (probe), `deep:pool`, `deep:attn` |
+| `ladder` | tiers (`--tiers`, default `keywords,lite,probe,deep`), each as its own row above | one fit per tier, each with its own graduation, threshold, novelty, audits, and demotion | only up to the tier that answers | each tier's own | `keywords`, `lite`, `mean` (probe), `deep:pool`, `deep:attn` |
 | `shape` | cheap structural features of the state (below): lengths, shares, markdown, URLs, refusal/apology/hedging markers, echoed numbers, JSON field types and values | standardized (clipped at ±6 sd) LR, C=0.5 | **none** (the model is never loaded) | the standardized feature vector, L2-normalized | `shape` |
 | `blend` | one design over [`keywords`'s hashed features] ⊕ [`shape`'s features] ⊕ [`lite`'s embedding mean+max] | a single sparse+dense LR (`keywords`'s solver and C=30; blocks scaled to unit norm) | the embedding table only, no layer runs | `keywords`'s projected vector | `blend` |
 | `memo` | the whole state text's hash and a 128-hash MinHash of its character 5-grams | retrieval over the window's lead answers (below); abstains unless an exact or near-duplicate match | **none** | none (it only answers near-duplicates) | `memo` |
@@ -237,7 +237,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   objective (`C·Σ wᵢ lossᵢ + ½‖w‖²`, intercept unpenalized; solved scaled by `1/Σ wᵢ`). The encoder stops at layer 8
   and no token states are stored. `--layers`, `--attn-layer`, `--readout` apply only to `deep` and a ladder's deep tier.
 - **keywords** features: for each state text (a pair's two texts are salted apart and summed), lowercase character
-  3-, 4- and 5-grams and word (alphanumeric run) unigrams and bigrams are hashed (FNV-1a, splitmix finalizer) into
+  3-, 4-, and 5-grams and word (alphanumeric run) unigrams and bigrams are hashed (FNV-1a, splitmix finalizer) into
   2^18 buckets with a sign from another hash bit; counts per distinct feature get sublinear tf (`1 + ln c`), signed
   values accumulate per bucket, the vector is L2-normalized. The model is the same weighted L2 logistic regression
   as `probe` on the sparse vectors, with C=30 (L2-normalized inputs need far more than C=0.5) and the weights of
@@ -253,8 +253,8 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   state is one field named ""; fields that lose a collision still count in the overall block and in the echo features):
   presence, the JSON type (null/bool/number/string/list/object),
   the numeric value (signed log, clipped at 1e9) and the boolean value, then 16 text features of the field's text: log
-  chars, words and lines; the share of digits, uppercase letters and punctuation; log counts of markdown headers,
-  bullets and code fences, of URLs and of question marks; log counts of refusal, apology and hedging markers (a fixed
+  chars, words, and lines; the share of digits, uppercase letters, and punctuation; log counts of markdown headers,
+  bullets, and code fences, of URLs, and of question marks; log counts of refusal, apology, and hedging markers (a fixed
   lexicon of substrings on the lowercased text, `REFUSAL`/`APOLOGY`/`HEDGE` in `shape.rs`); the log count of numbers; the
   share of the field's numbers that another field also holds (an answer echoing its question). The overall block has
   the same 16 features of the whole state text (its echo feature is the share of numbers held by at least two fields),
@@ -272,7 +272,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   exactly 1 (0 for an all-zero block), as the n-gram block does, whatever outliers the clipping lets through; each CV
   fold's two standardizers are fitted on that fold's training rows only (the final model's on all rows);
   the dense blocks are extra columns after the 2^18 buckets of the same sparse solver (`keywords::fit_dim`), with
-  `keywords`'s C=30, MIN_DF and L-BFGS settings. It stores the two standardizers (`Fit::blend`) and the model in
+  `keywords`'s C=30, MIN_DF, and L-BFGS settings. It stores the two standardizers (`Fit::blend`) and the model in
   `Fit::sparse`. Only the embedding table is read (`lite`'s encode path). Novelty is `keywords`'s projection.
 - **memo** (`src/memo.rs`) is retrieval over the window's lead answers, with no model and no encoder. A state's key is
   the hash of its whole text and a MinHash signature (128 hashes) of its character 5-gram set; the similarity is 1.0 for
@@ -300,11 +300,11 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   weights = the lead's confidence, L2 penalty 1e-4, Adam (lr 2e-3) on mini-batches of 32. **Early stopping:** 15% of the
   training rows (whole id groups, chosen by a hash of the group and the seed) are an inner split; the epoch with the
   lowest weighted validation loss wins (patience 5) and its weights are restored; with fewer than 20 fit rows, 10
-  validation rows or a single class on either side everything trains for a fixed 15 epochs at most. **Deterministic and
+  validation rows, or a single class on either side everything trains for a fixed 15 epochs at most. **Deterministic and
   bounded:** a fixed seed per fit (`seed * 1000 + fold`: initial weights, batch order, dropout masks), single-threaded
   fits run in parallel (the final model and the five folds), and epochs are capped by a multiply-accumulate budget
   (1.6e10, at most 40 epochs, at least 6) rather than the clock, so a 2,000-row refit takes a few seconds and a replay
-  repeats exactly. It reads the same encoding as deep, so `--layers`, `--no-chunk` and the encode cache apply and cache
+  repeats exactly. It reads the same encoding as deep, so `--layers`, `--no-chunk`, and the encode cache apply and cache
   entries are shared with deep; `readout` is `net`. The report carries `net_epochs` (kept epoch per fit: final, then
   the folds) and `net_dim`.
 - **checklist** (`src/checklist.rs`) is an interpretable decision list, no encoder. A state's binary features are every hashed
@@ -312,7 +312,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   fixed thresholds (no fitting, so nothing leaks): per field slot the presence bit, JSON type, a true boolean, a
   positive or negative number; for every field's text and the whole state's a length bucket (<= 10, 11-50, 51-200,
   201-1000, > 1000 characters), multiple lines, markdown headers and bullets, code fences, URLs, question marks, numbers,
-  refusal, apology and hedging markers, an echoed number, mostly digits and mostly uppercase. **Induction** is greedy
+  refusal, apology, and hedging markers, an echoed number, mostly digits, and mostly uppercase. **Induction** is greedy
   sequential covering (CN2/RIPPER-style) with one-literal rules `IF feature THEN class`: among the training rows no
   earlier rule took, pick the (feature, class) with the highest Wilson lower bound of precision (ties: more rows, then
   the lower feature id, then the lower class) among features in at least 5 rows, keep it when the bound is >= 0.6 and it
@@ -323,7 +323,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   fold's list is induced on that fold's training rows and a row nothing fires on is an abstention (a NaN row, as
   `memo`); graduation is the shared Wilson scan over the rows it answers and `cv_agreement` is over those rows (0.0
   below 30). It is very fast (a 600-2,000-row refit took 0.3-0.7 s on a loaded 8-core box, no encoder) and is on the cheap refit schedule.
-  **Printing rules:** the report's `checklist` has `rules` (feature, class, confidence, rows, hits), `default` and a
+  **Printing rules:** the report's `checklist` has `rules` (feature, class, confidence, rows, hits), `default`, and a
   `listing`, one rule per line, e.g. `1. IF [answer].refusal THEN yes   [conf 0.974, 41/42 rows]`. A hashed n-gram prints
   as its text (`"sorry"`, `word:refund`, `words:i cannot`) when the training states' texts are known (the encodings of a
   running proxy carry them in memory, `Encoding::aux`; they are never saved in a snapshot), the most frequent n-gram of
@@ -338,8 +338,8 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
 - **ladder** has one **tier** per entry of `--tiers` (any of `keywords`, `lite`, `probe`, `deep`, each at most once,
   cheapest first). Every tier trains on the same example window and is a complete understudent of its own: its own fit and
   5-fold OOF, graduation (Wilson bounds, `--target` and `--minority` apply to every tier), threshold and mode,
-  novelty references, audit window and demotion. Per request and question:
-  1. Tiers are tried in order. A tier is *eligible* when graduated, confident per its mode and not novel, and *may
+  novelty references, audit window, and demotion. Per request and question:
+  1. Tiers are tried in order. A tier is *eligible* when graduated, confident per its mode, and not novel, and *may
      answer* when it is also not demoted. The **cheapest tier that may answer answers.** A tier's features are
      computed only when a request reaches it: `keywords` needs no model; `lite` only the input embeddings; `probe`
      layers 0..8; `deep` up to layer 12. Only tiers with a fit are tried, so a learning tier costs a prediction, not
@@ -363,7 +363,7 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   A decision's `readout` names the answering tier (`keywords`, `lite`, `mean`, `deep:pool|attn`); a forwarded item
   reports the first eligible tier, else the last tier that predicted, in `understudent_label`/`mode`/`eligible`.
   `understudent_us` covers every feature and prediction computed to route the item (a forwarded item pays for all tiers).
-  The replay summary reports `coverage_by_tier`, `graduated_at_item_by_tier` and per-tier refit seconds.
+  The replay summary reports `coverage_by_tier`, `graduated_at_item_by_tier`, and per-tier refit seconds.
 - **auto** ("race, then serve ONE") fixes the ladder's error compounding (each tier's mistakes add up, so a ladder
   can be worse than its best tier alone). Candidates (`--candidates`, same rules and extension point as `--tiers`)
   are fitted at every refit on the same window with the same folds, each with the standard graduation test at
@@ -388,10 +388,10 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
     candidate holds the modelled cost while the flag is on), but a decision depends only on their order. Settings given
     in `Settings::cost_us` still override. The tie rule's standard error plays no part. Wall-clock time never enters the
     decision. Flags: `--prefer-fast EPS` (0 to 1), `--understudent auto` only; a stored snapshot refuses a different EPS.
-  - Only the serving understudent answers; its audits, graduation mode and demotion apply. Switching serving understudent
+  - Only the serving understudent answers; its audits, graduation mode, and demotion apply. Switching serving understudent
     (including to none) or mode clears the audit windows involved, as a mode change does for any understudent. Each refit
     records the race (`race`: per candidate `cv_agreement`, `cv_coverage`, `mode`, `why_not`, `cost_us`) in the
-    refit's replay record, the replay summary's `refits`, `understudy status` and the snapshot; the summary adds
+    refit's replay record, the replay summary's `refits`, `understudy status`, and the snapshot; the summary adds
     `candidates`, `serving`, `serving_history` (`{item, understudent}` each time the serving understudent changed; it serves
     from that item on) and `lead_only`. `readout` is the serving understudent's.
   - **Lazy features, and their cost.** A local prediction computes only the serving understudent's features (a serving
@@ -406,13 +406,13 @@ refit's timings (`refits[].secs`, `fit_secs`; a ladder also `refits[].tiers.<tie
   - Examples for which some candidate lacks features (made while lead-only, or loaded from an old snapshot) sit
     out a refit until they are encoded.
 
-### The `shape`, `blend` and `memo` understudents as ladder tiers and `auto` candidates
+### The `shape`, `blend`, and `memo` understudents as ladder tiers and `auto` candidates
 
 (`net` and `checklist` join them the same way in wave 2: `--candidates keywords,lite,probe,deep,shape,blend,memo,net,checklist` or any subset; the
-defaults are unchanged. `net` is on the long refit schedule and uses deep's featurizer, slot and encode-cache entries, so a
+defaults are unchanged. `net` is on the long refit schedule and uses deep's featurizer, slot, and encode-cache entries, so a
 race holding both encodes once; `checklist` is cheap and, like `keywords`, computes no model features. Both are opt-in.)
 
-`--tiers` and `--candidates` accept `shape`, `blend` and `memo` anywhere (`--candidates keywords,lite,probe,deep,shape,blend,memo`);
+`--tiers` and `--candidates` accept `shape`, `blend`, and `memo` anywhere (`--candidates keywords,lite,probe,deep,shape,blend,memo`);
 the default tiers and candidates (`UnderstudentKind::default_tiers`) do not include them. Candidates tie
 by cost class and then list order, so the cheaper ones should come first. In a ladder all three are on the cheap refit schedule
 (every 25 examples), since none runs a transformer layer. An encoding gains `shape` (the vector) and `memo` (the key);
@@ -425,7 +425,7 @@ sparse vector with `keywords`, so a race computes each input once.
 ### Abstention policies (`--abstain`, `src/abstain.rs`)
 
 `--abstain default|calibrated` (replay, judge, train, serve; stored in the snapshot, an existing snapshot refuses another)
-picks how out-of-fold predictions become a graduation threshold, for ANY understudent, ladder tier or auto candidate (the
+picks how out-of-fold predictions become a graduation threshold, for ANY understudent, ladder tier, or auto candidate (the
 `rules` understudent, which validates on held-out rows rather than out-of-fold, keeps its own scan).
 
 - `default` is the symmetric scan above: one threshold, the lowest `t` in 0.50..0.99 that meets the bars.
@@ -451,10 +451,10 @@ picks how out-of-fold predictions become a graduation threshold, for ANY underst
   4. The **exact frozen serving predicate** (model, thresholds, novelty floor: `Serving::predict`'s `eligible`) is
      evaluated **once on CERTIFY**. The policy graduates only if the Wilson bounds on CERTIFY's answered rows meet the same
      bars, with the same minimum counts. Otherwise the fit does not graduate, and it never falls back to the default
-     scans, the one-sided modes or any other uncertified policy.
+     scans, the one-sided modes, or any other uncertified policy.
   5. Serving uses that frozen model and those thresholds: nothing is refitted after certification. Every refit is a new
      model, split afresh and certified afresh. `cv_agreement` and `cv_coverage` in the report are CERTIFY's agreement and
-     answered share (so auto's race compares certified coverage); `split`, `select` and `certificate` (`rows`, `answered`,
+     answered share (so auto's race compares certified coverage); `split`, `select`, and `certificate` (`rows`, `answered`,
      `agreed`, `agreement`, `wilson_low`, `z`, `minority_answered`, `minority_agreed`, `coverage`, `passed`) carry the evidence.
   6. **Several candidates, one CERTIFY set.** A ladder's tiers and auto's candidates are certified on the same rows, so
      each must pass at a Bonferroni-corrected z (`abstain::bonferroni_z(m)`, the two-sided level 0.05/m: 1.96 for one
@@ -515,7 +515,7 @@ Reading it:
 
 - **The certified policy is far more conservative, as it should be.** It fits on 60% of the labeled rows and graduates only
   when 20% of them certify the frozen policy, so it graduates later and covers less than the default: on tool_failed,
-  passage_answers and incident_severity no calibrated configuration graduated at all (the default graduates `deep` on all
+  passage_answers, and incident_severity no calibrated configuration graduated at all (the default graduates `deep` on all
   three). Its earlier tool_failed gains (the single threshold's 11.8% -> 31.2% for `keywords`) came with uncertified
   thresholds and are gone.
 - **A calibrated configuration can still realize a Wilson low under the 0.90 bar**: the certificate passes on a thin CERTIFY
@@ -563,7 +563,7 @@ the cheapest tier (microseconds; no model, no encoder; a ladder answering from r
   no network calls and decides identically.
 - **Reporting:** the active rule set with held-out validation stats (`fit.rules`: rules, dropped rules and why,
   heldout n/agreement/coverage, proposal count, request key, human-readable `listing`) appears in the snapshot, in
-  `understudy status` and in the replay summary.
+  `understudy status`, and in the replay summary.
 
 ### Rules as an `auto` candidate
 
@@ -575,7 +575,7 @@ saw), `heldout_n` of them, so rules' coverage is measured on a smaller set than 
 candidates within one standard error computed over the smallest evaluation set among the graduated candidates (`n`
 for the fitted ones, `heldout_n` for a graduated rules), which widens the tie band when rules competes; ties go to
 the cheaper cost class, rules first. Rules examples need no encoder, so a race of `rules,keywords` computes no model features.
-The rules LLM options, `--rules-cache`, the snapshot's rule bookkeeping and the summary's `rules_llm` / `rules` fields
+The rules LLM options, `--rules-cache`, the snapshot's rule bookkeeping, and the summary's `rules_llm` / `rules` fields
 apply as for any understudent, next to auto's `candidates` / `serving_history` / `serving` / `lead_only`.
 
 ### Long states
@@ -621,9 +621,9 @@ it learns from every forward and keeps auditing after graduation. Its state is a
   - Cold start: if DIR holds no snapshot, `--question` is required and a new snapshot is created (everything is forwarded
     until the question graduates). If DIR holds one, `--question` is optional and must match it.
   - **Leads** (`src/lead.rs`, `src/config.rs`, `src/chat.rs`). `--lead NAME` reads the preset `[leads.NAME]` from the lead
-    config file; `--lead-url`, `--lead-model` and `--lead-kind` override it or stand in for it. No endpoint is built in. A preset
-    has `kind` (`systemone`, the default, `chat` or `clef`), `url`, `model`, `key_env`, and for serve `route`; a clef preset also takes `account` and its `url` is the API base (optional); a chat preset also
-    `reasoning_effort`, `json_schema`, `logprobs`, `confidence` and `max_tokens`. The file is `$UNDERSTUDY_LEADS`, else
+    config file; `--lead-url`, `--lead-model`, and `--lead-kind` override it or stand in for it. No endpoint is built in. A preset
+    has `kind` (`systemone`, the default, `chat`, or `clef`), `url`, `model`, `key_env`, and for serve `route`; a clef preset also takes `account` and its `url` is the API base (optional); a chat preset also
+    `reasoning_effort`, `json_schema`, `logprobs`, `confidence`, and `max_tokens`. The file is `$UNDERSTUDY_LEADS`, else
     `$XDG_CONFIG_HOME/understudy/leads.toml`, else `~/.config/understudy/leads.toml`
     (`examples/leads.example.toml` documents every field). An unknown preset, or a missing config file, is an error that names where
     presets come from. Jev and Rune are example names (the System One leads the benchmarks used), not built-ins.
@@ -635,7 +635,7 @@ it learns from every forward and keeps auditing after graduation. Its state is a
     `$CLOUDFLARE_API_TOKEN` when set. A snapshot records the base, not the account. See docs/leads/cloudflare-clef.md. `--lead-key-env VAR` (or the preset's `key_env`) names an environment variable whose value is sent as
     `Authorization: Bearer`; an unset variable is an error. The key is read from the environment only (never argv or a file),
     is held in memory, and is never printed, logged, put in a snapshot (a snapshot records `{"kind","url","model"}`) or in a capture log.
-    Without lead flags, an existing snapshot's recorded lead (`http`, `chat` or `clef`, by URL and model) is used, with its key from
+    Without lead flags, an existing snapshot's recorded lead (`http`, `chat`, or `clef`, by URL and model) is used, with its key from
     `--lead-key-env` if given. `--replay-lead` answers by id from a stream's `lead_probs` (offline, deterministic) and
     takes no lead flags.
   - Feature/fit flags (`--layers`, `--readout`, ...) only apply when creating a snapshot; on an existing one they must
@@ -650,8 +650,8 @@ it learns from every forward and keeps auditing after graduation. Its state is a
 - `understudy model fetch [--revision REV] [--dir DIR]`: downloads the three model files from
   `<host>/google/embeddinggemma-2/resolve/<REV>/<file>` (host `https://huggingface.co`, or `$HF_ENDPOINT`; an optional
   `$HF_TOKEN` is sent as a bearer token to that origin only, and none is needed). Redirects are resolved as URL
-  references against the current URL (relative, root-relative, scheme-relative and absolute `Location`s all work), and
-  the token is dropped on any other origin. Error messages never include a URL's userinfo, query or fragment. Each
+  references against the current URL (relative, root-relative, scheme-relative, and absolute `Location`s all work), and
+  the token is dropped on any other origin. Error messages never include a URL's userinfo, query, or fragment. Each
   file streams to a new, exclusively created temp file (`O_EXCL`, so a planted symlink is never written through) in its
   destination directory, with progress on stderr, and is renamed into place only if its size and SHA-256 match the
   pinned table; on a mismatch the temp file is deleted and the command fails. Files already present with the right
@@ -660,10 +660,10 @@ it learns from every forward and keeps auditing after graduation. Its state is a
   to use them). `REV` is a full 40-hex commit; the default is the pinned revision. Any other revision has no built-in
   hashes: its LFS files (`tokenizer.json`, `model.safetensors`) must carry a valid hub `x-linked-etag` SHA-256 and are
   checked against it (a host that gives none makes the fetch fail, nothing is installed unverified), and `config.json`
-  (a plain git blob) is reported unverified. Redirects are resolved as URL references (relative, scheme-relative and
+  (a plain git blob) is reported unverified. Redirects are resolved as URL references (relative, scheme-relative, and
   absolute `Location`s); the bearer token is sent only to the first origin, never to a redirect target on another one.
   Temp files are created exclusively (never through a pre-planted symlink), and error messages print URLs without
-  their query, fragment or credentials. Prints the model directory on stdout.
+  their query, fragment, or credentials. Prints the model directory on stdout.
 - `understudy model status`: prints the resolved model directory, its revision and pinned revision, and `ok`,
   `MISSING` or `MISMATCH` for each file. It hashes ~1.5 GB (a few seconds); exits 1 unless all three match. It
   follows the same lookup as loading, including `EG2_MODEL_DIR` (revision unknown).
@@ -686,20 +686,20 @@ points at with only a base-URL change. Its decisions are non-streaming JSON; any
 memory. `auto` never fails at startup for a missing encoder: it starts with the model-free designs (keywords, shape, checklist,
 memo, and rules when a rules LLM is configured), loads EmbeddingGemma 2 if it is on disk or otherwise fetches it in the
 background (`modelfetch`, checksum-verified; one log line when it starts and one when it finishes; `--no-model-download` skips
-the fetch; a failure is a warning), and then adds lite, probe and deep to every namespace's race at its next job (`Proxy::
-add_encoder_tiers`: the new candidates start unfitted and the existing fits, examples and serving candidate are kept). A snapshot
+the fetch; a failure is a warning), and then adds lite, probe, and deep to every namespace's race at its next job (`Proxy::
+add_encoder_tiers`: the new candidates start unfitted and the existing fits, examples, and serving candidate are kept). A snapshot
 that was saved with the encoder needs it to load: the namespace waits for a fetch in progress and otherwise reports an error that
 names `understudy model fetch`. `--candidates` still names the race (those that need the encoder join late).
 
 **Upstreams.** A request is routed by its `model`. The routes are the leads of the lead config file (each with a `route`, else
 its `model`, as the pattern: exact, or a prefix ending in `*`), plus `--route MODEL=URL` (System One) and
-`--chat-route MODEL=URL` (chat) and `--clef-route MODEL` (Cloudflare Clef; MODEL matches `clef`, `clef-flash` and `@cf/cloudflare/<model>` names), all repeatable and tried first; `--no-default-routes` ignores the file. `--lead-url URL` adds a
-last catch-all route (named `lead`, pattern `*`) for any model, so no config file is needed. With no config, no `--route` and no
+`--chat-route MODEL=URL` (chat) and `--clef-route MODEL` (Cloudflare Clef; MODEL matches `clef`, `clef-flash`, and `@cf/cloudflare/<model>` names), all repeatable and tried first; `--no-default-routes` ignores the file. `--lead-url URL` adds a
+last catch-all route (named `lead`, pattern `*`) for any model, so no config file is needed. With no config, no `--route`, and no
 `--lead-url`, serve refuses to start and says so: there is no built-in default. `--route-key-env ROUTE=ENV_VAR` (ROUTE: a lead's
 name or a route's model pattern) sends `Authorization: Bearer $ENV_VAR` for that route, as does a lead's `key_env` (a warning,
 not an error, when that variable is unset). The key is read from the environment only. Without a configured key, a client's own
 `Authorization` is forwarded. A **chat route** (a `kind = "chat"` lead, or `--chat-route`) keeps the caller's contract: the caller
-sends System One, and serve answers it by chat calls (`chat.rs`), for forwards, audits and races alike. The route's `model`
+sends System One, and serve answers it by chat calls (`chat.rs`), for forwards, audits, and races alike. The route's `model`
 replaces the request's in the chat call when set; a chat endpoint's error status and body are relayed; the response body is the
 adapter's System One answer (not the endpoint's bytes). A **clef route** (a `kind = "clef"` lead, or `--clef-route`) is the same
 for Clef: the request body goes to Cloudflare as it is and the response body is the envelope's `result` (status 200); `success: false` or a
@@ -710,9 +710,9 @@ body that is not a JSON object with a string `model` gets a 400 (`unknown_model`
 the original bytes and header. Another coding is a 400.
 
 **Forwarding is transparent.** The original request bytes go upstream once (no internal retries, no redirects: callers
-retry and have their own deadlines). The upstream's status, body bytes, `Content-Type`, `Retry-After` and other
+retry and have their own deadlines). The upstream's status, body bytes, `Content-Type`, `Retry-After`, and other
 headers (e.g. `fireworks-server-processing-time`) come back unchanged, whatever the status: 400 `max_tokens_exceeded`,
-402 billing, 413/422, 429/503 with either `Retry-After` form, other 5xx and malformed JSON are all passed through, never
+402 billing, 413/422, 429/503 with either `Retry-After` form, other 5xx, and malformed JSON are all passed through, never
 turned into 200s. Only a transport failure has no upstream response: it becomes 502 (504 on a timeout, `--timeout-secs`,
 default 120) with `{"error":{"type":"upstream_unreachable",...}}`, which callers treat as retryable. Every response
 carries `x-understudy: lead` (forwarded), `local` (answered here) or `error` (the proxy's own).
@@ -720,7 +720,7 @@ carries `x-understudy: lead` (forwarded), `local` (answered here) or `error` (th
 **Modes.**
 - `forward`: pass-through plus capture; nothing is learned.
 - `shadow` (default): forward every request and return the lead's response unchanged. Every successful answer is queued for
-  the learners and the capture log records what the understudent would have answered, its eligibility and whether it agreed.
+  the learners and the capture log records what the understudent would have answered, its eligibility, and whether it agreed.
 - `serve`: answer locally only when **every** question in the request is a known learner that is graduated and eligible
   (the routing of `judge`: tiers, confidence, novelty, demotion). Otherwise the whole request is forwarded as in shadow
   (mixed local/lead answers are not produced). A busy namespace (a refit holds it for longer than `--local-wait-ms`,
@@ -733,7 +733,7 @@ carries `x-understudy: lead` (forwarded), `local` (answered here) or `error` (th
 - `race` (latency first): every request goes to the lead **immediately** (the same transparent forwarding, on its own
   thread) while the local answer is computed on another thread, if every question is a known learner. The request thread
   returns the **first usable result**:
-  - the local answer, when every question is graduated, confident, not novel and not demoted (the routing of `serve`) and it
+  - the local answer, when every question is graduated, confident, not novel, and not demoted (the routing of `serve`) and it
     is ready before the lead's response: `x-understudy: local`, the same body as `serve`'s. The lead call is not cancelled:
     it finishes in the background and its response is never returned. It is queued as an audit (the served prediction against
     the lead's answer, at the fit that served it, as `serve`'s audits are) and a learning example, so every local answer in
@@ -749,15 +749,15 @@ carries `x-understudy: lead` (forwarded), `local` (answered here) or `error` (th
   `--race-max-inflight N` (default 64) caps the lead calls `race` has in flight (from the moment a request starts one until
   its response has arrived, including the ones that became background audits). A request that finds the cap reached behaves
   as in `serve` for that request: local when eligible (with `--audit-rate`'s audit, if any), otherwise forwarded after the
-  local computation; it is counted in `race_capped`. `/status` adds `race_local`, `race_lead`, `race_capped` and
+  local computation; it is counted in `race_capped`. `/status` adds `race_local`, `race_lead`, `race_capped`, and
   `race_inflight`. Races on questions with no namespace yet (nothing learned) cost one thread for the lead call and one that
   returns at once.
 
 **Learning is off the hot path.** The server is a thread per connection (`--max-conns`, default 512; more get a 503). A
 request thread parses the body (to route and read the questions), forwards, answers the client, and only then hands the
-rest to helper threads. Learning, refits and snapshot saves run on one worker per **upstream + model** namespace, each owning
+rest to helper threads. Learning, refits, and snapshot saves run on one worker per **upstream + model** namespace, each owning
 its own `Proxy` (its own mutex, its own snapshot under `--snapshot-dir/<upstream>__<model>-<hash>`, saved every `--save-every`
-learned requests, at shutdown and when idle). Rune and Jev, or `jev-latest` and `jev-preview`, never share a learner. The
+learned requests, at shutdown, and when idle). Rune and Jev, or `jev-latest` and `jev-preview`, never share a learner. The
 queue is bounded (`--queue`, default 1024 per namespace); when it is full the job is dropped and counted (`learn_dropped`
 in `/status` and the capture line), never waited for. A refit therefore stalls neither responses nor other namespaces.
 Shutdown first waits (up to 30 s) for outstanding race lead calls and audits, so a late lead answer is still recorded as an
@@ -765,17 +765,17 @@ audit and a training example before snapshots are saved; anything still running 
 
 **Namespaces and limits.** A namespace is route name + model + normalized upstream URL + a hash of the route's configuration
 (never its key), recorded in the saved snapshot. A snapshot directory is named by route and model only, so a snapshot whose recorded
-upstream or configuration differs is refused when the namespace loads (a clear error in `/status`, the log and the capture
+upstream or configuration differs is refused when the namespace loads (a clear error in `/status`, the log, and the capture
 line; the requests are forwarded and nothing is reused). A namespace exists only after a 2xx upstream answer with an `answers`
 object for that model; `--max-namespaces` (default 16) and `--max-learners` per namespace (default 256) cap them, and beyond
 a cap a request is forward-only and counted (`namespaces_refused`, `learners_refused`). A request has `--read-deadline-secs`
 (default 60) in total to send its headers and body and a response `--write-timeout-secs` (default 30) to be taken; more than
 32 trailers is refused. Framing is strict: duplicate or conflicting `Content-Length`, `Transfer-Encoding` with
-`Content-Length`, any coding but `chunked`, bare line feeds and a chunk not followed by CRLF are errors that close the
+`Content-Length`, any coding but `chunked`, bare line feeds, and a chunk not followed by CRLF are errors that close the
 connection. The upstream response bytes are relayed raw (no decompression, `Content-Encoding` kept, every value of a repeated
 header kept, `Connection`-nominated headers dropped); one over `--max-response-mib` (default 256) is a 502 with a capture note,
 never truncated. The caller's end-to-end request headers (`Idempotency-Key`, `Accept`, correlation ids, ...) go upstream; only
-hop-by-hop ones, `Host` and `Content-Length` do not. 204 carries no `Content-Length`; 304 keeps the upstream's. Local
+hop-by-hop ones, `Host`, and `Content-Length` do not. 204 carries no `Content-Length`; 304 keeps the upstream's. Local
 probabilities are apportioned to sum to exactly 1 at four decimals. A background audit records the prediction that was
 served and the fit version that made it and agrees against those (`served` in the capture line; an audit across a refit is
 logged but not counted toward demotion). Post-response work that finds the helpers' queue full is dropped and counted
@@ -800,7 +800,7 @@ use it to build replay datasets, and mind what the states contain).
 In `race` mode each request line adds `race_id`, `local_ms` (the local computation's time, null when the lead answered
 before it finished) and `lead_ms` (the lead call's time; null on a local line, whose lead call is on the audit line).
 When a local answer was returned, a second line, `kind: "audit"` with the same `race_id`, `routed: "local"`, `lead_ms`, the
-lead's `status`/`usage` and per question `served`, `lead` and **`agree`**, follows once the lead has answered. A request
+lead's `status`/`usage` and per question `served`, `lead`, and **`agree`**, follows once the lead has answered. A request
 past `--race-max-inflight` carries `race_capped: true`.
 
 **Overhead** (shadow vs a direct call to a local fake upstream with a fixed 100 ms latency, 1000 calls per side, 8-option
@@ -845,7 +845,7 @@ follow the every-100 refit schedule).
   behind an OpenAI-compatible chat-completions endpoint (the model is recorded in each `synth_stats.json`; see
   [data/README.md](data/README.md)), some programmatically. Resumable; raw generations cached. The endpoint defaults to Fireworks'
   public API (`https://api.fireworks.ai/inference/v1/chat/completions`) with the key in `$FIREWORKS_API_KEY`; `--url`,
-  `$UNDERSTUDY_LLM_URL` or `[bench] llm_url` in the lead config file override the URL.
+  `$UNDERSTUDY_LLM_URL`, or `[bench] llm_url` in the lead config file override the URL.
 - `understudy-bench teach --lead NAME [--url --model] [--workers 4] [--data-dir data]`: lead answers, cached and resumable.
   NAME is a System One lead of the lead config file (`[leads.NAME]`: `url`, `model`, `key_env`; the Go side reads the same file
   with a minimal TOML reader); `--url` and `--model` together need no config. `run --lead NAME` only names the recorded
@@ -858,7 +858,7 @@ follow the every-100 refit schedule).
     `hunch` is skipped (it learns from every request). Output per dataset: `ladder.json` (per rung: train size and groups,
     the pool's majority share, grouped-CV agreement/coverage/minority recall and the CV Wilson lower bound, held-out
     agreement of the understudent's own label with the lead, held-out majority share, lift, held-out Wilson lower bound
-    and whether it clears 0.90, coverage and local agreement), `decisions.<system>-n<N>.jsonl`, `train.<system>-n<N>.json`.
+    and whether it clears 0.90, coverage, and local agreement), `decisions.<system>-n<N>.jsonl`, `train.<system>-n<N>.json`.
     Rungs beyond the pool's lead-labeled prefix are skipped, not failed. `train` fits once per rung, so the refit
     schedule (every 100 items) plays no part in a ladder; replay on a 10k stream is where it would.
     Each rung passes `train --max-examples N` (ordinary `train` keeps only the newest 2000 sampled examples, evicting
@@ -866,7 +866,7 @@ follow the every-100 refit schedule).
     minus the duplicate states among the first N (both reported per rung as `train_dedupe_drops` and `fit_n`); the CV
     Wilson bound uses `fit_n`. The pool must be disjoint from the test set: a shared id or a prompt equal after
     normalization rejects the run, and a pool prompt that is a near-duplicate of a test prompt (4-gram Jaccard >= 0.8,
-    word-set Jaccard >= 0.7 or edit similarity >= 0.85) is excluded with all its sub-items, without renumbering
+    word-set Jaccard >= 0.7, or edit similarity >= 0.85) is excluded with all its sub-items, without renumbering
     (`ladder.json`: `pool_excluded_parents`). A pool is built outside the harness (per-response items with ids `<item>#<k>`,
     answered by the same lead, whose `state_sha` must match the item's current state).
     Each rung also carries a **length shortcut** diagnostic (`ladder.json` `length_shortcut`, a table in `LADDER.md`;

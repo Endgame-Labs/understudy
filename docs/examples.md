@@ -198,7 +198,7 @@ Each rung runs `understudy train --max-examples N` on the first N lead-labeled i
 skipped, not failed. A rung fails if the fit used fewer than N examples after removing duplicate states. The pool must be
 disjoint from the test (a shared id or an equal prompt rejects the run; near-duplicates are excluded with all their
 sub-items). Each rung reports: grouped-CV agreement and coverage, held-out agreement of the understudent's own label with the
-lead, the majority-class share (the number to beat), lift over it, the held-out Wilson lower bound and whether it clears
+lead, the majority-class share (the number to beat), lift over it, the held-out Wilson lower bound, and whether it clears
 0.90, plus coverage and local agreement. When the test states carry a `response`, a **length-shortcut diagnostic** is added
 (the lead's and the understudent's yes-rate by response-length quartile), which shows whether a learned length cue explains a
 result; see [SPEC.md](../SPEC.md).

@@ -1,11 +1,11 @@
-# Graduation, audits and demotion
+# Graduation, audits, and demotion
 
 A question's understudent answers locally only after it *graduates*. Graduation is a statistical test run at every refit
 on **out-of-fold** predictions, so the understudent is graded only on rows it was not trained on. After graduating, a
 rolling audit window keeps testing it, and a bad window demotes it.
 
 This page gives the exact rules. The same code runs for every [understudent design](understudents/README.md); a design
-supplies only features, a model and a novelty vector. [SPEC.md](../SPEC.md) lists the constants in reference form.
+supplies only features, a model, and a novelty vector. [SPEC.md](../SPEC.md) lists the constants in reference form.
 
 - [The pipeline](#pipeline)
 - [Examples and labels](#examples-and-labels)
@@ -68,7 +68,7 @@ side of every split:
 | fewer than 2 | the understudent declines to graduate and says why (`fewer than 2 id groups`) |
 
 In `understudy serve`, `x-understudy-group: G` on a request makes its examples group `G`, so cross-validation never
-splits one game, conversation or document.
+splits one game, conversation, or document.
 
 ## Wilson lower bound
 
@@ -105,7 +105,7 @@ z_k     = -Phi⁻¹(alpha_k / 2 / m)      m = candidates raced in the attempt (1
 | z, four candidates | 2.67 | 3.11 | 3.34 | 3.61 | 3.96 | 4.28 | 4.45 |
 
 The same `z_k` goes into every bar of the scan: agreement and minority agreement of the symmetric mode, the recall lower
-bound and the miss upper bound of both one-sided modes, the `rules` understudent's graduation and the certificate of
+bound and the miss upper bound of both one-sided modes, the `rules` understudent's graduation, and the certificate of
 `--abstain calibrated`. A ladder's tiers and auto's candidates are tested in the same attempt, so `m` is their number
 (Bonferroni on top of the spending). Demotion's audit bounds keep z = 1.96: demotion is the safety net, not a graduation.
 
@@ -174,7 +174,7 @@ window stays at 2,000 rows, so the Wilson lower bound at 0.99 falls from 0.982 (
 
 Offline replays (no API calls) of the committed streams, cold start, defaults otherwise (target 0.90, minority 0.80, audit rate
 0.10, seed 0): `understudy replay --understudent U --graduation pointwise|sequential`. Lead: Jev for `tool_failed`,
-`passage_answers` and `incident_severity`. Each cell is coverage (share of items
+`passage_answers`, and `incident_severity`. Each cell is coverage (share of items
 answered locally over the whole replay, learning included) / realized agreement with the lead's recorded answer on those (Wilson
 lower bound). The last column is the item at which the question first graduated (refits run every 100 items). `auto` is
 the default race of four candidates.

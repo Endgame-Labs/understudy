@@ -22,7 +22,7 @@ flowchart LR
 
 ## Features, model and confidence
 
-- **Features:** lowercase character 3-, 4- and 5-grams and word (alphanumeric run) unigrams and bigrams, hashed with FNV-1a
+- **Features:** lowercase character 3-, 4-, and 5-grams and word (alphanumeric run) unigrams and bigrams, hashed with FNV-1a
   and a splitmix finalizer into 2^18 buckets; each distinct feature's count gets sublinear tf (`1 + ln c`), signed values
   accumulate per bucket, and the vector is L2-normalized. A `pair` hashes each field into its own namespace and adds the
   signed difference of the two fields' features in a third (a feature both share cancels; swapping the fields negates it).
@@ -52,11 +52,11 @@ About 40 to 330 µs per item in the committed replay (`runs/v1-target97`). A 2,0
 
 ## Worked example
 
-Question: "Is this tool output an error?" Training states include `Traceback (most recent call last):`, `exit code 1` and
-`permission denied` labeled "yes", and `ok`, `exit code 0` and `3 files changed` labeled "no". The n-gram `exit code 1`
+Question: "Is this tool output an error?" Training states include `Traceback (most recent call last):`, `exit code 1`, and
+`permission denied` labeled "yes", and `ok`, `exit code 0`, and `3 files changed` labeled "no". The n-gram `exit code 1`
 and `traceback` get large weights. A new output `Error: ENOENT: no such file` gets `p_yes = 0.97` and is answered
 locally in about 0.15 ms. A decoy `Wrote a section titled "Error handling" to README.md` is a decoy for a bag of words;
 if the lead called such decoys "no" often enough, the model learns that `wrote` and `readme` pull towards "no", and the
 audit window catches the cases where it still gets them wrong.
 
-See also [lite](lite.md), [shape](shape.md) and [blend](blend.md), which add structure or meaning.
+See also [lite](lite.md), [shape](shape.md), and [blend](blend.md), which add structure or meaning.

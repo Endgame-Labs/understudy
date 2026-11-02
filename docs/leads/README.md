@@ -16,7 +16,7 @@ does not mean a benchmark; see [benchmarks](../benchmarks.md) for those.
 ## Caller rule
 
 Understudy answers one thing: the decision call. **Never change a global base URL** (`OPENAI_BASE_URL`, a global Fireworks or
-Cloudflare base URL) to point at Understudy: chat, embeddings, images and everything else would go through it too, and it
+Cloudflare base URL) to point at Understudy: chat, embeddings, images, and everything else would go through it too, and it
 answers none of them. Make a separate client used only for decision calls, with its `base_url` set in code. Only the TypeSafe
 SDK is different, because TypeSafe's API is the decision model.
 

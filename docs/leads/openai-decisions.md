@@ -10,7 +10,7 @@ documents an OpenAI-shaped `/inference/v1/decisions` too, so one adapter could s
 
 | | System One (Understudy) | OpenAI Decisions |
 |---|---|---|
-| state | `state` (string, object or array) | `input` (string, or messages, `input_image`, `input_json` parts) |
+| state | `state` (string, object, or array) | `input` (string, or messages, `input_image`, `input_json` parts) |
 | questions | object keyed by name | ordered array, each with `name` |
 | yes/no | `type: "noul"`, `criteria: {true, false}` | `type: "predicate"` |
 | choice | `criteria: {option: description}` | `choices: [{value, description}]` |
@@ -37,7 +37,7 @@ probabilities as maps), as the `chat` kind does for chat completions. It is in [
 Use a separate client for decision calls, with `base_url` set in code, for example
 `OpenAI(base_url="http://127.0.0.1:8787/v1")` used only for decisions.
 
-**Do not set `OPENAI_BASE_URL`: that would send chat, embeddings, images and every other OpenAI call through Understudy too.**
+**Do not set `OPENAI_BASE_URL`: that would send chat, embeddings, images, and every other OpenAI call through Understudy too.**
 
 ```bash
 understudy serve --lead-url https://api.openai.com/v1/decisions --route-key-env '*=OPENAI_API_KEY' --mode shadow

@@ -1,6 +1,6 @@
 # Security and privacy
 
-What Understudy sees, what it writes to disk, where it listens and how it handles keys. Read this before pointing real
+What Understudy sees, what it writes to disk, where it listens, and how it handles keys. Read this before pointing real
 traffic at it. For the modes referred to here see [how it works](how-it-works.md) and the [API](api.md).
 
 - [What it sees](#what-it-sees)
@@ -13,7 +13,7 @@ traffic at it. For the modes referred to here see [how it works](how-it-works.md
 ## What it sees
 
 `understudy serve` is a proxy, so it sees every prompt and state in full, and every answer the lead returns. It parses them to
-learn the question, featurize the state and compare answers. Treat the process, its memory and its files with the same care
+learn the question, featurize the state, and compare answers. Treat the process, its memory, and its files with the same care
 as the traffic itself. Understudy makes no attempt to redact states.
 
 ## What it writes to disk
@@ -21,7 +21,7 @@ as the traffic itself. Understudy makes no attempt to redact states.
 | file | what it holds | when it is written |
 |---|---|---|
 | the **capture log** (`--capture FILE`) | one JSON line per request: sizes, timings, a hash of the state, the lead's and the understudent's answers per question. With `--capture-bodies` it also holds the full request and response bodies, states included | only when `--capture` is given |
-| a **snapshot** (`--snapshot-dir DIR`) | per question, up to 2,000 recent examples **with their state text**, the lead's answers, the fitted models and the audit window, so a restart does not forget what was learned | only when `--snapshot-dir` is given |
+| a **snapshot** (`--snapshot-dir DIR`) | per question, up to 2,000 recent examples **with their state text**, the lead's answers, the fitted models, and the audit window, so a restart does not forget what was learned | only when `--snapshot-dir` is given |
 | the **rules cache** (`rules_llm.jsonl`, `--rules-cache`) | every request and response of the `rules` design's chat model, which include labeled example states | only when `rules` is in use |
 
 Understudy does not set file modes itself: files follow the process umask (typically readable by other local users). Create the
@@ -45,14 +45,14 @@ question, and do not commit capture logs or snapshots: a snapshot is a copy of y
   requests through it with the lead's credentials, and can read `/status`.
 - Do not bind a public or shared interface. If another machine must reach it, put it behind a network boundary or an
   authenticating reverse proxy that you control.
-- Requests are limited in size, header count, connections and time (see [limits](api.md#limits)), but those limits are
+- Requests are limited in size, header count, connections, and time (see [limits](api.md#limits)), but those limits are
   protections against accidents, not a defence against a hostile network.
 
 ## Keys
 
 - Upstream keys are read from **environment variables** (`--route-key-env ROUTE=ENV_VAR`, `--lead-key-env`, `key_env` in the
   config file). The config file names the variable, never the key.
-- Keys are not written to the capture log, the snapshot or the status page.
+- Keys are not written to the capture log, the snapshot, or the status page.
 - A caller's own `Authorization` header is not used for the lead: the keys are the lead's, held by Understudy.
 
 ## Recommended setup

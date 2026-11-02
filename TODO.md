@@ -39,7 +39,7 @@ public repository under the MIT license. Nothing is published by automation.
 
 ## After the release
 
-- [ ] **Fix: encoder options without weights.** `auto` with `--layers`, `--attn-layer` or `--readout` and no encoder weights fails validation (`src/main.rs` ~585-599): the namespace stores a permanent error and never reaches the upgrade. Validate against the full candidate set and keep the options for the encoder tiers. The default (no encoder options) is not affected.
+- [ ] **Fix: encoder options without weights.** `auto` with `--layers`, `--attn-layer`, or `--readout` and no encoder weights fails validation (`src/main.rs` ~585-599): the namespace stores a permanent error and never reaches the upgrade. Validate against the full candidate set and keep the options for the encoder tiers. The default (no encoder options) is not affected.
 
 - [ ] **Lead adapters** (see [docs/leads](docs/leads/README.md)).
   - OpenAI Decisions (and Fireworks' `/decisions`): translate System One to `input` + ordered `questions` (`predicate`, `choice` with `choices`, `score` with `levels`) and the array answers back.

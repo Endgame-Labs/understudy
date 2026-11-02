@@ -53,9 +53,9 @@ flowchart TD
 
 Points worth knowing:
 
-- **Forwarding is transparent.** The original request bytes go to the lead once. The lead's status, body and
+- **Forwarding is transparent.** The original request bytes go to the lead once. The lead's status, body, and
   `Retry-After` come back unchanged, including errors. The caller owns retries and deadlines.
-- **Learning is off the hot path.** The response is on the wire before any learning, refit or audit work starts.
+- **Learning is off the hot path.** The response is on the wire before any learning, refit, or audit work starts.
 - **All or nothing per request.** In `serve` mode a request is answered locally only if *every* question in it may be.
   Otherwise the whole request is forwarded. Mixed local and lead answers are never produced.
 - **Audits check agreement.** About one local answer in ten (`--audit-rate`, default 0.1) is also sent to the lead in the
@@ -130,14 +130,14 @@ sequenceDiagram
 |---|---|---|---|---|
 | Caller gets | the lead's response | the lead's response | local answer when every question may answer, else the lead's response | the first usable result: a local answer if it is eligible and ready first, else the lead's response |
 | Learns | no | yes | yes (from forwards and audits) | yes (from every lead response, which is also the audit) |
-| Capture log | yes | yes, with the understudent's would-be answer | yes | yes, with `local_ms`, `lead_ms` and the audit's agreement |
+| Capture log | yes | yes, with the understudent's would-be answer | yes | yes, with `local_ms`, `lead_ms`, and the audit's agreement |
 | Added latency | pass-through | about 0.3 ms at p50 | a prediction on the local path; about 0.3 ms plus the prediction when it forwards | the local path's prediction only; about 0.3 ms when it forwards, whatever the prediction costs |
 | Lead calls saved | none | none | the graduated share, minus the audit share | none (every request is audited); it buys latency |
 
 ## Question lifecycle
 
 Every question, per namespace, is in one of these states. The `/status` endpoint reports `learning`, `graduated`,
-`demoted` or `lead_only`.
+`demoted`, or `lead_only`.
 
 ```mermaid
 stateDiagram-v2
@@ -187,7 +187,7 @@ flowchart LR
 
 The floor is the 5th percentile of the training examples' own nearest-neighbor similarities, recomputed at every refit.
 So about one in twenty typical training states would count as novel, and a state that looks unlike anything seen
-is forwarded however confident the model is. Novel states are not wasted: they are forwarded, answered by the lead and
+is forwarded however confident the model is. Novel states are not wasted: they are forwarded, answered by the lead, and
 learned from, so the neighborhood fills in. `memo` has no novelty vector (it only answers near-duplicates) and
 `rules` has none either.
 
@@ -205,7 +205,7 @@ flowchart LR
 ```
 
 - A request thread parses the body, forwards, answers the client, and *then* hands the rest to helper threads.
-- Each upstream and model namespace has one worker that owns its learners. It learns, refits, audits and saves the snapshot
+- Each upstream and model namespace has one worker that owns its learners. It learns, refits, audits, and saves the snapshot
   (every `--save-every` learned requests, at shutdown, and when idle).
 - The queue is bounded (`--queue`, default 1024 per namespace). When it is full the job is dropped and counted
   (`learn_dropped` in `/status`), never waited for. A refit therefore stalls neither responses nor other namespaces.
@@ -215,10 +215,10 @@ flowchart LR
 ## Namespaces and learners
 
 A **namespace** is one upstream plus one model, for example Rune's router model or `jev-latest`. It owns a worker, a
-snapshot directory and a set of learners. Models never share a learner: `jev-latest` and `jev-preview` learn separately,
+snapshot directory, and a set of learners. Models never share a learner: `jev-latest` and `jev-preview` learn separately,
 because their answers can legitimately differ.
 
-A **learner** is one question spec within a namespace. Its identity is the hash of the question's type, instructions and
+A **learner** is one question spec within a namespace. Its identity is the hash of the question's type, instructions, and
 criteria (criteria order does not matter). The caller's question *names* are not part of it, so two different names with
 identical specs share a learner, and the response's `answers` keys always equal the submitted names.
 
@@ -240,7 +240,7 @@ its configuration, and a snapshot whose recorded upstream differs is refused wit
 ## Scope
 
 Understudy helps where a question is **narrow and repetitive**: the same yes/no gate, classification, routing,
-triage, moderation, relevance or judging question asked over and over about states that look alike. The model has
+triage, moderation, relevance, or judging question asked over and over about states that look alike. The model has
 a bounded job and can learn it from a few hundred answers.
 
 It does not help when the decision **compares two changing texts** (a fresh query against a fresh passage, as in search
@@ -258,13 +258,13 @@ working. [api.md](api.md) has the exact contract (request and response shapes, e
 
 - **Whole-request forwarding.** A request is forwarded byte for byte, or answered locally in full. Mixed per-question routing
   inside one request is not done, so usage and error semantics stay the lead's.
-- **Errors are the lead's.** Upstream statuses, bodies and `Retry-After` pass through unchanged; an error is never turned into
+- **Errors are the lead's.** Upstream statuses, bodies, and `Retry-After` pass through unchanged; an error is never turned into
   a 200 or a fallback answer, and the proxy does not retry, because callers already retry and nested retries can overrun
   their deadlines.
 - **Unknown fields are forwarded.** Fields and question types Understudy does not understand stay forwardable rather than
   blocking an otherwise valid request.
 - **No global locks across the lead.** Concurrent callers are served without holding a learner lock across an upstream
-  request or a refit; training state is isolated by route, model and question identity.
+  request or a refit; training state is isolated by route, model, and question identity.
 
 Validate before promotion. Start in `shadow` (the default), where every request is forwarded and the capture log records what
 would have been answered locally, and promote to `serve` only when the log agrees with the lead. Replay a fixture of your own
@@ -273,7 +273,7 @@ traffic against a fake upstream and check:
 - several questions per request, including identical specs under different names, and criteria that change order or use
   Unicode labels;
 - choice-only and probability-bearing responses;
-- each upstream error class: 400, 402, 413, 422, 429 and 503 (both `Retry-After` forms), other 5xx, a malformed JSON body and a
+- each upstream error class: 400, 402, 413, 422, 429, and 503 (both `Retry-After` forms), other 5xx, a malformed JSON body, and a
   transport failure;
 - unknown request and response fields, and unsupported question types;
 - concurrent callers during refits, with bounded queues;

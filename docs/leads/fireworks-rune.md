@@ -18,7 +18,7 @@ def decide(body):  # decision calls only
 
 with `"model": "accounts/fireworks/models/rune"`.
 
-**Do not change a global Fireworks base URL to Understudy: chat, embeddings, images and everything else would go through it too.**
+**Do not change a global Fireworks base URL to Understudy: chat, embeddings, images, and everything else would go through it too.**
 
 ## Serve
 

@@ -24,10 +24,10 @@ flowchart LR
 
 - **Per field slot.** 16 slots, each chosen by a stable hash of the field's *name*, so adding or removing a field never
   shifts another field's slot, and a missing field shows as its presence bit dropping. A non-object state is one field
-  named `""`. Per slot: presence, JSON type (null, bool, number, string, list, object), the numeric value (signed log) and
-  boolean value, then 16 text features of the field's text: log chars, words and lines; the share of digits, uppercase
-  and punctuation; log counts of markdown headers, bullets, code fences, URLs and question marks; log counts of refusal,
-  apology and hedging markers (fixed lexicons of substrings); the log count of numbers; and the share of the field's
+  named `""`. Per slot: presence, JSON type (null, bool, number, string, list, object), the numeric value (signed log), and
+  boolean value, then 16 text features of the field's text: log chars, words, and lines; the share of digits, uppercase,
+  and punctuation; log counts of markdown headers, bullets, code fences, URLs, and question marks; log counts of refusal,
+  apology, and hedging markers (fixed lexicons of substrings); the log count of numbers; and the share of the field's
   numbers that another field also holds (an answer echoing its question).
 - **Overall block.** The same 16 text features of the whole state, the log number of fields, the state's own type, the
   log ratio of character lengths for each pair among the first four slots, and the log length ratio of the question's

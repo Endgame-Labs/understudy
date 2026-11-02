@@ -29,7 +29,7 @@ flowchart LR
   from [shape](shape.md)'s structural vector with fixed thresholds, so nothing is fitted and nothing leaks. Per field
   slot: the presence bit, the JSON type, a true boolean, a positive or negative number. For each field's text and for the
   whole state's text: a length bucket (up to 10, 11 to 50, 51 to 200, 201 to 1,000, over 1,000 characters), multiple
-  lines, markdown headers, bullets, code fences, URLs, question marks, numbers, refusal, apology and hedging markers, an
+  lines, markdown headers, bullets, code fences, URLs, question marks, numbers, refusal, apology, and hedging markers, an
   echoed number, mostly digits, mostly uppercase.
 - **Induction:** greedy sequential covering, CN2/RIPPER style, with one-literal rules. Among the training rows no earlier
   rule took, pick the (feature, class) pair with the highest Wilson lower bound of precision (ties: more rows, then the
@@ -64,7 +64,7 @@ the whole-state block prints as `all.*`. The listing is saved in the snapshot's 
 - Good: an auditable policy. Each answer maps to one rule with its confidence and row counts, so a reviewer can read what
   the design learned and see when a rule is a spurious n-gram.
 - Good: answers only where a rule is precise, and needs no encoder, so it works before the model is downloaded.
-- Bad: one literal per rule. It cannot express a conjunction, a count or a paraphrase, and a question decided by several
+- Bad: one literal per rule. It cannot express a conjunction, a count, or a paraphrase, and a question decided by several
   weak signals yields no rule that reaches the 0.6 bound.
 - Bad: coverage is limited to what the rules take. Inputs no rule matches are forwarded for good, so coverage tends to
   trail [keywords](keywords.md) and [deep](deep.md).
@@ -97,11 +97,11 @@ and no question was won by it there.
 ## Settings
 
 Select it with `--understudent checklist`, as a `--tiers` entry, or in `--candidates`. The constants `MAX_RULES = 40`,
-`MIN_SUPPORT = 5`, `MIN_RULE_LB = 0.6` and `MIN_DF = 5` are fixed in `src/checklist.rs`. Graduation, thresholds, audits
+`MIN_SUPPORT = 5`, `MIN_RULE_LB = 0.6`, and `MIN_DF = 5` are fixed in `src/checklist.rs`. Graduation, thresholds, audits
 and demotion are the shared settings ([graduation](../graduation.md)).
 
 ## Snapshot contents
 
-The rules (feature id, class, confidence, rows, hits), the default class and the rule names are stored with the fit.
+The rules (feature id, class, confidence, rows, hits), the default class, and the rule names are stored with the fit.
 
-See also [keywords](keywords.md), [shape](shape.md) and [rules](rules.md), which also answer from lexical or structural signals.
+See also [keywords](keywords.md), [shape](shape.md), and [rules](rules.md), which also answer from lexical or structural signals.

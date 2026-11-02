@@ -1,6 +1,6 @@
 # ladder
 
-Several understudents stacked **cheapest first**. Each tier is a complete understudent with its own fit, graduation, audits and
+Several understudents stacked **cheapest first**. Each tier is a complete understudent with its own fit, graduation, audits, and
 demotion, and the cheapest tier that may answer, answers.
 
 ## Pipeline
@@ -39,7 +39,7 @@ flowchart TD
   every 25. That is what lets a cheap tier keep learning, and take over, after a stronger tier started answering and
   slowed the arrival of examples.
 - **Reporting:** a decision's `readout` names the answering tier (`keywords`, `lite`, `mean` for `probe`, `deep:pool`,
-  `deep:attn`). The replay summary adds `coverage_by_tier`, `graduated_at_item_by_tier` and per-tier refit seconds.
+  `deep:attn`). The replay summary adds `coverage_by_tier`, `graduated_at_item_by_tier`, and per-tier refit seconds.
 
 ## Strengths and weaknesses
 
@@ -62,7 +62,7 @@ One fit per tier: `fits/<key>.<tier>.safetensors`. States additionally hold `mea
 ## Worked example
 
 Question: "Is this tool output an error?" A request reaches `keywords` first. For `Traceback (most recent call last)` keywords
-is confident at 0.97, graduated and not novel: it answers, and lite, `probe` and deep never run. For a polite paraphrase
+is confident at 0.97, graduated and not novel: it answers, and lite, `probe`, and deep never run. For a polite paraphrase
 of a failure, the `keywords` design's confidence is 0.62, under its 0.86 threshold, so the request reaches `lite`, then `probe`, where
 confidence 0.91 clears `probe`'s 0.88 threshold and `probe` answers. If even deep cannot, the lead is called, and all four
 tiers learn from its answer.

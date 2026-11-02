@@ -2,7 +2,7 @@
 
 An *understudent* is the small CPU model that learns one question from the lead's answers. All designs run under the
 same routing and statistics: 5-fold out-of-fold predictions, Wilson-bound [graduation](../graduation.md), novelty
-forwarding, audits and demotion. A design supplies only **features**, a **fit**, a **prediction** and a **novelty
+forwarding, audits and demotion. A design supplies only **features**, a **fit**, a **prediction**, and a **novelty
 vector**. Pick one with `--understudent NAME` (default `deep`), or race several per question with [auto](auto.md).
 
 Worked-example numbers on each page are illustrative unless a page says it cites a committed run.

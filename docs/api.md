@@ -41,7 +41,7 @@ model pattern it answers, else its `model`), which are tried before `--lead-url`
 `--chat-route MODEL=URL` (an OpenAI-compatible chat endpoint) or `--clef-route MODEL` (a [Cloudflare Clef](leads/cloudflare-clef.md) route; the URL is built from `$CLOUDFLARE_ACCOUNT_ID`); the model is exact, or a prefix ending in `*`. Ignore the config
 with `--no-default-routes`, and send a bearer key for a route from the environment with `--route-key-env ROUTE=ENV_VAR` (the
 `--lead-url` route is named `lead`). Without a configured key, the client's own `Authorization` header is forwarded to the lead.
-With no config, no `--route` and no `--lead-url`, `serve` does not start: no endpoint is built in.
+With no config, no `--route`, and no `--lead-url`, `serve` does not start: no endpoint is built in.
 
 Point callers at the proxy by base URL only:
 
@@ -54,7 +54,7 @@ export ENDPOINT=http://127.0.0.1:8787/v1/systemone
 
 ## Embedding model
 
-`keywords`, `shape`, `memo` and `checklist` start with no model. The others load EmbeddingGemma 2 on first use, and fail
+`keywords`, `shape`, `memo`, and `checklist` start with no model. The others load EmbeddingGemma 2 on first use, and fail
 with `no EmbeddingGemma 2 model found ... run `understudy model fetch`` if it is missing. `understudy serve` defaults to
 `--understudent auto`, which never fails for a missing model: it races the model-free designs (keywords, shape, checklist, memo;
 and rules when a rules LLM is configured) while it downloads the model in the background (checksum-verified, one log line when
@@ -125,12 +125,12 @@ understudy judge --snapshot snapshots/q1 --question q1.json --lead-kind chat \
 ```
 
 An unknown preset is an error that says where presets come from. `judge` and `train` (the commands that call a lead) take
-`--lead`, `--lead-url`, `--lead-model`, `--lead-kind` and `--lead-key-env`; `replay` answers from recorded probabilities and calls
+`--lead`, `--lead-url`, `--lead-model`, `--lead-kind`, and `--lead-key-env`; `replay` answers from recorded probabilities and calls
 no lead.
 
 **Keys.** `--lead-key-env VAR` or a preset's `key_env` names an environment variable; its value is sent as
 `Authorization: Bearer <value>`. The key is never taken from argv, never printed or logged, and never written to a snapshot (which
-records the lead's `kind`, `url` and `model`) or a capture log. An unset variable is an error, so a missing key is not mistaken
+records the lead's `kind`, `url`, and `model`) or a capture log. An unset variable is an error, so a missing key is not mistaken
 for an open endpoint. An endpoint that injects credentials itself needs no `key_env`.
 
 ### Chat lead adapter
@@ -207,7 +207,7 @@ The answers are then built like a System One lead's: `{"type":"noul","noul":p_ye
 `{"type":"score","score":expected,...}`, with `usage` summed over the calls.
 
 **In `serve`.** A route with `kind = "chat"` (or `--chat-route`) keeps the drop-in contract: callers still send System One and get
-System One back, whether the request is forwarded, audited or raced. A forward is not byte-exact there (the body is the adapter's)
+System One back, whether the request is forwarded, audited, or raced. A forward is not byte-exact there (the body is the adapter's)
 and carries `understudy.adapter`. A chat endpoint's error status and body are relayed unchanged (a 429 stays a 429); a reply with
 no readable answer is a 502 `bad_gateway`. A chat endpoint's `Retry-After` is relayed too. At most 8 questions of one request run at once, and a chat response over `--max-response-mib` is a 502 `upstream_response_too_large`, as for a System One route.
 
@@ -387,7 +387,7 @@ The proxy's own errors have the shape:
 
 The upstream response bytes are relayed raw: no decompression, `Content-Encoding` kept, every value of a repeated header
 kept, and the `Connection`-nominated headers dropped. The caller's end-to-end request headers (`Idempotency-Key`,
-`Accept`, correlation ids) go upstream; only hop-by-hop ones, `Host` and `Content-Length` do not.
+`Accept`, correlation ids) go upstream; only hop-by-hop ones, `Host`, and `Content-Length` do not.
 
 ## Modes and serve options
 
@@ -412,7 +412,7 @@ answer went out is only logged; with no local answer, errors pass through unchan
 | `--lead-url URL` | none | a catch-all System One lead for any model (the route is named `lead`); the caller's `Authorization` goes to it unless `--route-key-env lead=VAR` is set |
 | `--route`, `--chat-route`, `--clef-route`, `--route-key-env`, `--no-default-routes` | none | more routes, and their keys ([above](#running)) |
 | `--bind` | `127.0.0.1:8787` | listen address |
-| `--mode` | `shadow` | `forward`, `shadow`, `serve` or `race` (above) |
+| `--mode` | `shadow` | `forward`, `shadow`, `serve`, or `race` (above) |
 | `--snapshot-dir DIR` | `understudy-snapshots` | persist each namespace's learners under `DIR/<upstream>__<model>-<hash>`; a restart reloads them in any mode |
 | `--no-snapshots` | off | keep learning in memory only |
 | `--understudent` | `auto` | the design; `auto` starts with the model-free ones and adds the encoder designs when the model is ready |
@@ -473,7 +473,7 @@ curl -s http://127.0.0.1:8787/status
 }
 ```
 
-A learner's `state` is `learning`, `graduated`, `demoted` or `lead_only`. A namespace whose saved snapshot belongs to a
+A learner's `state` is `learning`, `graduated`, `demoted`, or `lead_only`. A namespace whose saved snapshot belongs to a
 different upstream shows a clear `error` and forwards everything. `learners` is the string `"busy"` while a refit holds the
 namespace. `understudy status --snapshot DIR` prints each learner's mode, threshold, readout, cross-validated agreement
 and coverage, and audit window from a saved snapshot, without loading the model.
@@ -506,7 +506,7 @@ and coverage, and audit window from a saved snapshot, without loading the model.
 | `learning` | `learned`, `dropped`, or why not (for example `not learned: the lead did not answer 2xx`, `forward-only: --max-namespaces reached`) |
 | `refits` | any refits this request triggered: question, seconds, `n`, `mode`, `cv_agreement`, `cv_coverage` |
 | `questions[]` | per question: `name`, `spec_hash`, `type`, `opaque`, `lead` (the lead's option), `understudent` (its `label`, `probs`, `eligible`, `novel`, `demoted`, `would_answer_local`, `mode`, `readout`), `agree`, `learner_state`, `examples` |
-| `kind: "audit"`, `race_id` | `race` mode, after a local answer: the lead's late response, with `lead_ms` and per question `served`, `lead` and `agree` (the audit's agreement) |
+| `kind: "audit"`, `race_id` | `race` mode, after a local answer: the lead's late response, with `lead_ms` and per question `served`, `lead`, and `agree` (the audit's agreement) |
 | `served` | on audits: the label that was served, the `fit_version`, and whether the audit was counted (`stale` across a refit) |
 | `group` | present when `x-understudy-group` was sent |
 | `request`, `response` | the parsed bodies, only with `--capture-bodies` |
@@ -520,7 +520,7 @@ and coverage, and audit window from a saved snapshot, without loading the model.
   that finds its queue full is dropped and counted (`post_dropped`), never run on the connection thread. Dropping loses a
   training example, never a response.
 - **HTTP framing is strict.** Duplicate or conflicting `Content-Length`, `Transfer-Encoding` together with `Content-Length`, any
-  coding but `chunked`, bare line feeds and a chunk not followed by CRLF are errors that close the connection. More than 32
+  coding but `chunked`, bare line feeds, and a chunk not followed by CRLF are errors that close the connection. More than 32
   trailers are refused. A request has `--read-deadline-secs` in total to arrive and a response `--write-timeout-secs` to be
   taken. 204 carries no `Content-Length`; 304 keeps the upstream's.
 - **A busy namespace forwards.** In `serve` mode, if a refit holds the namespace longer than `--local-wait-ms`, the request is

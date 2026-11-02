@@ -11,7 +11,7 @@ model, as recorded in each `synth_stats.json` (`model`), is `accounts/fireworks/
 `code_lookup` is built programmatically with no model call, so its `synth_stats.json` has `"programmatic": true` and no
 `model`.
 
-The generated text is synthetic: no real people, credentials, customers or private records. Names, numbers and secrets
+The generated text is synthetic: no real people, credentials, customers, or private records. Names, numbers, and secrets
 in the items are invented. These files are released under this repo's MIT license (see [../LICENSE](../LICENSE)).
 Nothing in `data/` comes from a third-party corpus.
 
@@ -19,7 +19,7 @@ Nothing in `data/` comes from a third-party corpus.
 
 | File | What it is |
 |---|---|
-| `question.json` | the question, its answer options and the category |
+| `question.json` | the question, its answer options, and the category |
 | `items.jsonl` | the items: `id`, `state` (the text being judged) and `truth` (the label the item was generated with) |
 | `lead.<name>.jsonl` | recorded answers from an example lead model (probabilities per option, latency, model id), one line per item. The benchmark replays these instead of calling a lead, so runs are reproducible. Two leads are included, `jev` and `rune` (see [Lead answers](#lead-answers)). |
 | `synth_stats.json` | how the dataset was generated: size, class counts, seed, dropped batches, generator model |
@@ -31,7 +31,7 @@ Nothing in `data/` comes from a third-party corpus.
 | `capital_city` | world knowledge | Is the named city the capital of the named country? |
 | `code_lookup` | binding lookup | Which candidate's code equals the target code? (programmatic) |
 | `customer_frustration` | graded tone | How frustrated is the customer who wrote this support message? (0 to 3) |
-| `incident_severity` | compound judgment | Rate an incident's severity from its impact, scope and resolution (0 to 3) |
+| `incident_severity` | compound judgment | Rate an incident's severity from its impact, scope, and resolution (0 to 3) |
 | `output_kind` | topic kind | What kind of output did this coding-agent tool call return? |
 | `passage_answers` | relational match | Does the passage answer the query? (both the query and the passage change per item) |
 | `payment_flip` | minimal pair | Did the payment succeed? |

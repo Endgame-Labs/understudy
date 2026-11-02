@@ -14,15 +14,15 @@ Authorization: Bearer <Workers AI token>
 -> {"result": {"model": "clef-flash", "answers": {...}, "usage": {...}}, "success": true, "errors": [], "messages": []}
 ```
 
-Questions are `noul`, `choice` and `score` (at most 64, no `box`), plus an optional `images` field (a Clef extension). Cloudflare
+Questions are `noul`, `choice`, and `score` (at most 64, no `box`), plus an optional `images` field (a Clef extension). Cloudflare
 does not call it System One compatible.
 
 ## Adapter
 
 A `clef` lead (`src/clef.rs`) sends the caller's body unchanged and returns the envelope's `result` as the System One response
-(status 200, `Content-Type: application/json`), so callers, learning and audits see the same shape as from any System One lead.
+(status 200, `Content-Type: application/json`), so callers, learning, and audits see the same shape as from any System One lead.
 
-- **Routing.** A request's `model` selects the route: `clef`, `clef-flash` or `@cf/cloudflare/<model>`. The call goes to
+- **Routing.** A request's `model` selects the route: `clef`, `clef-flash`, or `@cf/cloudflare/<model>`. The call goes to
   `{base}/client/v4/accounts/{account}/ai/run/@cf/cloudflare/{model}`. The base is `https://api.cloudflare.com`, or `url` in the
   config, or `$CLOUDFLARE_API_BASE`. The account is `account` in the config or `$CLOUDFLARE_ACCOUNT_ID`; it is never built in, and
   `serve` refuses to start without one. Cloudflare accepts only `clef` or `clef-flash` as the body's `model`, so a
@@ -33,7 +33,7 @@ A `clef` lead (`src/clef.rs`) sends the caller's body unchanged and returns the 
 - **Auth.** A key from `key_env`, `--route-key-env` or, by default, `$CLOUDFLARE_API_TOKEN` is sent as `Authorization: Bearer`.
   With none configured and the variable unset, the caller's `Authorization` is forwarded. A key is never logged, put in argv, a
   snapshot or a capture log. A snapshot records the API base and the model, and its route URL shows `<account_id>` in place of the account.
-- **Commands.** `understudy serve` (all modes, including audits), `judge` and `train` (`--lead-kind clef`, `--lead-url` is the API base).
+- **Commands.** `understudy serve` (all modes, including audits), `judge`, and `train` (`--lead-kind clef`, `--lead-url` is the API base).
 
 ## Config
 
@@ -92,7 +92,7 @@ state, and a fact placed at the end of the state was answered correctly at every
 | `clef-flash` | 24,000 words, fact at the end | 24,236 | correct |
 | `clef-flash` | 26,000 words | | 422 |
 | `clef-flash` | 30,000 words | | 413 |
-| `clef` | 2,000, 12,000, 18,000 and 63,000 words, fact at the end | 2,240 to 63,242 | correct |
+| `clef` | 2,000, 12,000, 18,000, and 63,000 words, fact at the end | 2,240 to 63,242 | correct |
 | `clef` | 68,000 words | | 422 |
 
 A state over the context is an error on the day of the test, not a silent loss, and Understudy relays that status and message. The

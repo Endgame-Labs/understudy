@@ -100,8 +100,8 @@ Latency and availability matter as much:
 | a local answer from `probe` or `deep` | tens of milliseconds (`deep` 66 to 89 ms at p50) |
 | a cheap design's own time on a call it forwards | 0.06 to 0.23 ms at p50 (see [Latency](#latency)) |
 
-A graduated question keeps answering when the lead is slow, rate-limited or down (only its audits wait). The tables below
-report coverage, agreement, latency and dollars side by side.
+A graduated question keeps answering when the lead is slow, rate-limited, or down (only its audits wait). The tables below
+report coverage, agreement, latency, and dollars side by side.
 
 ## Results
 
@@ -129,7 +129,7 @@ stayed at or above the target; `auto` races the others and serves one.
 | secret_needle | needle detection | 600 | 0% | 0% | none | n/a | lead-only |
 
 Lead-only questions are harmless: nothing graduated, so every call was forwarded. The mean time `auto` spent per call on the
-four lead-only sets, learning included, was 0.07 ms (capital_city), 0.26 ms (code_lookup), 0.50 ms (customer_frustration) and
+four lead-only sets, learning included, was 0.07 ms (capital_city), 0.26 ms (code_lookup), 0.50 ms (customer_frustration), and
 2.9 ms (secret_needle, whose long logs are the costliest to featurize).
 
 ### Every design, Jev as the lead
@@ -224,7 +224,7 @@ against 25.3%, agreement 96.9% against 98.0%). The numbers are in the [auto](und
 ### Dollars
 
 Coverage turns straight into lead calls not made. At the measured lead rate (about $0.00006 for a 3,000-byte call), 80%
-coverage (about 72% net of audits) saves about **$45 per million calls, $4,500 per 100 million and $45,000 per billion**,
+coverage (about 72% net of audits) saves about **$45 per million calls, $4,500 per 100 million, and $45,000 per billion**,
 for about $2 of CPU with the cheap designs (about $830 with the encoder designs). At larger-model prices multiply by 5 to 70. See
 [Cost at scale](#cost-at-scale).
 
@@ -235,7 +235,7 @@ for about $2 of CPU with the cheap designs (about $830 with the encoder designs)
 | **Narrow classification and judging with a visible signal**: pairwise preference (80% of calls at 94% agreement, in 0.2 ms), classifying tool output (58-64% at 98%), yes/no gates (25-70%) | **Broad single-question decisions over huge state spaces** stay lead-only: every state makes a new question, nothing ever graduates. They cost only the forwarding overhead |
 | Questions asked thousands of times about similar-looking states | **Decisions that compare two changing texts** (a fresh query against a fresh passage: search relevance, reranking): passage_answers reaches only 14-16%. These are lead-only for these small models |
 | Both leads alike: the results agree within a few points | **Skewed questions** (the lead gives one answer ~99% of the time): Understudy refuses to certify the rare answer, which is the one that matters |
-| | **Lookups, graded sentiment and needles in long text** (capital_city, code_lookup, customer_frustration, secret_needle): nothing graduates, correctly |
+| | **Lookups, graded sentiment, and needles in long text** (capital_city, code_lookup, customer_frustration, secret_needle): nothing graduates, correctly |
 | | **Small streams** (under ~100 labeled calls) and **fuzzy questions** where no design beats the majority class |
 
 ## Limitations
@@ -255,7 +255,7 @@ for about $2 of CPU with the cheap designs (about $830 with the encoder designs)
 - **Rare classes.** A rare answer is certified only with a minority-class agreement bar, so a heavily skewed question usually
   stays lead-only.
 - **Platforms.** Unix only. SIMD is runtime-dispatched on x86_64 and aarch64.
-- **Studies not reported here.** Broader single-question decisions over huge state spaces, best-of-N response judging and
+- **Studies not reported here.** Broader single-question decisions over huge state spaces, best-of-N response judging, and
   other fuzzy or skewed real-world gates were also tried and stayed lead-only; the datasets are not part of this repo, so no
   numbers are reported.
 

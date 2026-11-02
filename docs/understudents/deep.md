@@ -42,7 +42,7 @@ flowchart LR
 
 ## Strengths and weaknesses
 
-- Good: topic or kind of output, pair comparison, error detection and yes/no gates over several fields (best coverage on most of the synthetic sets where anything graduates). It is the
+- Good: topic or kind of output, pair comparison, error detection, and yes/no gates over several fields (best coverage on most of the synthetic sets where anything graduates). It is the
   design that most often covers questions the cheaper ones cannot.
 - Bad: the slowest to fit and to run, and the most data-hungry (the attention head). It can lean on shortcuts: a cue that
   holds in the examples it saw (response length, say) but not on live traffic. Audits catch that and demote it.
@@ -56,7 +56,7 @@ replay in `runs/v1-target97`). Training the attention head adds seconds per refi
 
 ## Snapshot contents
 
-`fits/<key>.safetensors`: `pool.{mu,sd,coef,intercept}`, `attn.{mu,sd,q,w,b}` and `refs`. `states/<enc>.safetensors`: per
+`fits/<key>.safetensors`: `pool.{mu,sd,coef,intercept}`, `attn.{mu,sd,q,w,b}`, and `refs`. `states/<enc>.safetensors`: per
 state `part<i>.pool` (F32 pooled features) and `part<i>.tokens` (BF16 token states `[t, 512]`, at most 512 tokens).
 Token states are what let a refit retrain the attention head without re-encoding.
 
