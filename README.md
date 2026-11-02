@@ -20,13 +20,14 @@ narrow distillation of WWJD (What Would Jev Do?).
 
 ```mermaid
 flowchart TD
-    U(("understudy"))
-    C["caller"] -->|"same API"| U
-    U -->|"forward + audits"| L["Lead model (Jev/Rune/etc.)"]
-    L -->|"Lead answers"| U
-    U <-->|"examples / graduations"| T["understudents<br/>(design race per question)"]
-    U -->|"graduated questions"| A["Student answers"]
-    A --> C
+    C["caller"] -->|"request"| U(("understudy"))
+    U -->|"graduated"| S["Student answers"]
+    U -->|"not graduated"| L["Lead answers<br/>(Jev/Rune/etc.)"]
+    S --> R["response"]
+    L --> R
+    R -->|"same API, same shape"| C
+    L -.->|"examples"| T["understudents<br/>(design race per question)"]
+    T -.->|"graduation"| U
 ```
 
 In truth, it trains a bunch of different students, and the students compete on how well they match Jev/Rune/Clef on
