@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Rust tests
+        run: cargo test --release
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: bench/go.mod
+          cache-dependency-path: bench/go.sum
+      - name: Bench vet and tests
+        working-directory: bench
+        run: |
+          go vet ./...
+          go test ./...

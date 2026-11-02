@@ -71,9 +71,13 @@ graduates, a question that cannot be learned stays on the lead.
 
 1. **Install**
 
-   ```bash
-   cargo install --git https://github.com/endgame-labs/understudy
-   ```
+   Pick one channel. [docs/install.md](docs/install.md) has the details and checksum verification.
+
+   - Homebrew: `brew install endgame-labs/oss/understudy`
+   - Shell installer: `curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh | sh` (until a full release exists, use the pinned form in [docs/install.md](docs/install.md#shell-installer))
+   - Debian and Ubuntu: `sudo apt install ./understudy_0.1.0~preview.1_amd64.deb`, downloaded from the [release](https://github.com/endgame-labs/understudy/releases)
+   - Docker: `docker run -p 8787:8787 -v understudy-data:/data ghcr.io/endgame-labs/understudy:preview --lead-url <URL>`
+   - From source: `cargo install --git https://github.com/endgame-labs/understudy`
 
 2. **Run**
 
@@ -194,6 +198,8 @@ See [docs/benchmarks.md](docs/benchmarks.md) for the methodology and [docs/bench
 | [docs/understudents/auto.md](docs/understudents/auto.md) | per-question candidate racing and lead-only fallback |
 | [docs/leads/README.md](docs/leads/README.md) | per-lead setup pages: TypeSafe Jev, Fireworks Rune, Cloudflare Clef, OpenAI Decisions API |
 | [docs/security.md](docs/security.md) | data Understudy sees and writes to disk, listener address, key handling |
+| [docs/install.md](docs/install.md) | install channels, checksum verification, container port and volume |
+| [docs/install.md](docs/install.md) | install channels, checksum verification, container port and volume |
 | [docs/api.md](docs/api.md) | request and response schema, error passthrough, modes, flags, status endpoints, capture log, limits |
 | [docs/examples.md](docs/examples.md) | graduating a gate, lead-only fallback on broad questions, replay benchmarking, train ladder |
 | [docs/benchmarks.md](docs/benchmarks.md) | benchmark method, metrics, cost at scale, per-question results, limitations |

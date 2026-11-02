@@ -31,13 +31,18 @@ public repository under the MIT license. Nothing is published by automation.
 - [ ] Model fetch: `understudy model fetch` (pinned revision, SHA-256 per file), revision pin in the lookup, fixed error hint
 - [ ] `docs/getting-started.md`: under 5 minutes, model-free designs on the committed synthetic data, tested from a clean
   container
-- [ ] CHANGELOG.md, NOTICE (vendored code, the embedding model and its license), version `0.1.0-preview.1`
-- [ ] CI (`ci.yml`: tests, macOS build, MSRV, getting-started, link check) and `release.yml` (four targets, SHA256SUMS, draft only)
+- [x] CHANGELOG.md and version `0.1.0-preview.1`
+- [ ] NOTICE (vendored code, the embedding model and its license)
+- [x] `ci.yml` (Rust and bench tests) and `release.yml` (cargo-dist: four targets, SHA-256 checksums, shell installer, Homebrew)
+- [ ] CI additions: macOS build, MSRV, getting-started, link check
 - [ ] Capture and snapshot files created with owner-only permissions (today they follow the umask)
 - [ ] The maintainer: may the Jev and Rune recorded answers in `data/` and `runs/` ship, or are they re-labeled with a
   public model first?
 
 ## After the release
+
+- [ ] **Hosted apt repository.** Today the `.deb` files are release assets only.
+- [ ] **crates.io.** The name `understudy` is taken by a 0.0.0 placeholder, so the crate is not published.
 
 - [ ] **Fix: encoder options without weights.** `auto` with `--layers`, `--attn-layer`, or `--readout` and no encoder weights fails validation (`src/main.rs` ~585-599): the namespace stores a permanent error and never reaches the upgrade. Validate against the full candidate set and keep the options for the encoder tiers. The default (no encoder options) is not affected.
 

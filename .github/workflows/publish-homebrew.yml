@@ -1,0 +1,50 @@
+# Pushes the formula that dist generates for a release to the Homebrew tap, over SSH with a deploy key
+# (HOMEBREW_TAP_DEPLOY_KEY: write access to Endgame-Labs/homebrew-oss only). dist's own publish job needs a token, and its
+# custom-job hook is not used. This workflow is separate from release.yml, so `dist generate` leaves it alone. It runs
+# after the Release workflow succeeds on a version tag, pre-releases included.
+name: Publish Homebrew formula
+
+on:
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  publish-homebrew-formula:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }}
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.event.workflow_run.head_branch }}
+    steps:
+      - name: Download the formula from the release
+        run: |
+          set -euo pipefail
+          mkdir formula
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.rb' --dir formula
+          ls formula
+      - name: Load the deploy key
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.HOMEBREW_TAP_DEPLOY_KEY }}
+      - name: Push the formula to the tap
+        run: |
+          set -euo pipefail
+          test "$(find formula -name '*.rb' | wc -l)" -eq 1
+          ssh-keyscan -t ed25519,rsa github.com >> ~/.ssh/known_hosts
+          git clone --depth 1 git@github.com:Endgame-Labs/homebrew-oss.git tap
+          mkdir -p tap/Formula
+          cp formula/*.rb tap/Formula/understudy.rb
+          cd tap
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/understudy.rb
+          if git diff --cached --quiet; then
+            echo "formula unchanged"
+            exit 0
+          fi
+          git commit -m "understudy ${TAG}"
+          git push origin HEAD

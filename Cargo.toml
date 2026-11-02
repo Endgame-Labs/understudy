@@ -1,11 +1,12 @@
 [package]
 name = "understudy"
-version = "0.1.0"
+version = "0.1.0-preview.1"
 edition = "2024"
 rust-version = "1.88"
 license = "MIT"
+repository = "https://github.com/endgame-labs/understudy"
+homepage = "https://github.com/endgame-labs/understudy"
 description = "A CPU reflex layer in front of a systemone decision model: hunch's statistics with the `deep` understudent and its siblings"
-publish = false
 
 [lib]
 path = "src/lib.rs"
@@ -36,3 +37,7 @@ ruzstd = { version = "0.9", default-features = false, features = ["std"] }
 lto = "fat"
 codegen-units = 1
 debug = "line-tables-only"
+
+# The profile that dist builds release artifacts with
+[profile.dist]
+inherits = "release"
