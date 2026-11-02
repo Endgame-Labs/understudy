@@ -1,22 +1,12 @@
 # understudy
 
-I know the meme has been "nobody can possibly spend more than $5 on Jev lol"...
+Understudy is a drop-in, CPU-only proxy for System One models such as Jev, Rune, and Clef (the "lead" models).
 
-...but across my professional, personal, and academic work at scale, that simply isn't true.
+System One models are cheap and fast enough that they spread into infrastructure: data pipelines, ETL, MapReduce jobs, event reactors, and Kafka consumers. At that volume, the same narrow questions get asked millions of times, and the lead bill grows with them (Jevons paradox). Understudy is for that situation. If your System One volume is small, you don't need it.
 
-The model itself is named after the Jevons paradox, after all: make intelligence fast enough and cheap enough, and usage
-will skyrocket. We're only a couple of months into mastering this game-changing technology, but WOW has that been my
-experience. Once your org gets a real handle on what Jev can do, Jev will find itself deeper and deeper in the bowels of
-your infrastructure: data pipelines, ETL, MapReduce, event reactors, Kafka consumers, etc.
+Understudy forwards each request to the lead and trains small CPU models, *understudents*, on the lead's answers: an extremely narrow distillation of "What Would Jev Do?". Several understudent designs compete on each type of request. When one reaches near-parity with the lead, it graduates, and Understudy answers that question itself instead of calling the lead.
 
-So we believe software engineers are going to end up spending a _lot_ on System One models. Maybe more so than on LLMs.
-
-If you're not spending a lot on Jev and Jev-likes yet, don't bother. But if you are:
-
-**Understudy is a drop-in, CPU-only proxy for System One models like Jev, Rune, and Clef (the "lead" models).**
-
-It forwards requests to the lead model and trains an "understudent" on the lead's responses: effectively an extremely
-narrow distillation of WWJD (What Would Jev Do?).
+It never stops auditing graduated understudents against the lead. Requests drift, outliers appear, and cardinality grows, so any understudent that slips is demoted and the question goes back to the lead.
 
 ```mermaid
 flowchart TD
@@ -30,16 +20,14 @@ flowchart TD
     T -.->|"graduation"| U
 ```
 
-In truth, it trains a bunch of different students, and the students compete on how well they match Jev/Rune/Clef on
-this particular type of request. Students vary in their design, but most are a simple linear model on top of one of
-three inputs: hashed word and character n-grams, structural features of the text, or vectors from EmbeddingGemma 2. At
-release time there are 11 student designs ([docs/understudents](docs/understudents/README.md)), and several more are in
-the works.
+Most understudent designs are a linear model over one of three inputs: hashed word and character n-grams, structural
+features of the text, or EmbeddingGemma 2 vectors. There are 11 designs ([docs/understudents](docs/understudents/README.md)).
 
 ## Production Loop
 
-Once a given student reaches near-parity with the lead, it "graduates" ([the statistics](docs/graduation.md)).
-Understudy then starts siphoning traffic away from the lead model and answering those requests directly, saving $$.
+A request is answered by its understudent only when the question has graduated ([graduation statistics](docs/graduation.md)).
+Otherwise, the lead answers, and the request becomes a training example. Sampled audits compare the understudent with the
+lead, and bad audits demote it.
 
 ```mermaid
 flowchart TD
@@ -52,12 +40,9 @@ flowchart TD
     AU -- "bad audits" --> D["demote: back to the lead"]
 ```
 
-It never stops auditing the student against the lead, though, because incoming requests change and drift over time,
-outliers pile up, and cardinality increases. So it's always ready to pull the switch and demote the student.
-
 ## Learning/Graduation Loop
 
-The students for each question compete at every refit, and only one that clears the bar gets to serve.
+In `auto` mode, every candidate design is refit on each question's examples, and only one that clears the bar may serve.
 
 ```mermaid
 flowchart TD
@@ -69,19 +54,18 @@ flowchart TD
     SV -- "audits demote it" --> E
 ```
 
-We think that's kinda cool.
-
 ## Scope
 
-Understudy is for narrow, repetitive decisions: yes/no gates, classification, routing, triage, moderation, relevance,
-and judging. "Is this support ticket urgent?", "does this passage mention a refund?", "is this tool output an error?":
-the question is fixed, only the content varies, and a small model can learn it from a few hundred of the lead's answers.
+Understudy targets narrow, repetitive decisions: yes/no gates, classification, routing, triage, moderation, relevance,
+and judging. In questions such as "Is this support ticket urgent?", "Does this passage mention a refund?", and "Is this
+tool output an error?", the question is fixed and only the content varies. A small model can learn these from a few
+hundred lead answers.
 
-It won't help with broad single-question decisions over huge state spaces, like choosing a move in a game. Those stay
-on the lead and never graduate, and they cost only the forwarding overhead (about 0.3 ms per call, no extra lead spend).
-Same for decisions that compare two changing texts (a fresh query against a fresh passage, as in search relevance or
-reranking): those are lead-only for these small models. Since nothing is answered locally until it graduates, a question
-that can't be learned just stays on the lead.
+Understudy does not help with broad single-question decisions over large state spaces, such as choosing a move in a game.
+Those questions stay on the lead and never graduate; they cost only the forwarding overhead (about 0.3 ms per call, with
+no extra lead spend). Decisions that compare two changing texts (a fresh query against a fresh passage, as in search
+relevance or reranking) are also lead-only for these small models. Because nothing is answered locally until it
+graduates, a question that cannot be learned stays on the lead.
 
 ## Setup
 

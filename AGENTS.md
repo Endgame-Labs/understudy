@@ -18,10 +18,9 @@ snapshot format).
 - Writing standard: no-nonsense, technical and straightforward, like a senior engineer documenting a tool for other engineers.
   Headings are plain nouns naming the topic ("Graduation", "API", "Benchmarks"), never a description of the section's
   length or style ("in brief", "at a glance", "the short version").
-- Voice exception: the README intro and overview (everything before Setup) and other overview pages are in Kyle Wild's
-  voice: first person, conversational, direct opinions, light humor. Keep his phrasing; fix only typos and grammar, and
-  state no facts the repo doesn't document. His launch post is the reference sample, as reflected in the current README
-  intro. Reference sections (Setup, Modes, API, Graduation, Benchmarks, SPEC, docs/ reference pages) stay plain technical.
+- Register: README and docs are neutral third person. No "I", "we", "lol", "kinda" or other casual asides. Kyle's
+  launch post is a source of ideas, not of register: tweets can be first person, the repo is not.
+- Always use the Oxford comma ("a, b, and c"), in docs, code comments, commit messages, and status notes.
 - No meta-commentary or hype: cut "it's worth noting", "in short", "simply", "just", "powerful", "seamless", "earns its keep",
   rhetorical questions, exclamation marks, emoji and em-dash asides.
 - State facts and numbers directly, in short declarative sentences. Use a table or code block when it carries the information
