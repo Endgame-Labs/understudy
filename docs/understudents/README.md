@@ -19,6 +19,8 @@ Worked-example numbers on each page are illustrative unless a page says it cites
 | [shape](shape.md) | 430 structural features | standardized LR | none | ~0.03 to 0.5 ms | standardized vector | response shape, refusals | opt-in |
 | [blend](blend.md) | n-grams + shape + input embeddings | one sparse+dense LR | table only | ~0.03 to 0.5 ms | n-gram projection | mixed signals | opt-in |
 | [memo](memo.md) | text hash + MinHash of char 5-grams | retrieval of past answers | none | microseconds | none | repeats and near-duplicates | opt-in |
+| [net](net.md) | deep's pooled features + 430 structural features | one hidden layer, 64 ReLU, early stopping | layers 0 to 12 | as deep, tens of ms | layer-8 mean | kind and structure together | opt-in |
+| [checklist](checklist.md) | hashed n-gram and structural indicators (binary) | ordered one-literal rules, abstains when none fires | none | ~0.15 to 0.25 ms | 256-d projection | readable, precise rules | opt-in |
 | [rules](rules.md) | LLM-written regexes | first matching rule | none | microseconds | none | crisp lexical rules | opt-in, first tier only |
 | [ladder](ladder.md) | each tier's own | one fit per tier | up to the answering tier | the answering tier's | each tier's own | mixed easy and hard | (it is the ladder) |
 | [auto](auto.md) | each candidate's own | a race, one served | only the serving candidate's | the serving candidate's | the serving candidate's | unknown or shifting questions | (it is the race) |
