@@ -1,8 +1,9 @@
 name: deb
 
 on:
-  release:
-    types: [published]
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
   workflow_dispatch:
     inputs:
       tag:
@@ -14,6 +15,7 @@ permissions:
 
 jobs:
   deb:
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
     name: deb (${{ matrix.arch }})
     strategy:
       fail-fast: false
@@ -25,12 +27,12 @@ jobs:
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
     env:
-      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      TAG: ${{ github.event.workflow_run.head_branch || inputs.tag }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name || inputs.tag }}
+          ref: ${{ github.event.workflow_run.head_branch || inputs.tag }}
 
       - name: Install Rust
         run: rustup toolchain install stable --profile minimal --no-self-update && rustup default stable

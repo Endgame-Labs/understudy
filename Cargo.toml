@@ -6,7 +6,7 @@ rust-version = "1.88"
 license = "MIT"
 repository = "https://github.com/endgame-labs/understudy"
 homepage = "https://github.com/endgame-labs/understudy"
-description = "A CPU reflex layer in front of a systemone decision model: hunch's statistics with the `deep` understudent and its siblings"
+description = "A drop-in, CPU-only proxy for System One decision models that learns per-question understudents from the lead's answers"
 
 [lib]
 path = "src/lib.rs"

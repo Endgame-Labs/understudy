@@ -8,17 +8,22 @@ on:
   workflow_run:
     workflows: [Release]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag whose formula to publish (for example v0.1.0-preview.1)
+        required: true
 
 permissions:
   contents: read
 
 jobs:
   publish-homebrew-formula:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
     runs-on: ubuntu-24.04
     env:
       GH_TOKEN: ${{ github.token }}
-      TAG: ${{ github.event.workflow_run.head_branch }}
+      TAG: ${{ github.event.workflow_run.head_branch || inputs.tag }}
     steps:
       - name: Download the formula from the release
         run: |

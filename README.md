@@ -75,7 +75,7 @@ graduates, a question that cannot be learned stays on the lead.
 
    - Homebrew: `brew install endgame-labs/oss/understudy`
    - Shell installer: `curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh | sh` (until a full release exists, use the pinned form in [docs/install.md](docs/install.md#shell-installer))
-   - Debian and Ubuntu: `sudo apt install ./understudy_0.1.0~preview.1_amd64.deb`, downloaded from the [release](https://github.com/endgame-labs/understudy/releases)
+   - Debian and Ubuntu: `gh release download v0.1.0-preview.1 --repo endgame-labs/understudy --pattern '*_amd64.deb' && sudo apt install ./understudy_*_amd64.deb`
    - Docker: `docker run -p 8787:8787 -v understudy-data:/data ghcr.io/endgame-labs/understudy:preview --lead-url <URL>`
    - From source: `cargo install --git https://github.com/endgame-labs/understudy`
 

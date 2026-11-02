@@ -8,7 +8,7 @@ Understudy ships as a single `understudy` binary. Releases are built for four ta
 |---|---|
 | Homebrew | `brew install endgame-labs/oss/understudy` |
 | Shell installer | `curl -fsSL https://github.com/endgame-labs/understudy/releases/latest/download/understudy-installer.sh \| sh` |
-| Debian package | `sudo apt install ./understudy_0.1.0~preview.1_amd64.deb` |
+| Debian package | `gh release download v0.1.0-preview.1 --repo endgame-labs/understudy --pattern '*_amd64.deb' && sudo apt install ./understudy_*_amd64.deb` |
 | Container image | `docker run -p 8787:8787 -v understudy-data:/data ghcr.io/endgame-labs/understudy:preview --lead-url <URL>` |
 | Source | `cargo install --git https://github.com/endgame-labs/understudy` |
 
@@ -42,11 +42,15 @@ The installer downloads the archive for the host platform, verifies its checksum
 ## Debian package
 
 Each release carries an `amd64` and an `arm64` `.deb` as release assets. Download the one for the host and install it with
-`apt`, which resolves dependencies:
+`apt`, which resolves dependencies. GitHub can rewrite the `~` in an asset name (for example to `.`), so the commands match
+the architecture suffix instead of the exact name:
 
 ```bash
-sudo apt install ./understudy_0.1.0~preview.1_amd64.deb
+gh release download v0.1.0-preview.1 --repo endgame-labs/understudy --pattern '*_amd64.deb'
+sudo apt install ./understudy_*_amd64.deb
 ```
+
+Use `*_arm64.deb` on arm64 hosts. The exact asset names are listed on the release page.
 
 In Debian version syntax, `~` sorts a pre-release before the release, so `0.1.0~preview.1` is older than `0.1.0`. There is no
 hosted apt repository yet.
@@ -56,6 +60,12 @@ hosted apt repository yet.
 ```bash
 docker run -p 8787:8787 -v understudy-data:/data \
   ghcr.io/endgame-labs/understudy:preview --lead-url <URL>
+```
+
+The entrypoint runs `understudy serve`, so extra arguments go to `serve`. To check the version, override the entrypoint:
+
+```bash
+docker run --rm --entrypoint understudy ghcr.io/endgame-labs/understudy:preview --version
 ```
 
 | item | value |
