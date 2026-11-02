@@ -188,10 +188,14 @@ pub struct Route {
 impl Route {
     pub fn matches(&self, model: &str) -> bool {
         // `@cf/cloudflare/clef-flash` and `clef-flash` are the same model to a clef route
-        let model = if self.clef.is_some() { model.strip_prefix(clef::MODEL_PREFIX).unwrap_or(model) } else { model };
-        match self.pattern.strip_suffix('*') {
+        let (model, pattern) = if self.clef.is_some() {
+            (model.strip_prefix(clef::MODEL_PREFIX).unwrap_or(model), self.pattern.strip_prefix(clef::MODEL_PREFIX).unwrap_or(&self.pattern))
+        } else {
+            (model, self.pattern.as_str())
+        };
+        match pattern.strip_suffix('*') {
             Some(prefix) => model.starts_with(prefix),
-            None => model == self.pattern,
+            None => model == pattern,
         }
     }
 }

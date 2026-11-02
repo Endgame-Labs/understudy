@@ -27,7 +27,9 @@ pub const ACCOUNT_PLACEHOLDER: &str = "<account_id>";
 /// characters that do not belong in a path segment.
 pub fn model_name(model: &str) -> Option<&str> {
     let m = model.strip_prefix(MODEL_PREFIX).unwrap_or(model);
-    (!m.is_empty() && m.chars().all(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.'))).then_some(m)
+    let mut chars = m.chars();
+    let valid = chars.next().is_some_and(|c| c.is_ascii_alphanumeric()) && chars.all(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.'));
+    valid.then_some(m)
 }
 
 /// The request body for Cloudflare: the caller's bytes unchanged, except that a `model` spelled `@cf/cloudflare/<name>`

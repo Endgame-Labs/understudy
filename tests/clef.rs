@@ -303,3 +303,39 @@ fn shadow_mode_serves_the_system_one_body_and_learns_from_it() {
     let id = st["namespaces"][0]["identity"].to_string();
     assert!(!id.contains(ACCOUNT), "{id}");
 }
+
+#[test]
+fn a_prefixed_route_pattern_matches_both_spellings() {
+    let up = Fake::start(|s| reply(200, &[], envelope(s.path.rsplit('/').next().unwrap(), 0.5)));
+    for pattern in ["@cf/cloudflare/clef-flash", "clef-flash", "@cf/cloudflare/clef*"] {
+        let mut route = clef_route(&up, None);
+        route.pattern = pattern.into();
+        assert!(route.matches("clef-flash") && route.matches("@cf/cloudflare/clef-flash"), "{pattern}");
+        assert!(!route.matches("other"), "{pattern}");
+    }
+    let mut route = clef_route(&up, None);
+    route.pattern = "@cf/cloudflare/clef-flash".into();
+    let srv = server(ServeMode::Forward, route, |_| {});
+    assert_eq!(post(&srv, &body("@cf/cloudflare/clef-flash", "x"), &[]).status, 200);
+    assert_eq!(post(&srv, &body("clef-flash", "x"), &[]).status, 200);
+    assert_eq!(post(&srv, &body("clef", "x"), &[]).status, 400);
+}
+
+#[test]
+fn unsafe_model_names_are_refused_and_nothing_is_sent_upstream() {
+    let up = Fake::start(|s| reply(200, &[], envelope(s.path.rsplit('/').next().unwrap(), 0.5)));
+    let mut route = clef_route(&up, None);
+    route.pattern = "*".into();
+    let srv = server(ServeMode::Forward, route, |_| {});
+    for model in ["..", ".", "a/b", "a?b", "a#b", "a%2fb", "@cf/cloudflare/..", ".hidden", "-x"] {
+        assert_eq!(post(&srv, &body(model, "x"), &[]).status, 400, "{model}");
+    }
+    assert!(up.seen().is_empty(), "{:?}", up.seen());
+    for model in ["clef", "a.b_c-d", "A1"] {
+        assert!(clef::model_name(model).is_some(), "{model}");
+    }
+    for model in ["", ".", "..", "a/b", "a?b", "a#b", "a%b"] {
+        assert!(clef::model_name(model).is_none(), "{model}");
+        assert!(up.spec().url(model).is_err(), "{model}");
+    }
+}
