@@ -41,6 +41,7 @@ public repository under the MIT license. Nothing is published by automation.
 
 ## After the release
 
+- [ ] **Harden the cargo-dist release.yml (generated).** Per-job permissions and tag values passed through env vars.
 - [ ] **Hosted apt repository.** Today the `.deb` files are release assets only.
 - [ ] **crates.io.** The name `understudy` is taken by a 0.0.0 placeholder, so the crate is not published.
 

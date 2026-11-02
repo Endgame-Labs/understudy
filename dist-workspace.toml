@@ -17,6 +17,7 @@ pr-run-mode = "plan"
 checksum = "sha256"
 # Archive format
 unix-archive = ".tar.xz"
-# Native arm runner for aarch64 Linux
+# Older Linux runners so the binaries run on Debian Bookworm (glibc 2.36) and Ubuntu 22.04
 [dist.github-custom-runners]
-aarch64-unknown-linux-gnu = "ubuntu-24.04-arm"
+x86_64-unknown-linux-gnu = "ubuntu-22.04"
+aarch64-unknown-linux-gnu = "ubuntu-22.04-arm"
